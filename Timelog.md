@@ -27,3 +27,11 @@
 
 * *2 hours* Watch level 4 guidance zoom meeting.
 * *1 hour* Set up forked repository of existing ViMMS repo, adding wireframes made so far and timelog.
+* *1.5 hours* Watched videos by Alan D Moore, author of multiple python GUI textbooks, explain the differences between Tkinter and PyQt5, then another explaining how to work with QtDesigner.
+
+## Week 2
+
+### 25 Sep 2023
+
+* *1.5 hours* Reviewed 'Guide to ViMMS' and 'Demo' Jupyter Notebooks.
+* *1 hour* Researched and watched videos on how to make multi-page GUIs.
