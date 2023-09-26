@@ -6,88 +6,109 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
-    <height>900</height>
+    <width>600</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ViMMS Visualised</string>
+   <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="QLabel" name="homePageTitleLabel">
-     <property name="font">
-      <font>
-       <pointsize>86</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>ViMMS Visualised</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLabel" name="DescriptionLabel">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>24</pointsize>
-       <italic>true</italic>
-      </font>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Vi&lt;/span&gt;rtual &lt;span style=&quot; font-weight:600;&quot;&gt;M&lt;/span&gt;etabolomics &lt;span style=&quot; font-weight:600;&quot;&gt;M&lt;/span&gt;ass &lt;span style=&quot; font-weight:600;&quot;&gt;S&lt;/span&gt;pectrometer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="ExtractGenerateButton">
-     <property name="font">
-      <font>
-       <pointsize>24</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Extract/Generate 
-Data</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="pushButton_2">
-     <property name="font">
-      <font>
-       <pointsize>24</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Simulate
-Experiment</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="pushButton_3">
-     <property name="font">
-      <font>
-       <pointsize>24</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Visualise/Evaluate
-Results</string>
-     </property>
-    </widget>
-   </item>
-  </layout>
+  <widget class="QLabel" name="TitleLabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>125</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>48</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>ViMMS Visualised</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="SubHeadingLabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>125</y>
+     <width>600</width>
+     <height>75</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Vi&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;rtual&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt; M&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;etabolomics&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt; M&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ass&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt; S&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;pectrometer&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignHCenter|Qt::AlignTop</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ExtractGenerateButton">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>200</y>
+     <width>400</width>
+     <height>75</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Extract/Generate Data</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ExperimenButton">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>300</y>
+     <width>400</width>
+     <height>75</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Simulate Experiment</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="VisualiseButton">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>400</y>
+     <width>400</width>
+     <height>75</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Visualise Results</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

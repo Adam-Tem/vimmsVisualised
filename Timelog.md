@@ -35,3 +35,7 @@
 
 * *1.5 hours* Reviewed 'Guide to ViMMS' and 'Demo' Jupyter Notebooks.
 * *1 hour* Researched and watched videos on how to make multi-page GUIs.
+* *3.5 hours* Install QtDesigner Software, watch videos on initial setup, create starter interface.
+
+### 26 Sep 2023
+
