@@ -39,3 +39,4 @@
 
 ### 26 Sep 2023
 
+* *2 hours* Fixed issue to resolve window scaling, added navigation from home page to extract data page.

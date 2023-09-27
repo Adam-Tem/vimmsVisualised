@@ -140,12 +140,18 @@
       <rect>
        <x>230</x>
        <y>30</y>
-       <width>47</width>
+       <width>350</width>
        <height>14</height>
       </rect>
      </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>...</string>
      </property>
     </widget>
    </widget>
