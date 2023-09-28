@@ -40,3 +40,11 @@
 ### 26 Sep 2023
 
 * *2 hours* Fixed issue to resolve window scaling, added navigation from home page to extract data page.
+
+### 27 Sep 2023
+
+* *1 hour* Added file selection to Extract Data Screen.
+
+### 28 Sep 2023
+
+* *1.5 hours* Implemented data extraction functions to extract data page.
