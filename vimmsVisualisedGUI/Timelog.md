@@ -48,3 +48,4 @@
 ### 28 Sep 2023
 
 * *1.5 hours* Implemented data extraction functions to extract data page.
+* *1 hour* Tidy up the monolith file that I had created into nicer, smaller files. Utils and Interfaces now separated from the main python script to run the application.
