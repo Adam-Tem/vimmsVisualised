@@ -6,6 +6,7 @@ from ExtractGeneratePage import Ui_ExtractGenerateForm
 from Utils.ChangePage import *
 from Utils.ExtractData import *
 from Utils.UploadmzML import *
+from Utils.GenerateData import *
 
 class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
 
@@ -25,5 +26,7 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
         self.MinIntensityEdit.setText(str(self.min_intensity))
 
         self.ExtractDataButton.clicked.connect(lambda: extract_data(self, int(self.MinIntensityEdit.text()), self.fileLocation, self.fileName.split(".")[0]))
+
+        self.GenerateDataButton.clicked.connect(lambda: GenerateData(self))
 
         

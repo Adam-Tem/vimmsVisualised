@@ -49,3 +49,13 @@
 
 * *1.5 hours* Implemented data extraction functions to extract data page.
 * *1 hour* Tidy up the monolith file that I had created into nicer, smaller files. Utils and Interfaces now separated from the main python script to run the application.
+* *1 hour* Studied process of Chemical Creator functions and planned how to implement it.
+
+### 29 Sep 2023
+
+* *1 hour* Built interface of the generate chemical screen, yet to add functionality.
+* *1 hour* Meeting with advisor.
+
+### 30 Sep 2023
+
+* *2 hours* Implemented most of the functionality for the generate chemical screen, still a few edge cases to sort out but majortiy of work is done.
