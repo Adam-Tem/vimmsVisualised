@@ -59,3 +59,7 @@
 ### 30 Sep 2023
 
 * *2 hours* Implemented most of the functionality for the generate chemical screen, still a few edge cases to sort out but majortiy of work is done.
+
+### 01 Oct 2023
+
+* *1 hour* Began to watch videos on how to best implement the graphing of results into the app.
