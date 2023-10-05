@@ -107,7 +107,7 @@
     <enum>QTabWidget::Rounded</enum>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <property name="iconSize">
     <size>
@@ -150,7 +150,7 @@
       <string>...</string>
      </property>
     </widget>
-    <widget class="QLabel" name="ExtractFileNameLabel">
+    <widget class="QLabel" name="FileNameLabel">
      <property name="geometry">
       <rect>
        <x>0</x>

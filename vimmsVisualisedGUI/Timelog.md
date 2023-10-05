@@ -63,3 +63,22 @@
 ### 01 Oct 2023
 
 * *1 hour* Began to watch videos on how to best implement the graphing of results into the app.
+
+### 02 Oct 2023
+
+* *1 hour* Page navigation now possible from start page to each individual page and back.
+* *1.5 hours* Reading through the different possible controllers and trying to work out what variables have to be identified to run them properly and give a user full control. 
+
+### 03 Oct 2023
+
+* *2 hours* Worked through each and every class in the controllers section of the vimms module to see how I could organise the simulate page. Many, MANY variables and parameters...
+
+### 04 Oct 2023
+
+* *2 hours* Began to build the simulate interface with all the possible inputs, still to change it so that only the necessary parameters are visible with the correct controller selected.
+
+* *1 hour* Added a few helper functions and little adjustments to the simulate page.
+
+### 05 Oct 2023
+
+* *1 hour* It is now possible to run the TopN controller from the simulate page of the app, where a .mzML file is ultimately produced after inputting an appropriate .p file. Still have to add loading screen and clarification, but good to get the basic functionality in place.

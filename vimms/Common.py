@@ -12,7 +12,6 @@ import zipfile
 from numba import njit
 import numpy as np
 import requests
-from loguru import logger
 from tqdm.auto import tqdm
 
 from mass_spec_utils.data_import.mzml import MZMLFile
@@ -406,7 +405,6 @@ def create_if_not_exist(out_dir):
 
     """
     if not pathlib.Path(out_dir).exists():
-        logger.info('Created %s' % out_dir)
         pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
 
 
@@ -470,7 +468,6 @@ def save_obj(obj, filename):
 
     out_dir = os.path.dirname(filename)
     create_if_not_exist(out_dir)
-    logger.info('Saving %s to %s' % (type(obj), filename))
     with gzip.GzipFile(filename, 'w') as f:
         pickle.dump(obj, f, protocol=pickle.HIGHEST_PROTOCOL)
 
@@ -489,8 +486,7 @@ def load_obj(filename):
         with gzip.GzipFile(filename, 'rb') as f:
             return pickle.load(f)
     except OSError:
-        logger.warning('Old, invalid or missing pickle in %s. '
-                       'Please regenerate this file.' % filename)
+        
         raise
 
 
@@ -525,15 +521,14 @@ def set_log_level(level, remove_id=None):
 
     """
     if remove_id is None:
-        logger.remove()  # remove all previously set handlers
+        pass
     else:
         try:
-            logger.remove(remove_id)  # remove previously set handler by id
+            pass
         except ValueError:  # can't find the handler
             pass
 
     # add new handler at the desired log level
-    new_handler_id = logger.add(sys.stderr, level=level)
     return new_handler_id
 
 
@@ -583,7 +578,6 @@ def add_log_file(log_path, level):
     Returns: None
 
     """
-    logger.add(log_path, level=level)
 
 
 def get_rt(spectrum):
@@ -634,7 +628,6 @@ def download_file(url, out_file=None):
 
     if out_file is None:
         out_file = url.rsplit('/', 1)[-1]  # get the last part in url
-    logger.info('Downloading %s' % out_file)
 
     with open(out_file, 'wb') as f:
         for data in tqdm(r.iter_content(block_size),
@@ -656,14 +649,12 @@ def extract_zip_file(in_file, delete=True):
     Returns: None
 
     """
-    logger.info('Extracting %s' % in_file)
     with zipfile.ZipFile(file=in_file) as zip_file:
         for file in tqdm(iterable=zip_file.namelist(),
                          total=len(zip_file.namelist())):
             zip_file.extract(member=file)
 
     if delete:
-        logger.info('Deleting %s' % in_file)
         os.remove(in_file)
 
 

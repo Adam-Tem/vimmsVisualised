@@ -5,7 +5,7 @@ from ExtractGeneratePage import Ui_ExtractGenerateForm
 
 from Utils.ChangePage import *
 from Utils.ExtractData import *
-from Utils.UploadmzML import *
+from vimmsVisualisedGUI.Utils.UploadFile import *
 from Utils.GenerateData import *
 
 class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
@@ -21,7 +21,7 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
 
         self.ExtractHomeButton.setIcon(qtg.QIcon("Images/home.png"))
         
-        self.SelectFileButton.clicked.connect(lambda: upload_mzml(self))
+        self.SelectFileButton.clicked.connect(lambda: upload_file(self, "mzml"))
 
         self.MinIntensityEdit.setText(str(self.min_intensity))
 
