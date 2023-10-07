@@ -64,6 +64,8 @@
 
 * *1 hour* Began to watch videos on how to best implement the graphing of results into the app.
 
+## Week 3
+
 ### 02 Oct 2023
 
 * *1 hour* Page navigation now possible from start page to each individual page and back.
@@ -82,3 +84,17 @@
 ### 05 Oct 2023
 
 * *1 hour* It is now possible to run the TopN controller from the simulate page of the app, where a .mzML file is ultimately produced after inputting an appropriate .p file. Still have to add loading screen and clarification, but good to get the basic functionality in place.
+
+* *1 hour* A struggling hour getting bogged down in the weeds  about how to try and display progress loading bar of the simulation.
+
+### 06 Oct 2023
+
+* *1 hour* Continued to work on adding loading screen, it now displays but then lags the entire system.
+
+* *0.5 hours* Meeting with adviser, clarifying direction and getting questions answered.
+
+* *1.5 hours* Now looking into Qthreads for running the simulation while still having the load display work properly. Although, still not working...
+
+### 07 Oct 2023
+
+* *2 hours* Shifted focus away from trying to get the loading screen to display and actually had some success with code elsewhere! A function is now in place that when you select a particular controller on the simulation page (well, n=1 with the topN controller still currently) only the appropriate paramerters are displayed to the user to avoid unwanted input and paramter overload.

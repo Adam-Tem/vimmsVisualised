@@ -6,6 +6,9 @@ from SimulatePage import Ui_SimulateForm
 from vimmsVisualisedGUI.Utils.UploadFile import *
 from Utils.setCharge import *
 from Utils.Controllers.controllerSelection import *
+from Utils.Controllers.displayParams import *
+from Utils.LoadingWidget import *
+
 
 class SimulatePage(qtw.QWidget, Ui_SimulateForm):
 
@@ -16,8 +19,16 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
 
         self.fileName = ""
         self.fileLocation = ""
+        self.loadWidget = LoadingWidget()
 
+        self.ParamsBox.setHidden(True)
         self.SimulateHomeButton.setIcon(qtg.QIcon("Images/home.png"))
+
         self.SelectFileButton.clicked.connect(lambda: upload_file(self, "p"))
+        self.ControllerComboBox.currentIndexChanged.connect(lambda: displayParams(self))
         self.IonModeButton.clicked.connect(lambda: setCharge(self))
         self.SimulateButton.clicked.connect(lambda: controllerSelection(self))
+
+    
+    
+    
