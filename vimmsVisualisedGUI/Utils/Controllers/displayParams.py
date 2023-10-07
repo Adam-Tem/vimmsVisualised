@@ -9,7 +9,20 @@ def displayParams(self):
         "TopN Controller": [("IonModeLabel", "IonModeButton"), ("IsolWidthLabel", "IsolWidthTextEdit"), 
                             ("NoOfInjectionsLabel", "NoOfInjectionsSpinBox"),
                   ("RTTolLabel", "RTTolTextEdit"), ("MZTolLabel", "MZTolTextEdit"),("MinMS1Label", "MinMS1TextEdit"), 
-                  ("RTMinLabel", "RTMinTextEdit"), ("RTMaxLabel", "RTMaxTextEdit")]
+                  ("RTMinLabel", "RTMinTextEdit"), ("RTMaxLabel", "RTMaxTextEdit")],
+        
+        "TopN Smart ROI Controller": [("IonModeLabel", "IonModeButton"), 
+                    ("IsolWidthLabel", "IsolWidthTextEdit"), ("NoOfInjectionsLabel", "NoOfInjectionsSpinBox"),
+                  ("RTTolLabel", "RTTolTextEdit"), ("MZTolLabel", "MZTolTextEdit"),("MinMS1Label", "MinMS1TextEdit"), 
+                  ("RTMinLabel", "RTMinTextEdit"), ("RTMaxLabel", "RTMaxTextEdit"),
+                  "ROI Builder Params:",
+                  ("MZTolLabel", "MZTolTextEdit"), ("MinROILengthLabel", "MinROILengthTextEdit"),
+                  ("MinROIIntLabel", "MinROIIntTextEdit"), ("OnePointAboveLabel", "OnePointAboveTextEdit"),
+                  ("StartRTLabel", "StartRTTextEdit"), ("StopRTLabel", "StopRTTextEdit"),
+                  ("MaxGapsLabel", "MaxGapsTextEdit"),
+                  "Smart ROI Params:",
+                  ("InitialLengthLabel", "InitialLengthTextEdit"), ("ResetLengthLabel", "ResetLengthTextEdit"),
+                  ("IntFacLabel", "IntFacTextEdit"), ("DEWLabel", "DEWTextEdit"), ("DropPercentLabel", "DropPercentTextEdit")]
     }
 
     to_be_displayed = controller_param_dict[self.ControllerComboBox.currentText()]
@@ -25,21 +38,33 @@ def displayParams(self):
     param_count = 0
     
 
-    for label, input in to_be_displayed:
-        if param_count % 3 == 0:
-            x = 20
-            y = y + 30
-        param_count = param_count + 1
-        param_label = self.ParamsBox.findChild(qtw.QLabel, label)
-        param_label.setVisible(True)
-        param_label.setGeometry(x, y, label_width, label_height)
-        x = x + 110
-        for qtype in possible_widgets:
-            param_input = self.ParamsBox.findChild(qtype, input)
-            if param_input:
-                param_input.setVisible(True)
-                param_input.setGeometry(x, y, input_width, input_height)
-        x = x + 70
+    for value in to_be_displayed:
+
+        if type(value) == str:
+            x = 10
+            y = y + 20
+            param_count = 0
+            sub_heading = qtw.QLabel(value, self.ParamsBox)
+            sub_heading.setGeometry(x, y, label_width, label_height)
+            sub_heading.setStyleSheet("font-weight: bold;")
+            sub_heading.setVisible(True)
+        else:
+            label = value[0]
+            input_name = value[1]
+            if param_count % 3 == 0:
+                x = 20
+                y = y + 25
+            param_count = param_count + 1
+            param_label = self.ParamsBox.findChild(qtw.QLabel, label)
+            param_label.setVisible(True)
+            param_label.setGeometry(x, y, label_width, label_height)
+            x = x + 110
+            for qtype in possible_widgets:
+                param_input = self.ParamsBox.findChild(qtype, input_name)
+                if param_input:
+                    param_input.setVisible(True)
+                    param_input.setGeometry(x, y, input_width, input_height)
+            x = x + 70
 
     self.SimulateButton.setVisible(True)
-    self.SimulateButton.setGeometry(200, y + 50, 200, 75)
+    self.SimulateButton.setGeometry(200, y + 25, 200, 75)

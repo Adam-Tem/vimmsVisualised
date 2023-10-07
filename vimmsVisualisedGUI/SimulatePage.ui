@@ -86,6 +86,11 @@
    </item>
    <item>
     <property name="text">
+     <string>TopN Smart ROI Controller</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
      <string>Idle Controller (Full Scan)</string>
     </property>
    </item>
@@ -97,11 +102,6 @@
    <item>
     <property name="text">
      <string>TopN ROI Controller</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>TopN Smart ROI COntroller</string>
     </property>
    </item>
    <item>
@@ -221,7 +221,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>120</y>
+     <y>130</y>
      <width>601</width>
      <height>381</height>
     </rect>
@@ -232,8 +232,8 @@
    <widget class="QComboBox" name="ExclusionT0ComboBox">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>140</y>
+      <x>260</x>
+      <y>350</y>
       <width>161</width>
       <height>20</height>
      </rect>
@@ -242,8 +242,8 @@
    <widget class="QLineEdit" name="LogIntensityTextEdit">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>230</y>
+      <x>100</x>
+      <y>200</y>
       <width>60</width>
       <height>20</height>
      </rect>
@@ -265,7 +265,7 @@
    <widget class="QLineEdit" name="MZTolTextEdit">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>270</x>
       <y>80</y>
       <width>60</width>
       <height>20</height>
@@ -278,7 +278,7 @@
    <widget class="QPushButton" name="IonModeButton">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>290</x>
       <y>50</y>
       <width>60</width>
       <height>23</height>
@@ -295,8 +295,8 @@ color: white;</string>
    <widget class="QLineEdit" name="ScanOverlapTextEdit">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>340</y>
+      <x>100</x>
+      <y>290</y>
       <width>61</width>
       <height>20</height>
      </rect>
@@ -305,8 +305,8 @@ color: white;</string>
    <widget class="QLabel" name="BoxesLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>200</y>
+      <x>20</x>
+      <y>170</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -323,7 +323,7 @@ color: white;</string>
    <widget class="QLabel" name="MZTolLabel">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>190</x>
       <y>80</y>
       <width>161</width>
       <height>16</height>
@@ -341,8 +341,8 @@ color: white;</string>
    <widget class="QLabel" name="RTMaxLabel">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>230</y>
+      <x>160</x>
+      <y>270</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -356,11 +356,11 @@ color: white;</string>
      <string>Max RT:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="MinIntLabel">
+   <widget class="QLabel" name="MinROIIntLabel">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>110</y>
+      <x>360</x>
+      <y>100</y>
       <width>110</width>
       <height>16</height>
      </rect>
@@ -377,8 +377,8 @@ color: white;</string>
    <widget class="QLabel" name="ForceNLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>290</y>
+      <x>20</x>
+      <y>250</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -395,8 +395,8 @@ color: white;</string>
    <widget class="QLineEdit" name="RTMinTextEdit">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>230</y>
+      <x>210</x>
+      <y>200</y>
       <width>61</width>
       <height>20</height>
      </rect>
@@ -408,8 +408,8 @@ color: white;</string>
    <widget class="QLineEdit" name="MS1ShiftTextEdit">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>110</y>
+      <x>130</x>
+      <y>90</y>
       <width>60</width>
       <height>20</height>
      </rect>
@@ -418,8 +418,8 @@ color: white;</string>
    <widget class="QLabel" name="NoOfInjectionsLabel">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>80</y>
+      <x>350</x>
+      <y>70</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -436,8 +436,8 @@ color: white;</string>
    <widget class="QLabel" name="MinMZLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>170</y>
+      <x>20</x>
+      <y>150</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -454,7 +454,7 @@ color: white;</string>
    <widget class="QLabel" name="MinMS1Label">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>50</y>
       <width>111</width>
       <height>16</height>
@@ -472,8 +472,8 @@ color: white;</string>
    <widget class="QLabel" name="ExclusionT0Label">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>140</y>
+      <x>180</x>
+      <y>350</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -490,8 +490,8 @@ color: white;</string>
    <widget class="QLabel" name="ExclusionMethodLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>140</y>
+      <x>20</x>
+      <y>110</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -508,7 +508,7 @@ color: white;</string>
    <widget class="QLabel" name="IonModeLabel">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>190</x>
       <y>50</y>
       <width>111</width>
       <height>16</height>
@@ -526,8 +526,8 @@ color: white;</string>
    <widget class="QLabel" name="LogIntensityLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>230</y>
+      <x>20</x>
+      <y>200</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -544,8 +544,8 @@ color: white;</string>
    <widget class="QSpinBox" name="NReplicatesSpinBox">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>260</y>
+      <x>260</x>
+      <y>290</y>
       <width>60</width>
       <height>22</height>
      </rect>
@@ -557,18 +557,21 @@ color: white;</string>
    <widget class="QLineEdit" name="MinROIIntTextEdit">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>110</y>
+      <x>470</x>
+      <y>100</y>
       <width>60</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
     </property>
    </widget>
    <widget class="QComboBox" name="ExclusionMethodComboBox">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>140</y>
+      <x>20</x>
+      <y>130</y>
       <width>151</width>
       <height>20</height>
      </rect>
@@ -577,8 +580,8 @@ color: white;</string>
    <widget class="QLabel" name="RTTolLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>80</y>
+      <x>20</x>
+      <y>70</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -595,8 +598,8 @@ color: white;</string>
    <widget class="QLineEdit" name="RTMaxTextEdit">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>230</y>
+      <x>210</x>
+      <y>270</y>
       <width>61</width>
       <height>20</height>
      </rect>
@@ -608,8 +611,8 @@ color: white;</string>
    <widget class="QLabel" name="MaxMZLabel">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>170</y>
+      <x>140</x>
+      <y>150</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -626,7 +629,7 @@ color: white;</string>
    <widget class="QLineEdit" name="MinMS1TextEdit">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>130</x>
       <y>50</y>
       <width>60</width>
       <height>20</height>
@@ -639,8 +642,8 @@ color: white;</string>
    <widget class="QLineEdit" name="ScoringParamsTextEdit">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>320</y>
+      <x>100</x>
+      <y>240</y>
       <width>61</width>
       <height>20</height>
      </rect>
@@ -649,8 +652,8 @@ color: white;</string>
    <widget class="QLineEdit" name="ForceNTextEdit">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>290</y>
+      <x>100</x>
+      <y>220</y>
       <width>61</width>
       <height>20</height>
      </rect>
@@ -659,7 +662,7 @@ color: white;</string>
    <widget class="QLineEdit" name="IsolWidthTextEdit">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>440</x>
       <y>50</y>
       <width>60</width>
       <height>20</height>
@@ -672,8 +675,8 @@ color: white;</string>
    <widget class="QLabel" name="LimitAcqLabel">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>260</y>
+      <x>20</x>
+      <y>350</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -690,8 +693,8 @@ color: white;</string>
    <widget class="QLabel" name="MinROILengthLabel">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>110</y>
+      <x>190</x>
+      <y>100</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -708,8 +711,8 @@ color: white;</string>
    <widget class="QLabel" name="MS1ShiftLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>110</y>
+      <x>20</x>
+      <y>90</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -726,8 +729,8 @@ color: white;</string>
    <widget class="QPushButton" name="LimitAcqButton">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>260</y>
+      <x>120</x>
+      <y>350</y>
       <width>60</width>
       <height>20</height>
      </rect>
@@ -739,8 +742,8 @@ color: white;</string>
    <widget class="QLineEdit" name="MinRTWidthTextEdit">
     <property name="geometry">
      <rect>
-      <x>309</x>
-      <y>200</y>
+      <x>220</x>
+      <y>170</y>
       <width>61</width>
       <height>20</height>
      </rect>
@@ -749,8 +752,8 @@ color: white;</string>
    <widget class="QLabel" name="ScanOverlapLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>340</y>
+      <x>20</x>
+      <y>290</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -767,17 +770,20 @@ color: white;</string>
    <widget class="QLineEdit" name="MinROILengthTextEdit">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>110</y>
+      <x>290</x>
+      <y>100</y>
       <width>60</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
     </property>
    </widget>
    <widget class="QLabel" name="IsolWidthLabel">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>350</x>
       <y>50</y>
       <width>111</width>
       <height>16</height>
@@ -795,8 +801,8 @@ color: white;</string>
    <widget class="QLabel" name="CEValuesLabel">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>290</y>
+      <x>20</x>
+      <y>330</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -813,8 +819,8 @@ color: white;</string>
    <widget class="QLineEdit" name="CEValuesTextEdit">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>290</y>
+      <x>80</x>
+      <y>330</y>
       <width>60</width>
       <height>20</height>
      </rect>
@@ -823,8 +829,8 @@ color: white;</string>
    <widget class="QLineEdit" name="PValueTextEdit">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>170</y>
+      <x>210</x>
+      <y>230</y>
       <width>60</width>
       <height>20</height>
      </rect>
@@ -833,8 +839,8 @@ color: white;</string>
    <widget class="QLabel" name="RegAllROILabel">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>290</y>
+      <x>180</x>
+      <y>320</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -851,8 +857,8 @@ color: white;</string>
    <widget class="QLabel" name="MS1CidLabel">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>320</y>
+      <x>20</x>
+      <y>310</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -869,8 +875,8 @@ color: white;</string>
    <widget class="QLabel" name="TargetsLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>260</y>
+      <x>20</x>
+      <y>220</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -887,8 +893,8 @@ color: white;</string>
    <widget class="QPushButton" name="BoxesButton">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>200</y>
+      <x>70</x>
+      <y>170</y>
       <width>60</width>
       <height>23</height>
      </rect>
@@ -900,8 +906,8 @@ color: white;</string>
    <widget class="QLineEdit" name="MaxMZTextEdit">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>170</y>
+      <x>190</x>
+      <y>150</y>
       <width>60</width>
       <height>20</height>
      </rect>
@@ -910,8 +916,8 @@ color: white;</string>
    <widget class="QLineEdit" name="MS1CidTextEdit">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>320</y>
+      <x>120</x>
+      <y>310</y>
       <width>60</width>
       <height>20</height>
      </rect>
@@ -920,8 +926,8 @@ color: white;</string>
    <widget class="QPushButton" name="RegAllROIButton">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>290</y>
+      <x>270</x>
+      <y>320</y>
       <width>60</width>
       <height>20</height>
      </rect>
@@ -933,8 +939,8 @@ color: white;</string>
    <widget class="QLineEdit" name="MinMZWidthTextEdit">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>200</y>
+      <x>250</x>
+      <y>250</y>
       <width>60</width>
       <height>20</height>
      </rect>
@@ -943,8 +949,8 @@ color: white;</string>
    <widget class="QLabel" name="PValueLabel">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>170</y>
+      <x>160</x>
+      <y>230</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -961,8 +967,8 @@ color: white;</string>
    <widget class="QLabel" name="MinMZWidthLabel">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>200</y>
+      <x>160</x>
+      <y>250</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -979,8 +985,8 @@ color: white;</string>
    <widget class="QLabel" name="NReplicatesLabel">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>260</y>
+      <x>180</x>
+      <y>290</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -997,8 +1003,8 @@ color: white;</string>
    <widget class="QLabel" name="MinRTWidthLabel">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>200</y>
+      <x>140</x>
+      <y>170</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -1015,8 +1021,8 @@ color: white;</string>
    <widget class="QLineEdit" name="MinMZTextEdit">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>170</y>
+      <x>70</x>
+      <y>150</y>
       <width>60</width>
       <height>20</height>
      </rect>
@@ -1025,8 +1031,8 @@ color: white;</string>
    <widget class="QLabel" name="ScoringParamsLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>320</y>
+      <x>20</x>
+      <y>270</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -1043,8 +1049,8 @@ color: white;</string>
    <widget class="QLabel" name="RTMinLabel">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>230</y>
+      <x>160</x>
+      <y>200</y>
       <width>161</width>
       <height>16</height>
      </rect>
@@ -1061,8 +1067,8 @@ color: white;</string>
    <widget class="QSpinBox" name="NoOfInjectionsSpinBox">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>80</y>
+      <x>440</x>
+      <y>70</y>
       <width>60</width>
       <height>22</height>
      </rect>
@@ -1070,18 +1076,300 @@ color: white;</string>
     <property name="minimum">
      <number>1</number>
     </property>
+    <property name="value">
+     <number>2</number>
+    </property>
    </widget>
    <widget class="QLineEdit" name="RTTolTextEdit">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>80</y>
+      <x>130</x>
+      <y>70</y>
       <width>60</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>15</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="OnePointAboveLabel">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>120</y>
+      <width>110</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>One Point Above:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="OnePointAboveTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>120</y>
+      <width>60</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="StartRTLabel">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>150</y>
+      <width>110</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Start RT:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="StartRTTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>150</y>
+      <width>60</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="StopRTLabel">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>170</y>
+      <width>110</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Stop RT:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="StopRTTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>170</y>
+      <width>60</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>100000</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="MaxGapsLabel">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>150</y>
+      <width>110</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Maximum Gaps:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="MaxGapsTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>150</y>
+      <width>60</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InitialLengthLabel">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>200</y>
+      <width>110</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Initial Length (s):</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="InitialLengthTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>200</y>
+      <width>60</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ResetLengthLabel">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>200</y>
+      <width>110</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Reset Length (s):</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ResetLengthTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>200</y>
+      <width>60</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1000000</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="IntFacLabel">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>220</y>
+      <width>161</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Intensity Factor:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="IntFacTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>220</y>
+      <width>60</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>10</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="DEWLabel">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>260</y>
+      <width>161</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>DEW:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="DEWTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>260</y>
+      <width>60</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>15</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="DropPercentLabel">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>240</y>
+      <width>161</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Drop Percent: </string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="DropPercentTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>240</y>
+      <width>60</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0.1</string>
     </property>
    </widget>
   </widget>

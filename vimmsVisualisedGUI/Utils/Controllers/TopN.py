@@ -6,7 +6,7 @@ from vimms.Common import POSITIVE, NEGATIVE, load_obj, set_log_level_warning, se
 from Utils.LoadingWidget import *
 import os
 
-def RunTopNController(self):
+def runTopNController(self):
 
     dataset = load_obj(self.fileLocation)
 

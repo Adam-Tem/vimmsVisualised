@@ -98,3 +98,5 @@
 ### 07 Oct 2023
 
 * *2 hours* Shifted focus away from trying to get the loading screen to display and actually had some success with code elsewhere! A function is now in place that when you select a particular controller on the simulation page (well, n=1 with the topN controller still currently) only the appropriate paramerters are displayed to the user to avoid unwanted input and paramter overload.
+
+* *2 hours* Well, I thought to get away from the n=1 scenario of the topN controller I'd add another, so chose to implement TopN Smart ROI. Well what a can of worms that was I opened, as it had more selective paramters on the inside for ROI and smart ROI builders... However it has appropriately been implemented and now there is a nice way of showing the sub headings and displaying the appropriate parameters. The actual goal of adding more functionality was also complete, so another successful bit of coding.

@@ -1,7 +1,7 @@
 from PyQt5 import QtCore as qtc
 
-from Utils.Controllers.TopN import RunTopNController
-
+from Utils.Controllers.TopN import runTopNController
+from Utils.Controllers.TopNSmartRoi import runTopNSmartRoiController
 
 def controllerSelection(self):
     controller = self.ControllerComboBox.currentText()
@@ -9,5 +9,7 @@ def controllerSelection(self):
     match controller:
         case "TopN Controller":
             # self.loadWidget.showLoadingWidget()
-            RunTopNController(self)
+            runTopNController(self)
             # self.loadWidget.addExitButton()
+        case "TopN Smart ROI Controller":
+            runTopNSmartRoiController(self)
