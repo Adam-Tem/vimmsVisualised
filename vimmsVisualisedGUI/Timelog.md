@@ -100,3 +100,15 @@
 * *2 hours* Shifted focus away from trying to get the loading screen to display and actually had some success with code elsewhere! A function is now in place that when you select a particular controller on the simulation page (well, n=1 with the topN controller still currently) only the appropriate paramerters are displayed to the user to avoid unwanted input and paramter overload.
 
 * *2 hours* Well, I thought to get away from the n=1 scenario of the topN controller I'd add another, so chose to implement TopN Smart ROI. Well what a can of worms that was I opened, as it had more selective paramters on the inside for ROI and smart ROI builders... However it has appropriately been implemented and now there is a nice way of showing the sub headings and displaying the appropriate parameters. The actual goal of adding more functionality was also complete, so another successful bit of coding.
+
+* *1 hour* Began to look into what visualisation tool would be best, potentially leaning towards matplotlib.
+
+## Week 3
+
+### 10 Oct 2023
+
+* *2 hours* Managed to get a graph displayed and have begun adding the functions that are already in place in the guide to vimms jupyter notebook, but will try and get this a bit nicer looking.
+
+### 11 Oct 2023
+
+* *1 hour* adjusted parameters to make graph display only relevant scales on the axes, to get a better look at the data.

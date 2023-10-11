@@ -332,6 +332,7 @@ class Ui_SimulateForm(object):
         self.NoOfInjectionsSpinBox = QtWidgets.QSpinBox(self.ParamsBox)
         self.NoOfInjectionsSpinBox.setGeometry(QtCore.QRect(440, 70, 60, 22))
         self.NoOfInjectionsSpinBox.setMinimum(1)
+        self.NoOfInjectionsSpinBox.setProperty("value", 2)
         self.NoOfInjectionsSpinBox.setObjectName("NoOfInjectionsSpinBox")
         self.RTTolTextEdit = QtWidgets.QLineEdit(self.ParamsBox)
         self.RTTolTextEdit.setGeometry(QtCore.QRect(130, 70, 60, 20))
