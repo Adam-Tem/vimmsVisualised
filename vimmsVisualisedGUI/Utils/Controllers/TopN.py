@@ -4,6 +4,10 @@ from vimms.Environment import Environment
 from vimms.Common import POSITIVE, NEGATIVE, load_obj, set_log_level_warning, set_log_level_debug
 
 from Utils.LoadingWidget import *
+from Utils.Controllers.ControllerParams import CONTROLLER_PARAM_DICT
+from Utils.CheckInput import *
+
+import inspect
 import os
 
 def runTopNController(self):
@@ -26,12 +30,13 @@ def runTopNController(self):
 
     mass_spec = IndependentMassSpectrometer(charge, dataset)
     controller = TopNController(charge, n, isolation_window, mz_tol, rt_tol, min_ms1_intensity)
+    print("hello?", inspect.signature(controller.__init__).parameters)
 
-    env = Environment(mass_spec, controller, min_rt, max_rt, progress_bar=True)
+    # env = Environment(mass_spec, controller, min_rt, max_rt, progress_bar=True)
 
-    set_log_level_warning()
-    env.run()
-    set_log_level_debug()
-    mzml_filename = 'topn_controller.mzML'
-    out_dir = os.path.join(os.getcwd(), 'results')
-    env.write_mzML(out_dir, mzml_filename)
+    # set_log_level_warning()
+    # env.run()
+    # set_log_level_debug()
+    # mzml_filename = 'topn_controller.mzML'
+    # out_dir = os.path.join(os.getcwd(), 'results')
+    # env.write_mzML(out_dir, mzml_filename)

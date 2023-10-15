@@ -112,3 +112,21 @@
 ### 11 Oct 2023
 
 * *1 hour* adjusted parameters to make graph display only relevant scales on the axes, to get a better look at the data.
+
+### 12 Oct 2023
+
+* *2 hours* Began thinking about how to create an abstracted function to do the variety of input checks when a user input is needed. Made wireframe sketch of the different edge cases I felt would have to be checked, and then began to implement. I feel the checker function should work, just need to find the best way to pass the parameters.
+
+### 13 Oct 2023
+
+* *0.5 hours* Adviser meeting discussing best way forward for visualisation and then concept of reflection.
+
+* *1.5 hours* Researched reflection topic through online videos, trying to explore the best way to implement it.
+
+### 14 Oct 2023
+
+* *1.5 hours* Began implementing reflection, trying to separate everything up nicely and keep high cohesion.
+
+### 15 Oct 2023
+
+* *1.5 hours* Managed to implement the refelection when selecting the topN controller, you only have to add a new controller to the identify params file and then any new specific parameters to the ParamWidgets const file.

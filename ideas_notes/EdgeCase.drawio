@@ -1,0 +1,94 @@
+<mxfile host="app.diagrams.net" modified="2023-10-12T18:05:53.475Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="4K6wIHb9YmOysfBzTO8M" version="22.0.4" type="device">
+  <diagram name="Page-1" id="pCQ_WfSbB1QSPwVgr7q4">
+    <mxGraphModel dx="1440" dy="883" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-1" value="Edge Cases for user input" style="rounded=1;whiteSpace=wrap;html=1;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="426" y="290" width="203" height="91" as="geometry" />
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-2" value="Value is not less than 0." style="ellipse;whiteSpace=wrap;html=1;font-size:24px;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="433.5" y="57" width="188" height="113" as="geometry" />
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-3" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="RzbY-_J1pl56IqnD3-bl-1" target="RzbY-_J1pl56IqnD3-bl-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="546" y="328" as="sourcePoint" />
+            <mxPoint x="596" y="278" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-4" value="Range values do not overlap incorrectly." style="ellipse;whiteSpace=wrap;html=1;font-size:24px;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="658" y="116" width="221" height="108" as="geometry" />
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-5" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="RzbY-_J1pl56IqnD3-bl-1" target="RzbY-_J1pl56IqnD3-bl-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="546" y="328" as="sourcePoint" />
+            <mxPoint x="596" y="278" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-6" value="Value is number and not text." style="ellipse;whiteSpace=wrap;html=1;font-size:24px;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="767" y="279" width="188" height="113" as="geometry" />
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-7" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="RzbY-_J1pl56IqnD3-bl-1" target="RzbY-_J1pl56IqnD3-bl-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="706" y="470" as="sourcePoint" />
+            <mxPoint x="596" y="278" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-8" value="Accepts only integers if&amp;nbsp; &amp;nbsp;required.&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;font-size:24px;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="658" y="456" width="188" height="113" as="geometry" />
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-9" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="RzbY-_J1pl56IqnD3-bl-1" target="RzbY-_J1pl56IqnD3-bl-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="546" y="328" as="sourcePoint" />
+            <mxPoint x="596" y="278" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-10" value="Input is not blank." style="ellipse;whiteSpace=wrap;html=1;font-size:24px;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="433.5" y="480" width="188" height="113" as="geometry" />
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-11" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="RzbY-_J1pl56IqnD3-bl-1" target="RzbY-_J1pl56IqnD3-bl-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="546" y="328" as="sourcePoint" />
+            <mxPoint x="596" y="278" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-12" value="Range values do not exceed range." style="ellipse;whiteSpace=wrap;html=1;font-size:24px;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="183" y="433" width="188" height="113" as="geometry" />
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-13" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="RzbY-_J1pl56IqnD3-bl-12" target="RzbY-_J1pl56IqnD3-bl-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="546" y="328" as="sourcePoint" />
+            <mxPoint x="596" y="278" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-14" value="Need to also pass in range." style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="59" y="618" width="163" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-15" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="RzbY-_J1pl56IqnD3-bl-14" target="RzbY-_J1pl56IqnD3-bl-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="546" y="498" as="sourcePoint" />
+            <mxPoint x="596" y="448" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-16" value="Also pass in expected type." style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="790" y="621" width="188" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-17" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="RzbY-_J1pl56IqnD3-bl-16" target="RzbY-_J1pl56IqnD3-bl-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="546" y="498" as="sourcePoint" />
+            <mxPoint x="596" y="448" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-18" value="Check range vals at same time." style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="908" y="91" width="227" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="RzbY-_J1pl56IqnD3-bl-19" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="RzbY-_J1pl56IqnD3-bl-18" target="RzbY-_J1pl56IqnD3-bl-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="546" y="328" as="sourcePoint" />
+            <mxPoint x="596" y="278" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

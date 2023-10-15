@@ -6,7 +6,7 @@ from SimulatePage import Ui_SimulateForm
 from vimmsVisualisedGUI.Utils.UploadFile import *
 from Utils.setCharge import *
 from Utils.Controllers.controllerSelection import *
-from Utils.Controllers.displayParams import *
+from Utils.Display.displayParams import *
 from Utils.LoadingWidget import *
 
 
@@ -27,7 +27,7 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
         self.SelectFileButton.clicked.connect(lambda: upload_file(self, "p"))
         self.ControllerComboBox.currentIndexChanged.connect(lambda: displayParams(self))
         self.IonModeButton.clicked.connect(lambda: setCharge(self))
-        self.SimulateButton.clicked.connect(lambda: controllerSelection(self))
+        
 
     
     
