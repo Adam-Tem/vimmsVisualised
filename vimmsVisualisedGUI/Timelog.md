@@ -130,3 +130,5 @@
 ### 15 Oct 2023
 
 * *1.5 hours* Managed to implement the refelection when selecting the topN controller, you only have to add a new controller to the identify params file and then any new specific parameters to the ParamWidgets const file.
+
+* *1.5 hours* It is now possible to run the topN controller from the simualte page, where parameters are all passed using the generated ones and nothing is pulled in a hard coded style. Of course I am now back to an n=1 scenario again, but tbh to get this working is really good.

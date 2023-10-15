@@ -1,6 +1,3 @@
-x = "hello"
+x = [1,2,3]
 
-if "hel" in x:
-    print("oaky")
-else:
-    print("nope")
+print(*x)

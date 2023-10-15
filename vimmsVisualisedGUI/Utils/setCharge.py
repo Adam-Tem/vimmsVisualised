@@ -1,7 +1,7 @@
 def setCharge(self):
-    if self.IonModeButton.text() == "Positive":
-        self.IonModeButton.setText("Negative")
-        self.IonModeButton.setStyleSheet("background-color: red; color: black;")
+    if self.text() == "Positive":
+        self.setText("Negative")
+        self.setStyleSheet("background-color: red; color: black;")
     else:
-        self.IonModeButton.setText("Positive")
-        self.IonModeButton.setStyleSheet("background-color: green; color: white;")
+        self.setText("Positive")
+        self.setStyleSheet("background-color: green; color: white;")

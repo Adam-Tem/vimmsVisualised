@@ -4,39 +4,40 @@ from vimms.Environment import Environment
 from vimms.Common import POSITIVE, NEGATIVE, load_obj, set_log_level_warning, set_log_level_debug
 
 from Utils.LoadingWidget import *
-from Utils.Controllers.ControllerParams import CONTROLLER_PARAM_DICT
 from Utils.CheckInput import *
+from CustomWidgets import *
 
 import inspect
 import os
 
 def runTopNController(self):
 
+    min_rt = 0
+    max_rt = 100
+    params = []
+    for child in self.ParamsBox.findChildren(qtw.QWidget):
+        if type(child) == QIonModeButton:
+            if child.text() == "positive":
+                params.append(POSITIVE)
+            else:
+                params.append(NEGATIVE)
+            continue
+        if child.text() == "Simulate":
+            continue
+        if len(child.text()) > 0 and type(child) != qtw.QLabel:
+            params.append(float(child.text()))
+
     dataset = load_obj(self.fileLocation)
 
-    charge = self.IonModeButton.text()
-    if self.IonModeButton.text() == "positive":
-        charge = POSITIVE
-    else:
-        charge = NEGATIVE
-
-    isolation_window = int(self.IsolWidthTextEdit.text())
-    n = int(self.NoOfInjectionsSpinBox.text())
-    rt_tol = int(self.RTTolTextEdit.text())
-    mz_tol = int(self.MZTolTextEdit.text())
-    min_ms1_intensity = float(self.MinMS1TextEdit.text())
-    min_rt = int(self.RTMinTextEdit.text())
-    max_rt = int(self.RTMaxTextEdit.text())
-
-    mass_spec = IndependentMassSpectrometer(charge, dataset)
-    controller = TopNController(charge, n, isolation_window, mz_tol, rt_tol, min_ms1_intensity)
+    mass_spec = IndependentMassSpectrometer(params[0], dataset)
+    controller = TopNController(*params)
     print("hello?", inspect.signature(controller.__init__).parameters)
 
-    # env = Environment(mass_spec, controller, min_rt, max_rt, progress_bar=True)
+    env = Environment(mass_spec, controller, min_rt, max_rt, progress_bar=True)
 
-    # set_log_level_warning()
-    # env.run()
-    # set_log_level_debug()
-    # mzml_filename = 'topn_controller.mzML'
-    # out_dir = os.path.join(os.getcwd(), 'results')
-    # env.write_mzML(out_dir, mzml_filename)
+    set_log_level_warning()
+    env.run()
+    set_log_level_debug()
+    mzml_filename = 'topn_controller.mzML'
+    out_dir = os.path.join(os.getcwd(), 'results')
+    env.write_mzML(out_dir, mzml_filename)

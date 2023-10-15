@@ -26,9 +26,3 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
 
         self.SelectFileButton.clicked.connect(lambda: upload_file(self, "p"))
         self.ControllerComboBox.currentIndexChanged.connect(lambda: displayParams(self))
-        self.IonModeButton.clicked.connect(lambda: setCharge(self))
-        
-
-    
-    
-    

@@ -1,11 +1,12 @@
 from PyQt5 import QtWidgets as qtw
+from CustomWidgets import *
 
 ### ADD EXTRA PARAM TO EACH LIST, THAT WILL BE THE ASSOCIATED LABEL WITH 
 ### THAT INPUT VALUE. WORK OUT A WAY TO CONSTRUCT THIS IN THE FOR LOOP.
 ### WILL NEED TO ADD A MODIFICATION FOR WHEN IT IS ADVANCED PARAMS,
 ### ROI PARAMS, ETC.
 PARAM_WIDGETS = {
-    "ionisation_mode": [("IonModeButton", qtw.QPushButton), ("Ionisation Mode:", qtw.QLabel)],
+    "ionisation_mode": [("IonModeButton", QIonModeButton), ("Ionisation Mode:", qtw.QLabel)],
     "N": [("NInput", qtw.QSpinBox), ("# of Injections:", qtw.QLabel)],
     "isolation_width": [("IsoWidthInput", qtw.QLineEdit), ("Isolation Width:", qtw.QLabel)],
     "mz_tol": [("MZToleranceInput", qtw.QLineEdit), ("MZ Tolerance:", qtw.QLabel)],

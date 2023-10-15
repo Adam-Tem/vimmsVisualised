@@ -6,6 +6,7 @@ from Interfaces.StartPageInterface import *
 from Interfaces.VisualiseInterface import *
 from Interfaces.SimulateInterface import *
 
+
 qtw.QApplication.setAttribute(qtc.Qt.AA_EnableHighDpiScaling, True) #enable highdpi scaling
 qtw.QApplication.setAttribute(qtc.Qt.AA_UseHighDpiPixmaps, True) #use highdpi icons
 
