@@ -132,3 +132,19 @@
 * *1.5 hours* Managed to implement the refelection when selecting the topN controller, you only have to add a new controller to the identify params file and then any new specific parameters to the ParamWidgets const file.
 
 * *1.5 hours* It is now possible to run the topN controller from the simualte page, where parameters are all passed using the generated ones and nothing is pulled in a hard coded style. Of course I am now back to an n=1 scenario again, but tbh to get this working is really good.
+
+* *1.5 hours* Trying to make the simulate page have a scroll bar in preparation for the controllers with too many parameters to display on the one screen.
+
+### 16 Oct 2023
+
+* *1 hour* Trying to get the page to now reflect on inline constructors, in this case the Roi and smart roi builder params.
+
+* *1 hour* Managed to now reflect the inline objects, just now finding a way to construct the objects with the appropriate values going to the correct paramter.
+
+### 17 Oct 2023
+
+* *2 hours* Finally beginning to understand the purpose fo kwargs, just now encountering an error where the findchild function will not identify the custom button widget that I have created...
+
+### 18 Oct 2023
+
+* *2.5 hours* Fixed issue where the widgets were not being identified, so now have successfully implemented the kwargs selection of parameters. It appears now though that the simulation functions do not like floats and require integers in some cases... May just go and edit the actual controller code to fix this.

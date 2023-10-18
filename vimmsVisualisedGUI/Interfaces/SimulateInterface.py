@@ -16,12 +16,13 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
         super().__init__(*args, **kwargs)
 
         self.setupUi(self)
+        
+        
 
         self.fileName = ""
         self.fileLocation = ""
         self.loadWidget = LoadingWidget()
 
-        self.ParamsBox.setHidden(True)
         self.SimulateHomeButton.setIcon(qtg.QIcon("Images/home.png"))
 
         self.SelectFileButton.clicked.connect(lambda: upload_file(self, "p"))

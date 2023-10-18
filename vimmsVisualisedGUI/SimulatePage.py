@@ -67,7 +67,7 @@ class Ui_SimulateForm(object):
         self.FileNameLabel.setGeometry(QtCore.QRect(280, 130, 261, 16))
         self.FileNameLabel.setObjectName("FileNameLabel")
         self.ParamsBox = QtWidgets.QGroupBox(SimulateForm)
-        self.ParamsBox.setGeometry(QtCore.QRect(0, 150, 601, 351))
+        self.ParamsBox.setGeometry(QtCore.QRect(0, 150, 601, 341))
         self.ParamsBox.setTitle("")
         self.ParamsBox.setObjectName("ParamsBox")
 
