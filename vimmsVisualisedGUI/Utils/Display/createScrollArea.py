@@ -5,6 +5,6 @@ def createScrollArea(self):
     scroll.setWidgetResizable(True)
     scroll.setFixedHeight(340)
     scroll.setFixedWidth(600)
-    scroll.setGeometry(0, 160, 600, 340)
+    scroll.setGeometry(0, 200, 600, 340)
     scroll.setWidget(self.ParamsBox)
     scroll.setVisible(True)

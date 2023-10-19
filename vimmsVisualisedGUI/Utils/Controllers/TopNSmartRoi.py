@@ -10,8 +10,8 @@ import os
 
 def runTopNSmartRoiController(self):
 
-    min_rt = 0
-    max_rt = 100
+    min_rt = int(self.min_rt.text())
+    max_rt = int(self.max_rt.text())
 
     roi_param_names = identifyParams("roi_params")
     

@@ -13,8 +13,8 @@ import os
 
 def runTopNController(self):
 
-    min_rt = 0
-    max_rt = 100
+    min_rt = int(self.min_rt.text())
+    max_rt = int(self.max_rt.text())
     param_names = identifyParams("TopN Controller")
     params = parseParams(self, param_names)
     

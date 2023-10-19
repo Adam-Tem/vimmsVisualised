@@ -14,5 +14,4 @@ def createWidgets(selected_controller):
             for inline_param in inline_constructor_params:
                 if inline_param not in params:
                     widgets.append(inline_constructors[param][inline_param])
-
     return widgets

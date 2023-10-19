@@ -248,7 +248,7 @@ class RoiController(TopNController):
 
         """
         if len(scores) > self.N:  # number of fragmentation events filter
-            scores[scores.argsort()[:(len(scores) - self.N)]] = 0
+            scores[scores.argsort()[:int(len(scores) - self.N)]] = 0
         return scores
 
     def _get_scores(self):

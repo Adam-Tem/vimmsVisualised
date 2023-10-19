@@ -11,7 +11,6 @@ def identifyParams(selected_controller):
                                  "TopN Smart ROI Controller": TopN_SmartRoiController,
                                  "roi_params": RoiBuilderParams,
                                  "smartroi_params": SmartRoiParams,}
-
         params = inspect.signature(string_to_constructor[selected_controller].__init__).parameters
         
         for val in params:

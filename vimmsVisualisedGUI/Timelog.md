@@ -148,3 +148,7 @@
 ### 18 Oct 2023
 
 * *2.5 hours* Fixed issue where the widgets were not being identified, so now have successfully implemented the kwargs selection of parameters. It appears now though that the simulation functions do not like floats and require integers in some cases... May just go and edit the actual controller code to fix this.
+
+### 19 Oct 2023
+
+* *1 hour* Fixed bug that was stopping the indexing of a particular list because the value was being passed as a float as apposed to an integer, however did have to modify the actual Vimms code to resolve this. Also began reseaching more about the PEP 8 style guide to start making my code more readable and fall in line with the current ViMMs library.
