@@ -46,5 +46,5 @@ def displayParams(self):
         self.param_layout.addWidget(self.SimulateButton, row + 1, 5, 2, 2)
         self.SimulateButton.setVisible(True)
 
-    self.ParamsBox.setLayout(self.param_layout)
-    createScrollArea(self)
+        self.ParamsBox.setLayout(self.param_layout)
+        createScrollArea(self)

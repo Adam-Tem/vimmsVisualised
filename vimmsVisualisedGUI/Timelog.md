@@ -135,6 +135,8 @@
 
 * *1.5 hours* Trying to make the simulate page have a scroll bar in preparation for the controllers with too many parameters to display on the one screen.
 
+## Week 4
+
 ### 16 Oct 2023
 
 * *1 hour* Trying to get the page to now reflect on inline constructors, in this case the Roi and smart roi builder params.
@@ -152,3 +154,17 @@
 ### 19 Oct 2023
 
 * *1 hour* Fixed bug that was stopping the indexing of a particular list because the value was being passed as a float as apposed to an integer, however did have to modify the actual Vimms code to resolve this. Also began reseaching more about the PEP 8 style guide to start making my code more readable and fall in line with the current ViMMs library.
+
+### 20 Oct 2023
+
+* *1 hour* Attended supervisor meeting, where we discussed the current implementation of the execution of the controllers, showing clearly the abstraction that is now in place, but that potentially more selection should be used to identify what style of action occurs when using the controller. Explaining further the science of the code and trying to understand the project more fully.
+
+## Week 5
+
+### 24 Oct 2023
+
+* *2 hours* Fought against the visualisation page trying to get a scatter plot of the mzml file to display but with no success.
+
+### 25 Oct 2023
+
+* *1 hour* Successfully displayed the data of the scatter plot, but encountering an issue where the x label is not showing.

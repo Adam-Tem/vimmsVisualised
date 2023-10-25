@@ -1,10 +1,15 @@
 from PyQt5 import QtWidgets as qtw
 from Utils.CustomWidgets import *
 
-### ADD EXTRA PARAM TO EACH LIST, THAT WILL BE THE ASSOCIATED LABEL WITH 
-### THAT INPUT VALUE. WORK OUT A WAY TO CONSTRUCT THIS IN THE FOR LOOP.
-### WILL NEED TO ADD A MODIFICATION FOR WHEN IT IS ADVANCED PARAMS,
-### ROI PARAMS, ETC.
+from vimms.Controller import TopNController, TopN_SmartRoiController
+from vimms.Roi import RoiBuilderParams, SmartRoiParams
+
+CONTROLLERS = {"TopN Controller": TopNController, 
+               "TopN Smart ROI Controller": TopN_SmartRoiController,
+               "roi_params": RoiBuilderParams,
+               "smartroi_params": SmartRoiParams,
+               }
+
 PARAM_WIDGETS = {
     "ionisation_mode": [("ionisation_mode", QIonModeButton), ("Ionisation Mode:", qtw.QLabel)],
     "N": [("N", qtw.QSpinBox), ("# of Injections:", qtw.QLabel)],

@@ -19,9 +19,10 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
 
         self.VisualiseHomeButton.setIcon(qtg.QIcon("Images/home.png"))
         self.SelectFileButton.clicked.connect(lambda: upload_file(self, "mzml"))
-        self.VisualiseButton.clicked.connect(lambda: self.static_graph.updatePlot(int(self.RTMinTextEdit.text()),
-                                                                                  int(self.RTMaxTextEdit.text()),
-                                                                                  self.fileLocation,
-                                                                                  self.fileName))
+        self.VisualiseButton.clicked.connect(lambda: self.static_graph.scatterPlot(file_name=self.fileName, file_location=self.fileLocation))
+        # self.VisualiseButton.clicked.connect(lambda: self.static_graph.updatePlot(int(self.RTMinTextEdit.text()),
+        #                                                                           int(self.RTMaxTextEdit.text()),
+        #                                                                           self.fileLocation,
+        #                                                                           self.fileName))
 
         

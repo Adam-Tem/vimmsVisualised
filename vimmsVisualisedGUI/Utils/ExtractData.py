@@ -1,4 +1,4 @@
-from vimms.Common import  save_obj, POSITIVE
+from vimms.Common import  save_obj, POSITIVE, load_obj
 from vimms.Roi import RoiBuilderParams
 from vimms.Chemicals import ChemicalMixtureFromMZML
 import os

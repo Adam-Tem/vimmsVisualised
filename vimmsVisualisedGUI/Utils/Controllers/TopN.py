@@ -19,6 +19,7 @@ def runTopNController(self):
     params = parseParams(self, param_names)
     
     dataset = load_obj(self.fileLocation)
+    print(type(dataset))
     mass_spec = IndependentMassSpectrometer(params["ionisation_mode"], dataset)
     controller = TopNController(**params)
     env = Environment(mass_spec, controller, min_rt, max_rt, progress_bar=True)
