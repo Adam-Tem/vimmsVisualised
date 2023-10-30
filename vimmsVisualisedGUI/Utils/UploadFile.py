@@ -1,16 +1,17 @@
 from PyQt5 import QtWidgets as qtw
 import os
 
-def upload_file(self, fileType):
+def upload_file(self, file_type):
     
     dialog = qtw.QFileDialog()
 
-    if fileType == "mzml":
-        selectedFile = dialog.getOpenFileName(None, "Import mzML", "", "mzML data files (*.mzml)")
-    elif fileType == "p":
-        selectedFile = dialog.getOpenFileName(None, "Import Pickle", "", "Pickle File (*.p)")
-    fileName = os.path.basename(selectedFile[0])
-    fileLocation = selectedFile[0]
-    self.FileNameLabel.setText(fileName)
-    self.fileName = fileName
-    self.fileLocation = fileLocation
+    if file_type == "mzml":
+        selected_file = dialog.getOpenFileName(None, "Import mzML", "", "mzML data files (*.mzml)")
+    elif file_type == "p":
+        selected_file = dialog.getOpenFileName(None, "Import Pickle", "", "Pickle File (*.p)")
+        
+    file_name = os.path.basename(selected_file[0])
+    file_location = selected_file[0]
+    self.FileNameLabel.setText(file_name)
+    self.file_name = file_name
+    self.file_location = file_location

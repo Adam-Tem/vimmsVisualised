@@ -11,15 +11,14 @@ from Utils.Display.identifyParams import identifyParams
 
 import os
 
-def runTopNController(self):
+def runTopNController(param_box, main_page):
 
-    min_rt = int(self.min_rt.text())
-    max_rt = int(self.max_rt.text())
+    min_rt = int(main_page.min_rt.text())
+    max_rt = int(main_page.max_rt.text())
     param_names = identifyParams("TopN Controller")
-    params = parseParams(self, param_names)
+    params = parseParams(param_box, param_names)
     
-    dataset = load_obj(self.fileLocation)
-    print(type(dataset))
+    dataset = load_obj(main_page.file_location)
     mass_spec = IndependentMassSpectrometer(params["ionisation_mode"], dataset)
     controller = TopNController(**params)
     env = Environment(mass_spec, controller, min_rt, max_rt, progress_bar=True)

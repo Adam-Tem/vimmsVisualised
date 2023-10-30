@@ -1,12 +1,12 @@
 from Utils.Controllers.TopN import runTopNController
 from Utils.Controllers.TopNSmartRoi import runTopNSmartRoiController
 
-def controllerSelection(self):
-    controller = self.ControllerComboBox.currentText()
+def controllerSelection(param_box, controller):
 
+    main_page = param_box.parent()
     match controller:
         case "TopN Controller":
-            runTopNController(self)
+            runTopNController(param_box, main_page)
             
         case "TopN Smart ROI Controller":
-            runTopNSmartRoiController(self)
+            runTopNSmartRoiController(param_box, main_page)

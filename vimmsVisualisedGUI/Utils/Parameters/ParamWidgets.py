@@ -3,14 +3,39 @@ from Utils.CustomWidgets import *
 
 from vimms.Controller import TopNController, TopN_SmartRoiController
 from vimms.Roi import RoiBuilderParams, SmartRoiParams
+from vimms.ChemicalSamplers import *
 
 CONTROLLERS = {"TopN Controller": TopNController, 
-               "TopN Smart ROI Controller": TopN_SmartRoiController,
-               "roi_params": RoiBuilderParams,
-               "smartroi_params": SmartRoiParams,
+               "TopN Smart ROI Controller": TopN_SmartRoiController,           
                }
 
-PARAM_WIDGETS = {
+ROI_BUILDERS = {"roi_params": RoiBuilderParams,
+               "smartroi_params": SmartRoiParams,
+}
+
+FORMULA_SAMPLERS = {"Even MZ Formula Sampler": EvenMZFormulaSampler,
+               "Pick Everything Formula Sampler": PickEverythingFormulaSampler,
+               "Uniform MZ Formula Sampler": UniformMZFormulaSampler,
+               "MZML Formula Sampler": MZMLFormulaSampler,
+               "Database Formula Sampler": DatabaseFormulaSampler,
+}
+
+RTI_SAMPLERS = {"Uniform RT & Intensity": UniformRTAndIntensitySampler,
+                "MZML RT & Intensity": MZMLRTandIntensitySampler,
+}
+
+CHROMO_SAMPLERS = {"Gaussian Chromatogram Sampler": GaussianChromatogramSampler,
+                   "Constant Chromatogram Sampler": ConstantChromatogramSampler,
+                   "MZML Chromatogram Sampler": MZMLChromatogramSampler,
+}
+
+MS2_SAMPLERS = {"Uniform MS2 Sampler": UniformMS2Sampler,
+                "FIxed MS2 Sampler": FixedMS2Sampler,
+                "MGF MS2 Sampler": MGFMS2Sampler,
+                "Exact Match MS2 Sampler": ExactMatchMS2Sampler,
+                "MZML MS2 Sampler": MZMLMS2Sampler}
+
+CONTROLLER_PARAMS = {
     "ionisation_mode": [("ionisation_mode", QIonModeButton), ("Ionisation Mode:", qtw.QLabel)],
     "N": [("N", qtw.QSpinBox), ("# of Injections:", qtw.QLabel)],
     "isolation_width": [("isolation_width", qtw.QLineEdit), ("Isolation Width:", qtw.QLabel)],
@@ -41,4 +66,46 @@ SMART_ROI_PARAMS = {
     "intensity_increase_factor": [("intensity_increase_factor", qtw.QLineEdit), ("Intensity Increase Factor:", qtw.QLabel)],
     "dew": [("dew", qtw.QLineEdit), ("DEW:", qtw.QLabel)],
     "drop_perc": [("drop_perc", qtw.QLineEdit), ("Drop Percent:", qtw.QLabel)],
+}
+
+FORMULA_SAMPLER_PARAMS = {
+    "database": [("database", qtw.QLineEdit), ("Database:", qtw.QLabel)],
+    "min_mz": [("min_mz", qtw.QLineEdit), ("Min MZ:", qtw.QLabel)],
+    "max_mz": [("max_mz", qtw.QLineEdit), ("Max MZ:",  qtw.QLabel)],
+    "mzml_file_name": [("mzml_file_name", qtw.QLineEdit), ("MZML File:", qtw.QLabel)],
+    "source_polarity": [("source_polarity", QIonModeButton), "Source Polarity:", qtw.QLabel],
+}
+
+RTI_SAMPLER_PARAMS = {
+    "min_rt": [("min_rt", qtw.QLineEdit), ("Min RT", qtw.QLabel)],
+    "max_rt": [("maxt_rt",), ("Max RT:", qtw.QLabel)],
+    "min_log_intensity": [("min_log_intensity", qtw.QLineEdit), ("Min Log Intensity:", qtw.QLabel)],
+    "max_log_intensity": [("max_log_intensity", qtw.QLineEdit), ("Max Log Intensity", qtw.QLabel)],
+    "mzml_file_name": [("mzml_file_name", qtw.QLineEdit), ("MZML File:", qtw.QLabel)],
+    "n_intensity_bins": [("n_intensity_bins", qtw.QLineEdit), ("# Intensity Bins:", qtw.QLabel)],
+   
+    
+}
+
+CHROMO_SAMPLER_PARAMS = {
+   "sigma": [("sigma", qtw.QLineEdit), ("Sigma:", qtw.QLabel)],
+#    "mzml_file_name": [("mzml_file_name", QFileSelector), ("MZML File:", qtw.QLabel)],
+}
+
+MS2_SAMPLER_PARAMS = {
+    "poiss_peak_mean": [("poiss_peak_mean", qtw.QLineEdit), ("Poiss Peak Mean:", qtw.QLabel)],
+    "min_mz": [("min_mz", qtw.QLineEdit), ("Min MZ:", qtw.QLabel)],
+    "min_proportion": [("min_proportion", qtw.QLineEdit), ("Min Proportion:", qtw.QLabel)],
+    "max_proportion": [("max_proportion", qtw.QLineEdit), ("Max Proportion:", qtw.QLabel)],
+    "n_frags": [("n_frags", qtw.QLineEdit), ("# Fragment Peaks:", qtw.QLabel)],
+    "n_draws": [("n_draws", qtw.QLineEdit), ("# Draws:", qtw.QLabel)],
+    "alpha": [("alpha", qtw.QLineEdit), ("Alpha:", qtw.QLabel)],
+    "base": [("base", qtw.QComboBox), ("Base:", qtw.QLabel)],
+    # "mgf_file": [("mgf_file", QFileSelector), ("MGF File:", qtw.QLabel)],
+    "max_peaks": [("max_peaks", qtw.QLineEdit), ("Max Peaks:", qtw.QLabel)],
+    # "replace": [("replace", QTFButton), ("Replace:", qtw.QLabel)],
+    "id_field": [("id_field", qtw.QLineEdit), ("ID of MGF:", qtw.QLabel)],
+    # "mzml_file": [("mzml_file", QFileSelector), ("MZML File:", qtw.QLabel)],
+    "min_n_peaks": [("min_n_peaks", qtw.QLineEdit), ("Min # Peaks:", qtw.QLabel)],
+    # "with_replacement": [("with_replacement", QTFButton), ("Replace:", qtw.QLabel)],
 }

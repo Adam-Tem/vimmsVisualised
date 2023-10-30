@@ -168,3 +168,23 @@
 ### 25 Oct 2023
 
 * *1 hour* Successfully displayed the data of the scatter plot, but encountering an issue where the x label is not showing.
+
+* *1 hour* Going back to work on the generate/simulate side of things, as the generated p files are not suitable for the simulate side of things. Nothing working as of yet but don't really see how to get this working.
+
+### 26 Oct 2023
+
+* *1.5 hours* The can of worms has been opened once again... After going back into detail on the generate page, I have come to realise that there is also a plethora of parameters associated with all selectable options on this page as well. I have begun to set it up to try and use the same functions already implemented for the simulate page, trying to extract those further to allow for use elsewhere. I have listed all parameters in the global parameters file as well, under their respective categories.
+
+### 27 Oct 2023
+
+* *1 hour* Meeting with advisor discussing progress of the week, discussing what sort of explanation would be required of the actual science of the project and deciding to work on fixing current code rather than start anything new.
+
+### 28 Oct 2023
+
+* *2 hours* Continous refactoring of the display parameter function, trying to make it applicable for every drop down combo box no matter the display. Feel like I am close to solving this issue, just trying to wokr out where to pass the appropriate parameters so that I am not repeating code anywhere while keeping the function definitions concise enough so that it is not just a parameter mess.
+
+## Week 6
+
+### 30 Oct 2023
+
+* *1.5 hours* A fairly successful coding session. That is the display params function now abstracted in such a way that any combo box and associated group box can be passed to then allow for the appropriate parameters to be displayed. Only issue I am now encountering is that the scroll area on the generate page is not actually changing or creating a scroll bar, it is more that the grid layout is becoming squished, which I am currently unsure the reason of.

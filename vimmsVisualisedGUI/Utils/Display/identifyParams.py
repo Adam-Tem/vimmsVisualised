@@ -1,12 +1,10 @@
-from Utils.Parameters.ParamWidgets import CONTROLLERS
-
 import inspect
 
-def identifyParams(selected_controller):
+def identifyParams(selected_constructor, potential_constructors):
 
     param_names = []
     try:
-        params = inspect.signature(CONTROLLERS[selected_controller].__init__).parameters
+        params = inspect.signature(potential_constructors[selected_constructor].__init__).parameters
         
         for val in params:
             if val != "self":
