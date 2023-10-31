@@ -29,7 +29,8 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
 
         self.ExtractDataButton.clicked.connect(lambda: extract_data(self, int(self.MinIntensityEdit.text()), self.fileLocation, self.fileName.split(".")[0]))
         self.GenerateDataButton.clicked.connect(lambda: GenerateData(self))
-        
+        self.scrollArea.setWidgetResizable(True)
+
         self.FormulaSamplerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.FormulaSamplerParamBox,self.FormulaSamplerComboBox.currentText(),
                                   [False, ""], FORMULA_SAMPLERS, FORMULA_SAMPLER_PARAMS))

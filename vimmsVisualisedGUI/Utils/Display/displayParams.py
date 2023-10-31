@@ -5,10 +5,15 @@ from Utils.Controllers.controllerSelection import controllerSelection
 from Utils.Display.createScrollArea import createScrollArea
 from Utils.Display.createExecuteButton import create_execute_button
 
+import math
+
 def displayParams(param_box, combo_box_text, execute_button_type, potential_constructors, potential_params):
+    
     try:
+        current_widgets = param_box.layout().count()
         sip.delete(param_box.layout())
     except:
+         current_widgets = 0
          pass
 
     widget_names = createWidgets(combo_box_text, potential_constructors, potential_params)
@@ -25,6 +30,7 @@ def displayParams(param_box, combo_box_text, execute_button_type, potential_cons
         new_widget = value[0][1](parent=param_box)
         new_widget.setObjectName(value[0][0])
         new_widget.setAccessibleName(value[0][0])
+        new_widget.setMinimumHeight(19)
         new_label = value[1][1](text=value[1][0], parent=param_box)
         if param_count % 3 == 0:
             row = row + 1
@@ -41,5 +47,15 @@ def displayParams(param_box, combo_box_text, execute_button_type, potential_cons
             execute_button = create_execute_button(param_box, combo_box_text, execute_button_type[1])
 
             param_layout.addWidget(execute_button, row + 1, col + 1, 2, 2)
+        param_box.setMinimumHeight(math.ceil((len(widget_names) - current_widgets)/3) * 20)
+    if not execute_button_type[0]:
+        grid = param_box.parent()
+        box = grid.parent()
+        change_in_size = math.ceil((len(widget_names) - current_widgets)/3) * 20
+        grid.setFixedHeight(grid.height() + change_in_size)
+        grid.setMinimumHeight(grid.height() + change_in_size)
+        box.setFixedHeight(grid.height() + change_in_size)
+        box.setMinimumHeight(grid.height() + change_in_size)
+
         param_box.setLayout(param_layout)
         # createScrollArea(param_box, height = col*85)

@@ -78,7 +78,7 @@ FORMULA_SAMPLER_PARAMS = {
 
 RTI_SAMPLER_PARAMS = {
     "min_rt": [("min_rt", qtw.QLineEdit), ("Min RT", qtw.QLabel)],
-    "max_rt": [("maxt_rt",), ("Max RT:", qtw.QLabel)],
+    "max_rt": [("maxt_rt", qtw.QLineEdit), ("Max RT:", qtw.QLabel)],
     "min_log_intensity": [("min_log_intensity", qtw.QLineEdit), ("Min Log Intensity:", qtw.QLabel)],
     "max_log_intensity": [("max_log_intensity", qtw.QLineEdit), ("Max Log Intensity", qtw.QLabel)],
     "mzml_file_name": [("mzml_file_name", qtw.QLineEdit), ("MZML File:", qtw.QLabel)],

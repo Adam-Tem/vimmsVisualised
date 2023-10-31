@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>599</width>
     <height>500</height>
    </rect>
   </property>
@@ -34,60 +34,6 @@
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="ExtractGenerateButton">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>200</y>
-     <width>400</width>
-     <height>75</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Extract/Generate Data</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="ExperimenButton">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>300</y>
-     <width>400</width>
-     <height>75</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Simulate Experiment</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="VisualiseButton">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>400</y>
-     <width>400</width>
-     <height>75</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Visualise Results</string>
-   </property>
-  </widget>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
@@ -98,7 +44,7 @@
     </rect>
    </property>
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
@@ -256,427 +202,561 @@
     <attribute name="title">
      <string>Generate</string>
     </attribute>
-    <widget class="QGroupBox" name="ParamsBox">
+    <widget class="QScrollArea" name="scrollArea">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
        <width>595</width>
-       <height>374</height>
+       <height>380</height>
       </rect>
      </property>
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="title">
-      <string/>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
      </property>
-     <widget class="QScrollArea" name="scrollArea">
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="ParamBox">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>595</width>
-        <height>374</height>
+        <width>580</width>
+        <height>378</height>
        </rect>
       </property>
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <property name="maximumSize">
+      <property name="minimumSize">
        <size>
-        <width>600</width>
-        <height>400</height>
+        <width>0</width>
+        <height>378</height>
        </size>
       </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOn</enum>
-      </property>
-      <property name="widgetResizable">
-       <bool>true</bool>
-      </property>
-      <widget class="QWidget" name="scrollAreaWidgetContents">
+      <widget class="QWidget" name="gridLayoutWidget">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>580</width>
-         <height>340</height>
+         <width>571</width>
+         <height>361</height>
         </rect>
        </property>
-       <property name="maximumSize">
-        <size>
-         <width>600</width>
-         <height>340</height>
-        </size>
-       </property>
-       <widget class="QWidget" name="gridLayoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>571</width>
-          <height>341</height>
-         </rect>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetNoConstraint</enum>
         </property>
-        <layout class="QGridLayout" name="gridLayout_2">
-         <property name="sizeConstraint">
-          <enum>QLayout::SetDefaultConstraint</enum>
-         </property>
-         <item row="3" column="0" colspan="2">
-          <widget class="QGroupBox" name="RTISamplerParamBox">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="title">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QComboBox" name="RTISamplerComboBox">
-           <item>
-            <property name="text">
-             <string>---</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Uniform RT &amp; Intensity</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>MZML RT &amp; Intensity</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="SelectSamplerLabel">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
+        <item row="6" column="0">
+         <widget class="QLabel" name="MS2Label">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>MS 2 Sampler:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="FormulaSamplerComboBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <item>
            <property name="text">
-            <string>Please Select a formula sampler:</string>
+            <string>---</string>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0" colspan="2">
-          <widget class="QGroupBox" name="FormulaSamplerParamBox">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="title">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QComboBox" name="FormulaSamplerComboBox">
-           <item>
-            <property name="text">
-             <string>---</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Even MZ Formula Sampler</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Pick Everything Formula Sampler</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Uniform MZ Formula Sampler</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>MZML Formula Sampler</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Database Formula Sampler</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item row="6" column="0">
-          <widget class="QLabel" name="MS2Label">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
+          </item>
+          <item>
            <property name="text">
-            <string>MS 2 Sampler:</string>
+            <string>Even MZ Formula Sampler</string>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="ChromatogramLabel">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
+          </item>
+          <item>
            <property name="text">
-            <string>Chromatogram Sampler:</string>
+            <string>Pick Everything Formula Sampler</string>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="11" column="1">
-          <widget class="QPushButton" name="GenerateDataButton">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
+          </item>
+          <item>
            <property name="text">
-            <string>Generate</string>
+            <string>Uniform MZ Formula Sampler</string>
            </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QComboBox" name="ChromoSamplerComboBox">
-           <item>
-            <property name="text">
-             <string>---</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Gaussian Chromatogram Sampler</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Constant Chromatogram Sampler</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>MZML Chromatogram Sampler</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item row="6" column="1">
-          <widget class="QComboBox" name="MS2SamplerComboBox">
-           <item>
-            <property name="text">
-             <string>---</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Uniform MS2 Sampler</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Fixed MS2 Sampler</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>CRPM MS2 Sampler</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>MGF MS2 Sampler</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Exact Match MS2 Sampler</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>MZML MS2 Sampler</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="RTIntensityLabel">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
+          </item>
+          <item>
            <property name="text">
-            <string>Retention Time Intensity Sampler:</string>
+            <string>MZML Formula Sampler</string>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="9" column="0">
-          <widget class="QLabel" name="MSLevelLabel">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
+          </item>
+          <item>
            <property name="text">
-            <string>MS Level:</string>
+            <string>Database Formula Sampler</string>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="9" column="1">
-          <widget class="QSpinBox" name="MS2LevelSpinBox">
-           <property name="minimum">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <number>2</number>
-           </property>
-           <property name="value">
-            <number>2</number>
-           </property>
-          </widget>
-         </item>
-         <item row="10" column="1">
-          <widget class="QLineEdit" name="AdductPropTextEdit">
+          </item>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="ChromatogramLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Chromatogram Sampler:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QSpinBox" name="MS2LevelSpinBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>2</number>
+          </property>
+          <property name="value">
+           <number>2</number>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QGroupBox" name="RTISamplerParamBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QLineEdit" name="ChemsToSampleTextEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>22</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>100</string>
+          </property>
+          <property name="placeholderText">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0" colspan="2">
+         <widget class="QGroupBox" name="MS2SamplerParamBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QLineEdit" name="AdductPropTextEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>0.05</string>
+          </property>
+          <property name="placeholderText">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QComboBox" name="ChromoSamplerComboBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <item>
            <property name="text">
-            <string>0.05</string>
+            <string>---</string>
            </property>
-           <property name="placeholderText">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="1">
-          <widget class="QLineEdit" name="ChemsToSampleTextEdit">
+          </item>
+          <item>
            <property name="text">
-            <string>100</string>
+            <string>Gaussian Chromatogram Sampler</string>
            </property>
-           <property name="placeholderText">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="10" column="0">
-          <widget class="QLabel" name="AdductPropLabel">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
+          </item>
+          <item>
            <property name="text">
-            <string>Adduct Proportion Cut-off:</string>
+            <string>Constant Chromatogram Sampler</string>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="0" colspan="2">
-          <widget class="QGroupBox" name="ChromoSamplerParamBox">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="title">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="0">
-          <widget class="QLabel" name="ChemCountLabel">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
+          </item>
+          <item>
            <property name="text">
-            <string>Number of Chemicals to sample:</string>
+            <string>MZML Chromatogram Sampler</string>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
+          </item>
+         </widget>
+        </item>
+        <item row="11" column="1">
+         <widget class="QPushButton" name="GenerateDataButton">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Generate</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0" colspan="2">
+         <widget class="QGroupBox" name="ChromoSamplerParamBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="MSLevelLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>MS Level:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="ChemCountLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Number of Chemicals to sample:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QGroupBox" name="FormulaSamplerParamBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
+         <widget class="QLabel" name="AdductPropLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Adduct Proportion Cut-off:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QComboBox" name="MS2SamplerComboBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <item>
+           <property name="text">
+            <string>---</string>
            </property>
-          </widget>
-         </item>
-         <item row="7" column="0" colspan="2">
-          <widget class="QGroupBox" name="MS2SamplerParamBox">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
+          </item>
+          <item>
+           <property name="text">
+            <string>Uniform MS2 Sampler</string>
            </property>
-           <property name="title">
-            <string/>
+          </item>
+          <item>
+           <property name="text">
+            <string>Fixed MS2 Sampler</string>
            </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
+          </item>
+          <item>
+           <property name="text">
+            <string>CRPM MS2 Sampler</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>MGF MS2 Sampler</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Exact Match MS2 Sampler</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>MZML MS2 Sampler</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="RTIntensityLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Retention Time Intensity Sampler:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="SelectSamplerLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Please Select a formula sampler:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QComboBox" name="RTISamplerComboBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <item>
+           <property name="text">
+            <string>---</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Uniform RT &amp; Intensity</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>MZML RT &amp; Intensity</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </widget>

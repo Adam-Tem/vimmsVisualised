@@ -188,3 +188,9 @@
 ### 30 Oct 2023
 
 * *1.5 hours* A fairly successful coding session. That is the display params function now abstracted in such a way that any combo box and associated group box can be passed to then allow for the appropriate parameters to be displayed. Only issue I am now encountering is that the scroll area on the generate page is not actually changing or creating a scroll bar, it is more that the grid layout is becoming squished, which I am currently unsure the reason of.
+
+* *1 hour* Fighting against the scroll area with no avail, very annoying bug that I cannot work out...
+
+### 31 Oct 2023
+
+* *2.5 hours* That took WAY too long to figure out, but I got there in the end! For some reason, the scroll area was creating an extra layer that also had to be changed and updated ot force the scroll bar to work, but I got there in the end! Unfortunately my brain is fairly frazzled and simple mathematics on how to reduce the group boxes and main window back to the approriate size after selecting a lesser amount of parameters is not coming to me, but is hopefully the last bug GUI wise and then I can finally start looking at implementation of the code again to make it work properly.
