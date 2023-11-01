@@ -5,9 +5,10 @@ from vimms.Common import POSITIVE, NEGATIVE, load_obj, set_log_level_warning, se
 
 from Utils.LoadingWidget import *
 from Utils.CheckInput import *
-from Utils.Parameters.ParseParams import parseParams
+from Utils.Parameters.ParseParams import parse_params
 from Utils.CustomWidgets import *
-from Utils.Display.identifyParams import identifyParams
+from Utils.Parameters.identifyParams import identify_params
+from Utils.Parameters.ParamWidgets import CONTROLLERS
 
 import os
 
@@ -15,8 +16,8 @@ def runTopNController(param_box, main_page):
 
     min_rt = int(main_page.min_rt.text())
     max_rt = int(main_page.max_rt.text())
-    param_names = identifyParams("TopN Controller")
-    params = parseParams(param_box, param_names)
+    param_names = identify_params("TopN Controller", CONTROLLERS)
+    params = parse_params(param_box, param_names)
     
     dataset = load_obj(main_page.file_location)
     mass_spec = IndependentMassSpectrometer(params["ionisation_mode"], dataset)

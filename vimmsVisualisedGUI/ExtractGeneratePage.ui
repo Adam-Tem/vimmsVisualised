@@ -776,6 +776,22 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>FormulaSamplerComboBox</tabstop>
+  <tabstop>RTISamplerComboBox</tabstop>
+  <tabstop>ChromoSamplerComboBox</tabstop>
+  <tabstop>MS2SamplerComboBox</tabstop>
+  <tabstop>ExtractDataButton</tabstop>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>MS2LevelSpinBox</tabstop>
+  <tabstop>ChemsToSampleTextEdit</tabstop>
+  <tabstop>AdductPropTextEdit</tabstop>
+  <tabstop>SelectFileButton</tabstop>
+  <tabstop>GenerateDataButton</tabstop>
+  <tabstop>MinIntensityEdit</tabstop>
+  <tabstop>ExtractHomeButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

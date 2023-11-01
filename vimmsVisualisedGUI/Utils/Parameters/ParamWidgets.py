@@ -13,6 +13,7 @@ ROI_BUILDERS = {"roi_params": RoiBuilderParams,
                "smartroi_params": SmartRoiParams,
 }
 
+
 FORMULA_SAMPLERS = {"Even MZ Formula Sampler": EvenMZFormulaSampler,
                "Pick Everything Formula Sampler": PickEverythingFormulaSampler,
                "Uniform MZ Formula Sampler": UniformMZFormulaSampler,
@@ -30,10 +31,15 @@ CHROMO_SAMPLERS = {"Gaussian Chromatogram Sampler": GaussianChromatogramSampler,
 }
 
 MS2_SAMPLERS = {"Uniform MS2 Sampler": UniformMS2Sampler,
-                "FIxed MS2 Sampler": FixedMS2Sampler,
+                "Fixed MS2 Sampler": FixedMS2Sampler,
                 "MGF MS2 Sampler": MGFMS2Sampler,
                 "Exact Match MS2 Sampler": ExactMatchMS2Sampler,
                 "MZML MS2 Sampler": MZMLMS2Sampler}
+
+SAMPLERS = [("formula_sampler", FORMULA_SAMPLERS),
+            ("chromatogram_sampler", CHROMO_SAMPLERS),
+            ("ms2_sampler", MS2_SAMPLERS),
+            ("rt_and_intensity_sampler", RTI_SAMPLERS),]
 
 CONTROLLER_PARAMS = {
     "ionisation_mode": [("ionisation_mode", QIonModeButton), ("Ionisation Mode:", qtw.QLabel)],
@@ -77,8 +83,8 @@ FORMULA_SAMPLER_PARAMS = {
 }
 
 RTI_SAMPLER_PARAMS = {
-    "min_rt": [("min_rt", qtw.QLineEdit), ("Min RT", qtw.QLabel)],
-    "max_rt": [("maxt_rt", qtw.QLineEdit), ("Max RT:", qtw.QLabel)],
+    "min_rt": [("min_rt", qtw.QLineEdit), ("Min RT:", qtw.QLabel)],
+    "max_rt": [("max_rt", qtw.QLineEdit), ("Max RT:", qtw.QLabel)],
     "min_log_intensity": [("min_log_intensity", qtw.QLineEdit), ("Min Log Intensity:", qtw.QLabel)],
     "max_log_intensity": [("max_log_intensity", qtw.QLineEdit), ("Max Log Intensity", qtw.QLabel)],
     "mzml_file_name": [("mzml_file_name", qtw.QLineEdit), ("MZML File:", qtw.QLabel)],

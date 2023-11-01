@@ -4,8 +4,8 @@ from vimms.Environment import Environment
 from vimms.Common import POSITIVE, NEGATIVE, load_obj, set_log_level_warning, set_log_level_debug
 from vimms.Roi import RoiBuilderParams, SmartRoiParams
 
-from Utils.Display.identifyParams import identifyParams
-from Utils.Parameters.ParseParams import parseParams
+from Utils.Parameters.identifyParams import identify_params
+from Utils.Parameters.ParseParams import parse_params
 import os
 
 def runTopNSmartRoiController(self):
@@ -13,19 +13,19 @@ def runTopNSmartRoiController(self):
     min_rt = int(self.min_rt.text())
     max_rt = int(self.max_rt.text())
 
-    roi_param_names = identifyParams("roi_params")
+    roi_param_names = identify_params("roi_params")
     
-    roi_params = parseParams(self, roi_param_names)
+    roi_params = parse_params(self, roi_param_names)
 
-    smartroi_param_names = identifyParams("smartroi_params")
-    smartroi_params = parseParams(self, smartroi_param_names)
+    smartroi_param_names = identify_params("smartroi_params")
+    smartroi_params = parse_params(self, smartroi_param_names)
     if "drop_perc" in smartroi_params:
         smartroi_params["drop_perc"] = smartroi_params["drop_perc"] / 100
 
-    topN_smartroi_param_names = identifyParams("TopN Smart ROI Controller")
+    topN_smartroi_param_names = identify_params("TopN Smart ROI Controller")
     topN_smartroi_param_names.remove("roi_params")
     topN_smartroi_param_names.remove("smartroi_params")
-    kwargs = parseParams(self, topN_smartroi_param_names)
+    kwargs = parse_params(self, topN_smartroi_param_names)
 
     roi = RoiBuilderParams(**roi_params)
     smartroi = SmartRoiParams(**smartroi_params)

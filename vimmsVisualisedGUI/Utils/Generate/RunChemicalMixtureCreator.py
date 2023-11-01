@@ -1,23 +1,38 @@
+from PyQt5 import QtWidgets as qtw
+
 from vimms.Chemicals import ChemicalMixtureCreator
+from vimms.Common import save_obj
+
+from Utils.Parameters.ParseParams import parse_params
+from Utils.Parameters.identifyParams import identify_params
+from Utils.Parameters.ParamWidgets import *
+from Utils.Generate.getAssociatedParamBox import get_associated_param_box
 
 def run_chemical_mixture_creator(self):
-    pass
-    ##Set the geometry every time a different combo box option is made.
-    ## Shouldn't be too hard to implement, but at the same time,
-    ## how do you delete only the specific parameters associated with
-    ## the combo box change that has occured?????
-    ## Can't really be making a wrapper of every q widget type??
-    ## Have a dictionary that stores all the present parameters,
-    ## that gets updated every time a change is made.
-    ## Just need to keep track of..... nothing really, I guess
-    ## we just need to evaluate the position in the grid of the combo
-    ## box that is being changed, then adding the associated params
-    ## while adjusting the necessary ones that are beneath it,
-    ## using a for loop that iterates over objects that are beneath:
-    ## for widget in grid that are below val (below, n):
-    ##     move to new position.
-    ## Assign this functionality tooooo the combo boxes, but in an
-    ## abstracted way that takes in the row and column of them?
-    ## but has to involve the addition of rows that are used for 
-    ## params above it, maybe in an array??? Again, another sort
-    ## of global private variable. :(
+    param_space = self.ParamBox
+    constructed_params = {}
+    sampler_types = []
+    ## Just find a way to iterate over all the boxes in order.
+    ## Just make a function that checks to see if a certain part of the string
+    ## is in the constructor combobox text and return the right param_box.
+    
+    for child_constructor, sampler_type in zip(param_space.findChildren(qtw.QComboBox), 
+                                               SAMPLERS):
+        
+        selected_constructor = child_constructor.currentText()
+        child_param_box = get_associated_param_box(self, selected_constructor)
+        if selected_constructor != "---":
+            param_names = identify_params(selected_constructor, sampler_type[1])
+            params = parse_params(child_param_box, param_names)
+            print(params)
+            constructed_params[sampler_type[0]] = sampler_type[1][selected_constructor](**params)
+
+    cm = ChemicalMixtureCreator(**constructed_params, adduct_proportion_cutoff=self.AdductPropTextEdit.text())
+    chemicals = cm.sample(int(self.ChemsToSampleTextEdit.text()), int(self.MS2LevelSpinBox.cleanText()))
+    save_obj(chemicals,"generatedData.p")
+    ## get spin box constructors.
+    ####Use identify params?
+    ## construct from params.
+    ## pass to mixture creator.
+
+    

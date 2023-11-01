@@ -6,9 +6,9 @@ from ExtractGeneratePage import Ui_ExtractGenerateForm
 from Utils.ChangePage import *
 from Utils.ExtractData import *
 from vimmsVisualisedGUI.Utils.UploadFile import *
-from Utils.Generate.GenerateData import *
 from Utils.Display.displayParams import *
 from Utils.Parameters.ParamWidgets import *
+from Utils.Generate.RunChemicalMixtureCreator import run_chemical_mixture_creator
 
 class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
 
@@ -28,7 +28,7 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
         self.MinIntensityEdit.setText(str(self.min_intensity))
 
         self.ExtractDataButton.clicked.connect(lambda: extract_data(self, int(self.MinIntensityEdit.text()), self.fileLocation, self.fileName.split(".")[0]))
-        self.GenerateDataButton.clicked.connect(lambda: GenerateData(self))
+        self.GenerateDataButton.clicked.connect(lambda: run_chemical_mixture_creator(self))
         self.scrollArea.setWidgetResizable(True)
 
         self.FormulaSamplerComboBox.currentIndexChanged.connect(

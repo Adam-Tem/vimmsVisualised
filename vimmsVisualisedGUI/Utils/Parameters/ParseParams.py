@@ -2,11 +2,12 @@ from PyQt5 import QtWidgets as qtw
 from Utils.CustomWidgets import *
 from vimms.Common import POSITIVE, NEGATIVE
 
-def parseParams(param_box, constructor_params):
+def parse_params(param_box, constructor_params):
     params = {}
     for val in constructor_params:
         child = param_box.findChild(qtw.QWidget, val)
-
+        if child == None:
+            continue
         if type(child) == QIonModeButton:
             if child.text() == "positive":
                 params[child.accessibleName()] = POSITIVE

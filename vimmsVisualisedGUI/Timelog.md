@@ -198,3 +198,7 @@
 ### 01 Nov 2023
 
 * *2 hours* That took way too long once again to get rid of such a simple bug, but who new that adjusting both the minimum and fixed height of an object would increase its size but then not decrease it proportionately... Finally figured out this mess, so param boxes now expand and contract to the right size on the generate page. Time to fix up the implementation of the actual code.
+
+* *1.5 hours* Nearly there with the implementation of the generate stuff, just encountering an issue where it is not iterating over the group boxes and combo boxes in the order I want them to.
+
+* *1.5 hours* You can now successfully run and generate a chemical mzml simulation! Okay it is with some dodgy parameter selection at the moment but a file can be created and with the options available you can create the file.

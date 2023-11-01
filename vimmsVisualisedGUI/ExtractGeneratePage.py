@@ -343,6 +343,19 @@ class Ui_ExtractGenerateForm(object):
         self.retranslateUi(ExtractGenerateForm)
         self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(ExtractGenerateForm)
+        ExtractGenerateForm.setTabOrder(self.FormulaSamplerComboBox, self.RTISamplerComboBox)
+        ExtractGenerateForm.setTabOrder(self.RTISamplerComboBox, self.ChromoSamplerComboBox)
+        ExtractGenerateForm.setTabOrder(self.ChromoSamplerComboBox, self.MS2SamplerComboBox)
+        ExtractGenerateForm.setTabOrder(self.MS2SamplerComboBox, self.ExtractDataButton)
+        ExtractGenerateForm.setTabOrder(self.ExtractDataButton, self.scrollArea)
+        ExtractGenerateForm.setTabOrder(self.scrollArea, self.tabWidget)
+        ExtractGenerateForm.setTabOrder(self.tabWidget, self.MS2LevelSpinBox)
+        ExtractGenerateForm.setTabOrder(self.MS2LevelSpinBox, self.ChemsToSampleTextEdit)
+        ExtractGenerateForm.setTabOrder(self.ChemsToSampleTextEdit, self.AdductPropTextEdit)
+        ExtractGenerateForm.setTabOrder(self.AdductPropTextEdit, self.SelectFileButton)
+        ExtractGenerateForm.setTabOrder(self.SelectFileButton, self.GenerateDataButton)
+        ExtractGenerateForm.setTabOrder(self.GenerateDataButton, self.MinIntensityEdit)
+        ExtractGenerateForm.setTabOrder(self.MinIntensityEdit, self.ExtractHomeButton)
 
     def retranslateUi(self, ExtractGenerateForm):
         _translate = QtCore.QCoreApplication.translate
