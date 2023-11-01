@@ -73,7 +73,7 @@ FORMULA_SAMPLER_PARAMS = {
     "min_mz": [("min_mz", qtw.QLineEdit), ("Min MZ:", qtw.QLabel)],
     "max_mz": [("max_mz", qtw.QLineEdit), ("Max MZ:",  qtw.QLabel)],
     "mzml_file_name": [("mzml_file_name", qtw.QLineEdit), ("MZML File:", qtw.QLabel)],
-    "source_polarity": [("source_polarity", QIonModeButton), "Source Polarity:", qtw.QLabel],
+    "source_polarity": [("source_polarity", QIonModeButton), ("Source Polarity:", qtw.QLabel)],
 }
 
 RTI_SAMPLER_PARAMS = {

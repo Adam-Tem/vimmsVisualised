@@ -1,19 +1,17 @@
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import sip
 from Utils.Display.createWidgets import createWidgets
-from Utils.Controllers.controllerSelection import controllerSelection
 from Utils.Display.createScrollArea import createScrollArea
 from Utils.Display.createExecuteButton import create_execute_button
-
-import math
+from Utils.Display.adjustParamBoxSize import adjust_param_box_size
 
 def displayParams(param_box, combo_box_text, execute_button_type, potential_constructors, potential_params):
     
     try:
-        current_widgets = param_box.layout().count()
+        current_widget_count = param_box.layout().count()
         sip.delete(param_box.layout())
     except:
-         current_widgets = 0
+         current_widget_count = 0
          pass
 
     widget_names = createWidgets(combo_box_text, potential_constructors, potential_params)
@@ -47,15 +45,11 @@ def displayParams(param_box, combo_box_text, execute_button_type, potential_cons
             execute_button = create_execute_button(param_box, combo_box_text, execute_button_type[1])
 
             param_layout.addWidget(execute_button, row + 1, col + 1, 2, 2)
-        param_box.setMinimumHeight(math.ceil((len(widget_names) - current_widgets)/3) * 20)
+        param_box.setMinimumHeight((((len(widget_names) - 1)//3)+1) * 20)
+    else:
+        param_box.setMinimumHeight(0)
     if not execute_button_type[0]:
-        grid = param_box.parent()
-        box = grid.parent()
-        change_in_size = math.ceil((len(widget_names) - current_widgets)/3) * 20
-        grid.setFixedHeight(grid.height() + change_in_size)
-        grid.setMinimumHeight(grid.height() + change_in_size)
-        box.setFixedHeight(grid.height() + change_in_size)
-        box.setMinimumHeight(grid.height() + change_in_size)
+        adjust_param_box_size(param_box, len(widget_names), current_widget_count//2)
 
         param_box.setLayout(param_layout)
         # createScrollArea(param_box, height = col*85)

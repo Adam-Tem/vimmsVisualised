@@ -1,1 +1,3 @@
-print(2//3)
+import math
+
+print(math.ceil(-0.1))

@@ -194,3 +194,7 @@
 ### 31 Oct 2023
 
 * *2.5 hours* That took WAY too long to figure out, but I got there in the end! For some reason, the scroll area was creating an extra layer that also had to be changed and updated ot force the scroll bar to work, but I got there in the end! Unfortunately my brain is fairly frazzled and simple mathematics on how to reduce the group boxes and main window back to the approriate size after selecting a lesser amount of parameters is not coming to me, but is hopefully the last bug GUI wise and then I can finally start looking at implementation of the code again to make it work properly.
+
+### 01 Nov 2023
+
+* *2 hours* That took way too long once again to get rid of such a simple bug, but who new that adjusting both the minimum and fixed height of an object would increase its size but then not decrease it proportionately... Finally figured out this mess, so param boxes now expand and contract to the right size on the generate page. Time to fix up the implementation of the actual code.
