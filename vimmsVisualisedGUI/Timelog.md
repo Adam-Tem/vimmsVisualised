@@ -206,3 +206,5 @@
 ### 02 nov 2023
 
 * *1.5 hours* After a very successful bit coding, it is now possible to go from end to end with the generation/extraction, to simulation to visualisation of a chemical mixture being passed through a simulated LCMS experiment.
+
+* *1.5 hours* I have now added a variety of custom widgets regarding the uploading of different file types and also for selecting whether files should be replaced or not. Functionality for parsing these new widgets still has to be implemented come to think of it as I type this, but at least the graphical side of things is sorted and there at least is a visible option for all different possible params.

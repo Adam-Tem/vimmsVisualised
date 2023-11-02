@@ -64,6 +64,7 @@ ROI_PARAMS = {
     "start_rt": [("start_rt", qtw.QLineEdit), ("Start RT:", qtw.QLabel)],
     "stop_rt": [("stop_rt", qtw.QLineEdit), ("Stop RT:", qtw.QLabel)],
     "max_gaps_allowed": [("max_gaps_allowed", qtw.QLineEdit), ("Max Gaps Allowed:", qtw.QLabel)],
+    "mz_tol": [("mz_tol", qtw.QLineEdit), ("MZ Tolerance:", qtw.QLabel)]
 }
 
 SMART_ROI_PARAMS = {
@@ -78,7 +79,7 @@ FORMULA_SAMPLER_PARAMS = {
     "database": [("database", qtw.QLineEdit), ("Database:", qtw.QLabel)],
     "min_mz": [("min_mz", qtw.QLineEdit), ("Min MZ:", qtw.QLabel)],
     "max_mz": [("max_mz", qtw.QLineEdit), ("Max MZ:",  qtw.QLabel)],
-    "mzml_file_name": [("mzml_file_name", qtw.QLineEdit), ("MZML File:", qtw.QLabel)],
+    "mzml_file_name": [("mzml_file_name", QMzmlUpload), ("MZML File:", qtw.QLabel)],
     "source_polarity": [("source_polarity", QIonModeButton), ("Source Polarity:", qtw.QLabel)],
 }
 
@@ -87,7 +88,7 @@ RTI_SAMPLER_PARAMS = {
     "max_rt": [("max_rt", qtw.QLineEdit), ("Max RT:", qtw.QLabel)],
     "min_log_intensity": [("min_log_intensity", qtw.QLineEdit), ("Min Log Intensity:", qtw.QLabel)],
     "max_log_intensity": [("max_log_intensity", qtw.QLineEdit), ("Max Log Intensity", qtw.QLabel)],
-    "mzml_file_name": [("mzml_file_name", qtw.QLineEdit), ("MZML File:", qtw.QLabel)],
+    "mzml_file_name": [("mzml_file_name", QMzmlUpload), ("MZML File:", qtw.QLabel)],
     "n_intensity_bins": [("n_intensity_bins", qtw.QLineEdit), ("# Intensity Bins:", qtw.QLabel)],
    
     
@@ -95,7 +96,7 @@ RTI_SAMPLER_PARAMS = {
 
 CHROMO_SAMPLER_PARAMS = {
    "sigma": [("sigma", qtw.QLineEdit), ("Sigma:", qtw.QLabel)],
-#    "mzml_file_name": [("mzml_file_name", QFileSelector), ("MZML File:", qtw.QLabel)],
+   "mzml_file_name": [("mzml_file_name", QMzmlUpload), ("MZML File:", qtw.QLabel)],
 }
 
 MS2_SAMPLER_PARAMS = {
@@ -107,11 +108,11 @@ MS2_SAMPLER_PARAMS = {
     "n_draws": [("n_draws", qtw.QLineEdit), ("# Draws:", qtw.QLabel)],
     "alpha": [("alpha", qtw.QLineEdit), ("Alpha:", qtw.QLabel)],
     "base": [("base", qtw.QComboBox), ("Base:", qtw.QLabel)],
-    # "mgf_file": [("mgf_file", QFileSelector), ("MGF File:", qtw.QLabel)],
+    "mgf_file": [("mgf_file", QMgfUpload), ("MGF File:", qtw.QLabel)],
     "max_peaks": [("max_peaks", qtw.QLineEdit), ("Max Peaks:", qtw.QLabel)],
-    # "replace": [("replace", QTFButton), ("Replace:", qtw.QLabel)],
+    "replace": [("replace", QTrueFalseButton), ("Replace:", qtw.QLabel)],
     "id_field": [("id_field", qtw.QLineEdit), ("ID of MGF:", qtw.QLabel)],
-    # "mzml_file": [("mzml_file", QFileSelector), ("MZML File:", qtw.QLabel)],
+    "mzml_file": [("mzml_file", QMzmlUpload), ("MZML File:", qtw.QLabel)],
     "min_n_peaks": [("min_n_peaks", qtw.QLineEdit), ("Min # Peaks:", qtw.QLabel)],
-    # "with_replacement": [("with_replacement", QTFButton), ("Replace:", qtw.QLabel)],
+    "with_replacement": [("with_replacement", QTrueFalseButton), ("Replace:", qtw.QLabel)],
 }

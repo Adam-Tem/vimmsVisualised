@@ -1,7 +1,7 @@
-def setCharge(self):
-    if self.text() == "Positive":
-        self.setText("Negative")
+def setButtonText(self, options):
+    if self.text() in ["Positive", "True"]:
+        self.setText(options[1])
         self.setStyleSheet("background-color: red; color: black;")
     else:
-        self.setText("Positive")
+        self.setText(options[0])
         self.setStyleSheet("background-color: green; color: white;")
