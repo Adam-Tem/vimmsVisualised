@@ -202,3 +202,7 @@
 * *1.5 hours* Nearly there with the implementation of the generate stuff, just encountering an issue where it is not iterating over the group boxes and combo boxes in the order I want them to.
 
 * *1.5 hours* You can now successfully run and generate a chemical mzml simulation! Okay it is with some dodgy parameter selection at the moment but a file can be created and with the options available you can create the file.
+
+### 02 nov 2023
+
+* *1.5 hours* After a very successful bit coding, it is now possible to go from end to end with the generation/extraction, to simulation to visualisation of a chemical mixture being passed through a simulated LCMS experiment.
