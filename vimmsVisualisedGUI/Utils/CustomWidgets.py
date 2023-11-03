@@ -53,7 +53,7 @@ class QMgfUpload(QFileUpload):
         super().__init__(*args, **kwargs)
         self.button.clicked.connect(lambda: upload_file(self, "mgf"))
 
-class QTrueFalseButton(qtw.QPushButton):
+class QBooleanButton(qtw.QPushButton):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setText("True")

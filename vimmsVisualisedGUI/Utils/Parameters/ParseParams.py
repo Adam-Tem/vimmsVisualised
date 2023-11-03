@@ -14,6 +14,17 @@ def parse_params(param_box, constructor_params):
             else:
                 params[child.accessibleName()] = NEGATIVE
             continue
+
+        if type(child) == QBooleanButton:
+            if child.text() == "positive":
+                params[child.accessibleName()] = True
+            else:
+                params[child.accessibleName()] = False
+            continue
+
+        if type(child) in [QMzmlUpload, QMgfUpload]:
+            params[child.accessibleName()] = child.file_name
+            continue
         
         if type(child) == qtw.QComboBox:
             if child.currentText() != "":

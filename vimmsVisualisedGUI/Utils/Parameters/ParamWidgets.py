@@ -110,9 +110,9 @@ MS2_SAMPLER_PARAMS = {
     "base": [("base", qtw.QComboBox), ("Base:", qtw.QLabel)],
     "mgf_file": [("mgf_file", QMgfUpload), ("MGF File:", qtw.QLabel)],
     "max_peaks": [("max_peaks", qtw.QLineEdit), ("Max Peaks:", qtw.QLabel)],
-    "replace": [("replace", QTrueFalseButton), ("Replace:", qtw.QLabel)],
+    "replace": [("replace", QBooleanButton), ("Replace:", qtw.QLabel)],
     "id_field": [("id_field", qtw.QLineEdit), ("ID of MGF:", qtw.QLabel)],
     "mzml_file": [("mzml_file", QMzmlUpload), ("MZML File:", qtw.QLabel)],
     "min_n_peaks": [("min_n_peaks", qtw.QLineEdit), ("Min # Peaks:", qtw.QLabel)],
-    "with_replacement": [("with_replacement", QTrueFalseButton), ("Replace:", qtw.QLabel)],
+    "with_replacement": [("with_replacement", QBooleanButton), ("Replace:", qtw.QLabel)],
 }
