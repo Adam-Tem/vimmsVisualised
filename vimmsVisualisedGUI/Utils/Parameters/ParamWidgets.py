@@ -34,7 +34,8 @@ MS2_SAMPLERS = {"Uniform MS2 Sampler": UniformMS2Sampler,
                 "Fixed MS2 Sampler": FixedMS2Sampler,
                 "MGF MS2 Sampler": MGFMS2Sampler,
                 "Exact Match MS2 Sampler": ExactMatchMS2Sampler,
-                "MZML MS2 Sampler": MZMLMS2Sampler}
+                "MZML MS2 Sampler": MZMLMS2Sampler,
+                "CRPM MS2 Sampler": CRPMS2Sampler}
 
 SAMPLERS = [("formula_sampler", FORMULA_SAMPLERS),
             ("chromatogram_sampler", CHROMO_SAMPLERS),
@@ -43,7 +44,7 @@ SAMPLERS = [("formula_sampler", FORMULA_SAMPLERS),
 
 CONTROLLER_PARAMS = {
     "ionisation_mode": [("ionisation_mode", QIonModeButton), ("Ionisation Mode:", qtw.QLabel)],
-    "N": [("N", qtw.QSpinBox), ("# of Injections:", qtw.QLabel)],
+    "N": [("N", qtw.QSpinBox), ("N:", qtw.QLabel)],
     "isolation_width": [("isolation_width", qtw.QLineEdit), ("Isolation Width:", qtw.QLabel)],
     "mz_tol": [("mz_tol", qtw.QLineEdit), ("MZ Tolerance:", qtw.QLabel)],
     "rt_tol": [("rt_tol", qtw.QLineEdit), ("RT Tolerance:", qtw.QLabel)],
@@ -107,7 +108,7 @@ MS2_SAMPLER_PARAMS = {
     "n_frags": [("n_frags", qtw.QLineEdit), ("# Fragment Peaks:", qtw.QLabel)],
     "n_draws": [("n_draws", qtw.QLineEdit), ("# Draws:", qtw.QLabel)],
     "alpha": [("alpha", qtw.QLineEdit), ("Alpha:", qtw.QLabel)],
-    "base": [("base", qtw.QComboBox), ("Base:", qtw.QLabel)],
+    "base": [("base", qtw.QLabel), ("Base:", qtw.QLabel)],
     "mgf_file": [("mgf_file", QMgfUpload), ("MGF File:", qtw.QLabel)],
     "max_peaks": [("max_peaks", qtw.QLineEdit), ("Max Peaks:", qtw.QLabel)],
     "replace": [("replace", QBooleanButton), ("Replace:", qtw.QLabel)],

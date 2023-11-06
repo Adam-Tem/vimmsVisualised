@@ -214,3 +214,11 @@
 ### 03 Nov 2023
 
 * *1 hour* Added proper parsing for new custom widgets to allow the generation to run on any selection of samplers given appropriate inputs.
+
+* *1 hour* Meeting with adviser and PhD student showing developments and discussing next steps.
+
+## Week 7
+
+### 06 Nov 2023
+
+* *1.5 hours* Added very basic 3d graph display to the visualise page, not interactive even though I had it that way before but is capable of swapping between 2d scatter plot and 3d bar plot.
