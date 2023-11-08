@@ -159,6 +159,9 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font-weight: bold;</string>
+   </property>
    <property name="text">
     <string>No file selected.</string>
    </property>
@@ -186,14 +189,14 @@
   <widget class="QGroupBox" name="CanvasGroupBox">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>100</x>
      <y>180</y>
-     <width>600</width>
-     <height>311</height>
+     <width>400</width>
+     <height>321</height>
     </rect>
    </property>
    <property name="title">
-    <string>GroupBox</string>
+    <string/>
    </property>
   </widget>
  </widget>

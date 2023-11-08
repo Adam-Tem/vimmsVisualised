@@ -1,5 +1,7 @@
 import numpy as np
 from vimms.Common import path_or_mzml
+from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as navBar
+
 def three_d_bar_plot(canvas, file_location, file_name, min_rt = None, max_rt = None):
 
     current_subplot = canvas.fig.get_axes()[0]
@@ -15,10 +17,10 @@ def three_d_bar_plot(canvas, file_location, file_name, min_rt = None, max_rt = N
 
         canvas.axes.set(
             title="3d Plot",
-            ylabel="Retention Time",
             xlabel="m/z",
-           # zlabel="Intensity",
-            #zlim=[0, None],
+            ylabel="Retention Time",
+            zlabel="Intensity",
+            zlim=[0, None],
         )
         canvas.axes.autoscale()
-        canvas.canvas.draw()
+        canvas.draw()

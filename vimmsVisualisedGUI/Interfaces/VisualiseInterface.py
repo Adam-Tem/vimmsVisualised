@@ -1,6 +1,8 @@
 from PyQt5 import QtGui as qtg
 from PyQt5 import QtWidgets as qtw
 
+from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as navBar
+
 from VisualisePage import Ui_VisualiseForm
 from Graphing.GraphCanvas import MplCanvas
 from Graphing.SelectGraphToPlot import select_graph_to_plot
@@ -16,7 +18,13 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
         self.file_name = ""
         self.file_location = ""
 
-        self.canvas = MplCanvas(self.CanvasGroupBox)
+        layout = qtw.QVBoxLayout()
+        
+        self.canvas = MplCanvas()
+        self.nav_bar = navBar(self.canvas, self.CanvasGroupBox)
+        layout.addWidget(self.nav_bar)
+        layout.addWidget(self.canvas)
+        self.CanvasGroupBox.setLayout(layout)
 
         self.VisualiseHomeButton.setIcon(qtg.QIcon("Images/home.png"))
         self.SelectFileButton.clicked.connect(lambda: upload_file(self, "mzml"))

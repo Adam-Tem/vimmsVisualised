@@ -222,3 +222,7 @@
 ### 06 Nov 2023
 
 * *1.5 hours* Added very basic 3d graph display to the visualise page, not interactive even though I had it that way before but is capable of swapping between 2d scatter plot and 3d bar plot.
+
+### 08 Nov 2023
+
+* *2 hours* Added the controller to the displays of the graphs, so the user can interact with the visuals and also swap between visualisations.

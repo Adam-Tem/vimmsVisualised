@@ -249,8 +249,8 @@ class PlotPoints():
     def __init__(self, ms1_points, ms2s=None, markers={}):
         self.ms1_points = np.array(ms1_points)
         self.ms2s = np.array(ms2s) if not ms2s is None else np.zeros((0, 3))
-        self.active_ms1 = np.ones((len(self.ms1_points)), dtype=np.bool)
-        self.active_ms2 = np.ones((len(self.ms2s)), dtype=np.bool)
+        self.active_ms1 = np.ones((len(self.ms1_points)), dtype=np.bool_)
+        self.active_ms2 = np.ones((len(self.ms2s)), dtype=np.bool_)
         self.markers = markers
 
     @classmethod

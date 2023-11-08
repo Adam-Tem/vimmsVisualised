@@ -59,6 +59,7 @@ class Ui_VisualiseForm(object):
         self.VisualiseButton.setObjectName("VisualiseButton")
         self.FileNameLabel = QtWidgets.QLabel(VisualiseForm)
         self.FileNameLabel.setGeometry(QtCore.QRect(15, 130, 221, 16))
+        self.FileNameLabel.setStyleSheet("font-weight: bold;")
         self.FileNameLabel.setObjectName("FileNameLabel")
         self.GraphTypeComboBox = QtWidgets.QComboBox(VisualiseForm)
         self.GraphTypeComboBox.setGeometry(QtCore.QRect(10, 150, 221, 22))
@@ -66,7 +67,8 @@ class Ui_VisualiseForm(object):
         self.GraphTypeComboBox.addItem("")
         self.GraphTypeComboBox.addItem("")
         self.CanvasGroupBox = QtWidgets.QGroupBox(VisualiseForm)
-        self.CanvasGroupBox.setGeometry(QtCore.QRect(0, 180, 600, 311))
+        self.CanvasGroupBox.setGeometry(QtCore.QRect(100, 180, 400, 321))
+        self.CanvasGroupBox.setTitle("")
         self.CanvasGroupBox.setObjectName("CanvasGroupBox")
 
         self.retranslateUi(VisualiseForm)
@@ -84,7 +86,6 @@ class Ui_VisualiseForm(object):
         self.FileNameLabel.setText(_translate("VisualiseForm", "No file selected."))
         self.GraphTypeComboBox.setItemText(0, _translate("VisualiseForm", "Scatter Plot"))
         self.GraphTypeComboBox.setItemText(1, _translate("VisualiseForm", "3d Bar Plot"))
-        self.CanvasGroupBox.setTitle(_translate("VisualiseForm", "GroupBox"))
 
 
 if __name__ == "__main__":
