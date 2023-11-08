@@ -4,6 +4,7 @@ from Utils.Display.createWidgets import createWidgets
 from Utils.Display.createScrollArea import createScrollArea
 from Utils.Display.createExecuteButton import create_execute_button
 from Utils.Display.adjustParamBoxSize import adjust_param_box_size
+from Utils.CustomWidgets import QBooleanButton
 
 def displayParams(param_box, combo_box_text, execute_button_type, potential_constructors, potential_params):
     
@@ -30,6 +31,16 @@ def displayParams(param_box, combo_box_text, execute_button_type, potential_cons
         new_widget.setAccessibleName(value[0][0])
         new_widget.setMinimumHeight(19)
         new_label = value[1][1](text=value[1][0], parent=param_box)
+        if len(value) == 3:
+            if type(new_widget) == QBooleanButton:  
+                new_widget.setText("False")
+                new_widget.setStyleSheet("background-color: red; color: black;")
+            
+            elif type(new_widget) == qtw.QComboBox:
+                new_widget.addItem(str(value[2]))
+            else:
+                new_widget.setText(str(value[2]))
+            
         if param_count % 3 == 0:
             row = row + 1
             col = 0

@@ -226,3 +226,5 @@
 ### 08 Nov 2023
 
 * *2 hours* Added the controller to the displays of the graphs, so the user can interact with the visuals and also swap between visualisations.
+
+* *1 hour* When selecting a particular sampler or controller from a combo box, the fields that hold defaults now show these when the selection is made. 
