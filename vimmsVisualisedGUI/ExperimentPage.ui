@@ -52,8 +52,8 @@
     <rect>
      <x>0</x>
      <y>100</y>
-     <width>290</width>
-     <height>211</height>
+     <width>600</width>
+     <height>91</height>
     </rect>
    </property>
    <property name="title">
@@ -81,7 +81,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>120</y>
+      <y>40</y>
       <width>271</width>
       <height>20</height>
      </rect>
@@ -95,30 +95,11 @@
      <string>Selected fullscan injections:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="FullscanNamesLabel">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>140</y>
-      <width>270</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font-weight: bold;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-    </property>
-   </widget>
    <widget class="QLabel" name="NoOfInjectionsLabel">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>65</y>
+      <x>295</x>
+      <y>5</y>
       <width>141</width>
       <height>21</height>
      </rect>
@@ -135,8 +116,8 @@
    <widget class="QSpinBox" name="NoOfInjectionsSpinBox">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>65</y>
+      <x>445</x>
+      <y>5</y>
       <width>42</width>
       <height>22</height>
      </rect>
@@ -151,14 +132,133 @@
    <widget class="QPushButton" name="AddFullscanButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>90</y>
+      <x>510</x>
+      <y>5</y>
       <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
      <string>Add</string>
+    </property>
+   </widget>
+   <widget class="QScrollArea" name="FullscanNamesScrollArea">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>40</y>
+      <width>361</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;</string>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContents</enum>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="ScrollContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>359</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <widget class="QLabel" name="FullscanNamesLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>300</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="ControllerSelecitonGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>190</y>
+     <width>600</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QLabel" name="FullscanSelectLabel_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>225</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Controller for experiment case:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>0</y>
+      <width>261</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>TopN Controller</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QGroupBox" name="ParamBox">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>50</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
     </property>
    </widget>
   </widget>

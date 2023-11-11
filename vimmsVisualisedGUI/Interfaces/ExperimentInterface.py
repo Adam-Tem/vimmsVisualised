@@ -19,7 +19,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
         fullscan_upload_button = QMzmlUpload(parent=self.FullscanGroupBox)
         fullscan_upload_button.setObjectName("fullscan_upload_button")
-        fullscan_upload_button.move(10, 30)
+        fullscan_upload_button.move(225, 0)
         self.ExperimentHomeButton.setIcon(qtg.QIcon("Images/home.png"))
 
-        self.AddFullscanButton.clicked.connect(lambda: add_fullscan_to_list(self, fullscan_upload_button.file_name, self.NoOfInjectionsSpinBox.value()))
+        self.AddFullscanButton.clicked.connect(lambda: add_fullscan_to_list(self, self.FullscanNamesScrollArea, fullscan_upload_button.file_name, self.NoOfInjectionsSpinBox.value()))

@@ -234,3 +234,7 @@
 * *1.5 hours* Designed a wireframe for the experiment page and also added the button to access the page, but no functionality as of yet.
 
 * *1 hour* Meeting with advisor and PhD student to explore best route forward for implementation of experiment in GUI, using wireframe as discussion point.
+
+### 11 Nov 2023
+
+* *2.5 hours* Initial development of adding fullscans for experiment case should now be complete, encountered the same silly error with the scroll area once again but managed to resolve the issue.
