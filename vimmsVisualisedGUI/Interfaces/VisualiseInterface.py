@@ -21,7 +21,7 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
         layout = qtw.QVBoxLayout()
         
         self.canvas = MplCanvas()
-        self.nav_bar = navBar(self.canvas, self.CanvasGroupBox)
+        self.nav_bar = navBar(self.canvas)
         layout.addWidget(self.nav_bar)
         layout.addWidget(self.canvas)
         self.CanvasGroupBox.setLayout(layout)

@@ -227,4 +227,10 @@
 
 * *2 hours* Added the controller to the displays of the graphs, so the user can interact with the visuals and also swap between visualisations.
 
-* *1 hour* When selecting a particular sampler or controller from a combo box, the fields that hold defaults now show these when the selection is made. 
+* *1 hour* When selecting a particular sampler or controller from a combo box, the fields that hold defaults now show these when the selection is made.
+
+### 10 Nov 2023
+
+* *1.5 hours* Designed a wireframe for the experiment page and also added the button to access the page, but no functionality as of yet.
+
+* *1 hour* Meeting with advisor and PhD student to explore best route forward for implementation of experiment in GUI, using wireframe as discussion point.

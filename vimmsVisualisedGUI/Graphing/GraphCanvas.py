@@ -5,7 +5,8 @@ from matplotlib.figure import Figure
 class MplCanvas(fcqt):
 
     def __init__(self, parent = None):
-        self.fig = Figure(figsize=(1, 1), layout="constrained")
+        self.fig = Figure(figsize=(4, 1), layout="constrained")
+        self.fig.set_constrained_layout_pads(w_pad = 0.3, h_pad = 0.2)
         self.axes = self.fig.add_subplot(111)
         self.axes.set_xlabel("RT (s)")
         self.axes.set_ylabel("m/z")

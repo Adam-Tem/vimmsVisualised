@@ -58,10 +58,10 @@
   <widget class="QPushButton" name="ExtractGenerateButton">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>200</y>
-     <width>400</width>
-     <height>75</height>
+     <x>150</x>
+     <y>170</y>
+     <width>300</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="font">
@@ -73,13 +73,13 @@
     <string>Extract/Generate Data</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="ExperimenButton">
+  <widget class="QPushButton" name="SimulateButton">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>300</y>
-     <width>400</width>
-     <height>75</height>
+     <x>150</x>
+     <y>250</y>
+     <width>300</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="font">
@@ -94,10 +94,10 @@
   <widget class="QPushButton" name="VisualiseButton">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>400</y>
-     <width>400</width>
-     <height>75</height>
+     <x>150</x>
+     <y>330</y>
+     <width>300</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="font">
@@ -107,6 +107,24 @@
    </property>
    <property name="text">
     <string>Visualise Results</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ExperimentButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>410</y>
+     <width>300</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Perform Experiment</string>
    </property>
   </widget>
  </widget>
