@@ -59,3 +59,9 @@ class QBooleanButton(qtw.QPushButton):
         self.setText("True")
         self.setStyleSheet("color:white; background-color:green;")
         self.clicked.connect(lambda: setButtonText(self, ["True", "False"]))
+
+    def current_selection(self):
+        if self.text() == "True":
+            return True
+        else:
+            return False

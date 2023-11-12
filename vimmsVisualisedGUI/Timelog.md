@@ -238,3 +238,7 @@
 ### 11 Nov 2023
 
 * *2.5 hours* Initial development of adding fullscans for experiment case should now be complete, encountered the same silly error with the scroll area once again but managed to resolve the issue.
+
+### 12 Nov 2023
+
+* *2.5 hours* Selecting a controller and having the option to input variables has now been added to the perform experiment page, reusing much of the code found elsewhere in the project already. With a few extra inputs, the page now also has the capability of creating and storing the experiment cases, so now it is just setting up the "run experiment" function that takes these cases and performs said experiment.
