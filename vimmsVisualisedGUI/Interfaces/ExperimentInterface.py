@@ -1,12 +1,16 @@
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtGui as qtg
 
+from vimms.Box import BoxGrid
+from vimms.BoxManager import BoxSplitter, BoxManager
+
 from ExperimentPage import Ui_experimentForm
 from Utils.CustomWidgets import QMzmlUpload
 from Utils.Experiment.addFullscanToList import add_fullscan_to_list
 from Utils.Experiment.constructExperimentCase import construct_experiment_case
 from Utils.Display.displayParams import displayParams
 from Utils.Parameters.ParamWidgets import *
+from Utils.Experiment.runExperiment import run_experiment
 
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
@@ -20,6 +24,10 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.file_location = ""
         self.fullscan_list = []
         self.experiment_case_list = []
+        geom = BoxManager(
+        box_geometry = BoxGrid(),
+        box_splitter = BoxSplitter(split=True)
+        )
 
         fullscan_upload_button = QMzmlUpload(parent=self.FullscanGroupBox)
         fullscan_upload_button.setObjectName("fullscan_upload_button")
@@ -41,5 +49,9 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.AddExperimentCaseButton.clicked.connect(
             lambda: construct_experiment_case(self, self.ControllerComboBox.currentText(),self.ParamsBox,
                                               pickle_env_button.current_selection(), self.CaseNameTextEdit.text(),
-                                              self.fullscan_list)
+                                              self.fullscan_list, geom)
+        )
+
+        self.RunExperimentButton.clicked.connect(
+            lambda: run_experiment(self.experiment_case_list)
         )
