@@ -3,7 +3,7 @@ from vimms.PeakPicking import XCMSScriptParams
 
 import os
 
-def run_experiment(experiment_cases):
+def run_experiment(self, experiment_cases):
 
     experiment = Experiment()
     current_folder = os.getcwd()
@@ -29,6 +29,6 @@ def run_experiment(experiment_cases):
 )
 
     experiment.evaluate(pp_params=pp_params, num_workers=num_of_workers, force_peak_picking=True, aligned_names="test_0_xcms_aligned.csv")
-    experiment.get_reports(min_intensities=[1000]*len(experiment_cases))
-    experiment.rank_cases(min_intensities=[1000]*len(experiment_cases), num_workers=num_of_workers)
-    experiment.summarise(num_workers=num_of_workers, min_intensities=[1000]*len(experiment_cases))
+    self.summary = experiment.summarise()
+    self.ViewSummaryButton.setEnabled(True)
+    print(self.summary)

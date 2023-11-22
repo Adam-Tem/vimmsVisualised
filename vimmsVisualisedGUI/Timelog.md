@@ -255,3 +255,5 @@
 ### 22 Nov 2023
 
 - _1 hour_ Managed to finish of the debugging and altered my vimms install so that experiments can now be run from start to finish! Will now move on to displaying the summary and allowing the user to go on and visualise the result.
+
+* _1.5 hours_ When an experiment is complete, the user can now see the summary of said experiment on the same display and then also has the option to then start a new experiment by going back to the main run experiment page. Object variables are reset but widgets I have not implemented the reset for just yet.

@@ -11,7 +11,8 @@ from Utils.Experiment.constructExperimentCase import construct_experiment_case
 from Utils.Display.displayParams import displayParams
 from Utils.Parameters.ParamWidgets import *
 from Utils.Experiment.runExperiment import run_experiment
-
+from Utils.Experiment.viewSummary import view_summary
+from Utils.Experiment.newExperiment import new_experiment
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
@@ -24,10 +25,13 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.file_location = ""
         self.fullscan_list = []
         self.experiment_case_list = []
+        self.summary = ""
         geom = BoxManager(
         box_geometry = BoxGrid(),
         box_splitter = BoxSplitter(split=True)
         )
+
+        self.SummaryGroupBox.setHidden(True)
 
         fullscan_upload_button = QMzmlUpload(parent=self.FullscanGroupBox)
         fullscan_upload_button.setObjectName("fullscan_upload_button")
@@ -36,6 +40,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         pickle_env_button = QBooleanButton(parent = self)
         pickle_env_button.setObjectName("pickle_env_button")
         pickle_env_button.move(155, 390)
+        pickle_env_button.lower()
         self.ExperimentHomeButton.setIcon(qtg.QIcon("Images/home.png"))
 
         self.AddFullscanButton.clicked.connect(
@@ -53,5 +58,11 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         )
 
         self.RunExperimentButton.clicked.connect(
-            lambda: run_experiment(self.experiment_case_list)
+            lambda: run_experiment(self, self.experiment_case_list)
+        )
+        self.ViewSummaryButton.clicked.connect(
+            lambda: view_summary(self)
+        )
+        self.NewExperimentButton.clicked.connect(
+            lambda: new_experiment(self)
         )
