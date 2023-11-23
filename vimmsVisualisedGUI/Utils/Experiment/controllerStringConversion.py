@@ -4,7 +4,7 @@ def controller_string_conversion(controller_name):
     match controller_name:
         case "TopN Controller":
             return "topn"
-        case "TopN Roi Controller":
+        case "TopN Smart ROI Controller":
             return "topn_roi"
         case "TopN Exclusion Controller":
             return "topn_exclusion"

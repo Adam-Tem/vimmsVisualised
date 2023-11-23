@@ -261,3 +261,5 @@
 ### 23 Nov 2023
 
 - _2 hours_ I thought I was beyond fighting against PyQt Scrollbars but I guess not! Thankfully I have managed to resolve the issue that would occur if selecting a controller with too many parameters visible on the screen to be shown, and a scrollbar is added to resolve it!
+
+* _1 hour_ You know that way you touch something that you thought was working, but then fall down the rabbit hole of one bug that finds another bug? Yeah that was the past hour! Managed to get the topN controller now running on the experiment side of things. Was hoping to add the visualisation but should get that afterwards!

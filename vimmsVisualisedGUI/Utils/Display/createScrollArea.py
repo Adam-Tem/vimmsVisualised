@@ -13,3 +13,4 @@ def createScrollArea(param_box, page, row):
         else:
             scroll.setGeometry(pos_to_match.x(), pos_to_match.y(),600, 161)
         scroll.setVisible(True)
+        scroll.lower()

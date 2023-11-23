@@ -6,23 +6,24 @@ from vimms.Roi import RoiBuilderParams, SmartRoiParams
 
 from Utils.Parameters.identifyParams import identify_params
 from Utils.Parameters.ParseParams import parse_params
+from Utils.Parameters.ParamWidgets import ROI_BUILDERS, CONTROLLERS
 import os
 
-def runTopNSmartRoiController(self):
+def runTopNSmartRoiController(self, main_page):
 
-    min_rt = int(self.min_rt.text())
-    max_rt = int(self.max_rt.text())
+    min_rt = int(main_page.min_rt.text())
+    max_rt = int(main_page.max_rt.text())
 
-    roi_param_names = identify_params("roi_params")
+    roi_param_names = identify_params("roi_params", ROI_BUILDERS)
     
     roi_params = parse_params(self, roi_param_names)
 
-    smartroi_param_names = identify_params("smartroi_params")
+    smartroi_param_names = identify_params("smartroi_params", ROI_BUILDERS)
     smartroi_params = parse_params(self, smartroi_param_names)
     if "drop_perc" in smartroi_params:
         smartroi_params["drop_perc"] = smartroi_params["drop_perc"] / 100
 
-    topN_smartroi_param_names = identify_params("TopN Smart ROI Controller")
+    topN_smartroi_param_names = identify_params("TopN Smart ROI Controller", CONTROLLERS)
     topN_smartroi_param_names.remove("roi_params")
     topN_smartroi_param_names.remove("smartroi_params")
     kwargs = parse_params(self, topN_smartroi_param_names)
@@ -30,7 +31,7 @@ def runTopNSmartRoiController(self):
     roi = RoiBuilderParams(**roi_params)
     smartroi = SmartRoiParams(**smartroi_params)
 
-    dataset = load_obj(self.fileLocation)
+    dataset = load_obj(main_page.file_location)
     mass_spec = IndependentMassSpectrometer(POSITIVE, dataset)
     controller = TopN_SmartRoiController(**kwargs, roi_params=roi, smartroi_params=smartroi)
     
