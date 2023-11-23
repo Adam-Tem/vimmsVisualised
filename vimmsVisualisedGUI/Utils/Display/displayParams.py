@@ -6,7 +6,7 @@ from Utils.Display.createExecuteButton import create_execute_button
 from Utils.Display.adjustParamBoxSize import adjust_param_box_size
 from Utils.CustomWidgets import QBooleanButton
 
-def displayParams(param_box, combo_box_text, execute_button_type, potential_constructors, potential_params):
+def displayParams(param_box, combo_box_text, execute_button_type, potential_constructors, potential_params, add_scroll):
     
     try:
         current_widget_count = param_box.layout().count()
@@ -57,10 +57,16 @@ def displayParams(param_box, combo_box_text, execute_button_type, potential_cons
 
             param_layout.addWidget(execute_button, row + 1, col + 1, 2, 2)
         param_box.setMinimumHeight((((len(widget_names) - 1)//3)+1) * 20)
+        
     else:
         param_box.setMinimumHeight(0)
+        
     if not execute_button_type[0]:
-        adjust_param_box_size(param_box, len(widget_names), current_widget_count//2)
+        if add_scroll[0]:
+            createScrollArea(param_box,add_scroll[1], row)
+            param_box.setFixedSize(590, row*35)
+        else:
+            adjust_param_box_size(param_box, len(widget_names), current_widget_count//2)
 
         param_box.setLayout(param_layout)
-        # createScrollArea(param_box, height = col*85)
+    

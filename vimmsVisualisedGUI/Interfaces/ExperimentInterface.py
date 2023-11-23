@@ -49,7 +49,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
         self.ControllerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.ParamsBox,self.ControllerComboBox.currentText(), 
-            [False, ""], CONTROLLERS, CONTROLLER_PARAMS ))
+            [False, ""], CONTROLLERS, CONTROLLER_PARAMS, [True,"Experiment"] ))
         
         self.AddExperimentCaseButton.clicked.connect(
             lambda: construct_experiment_case(self, self.ControllerComboBox.currentText(),self.ParamsBox,
