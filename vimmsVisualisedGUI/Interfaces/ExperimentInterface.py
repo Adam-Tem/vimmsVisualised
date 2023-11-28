@@ -13,6 +13,7 @@ from Utils.Parameters.ParamWidgets import *
 from Utils.Experiment.runExperiment import run_experiment
 from Utils.Experiment.viewSummary import view_summary
 from Utils.Experiment.newExperiment import new_experiment
+from Utils.Experiment.removeFullscan import remove_option
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
@@ -23,6 +24,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
         self.file_name = ""
         self.file_location = ""
+        self.experiment = ""
         self.fullscan_list = []
         self.experiment_case_list = []
         self.summary = ""
@@ -42,10 +44,20 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         pickle_env_button.move(155, 390)
         pickle_env_button.lower()
         self.ExperimentHomeButton.setIcon(qtg.QIcon("Images/home.png"))
+        self.InjectionUndoButton.setIcon(qtg.QIcon("Images/undo.png"))
+        self.CaseUndoButton.setIcon(qtg.QIcon("Images/undo.png"))
 
         self.AddFullscanButton.clicked.connect(
             lambda: add_fullscan_to_list(self, self.FullscanNamesScrollArea, 
                                         fullscan_upload_button.file_name, self.NoOfInjectionsSpinBox.value()))
+        
+        self.InjectionUndoButton.clicked.connect(
+            lambda: remove_option(self, self.FullscanNamesScrollArea, "fullscan")
+        )
+
+        self.CaseUndoButton.clicked.connect(
+            lambda: remove_option(self, self.ExperimentNamesScrollArea, "case")
+        )
 
         self.ControllerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.ParamsBox,self.ControllerComboBox.currentText(), 

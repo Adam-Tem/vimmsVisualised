@@ -3,7 +3,6 @@ from vimms.BoxVisualise import PlotPoints
 def scatter_plot(canvas, file_location = None, file_name = None, min_rt = None, max_rt = None):
         
     current_subplot = canvas.fig.get_axes()[0]
-    print(canvas)
     canvas.fig.delaxes(current_subplot)
     canvas.axes = canvas.fig.add_subplot(111)
     canvas.axes.cla()

@@ -263,3 +263,15 @@
 - _2 hours_ I thought I was beyond fighting against PyQt Scrollbars but I guess not! Thankfully I have managed to resolve the issue that would occur if selecting a controller with too many parameters visible on the screen to be shown, and a scrollbar is added to resolve it!
 
 * _1 hour_ You know that way you touch something that you thought was working, but then fall down the rabbit hole of one bug that finds another bug? Yeah that was the past hour! Managed to get the topN controller now running on the experiment side of things. Was hoping to add the visualisation but should get that afterwards!
+
+* _1.5 hours_ Alas, no avail with the visualisation on the summary page. I feel like I am close but it's just a pain in the backside with all of these PyQt widgets working ever so slightly differently than you would expect them to.
+
+### 26 Nov 2023
+
+- _1.5 hours_ Managed to at least identify what the problem was with the graph situation. It is now displaying the figures, but in actual fact it is two figures and not one plot, so a bit of restyling or some sort of selection will need to be done on the page so it can work for this.
+
+## Week 9
+
+### 28 Nov 2023
+
+- _1 hour_ Amidst the minefield that is end of semester assignments, I have managed to find the time to add a nice little usability undo button connected to the fullscan and experiment case lists!
