@@ -221,6 +221,13 @@
      <string/>
     </property>
    </widget>
+   <zorder>InjectionUndoButton</zorder>
+   <zorder>FullscanSelectLabel</zorder>
+   <zorder>SelectedFullscanLabel</zorder>
+   <zorder>NoOfInjectionsLabel</zorder>
+   <zorder>NoOfInjectionsSpinBox</zorder>
+   <zorder>AddFullscanButton</zorder>
+   <zorder>FullscanNamesScrollArea</zorder>
   </widget>
   <widget class="QLabel" name="ControllerSelectLabel">
    <property name="geometry">
@@ -261,7 +268,7 @@
    </item>
    <item>
     <property name="text">
-     <string>TopN Smart ROI Controller</string>
+     <string>TopN ROI Controller</string>
     </property>
    </item>
   </widget>
@@ -565,6 +572,7 @@
     <string/>
    </property>
   </widget>
+  <zorder>CaseUndoButton</zorder>
   <zorder>VisualiseTitleLabel</zorder>
   <zorder>ExperimentHomeButton</zorder>
   <zorder>FullscanGroupBox</zorder>
@@ -580,7 +588,6 @@
   <zorder>PickleEnvLabel</zorder>
   <zorder>ViewSummaryButton</zorder>
   <zorder>SummaryGroupBox</zorder>
-  <zorder>CaseUndoButton</zorder>
  </widget>
  <resources/>
  <connections/>

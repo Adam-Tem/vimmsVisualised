@@ -275,3 +275,7 @@
 ### 28 Nov 2023
 
 - _1 hour_ Amidst the minefield that is end of semester assignments, I have managed to find the time to add a nice little usability undo button connected to the fullscan and experiment case lists!
+
+### 29 Nov 2023
+
+- _4.5 hours_ Sheesh that was a shift put in today for not very much code, but at least it is some working code! The experiment function has now been moved onto a separate thread when executing, as to stop the GUI from freezing and appearing as if it has crashed. Using the QThreads built in module, I eventually figured out how to structure this so that it can perform the execution in the tidiest way possible, following Qt guidelines.

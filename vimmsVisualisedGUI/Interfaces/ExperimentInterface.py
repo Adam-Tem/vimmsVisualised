@@ -3,6 +3,7 @@ from PyQt5 import QtGui as qtg
 
 from vimms.Box import BoxGrid
 from vimms.BoxManager import BoxSplitter, BoxManager
+from vimms.Experiment import Experiment
 
 from ExperimentPage import Ui_experimentForm
 from Utils.CustomWidgets import QMzmlUpload
@@ -10,13 +11,14 @@ from Utils.Experiment.addFullscanToList import add_fullscan_to_list
 from Utils.Experiment.constructExperimentCase import construct_experiment_case
 from Utils.Display.displayParams import displayParams
 from Utils.Parameters.ParamWidgets import *
-from Utils.Experiment.runExperiment import run_experiment
 from Utils.Experiment.viewSummary import view_summary
 from Utils.Experiment.newExperiment import new_experiment
 from Utils.Experiment.removeFullscan import remove_option
+from Utils.Threads.workerThread import ExperimentWorker
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
+    start_exp = qtc.pyqtSignal(list)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -33,6 +35,13 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         box_splitter = BoxSplitter(split=True)
         )
 
+        self.worker = ExperimentWorker()
+        self.worker_thread = qtc.QThread()
+        self.worker.moveToThread(self.worker_thread)
+        self.worker_thread.start()
+        self.start_exp.connect(self.worker.run)
+        self.worker.experiment_finished.connect(self.set_experiment_and_summary)
+           
         self.SummaryGroupBox.setHidden(True)
 
         fullscan_upload_button = QMzmlUpload(parent=self.FullscanGroupBox)
@@ -70,7 +79,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         )
 
         self.RunExperimentButton.clicked.connect(
-            lambda: run_experiment(self, self.experiment_case_list)
+            lambda: self.start_exp.emit(self.experiment_case_list)
         )
         self.ViewSummaryButton.clicked.connect(
             lambda: view_summary(self)
@@ -78,3 +87,11 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.NewExperimentButton.clicked.connect(
             lambda: new_experiment(self)
         )
+
+        
+    @qtc.pyqtSlot(Experiment, str)
+    def set_experiment_and_summary(self, experiment, summary):
+        print(experiment)
+        self.experiment = experiment
+        self.summary = summary
+        self.ViewSummaryButton.setEnabled(True)

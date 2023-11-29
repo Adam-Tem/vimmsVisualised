@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets as qtw
 from Utils.CustomWidgets import *
 
-from vimms.Controller import TopNController, TopN_SmartRoiController
+from vimms.Controller import TopNController, TopN_SmartRoiController, TopN_RoiController
 from vimms.Roi import RoiBuilderParams, SmartRoiParams
 from vimms.ChemicalSamplers import *
 from vimms.Common import ROI_EXCLUSION_DEW
@@ -9,7 +9,8 @@ from vimms.Common import ROI_EXCLUSION_DEW
 MIN_MZ = 0
 MAX_MZ = 100000
 CONTROLLERS = {"TopN Controller": TopNController, 
-               "TopN Smart ROI Controller": TopN_SmartRoiController,           
+               "TopN Smart ROI Controller": TopN_SmartRoiController,
+               "TopN ROI Controller": TopN_RoiController,           
                }
 
 ROI_BUILDERS = {"roi_params": RoiBuilderParams,

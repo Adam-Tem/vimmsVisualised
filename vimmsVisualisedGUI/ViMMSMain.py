@@ -39,7 +39,7 @@ if __name__ == "__main__":
     stackedWidget.addWidget(simulateWidget)
     stackedWidget.addWidget(visualiseWidget)
     stackedWidget.addWidget(experimentWidget)
-    stackedWidget.show()
+    stackedWidget.show() 
 
     app.exec_()
 
