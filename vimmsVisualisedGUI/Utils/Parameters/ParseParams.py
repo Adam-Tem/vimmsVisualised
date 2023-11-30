@@ -9,7 +9,7 @@ def parse_params(param_box, constructor_params):
         if child == None:
             continue
         if type(child) == QIonModeButton:
-            if child.text() == "positive":
+            if child.text() == "Positive":
                 params[child.accessibleName()] = POSITIVE
             else:
                 params[child.accessibleName()] = NEGATIVE

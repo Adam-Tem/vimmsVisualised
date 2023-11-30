@@ -8,9 +8,10 @@ def createScrollArea(param_box, page, row):
         scroll.setSizeAdjustPolicy(qtw.QAbstractScrollArea.AdjustToContents)
         scroll.setWidgetResizable(True)
         scroll.setWidget(param_box)
+        scroll.setHorizontalScrollBarPolicy(1)
         if page == "Experiment":
-            scroll.setGeometry(pos_to_match.x(), pos_to_match.y(),600, 161)
+            scroll.setGeometry(pos_to_match.x(), pos_to_match.y(),560, 161)
         else:
-            scroll.setGeometry(pos_to_match.x(), pos_to_match.y(),600, 161)
+            scroll.setGeometry(pos_to_match.x(), pos_to_match.y(),560, 161)
         scroll.setVisible(True)
         scroll.lower()

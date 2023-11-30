@@ -279,3 +279,7 @@
 ### 29 Nov 2023
 
 - _4.5 hours_ Sheesh that was a shift put in today for not very much code, but at least it is some working code! The experiment function has now been moved onto a separate thread when executing, as to stop the GUI from freezing and appearing as if it has crashed. Using the QThreads built in module, I eventually figured out how to structure this so that it can perform the execution in the tidiest way possible, following Qt guidelines.
+
+### 30 Nov 2023
+
+- _2.5 hours_ Wow, how much I nwo appreciate my old self for doing all the abstraction and parameterisation from before! Managed to get a save/load controller parameter state working in a pretty easy manner. Currently only implemented on the experiment page but will be easy to add to the simulate page!

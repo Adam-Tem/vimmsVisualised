@@ -277,7 +277,7 @@
     <rect>
      <x>0</x>
      <y>220</y>
-     <width>600</width>
+     <width>560</width>
      <height>161</height>
     </rect>
    </property>
@@ -572,6 +572,32 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="LoadParamsButton">
+   <property name="geometry">
+    <rect>
+     <x>565</x>
+     <y>220</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SaveParamsButton">
+   <property name="geometry">
+    <rect>
+     <x>565</x>
+     <y>260</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>CaseUndoButton</zorder>
   <zorder>VisualiseTitleLabel</zorder>
   <zorder>ExperimentHomeButton</zorder>
@@ -588,6 +614,8 @@
   <zorder>PickleEnvLabel</zorder>
   <zorder>ViewSummaryButton</zorder>
   <zorder>SummaryGroupBox</zorder>
+  <zorder>LoadParamsButton</zorder>
+  <zorder>SaveParamsButton</zorder>
  </widget>
  <resources/>
  <connections/>

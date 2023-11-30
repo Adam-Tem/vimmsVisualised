@@ -15,6 +15,8 @@ from Utils.Experiment.viewSummary import view_summary
 from Utils.Experiment.newExperiment import new_experiment
 from Utils.Experiment.removeFullscan import remove_option
 from Utils.Threads.workerThread import ExperimentWorker
+from Utils.Parameters.saveParamState import save_param_state
+from Utils.Parameters.loadParamState import load_param_state
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
@@ -55,6 +57,8 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.ExperimentHomeButton.setIcon(qtg.QIcon("Images/home.png"))
         self.InjectionUndoButton.setIcon(qtg.QIcon("Images/undo.png"))
         self.CaseUndoButton.setIcon(qtg.QIcon("Images/undo.png"))
+        self.LoadParamsButton.setIcon(qtg.QIcon("Images/folder.svg"))
+        self.SaveParamsButton.setIcon(qtg.QIcon("Images/save.png"))
 
         self.AddFullscanButton.clicked.connect(
             lambda: add_fullscan_to_list(self, self.FullscanNamesScrollArea, 
@@ -66,6 +70,14 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
         self.CaseUndoButton.clicked.connect(
             lambda: remove_option(self, self.ExperimentNamesScrollArea, "case")
+        )
+
+        self.SaveParamsButton.clicked.connect(
+            lambda: save_param_state(self, self.ParamsBox,self.ControllerComboBox.currentText())
+        )
+
+        self.LoadParamsButton.clicked.connect(
+            lambda: load_param_state(self)
         )
 
         self.ControllerComboBox.currentIndexChanged.connect(

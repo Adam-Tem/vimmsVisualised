@@ -57,7 +57,7 @@ CONTROLLER_PARAMS = {
     "initial_exclusion_list": [("initial_exclusion_list", qtw.QLineEdit), ("Initial Exclusion:", qtw.QLabel)],
     "advanced_params": [("advanced_params", qtw.QLineEdit), ("Advanced Params:", qtw.QLabel)],
     "force_N": [("force_N", QBooleanButton), ("Force N:", qtw.QLabel), False],
-    "min_roi_length_for_fragmentation": [("min_roi_length_for_fragmentation", qtw.QLineEdit), ("Min Fragmention Length:", qtw.QLabel), 0],
+    "min_roi_length_for_fragmentation": [("min_roi_length_for_fragmentation", qtw.QLineEdit), ("Min Frag. Length:", qtw.QLabel), 0],
     "exclusion_method": [("exclusion_method", qtw.QComboBox), ("Exclusion Method:", qtw.QLabel), ROI_EXCLUSION_DEW],
     "exclusion_t_0": [("exclusion_t_0", qtw.QLineEdit), ("Exclusion T0:", qtw.QLabel)],
 }
