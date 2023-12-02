@@ -64,7 +64,7 @@ def displayParams(param_box, combo_box_text, execute_button_type, potential_cons
     if not execute_button_type[0]:
         if add_scroll[0]:
             createScrollArea(param_box,add_scroll[1], row)
-            param_box.setFixedSize(555, row*35)
+            param_box.setFixedSize(550, row*35)
         else:
             adjust_param_box_size(param_box, len(widget_names), current_widget_count//2)
 

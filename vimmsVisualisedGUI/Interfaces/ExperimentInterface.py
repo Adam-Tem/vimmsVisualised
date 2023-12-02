@@ -17,10 +17,11 @@ from Utils.Experiment.removeFullscan import remove_option
 from Utils.Threads.workerThread import ExperimentWorker
 from Utils.Parameters.saveParamState import save_param_state
 from Utils.Parameters.loadParamState import load_param_state
+from Utils.XCMS.parseXCMSParams import parse_xcms_params
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
-    start_exp = qtc.pyqtSignal(list)
+    start_exp = qtc.pyqtSignal(list, dict)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -73,7 +74,9 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         )
 
         self.SaveParamsButton.clicked.connect(
-            lambda: save_param_state(self, self.ParamsBox,self.ControllerComboBox.currentText())
+            lambda: save_param_state(self, self.ParamsBox,
+                                     self.XCMSParamsBox,
+                                     self.ControllerComboBox.currentText())
         )
 
         self.LoadParamsButton.clicked.connect(
@@ -81,7 +84,8 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         )
 
         self.ControllerComboBox.currentIndexChanged.connect(
-            lambda: displayParams(self.ParamsBox,self.ControllerComboBox.currentText(), 
+            lambda: displayParams(self.ParamsBox,
+                                  self.ControllerComboBox.currentText(), 
             [False, ""], CONTROLLERS, CONTROLLER_PARAMS, [True,"Experiment"] ))
         
         self.AddExperimentCaseButton.clicked.connect(
@@ -91,7 +95,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         )
 
         self.RunExperimentButton.clicked.connect(
-            lambda: self.start_exp.emit(self.experiment_case_list)
+            lambda: self.start_exp.emit(self.experiment_case_list, parse_xcms_params(self.XCMSParamTab))
         )
         self.ViewSummaryButton.clicked.connect(
             lambda: view_summary(self)
