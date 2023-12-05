@@ -295,3 +295,7 @@
 ### 05 Dec 2023
 
 - _1 hour_ Nice simple task to start the day, abstracted the load and save config buttons so that they could be added to the simulate experiment page as well.
+
+* _1 hour_ Designed some mock wireframes for the potential load screen to show on the experiment page, or throughout the software tool when the user is having to wait on the execution of a process. Unsure whether the user should just be notified upon completion or have to wait on the specific page.
+
+* _2.5 hours_ It is now possible to select any of the controllers currently identified in the Experiment.py file other than the agentBased controller as I have a few questions around that one. I also realised when coding away that the experiment was not actually taking into consideration changes made to the smart_roi parameters present in the controller, as I had not done appropriate parsing of these fields. This has now been resolved and will mean that the correct values input by the user as apposed to the defaults will be used.

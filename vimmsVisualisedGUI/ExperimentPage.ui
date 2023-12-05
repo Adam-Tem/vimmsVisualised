@@ -586,6 +586,46 @@ background-color: rgb(240, 240, 240);</string>
        <string>TopN ROI Controller</string>
       </property>
      </item>
+     <item>
+      <property name="text">
+       <string>TopNEX Controller</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>TopN Exclusion Controller</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Hard ROI Exclusion Controller</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Intensity ROI Exclusion Controller</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Non Overlap Controller</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Intensity Non Overlap Controller</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>DSDA Controller</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Matching Controller</string>
+      </property>
+     </item>
     </widget>
     <widget class="QGroupBox" name="ParamsBox">
      <property name="geometry">

@@ -1,5 +1,3 @@
-
-
 def controller_string_conversion(controller_name):
     match controller_name:
         case "TopN Controller":
@@ -10,9 +8,9 @@ def controller_string_conversion(controller_name):
             return "topn_exclusion"
         case "topNEX Controller":
             return "topnex"
-        case "Hard Roi Exclusion Controller":
+        case "Hard ROI Exclusion Controller":
             return "hard_roi_exclusion"
-        case "Intensity Roi Exclusion Controller":
+        case "Intensity ROI Exclusion Controller":
             return "intensity_roi_exclusion"
         case "Non Overlap Controller":
             return "non_overlap"
@@ -22,4 +20,3 @@ def controller_string_conversion(controller_name):
             return "dsda"
         case "Matching Controller":
             return "matching"
-        

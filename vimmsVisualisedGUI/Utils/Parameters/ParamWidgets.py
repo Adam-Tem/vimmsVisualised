@@ -1,17 +1,35 @@
 from PyQt5 import QtWidgets as qtw
 from Utils.CustomWidgets import *
 
-from vimms.Controller import TopNController, TopN_SmartRoiController, TopN_RoiController
+from vimms.Controller import *
 from vimms.Roi import RoiBuilderParams, SmartRoiParams
 from vimms.ChemicalSamplers import *
-from vimms.Common import ROI_EXCLUSION_DEW
+from vimms.Common import ROI_EXCLUSION_DEW, GRID_CONTROLLER_SCORING_PARAMS
 
 MIN_MZ = 0
 MAX_MZ = 100000
 CONTROLLERS = {"TopN Controller": TopNController, 
                "TopN Smart ROI Controller": TopN_SmartRoiController,
-               "TopN ROI Controller": TopN_RoiController,           
+               "TopN ROI Controller": TopN_RoiController, 
+               "TopNEX Controller": TopNEXController,
+               "Hard ROI Exclusion Controller": HardRoIExcludeController,
+               "Intensity ROI Exclusion Controller": IntensityRoIExcludeController,
+               "Non Overlap Controller": NonOverlapController,
+               "Intensity Non Overlap Controller": IntensityNonOverlapController,
+               "DSDA Controller": DsDAController,
+               "Matching Controller": MatchingController,
                }
+
+CONTROLLERS_WITH_ROI_PARAMS = ["TopN Smart ROI Controller", 
+                               "TopN ROI Controller",
+                               "TopNEX Controller",
+                               "Hard ROI Exclusion Controller",
+                               "Intensity ROI Exclusion Controller",
+                               "Non Overlap Controller",
+                               "Intensity Non Overlap Controller"]
+
+CONTROLLERS_WITH_SMART_ROI_PARAMS = CONTROLLERS_WITH_ROI_PARAMS
+CONTROLLERS_WITH_SMART_ROI_PARAMS.remove("TopN ROI Controller")
 
 ROI_BUILDERS = {"roi_params": RoiBuilderParams,
                "smartroi_params": SmartRoiParams,
@@ -60,6 +78,14 @@ CONTROLLER_PARAMS = {
     "min_roi_length_for_fragmentation": [("min_roi_length_for_fragmentation", qtw.QLineEdit), ("Min Frag. Length:", qtw.QLabel), 0],
     "exclusion_method": [("exclusion_method", qtw.QComboBox), ("Exclusion Method:", qtw.QLabel), ROI_EXCLUSION_DEW],
     "exclusion_t_0": [("exclusion_t_0", qtw.QLineEdit), ("Exclusion T0:", qtw.QLabel)],
+    "grid": [("grid", qtw.QLineEdit), ("Grid", qtw.QLabel)],
+    "register_all_roi": [("register_all_roi", QBooleanButton), ("Register all ROI:", qtw.QLabel), False],
+    "scoring_params": [("scoring_params", qtw.QComboBox), ("Scoring Params:", qtw.QLabel), GRID_CONTROLLER_SCORING_PARAMS],
+    "dsda_state": [("dsda_state", qtw.QLineEdit), ("DSDA State:", qtw.QLabel)],
+    "mzml_name": [("mzml_name", qtw.QLineEdit), ("MZML Name:", qtw.QLabel)],
+    "task_filter": [("task_filter", qtw.QLineEdit), ("Task Filter:", qtw.QLabel)],
+    "schedule": [("schedule", qtw.QLineEdit), ("Schedule:", qtw.QLabel)],
+    "expected_rts": [("expected_rts", qtw.QLineEdit), ("Expected RTs:", qtw.QLabel)],
 }
 
 ROI_PARAMS = {
