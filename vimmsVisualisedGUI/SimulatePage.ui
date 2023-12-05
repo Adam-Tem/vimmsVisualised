@@ -219,7 +219,7 @@
     <rect>
      <x>0</x>
      <y>200</y>
-     <width>601</width>
+     <width>560</width>
      <height>291</height>
     </rect>
    </property>
@@ -284,6 +284,32 @@
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="LoadParamsButton">
+   <property name="geometry">
+    <rect>
+     <x>565</x>
+     <y>200</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SaveParamsButton">
+   <property name="geometry">
+    <rect>
+     <x>565</x>
+     <y>240</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

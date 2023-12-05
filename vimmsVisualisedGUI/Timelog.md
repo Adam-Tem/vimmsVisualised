@@ -289,3 +289,9 @@
 - _2 hours_ Began to add the XCMS parameter choices to the experiment page. Managed to get the tab widget functional and the inputs displaying.
 
 * _1.5 hours_ In a fairly swift manner, I was able to get the xcms paramters parsed and passed to the run experiment function, with only the one set of parameters the selection box does not need to be updated. I have now also added the functionality so that the save and load config buttons know what to do if it is the controller or xcms screen detected. May potentially change this so that it would change the tab given the selection, or maybe show an error if wrong selection is made.
+
+## Week 10
+
+### 05 Dec 2023
+
+- _1 hour_ Nice simple task to start the day, abstracted the load and save config buttons so that they could be added to the simulate experiment page as well.

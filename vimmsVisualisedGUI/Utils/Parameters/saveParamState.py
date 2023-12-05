@@ -6,16 +6,16 @@ from Utils.Parameters.ParamWidgets import CONTROLLERS
 from Utils.XCMS.parseXCMSParams import parse_xcms_params
 import json
 
-def save_param_state(self, param_box, xcms_param_box, selected_controller):
+def save_param_state(self, selected_controller, current_index = 0):
 
     saved_state = {}
-    if self.ParamTabs.currentIndex() == 0:
+    if current_index == 0:
         saved_state["selected_controller"] = selected_controller
         param_names = identify_params(selected_controller, CONTROLLERS)
-        params = parse_params(param_box, param_names)
+        params = parse_params(self.ParamsBox, param_names)
         saved_state["params"] = params
     else:
-        saved_state["params"] = parse_xcms_params(xcms_param_box)
+        saved_state["params"] = parse_xcms_params(self.XCMSParamsBox)
 
     options = qtw.QFileDialog.Options()
     file_dialog = qtw.QFileDialog(self)

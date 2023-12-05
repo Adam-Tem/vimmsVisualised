@@ -74,13 +74,13 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         )
 
         self.SaveParamsButton.clicked.connect(
-            lambda: save_param_state(self, self.ParamsBox,
-                                     self.XCMSParamsBox,
-                                     self.ControllerComboBox.currentText())
+            lambda: save_param_state(self,
+                                     self.ControllerComboBox.currentText(),
+                                     self.ParamTabs.currentIndex())
         )
 
         self.LoadParamsButton.clicked.connect(
-            lambda: load_param_state(self)
+            lambda: load_param_state(self, self.ParamTabs.currentIndex())
         )
 
         self.ControllerComboBox.currentIndexChanged.connect(

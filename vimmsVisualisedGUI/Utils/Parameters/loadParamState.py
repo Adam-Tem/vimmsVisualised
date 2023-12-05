@@ -3,9 +3,9 @@ import json
 from Utils.CustomWidgets import QBooleanButton, QIonModeButton
 from Utils.setCharge import setButtonText
 
-def load_param_state(self):
+def load_param_state(self, current_index=0):
 
-    if self.ParamTabs.currentIndex() == 0:
+    if current_index == 0:
          param_box_of_interest = self.ParamsBox
          desc = "Choose a saved controller config"
     else:
@@ -17,7 +17,7 @@ def load_param_state(self):
     with open(saved_param_file_name, 'r') as saved_param_file:
         params = json.load(saved_param_file)
 
-    if self.ParamTabs.currentIndex() == 0:
+    if current_index == 0:
         self.ControllerComboBox.setCurrentText(params["selected_controller"])
 
     for child_widget in param_box_of_interest.findChildren(qtw.QWidget):
