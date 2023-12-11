@@ -73,6 +73,9 @@
       <pointsize>12</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string/>
+    </property>
     <property name="text">
      <string>Please select fullscans to inject:</string>
     </property>
@@ -395,7 +398,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>100</y>
+     <y>600</y>
      <width>600</width>
      <height>400</height>
     </rect>

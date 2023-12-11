@@ -311,3 +311,5 @@
 ### 11 Dec 2023
 
 - _2 hours_ Finally resolved the issue with the uninteractive summary graph. I have now also added the option to select between what results graph you wish to have displayed.
+
+* _1.5 hours_ Wow that was actually reasonably simple! Absolutely brilliant that PyQt has a built in tool tip function, so all I had to do was write a simple script to parse the docstring of the constructor of the selected controller, then assign these descriptions to the appropriate label! It has been set up just now with the assumption that all parameters will have a description associated with it, so I'll need to test that to be sure. But yeah, basically got the tool tip working already!

@@ -4,6 +4,7 @@ from Utils.Display.createWidgets import createWidgets
 from Utils.Display.createScrollArea import createScrollArea
 from Utils.Display.createExecuteButton import create_execute_button
 from Utils.Display.adjustParamBoxSize import adjust_param_box_size
+from Utils.Experiment.docstringTooltipParsing import docstring_tooltip_parsing
 from Utils.CustomWidgets import QBooleanButton
 
 def displayParams(param_box, combo_box_text, execute_button_type, potential_constructors, potential_params, add_scroll):
@@ -22,7 +23,7 @@ def displayParams(param_box, combo_box_text, execute_button_type, potential_cons
     param_layout = qtw.QGridLayout(param_box)
     param_layout.setVerticalSpacing(10)
     param_count = 0
-    
+    param_desc_dict = docstring_tooltip_parsing(combo_box_text)
     row = 0
     col = 0
     for value in widget_names:
@@ -31,6 +32,7 @@ def displayParams(param_box, combo_box_text, execute_button_type, potential_cons
         new_widget.setAccessibleName(value[0][0])
         new_widget.setMinimumHeight(19)
         new_label = value[1][1](text=value[1][0], parent=param_box)
+        new_label.setToolTip(param_desc_dict[value[0][0]])
         if len(value) == 3:
             if type(new_widget) == QBooleanButton:  
                 new_widget.setText("False")

@@ -153,7 +153,7 @@ class Ui_experimentForm(object):
         self.PickleEnvLabel.setObjectName("PickleEnvLabel")
         self.SummaryGroupBox = QtWidgets.QGroupBox(experimentForm)
         self.SummaryGroupBox.setEnabled(True)
-        self.SummaryGroupBox.setGeometry(QtCore.QRect(0, 100, 600, 400))
+        self.SummaryGroupBox.setGeometry(QtCore.QRect(0, 600, 600, 400))
         self.SummaryGroupBox.setAutoFillBackground(True)
         self.SummaryGroupBox.setTitle("")
         self.SummaryGroupBox.setObjectName("SummaryGroupBox")
@@ -356,6 +356,7 @@ class Ui_experimentForm(object):
         _translate = QtCore.QCoreApplication.translate
         experimentForm.setWindowTitle(_translate("experimentForm", "Form"))
         self.VisualiseTitleLabel.setText(_translate("experimentForm", "Perform Experiment"))
+        self.FullscanSelectLabel.setToolTip(_translate("experimentForm", "Deez nuts"))
         self.FullscanSelectLabel.setText(_translate("experimentForm", "Please select fullscans to inject:"))
         self.SelectedFullscanLabel.setText(_translate("experimentForm", "Selected fullscan injections:"))
         self.NoOfInjectionsLabel.setText(_translate("experimentForm", "# of times to inject:"))
