@@ -395,7 +395,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>600</y>
+     <y>100</y>
      <width>600</width>
      <height>400</height>
     </rect>
@@ -468,13 +468,43 @@
     <property name="geometry">
      <rect>
       <x>300</x>
-      <y>60</y>
+      <y>10</y>
       <width>280</width>
       <height>280</height>
      </rect>
     </property>
     <property name="title">
      <string/>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="CumulativeCoverageRadioButton">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>300</y>
+      <width>121</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cumulative Coverage</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="CumulativeIntensityProportionRadioButton">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>300</y>
+      <width>121</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cumulative Intensity
+Proportion</string>
     </property>
    </widget>
   </widget>

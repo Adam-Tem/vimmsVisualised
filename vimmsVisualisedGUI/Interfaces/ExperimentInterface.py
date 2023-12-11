@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtGui as qtg
 
+
 from vimms.Box import BoxGrid
 from vimms.BoxManager import BoxSplitter, BoxManager
 from vimms.Experiment import Experiment
@@ -18,6 +19,8 @@ from Utils.Threads.workerThread import ExperimentWorker
 from Utils.Parameters.saveParamState import save_param_state
 from Utils.Parameters.loadParamState import load_param_state
 from Utils.XCMS.parseXCMSParams import parse_xcms_params
+from Graphing.createGraphLayout import create_graph_layout
+from Graphing.ExperimentResultPlot import experiment_result_plot
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
@@ -37,7 +40,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         box_geometry = BoxGrid(),
         box_splitter = BoxSplitter(split=True)
         )
-
+        create_graph_layout(self)
         self.worker = ExperimentWorker()
         self.worker_thread = qtc.QThread()
         self.worker.moveToThread(self.worker_thread)
@@ -102,6 +105,16 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         )
         self.NewExperimentButton.clicked.connect(
             lambda: new_experiment(self)
+        )
+
+        self.CumulativeIntensityProportionRadioButton.clicked.connect(
+            lambda: experiment_result_plot(self.canvas, self.experiment, 
+                                           self.experiment_case_list, "cumulative_intensity_proportion")
+        )
+
+        self.CumulativeCoverageRadioButton.clicked.connect(
+            lambda: experiment_result_plot(self.canvas, self.experiment, 
+                                           self.experiment_case_list, "cumulative_coverage_proportion")
         )
 
         

@@ -299,3 +299,15 @@
 * _1 hour_ Designed some mock wireframes for the potential load screen to show on the experiment page, or throughout the software tool when the user is having to wait on the execution of a process. Unsure whether the user should just be notified upon completion or have to wait on the specific page.
 
 * _2.5 hours_ It is now possible to select any of the controllers currently identified in the Experiment.py file other than the agentBased controller as I have a few questions around that one. I also realised when coding away that the experiment was not actually taking into consideration changes made to the smart_roi parameters present in the controller, as I had not done appropriate parsing of these fields. This has now been resolved and will mean that the correct values input by the user as apposed to the defaults will be used.
+
+### 06 Dec 2023
+
+- _2 hours_ Back again looking at how to get the graph to cooperate on the experiment summary page. It just appears that the controls for moving and altering the graph image are not working, but the nav bar and graph are linked as the save function works properly. I have managed to get it to display one graph now, but will try and get it so there is an option to choose between what graph the user wants to see related to the summary.
+
+### 10 Dec 2023
+
+- _1 hour_ Another quickhour fighting against the bloody summary graph but I feel I will know how to sort it now. Manana.
+
+### 11 Dec 2023
+
+- _2 hours_ Finally resolved the issue with the uninteractive summary graph. I have now also added the option to select between what results graph you wish to have displayed.
