@@ -48,6 +48,8 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.start_exp.connect(self.worker.run)
         self.worker.experiment_finished.connect(self.set_experiment_and_summary)
            
+        self.scrollArea.setWidget(self.ParamsBox)
+        self.AdvancedParamsScrollArea.setWidget(self.AdvancedParamsGroupBox)
         self.SummaryGroupBox.setHidden(True)
 
         fullscan_upload_button = QMzmlUpload(parent=self.FullscanGroupBox)
@@ -89,7 +91,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.ControllerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.ParamsBox,
                                   self.ControllerComboBox.currentText(), 
-            [False, ""], CONTROLLERS, CONTROLLER_PARAMS, [True,"Experiment"] ))
+            [False, ""], CONTROLLERS, CONTROLLER_PARAMS, True))
         
         self.AddExperimentCaseButton.clicked.connect(
             lambda: construct_experiment_case(self, self.ControllerComboBox.currentText(),self.ParamsBox,

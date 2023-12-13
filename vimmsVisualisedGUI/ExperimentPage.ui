@@ -548,7 +548,7 @@ Proportion</string>
     <rect>
      <x>0</x>
      <y>170</y>
-     <width>560</width>
+     <width>561</width>
      <height>211</height>
     </rect>
    </property>
@@ -569,7 +569,7 @@ Proportion</string>
 background-color: rgb(240, 240, 240);</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="ControllerParamTab">
     <attribute name="title">
@@ -660,12 +660,44 @@ background-color: rgb(240, 240, 240);</string>
       </property>
      </item>
     </widget>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>25</y>
+       <width>551</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>536</width>
+        <height>159</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
     <widget class="QGroupBox" name="ParamsBox">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>25</y>
-       <width>560</width>
+       <width>531</width>
        <height>161</height>
       </rect>
      </property>
@@ -679,9 +711,618 @@ background-color: rgb(240, 240, 240);</string>
       <string/>
      </property>
     </widget>
-    <zorder>ParamsBox</zorder>
-    <zorder>ControllerSelectLabel</zorder>
-    <zorder>ControllerComboBox</zorder>
+   </widget>
+   <widget class="QWidget" name="AdvancedParamsTab">
+    <attribute name="title">
+     <string>Advanced Parameters</string>
+    </attribute>
+    <widget class="QGroupBox" name="AdvancedParamsGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>531</width>
+       <height>290</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>531</width>
+       <height>290</height>
+      </size>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QWidget" name="gridLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>533</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <property name="horizontalSpacing">
+        <number>5</number>
+       </property>
+       <item row="3" column="0">
+        <widget class="QLabel" name="MS2AGCTargetLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>automatic gain control target for MS2 scan</string>
+         </property>
+         <property name="text">
+          <string>MS2 AGC Target:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QGroupBox" name="MS1ScanWindowGroupBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="title">
+          <string/>
+         </property>
+         <widget class="QWidget" name="verticalLayoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>71</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLineEdit" name="MS1ScanWindowMinTextEdit">
+             <property name="text">
+              <string>70</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="dashLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>10</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>-</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="MS1ScanWindowMaxTextEdit">
+             <property name="text">
+              <string>1000</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item row="3" column="5">
+        <widget class="QLineEdit" name="MS2CollisionEnergyTextEdit">
+         <property name="accessibleName">
+          <string>snthresh</string>
+         </property>
+         <property name="text">
+          <string>25</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="4">
+        <widget class="QLabel" name="MS2CollisionEnergyLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>the collision energy used for MS2 scan</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MS2 Coll. Energy:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="MS1MassAnalyserComboBox">
+         <item>
+          <property name="text">
+           <string>Orbitrap</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>IonTrap</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="MS1ScanWindowLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>the m/z window to perform MS1 scan</string>
+         </property>
+         <property name="text">
+          <string>MS1 Scan Window:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="MS1CollisionEnergyLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>the collision energy used for MS1 scan</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MS1 Coll. Energy:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLineEdit" name="MS1OrbitrapResolutionTextEdit">
+         <property name="accessibleName">
+          <string>noise</string>
+         </property>
+         <property name="text">
+          <string>120000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="MS1AGCTargetLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>automatic gain control target for MS1 scan</string>
+         </property>
+         <property name="text">
+          <string>MS1 AGC Target:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="4">
+        <widget class="QLabel" name="MS2MassAnalyserLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>the mass analyser to use for MS2 scan, either IonTrap or Orbitrap</string>
+         </property>
+         <property name="text">
+          <string>MS2 Mass Analyser:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLineEdit" name="MS1AGCTargetTextEdit">
+         <property name="accessibleName">
+          <string>pwlower</string>
+         </property>
+         <property name="text">
+          <string>200000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="MS2AGCTargetTextEdit">
+         <property name="accessibleName">
+          <string>pwlower</string>
+         </property>
+         <property name="text">
+          <string>30000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="MS2OrbitrapResolutionLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>the Orbitrap resolution used for MS2 scan</string>
+         </property>
+         <property name="text">
+          <string>MS2 Orbitrap Res:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="MS1CollisionEnergyTextEdit">
+         <property name="accessibleName">
+          <string>snthresh</string>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="MS2OrbitrapResolutionTextEdit">
+         <property name="accessibleName">
+          <string>noise</string>
+         </property>
+         <property name="text">
+          <string>7500</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="5">
+        <widget class="QLineEdit" name="MS1SourceCidEnergyTextEdit">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QComboBox" name="MS1IsolationModeComboBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>75</width>
+           <height>0</height>
+          </size>
+         </property>
+         <item>
+          <property name="text">
+           <string>Quadrupole</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>IonTrap</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QLabel" name="MS1MaxITLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>maximum time to acquire ions for MS1 scan</string>
+         </property>
+         <property name="text">
+          <string>MS1 Max IT:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="MS1MassAnalyserLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>the mass analyser to use for MS1 scan, either IonTrap or Orbitrap</string>
+         </property>
+         <property name="text">
+          <string>MS1 Mass Analyser:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="MS1OrbitrapResolutionLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>the Orbitrap resolution used for MS1 scan</string>
+         </property>
+         <property name="text">
+          <string>MS1 Orbitrap Res:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <widget class="QLineEdit" name="MS1MaxITTextEdit">
+         <property name="accessibleName">
+          <string>pwupper</string>
+         </property>
+         <property name="text">
+          <string>250</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QLineEdit" name="MS2MaxITTextEdit">
+         <property name="accessibleName">
+          <string>pwupper</string>
+         </property>
+         <property name="text">
+          <string>100</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="5">
+        <widget class="QComboBox" name="MS1ActivationTypeComboBox">
+         <item>
+          <property name="text">
+           <string>HCD</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>CID</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="4" column="5">
+        <widget class="QComboBox" name="MS2MassAnalyserComboBox">
+         <item>
+          <property name="text">
+           <string>Orbitrap</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>IonTrap</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QLabel" name="MS1IsolationModeLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>the isolation mode for MS1 scan, either None, Quadrupole, IonTrap</string>
+         </property>
+         <property name="text">
+          <string>MS1 Isolation Mode:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
+        <widget class="QLabel" name="MS1ActivationTypeLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>the activation type for MS1 scan, either CID or HCD</string>
+         </property>
+         <property name="text">
+          <string>MS1 Activation:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="QLabel" name="MS2ActivationTypeLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>the activation type for MS2 scan, either CID or HCD</string>
+         </property>
+         <property name="text">
+          <string>MS2 Activation:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="4">
+        <widget class="QLabel" name="MS1SourceCidEnergyLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>source CID energy</string>
+         </property>
+         <property name="text">
+          <string>MS1 CID Energy:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLabel" name="MS2MaxITLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>maximum time to acquire ions for MS2 scan</string>
+         </property>
+         <property name="text">
+          <string>MS2 Max IT:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QComboBox" name="MS2ActivationTypeComboBox">
+         <item>
+          <property name="text">
+           <string>HCD</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>CID</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="MS2IsolationModeLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>the isolation mode for MS2 scan, either None, Quadrupole, IonTrap</string>
+         </property>
+         <property name="text">
+          <string>MS2 Isolation Mode:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="MS2IsolationModeComboBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>75</width>
+           <height>0</height>
+          </size>
+         </property>
+         <item>
+          <property name="text">
+           <string>Quadrupole</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>IonTrap</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="5" column="2">
+        <widget class="QLabel" name="MS2SourceCidEnergyLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>source CID energy</string>
+         </property>
+         <property name="text">
+          <string>MS2 CID Energy:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="3">
+        <widget class="QLineEdit" name="MS2SourceCidEnergyTextEdit">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QScrollArea" name="AdvancedParamsScrollArea">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>551</width>
+       <height>186</height>
+      </rect>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>536</width>
+        <height>184</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <zorder>AdvancedParamsScrollArea</zorder>
+    <zorder>AdvancedParamsGroupBox</zorder>
    </widget>
    <widget class="QWidget" name="XCMSParamTab">
     <attribute name="title">

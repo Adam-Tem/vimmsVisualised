@@ -29,7 +29,7 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
         self.SelectFileButton.clicked.connect(lambda: upload_file(self, "p"))
         self.ControllerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.ParamsBox,self.ControllerComboBox.currentText(), 
-            [True, "Simulate"], CONTROLLERS, CONTROLLER_PARAMS,[True,"Simulate"] ))
+            [True, "Simulate"], CONTROLLERS, CONTROLLER_PARAMS,True))
         
         self.SaveParamsButton.clicked.connect(
             lambda: save_param_state(self,

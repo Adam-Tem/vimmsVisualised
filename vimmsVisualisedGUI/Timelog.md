@@ -313,3 +313,11 @@
 - _2 hours_ Finally resolved the issue with the uninteractive summary graph. I have now also added the option to select between what results graph you wish to have displayed.
 
 * _1.5 hours_ Wow that was actually reasonably simple! Absolutely brilliant that PyQt has a built in tool tip function, so all I had to do was write a simple script to parse the docstring of the constructor of the selected controller, then assign these descriptions to the appropriate label! It has been set up just now with the assumption that all parameters will have a description associated with it, so I'll need to test that to be sure. But yeah, basically got the tool tip working already!
+
+### 12 Dec 2023
+
+- _2 hours_ Initially started by doing some debugging of the new tool tip description implementation, now seems fully functional across entire GUI. I have now also started adding the implementation of the advanced parameters selection screen. At first I thought I would have to make it an optional seleciton, but it is part of all the controllers so I can just add it as a default. Just a tedious process going through and adding all the different parameters, but will get there eventually!
+
+### 13 Dec 2023
+
+- _2 hours_ Managed to finish off adding in the advanced params screen to the experiment page. Still have to set up the parsing of the values, but have added in the appropriate tool tip descriptions.
