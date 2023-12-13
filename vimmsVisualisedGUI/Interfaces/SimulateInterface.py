@@ -11,6 +11,7 @@ from Utils.LoadingWidget import *
 from Utils.Parameters.ParamWidgets import CONTROLLER_PARAMS, CONTROLLERS
 from Utils.Parameters.loadParamState import load_param_state
 from Utils.Parameters.saveParamState import save_param_state
+from Utils.Parameters.parseAdvancedParams import parse_advanced_params
 
 
 class SimulatePage(qtw.QWidget, Ui_SimulateForm):
@@ -29,7 +30,7 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
         self.SelectFileButton.clicked.connect(lambda: upload_file(self, "p"))
         self.ControllerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.ParamsBox,self.ControllerComboBox.currentText(), 
-            [True, "Simulate"], CONTROLLERS, CONTROLLER_PARAMS,True))
+            [False, ""], CONTROLLERS, CONTROLLER_PARAMS,True))
         
         self.SaveParamsButton.clicked.connect(
             lambda: save_param_state(self,
@@ -38,4 +39,9 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
 
         self.LoadParamsButton.clicked.connect(
             lambda: load_param_state(self)
+        )
+        
+        self.SimulateButton.clicked.connect(
+            lambda: controllerSelection(self.ParamsBox, self.ControllerComboBox.currentText(),
+                                        parse_advanced_params(self.AdvancedParamsGroupBox))
         )

@@ -4,6 +4,7 @@ from Utils.Parameters.ParseParams import parse_params
 from Utils.Parameters.identifyParams import identify_params
 from Utils.Parameters.ParamWidgets import CONTROLLERS
 from Utils.XCMS.parseXCMSParams import parse_xcms_params
+from Utils.Parameters.parseAdvancedParams import parse_advanced_params
 import json
 
 def save_param_state(self, selected_controller, current_index = 0):
@@ -14,6 +15,8 @@ def save_param_state(self, selected_controller, current_index = 0):
         param_names = identify_params(selected_controller, CONTROLLERS)
         params = parse_params(self.ParamsBox, param_names)
         saved_state["params"] = params
+    elif current_index == 1:
+        saved_state["params"] = parse_advanced_params(self.AdvancedParamsGroupBox)
     else:
         saved_state["params"] = parse_xcms_params(self.XCMSParamsBox)
 

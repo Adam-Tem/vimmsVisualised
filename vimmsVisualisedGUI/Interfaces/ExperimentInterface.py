@@ -97,7 +97,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.AddExperimentCaseButton.clicked.connect(
             lambda: construct_experiment_case(self, self.ControllerComboBox.currentText(),self.ParamsBox,
                                               pickle_env_button.current_selection(), self.CaseNameTextEdit.text(),
-                                              self.fullscan_list, geom, parse_advanced_params(self))
+                                              self.fullscan_list, geom, parse_advanced_params(self.AdvancedParamsGroupBox))
         )
 
         self.RunExperimentButton.clicked.connect(

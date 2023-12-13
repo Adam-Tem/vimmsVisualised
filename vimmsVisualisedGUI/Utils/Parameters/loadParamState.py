@@ -8,6 +8,9 @@ def load_param_state(self, current_index=0):
     if current_index == 0:
          param_box_of_interest = self.ParamsBox
          desc = "Choose a saved controller config"
+    elif current_index == 1:
+         param_box_of_interest = self.AdvancedParamsGroupBox
+         desc = "Choose a saved advanced parameter config"
     else:
          param_box_of_interest = self.XCMSParamsBox
          desc = "Choose a saved XCMS config"
@@ -30,5 +33,11 @@ def load_param_state(self, current_index=0):
 
                 elif type(child_widget) == qtw.QSpinBox:
                     child_widget.setValue(int(params["params"][param_name]))
-                else:
+
+                elif type(child_widget) == qtw.QGroupBox:
+                     i = 0
+                     for sub_text_input in child_widget.findChildren(qtw.QLineEdit):
+                          sub_text_input.setText(str(int(params["params"][param_name][i])))
+                          i += 1
+                elif type(child_widget) == qtw.QLineEdit:
                      child_widget.setText(str(int(params["params"][param_name])))

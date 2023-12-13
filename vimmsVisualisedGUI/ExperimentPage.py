@@ -608,7 +608,7 @@ class Ui_experimentForm(object):
         self.SummaryGroupBox.raise_()
 
         self.retranslateUi(experimentForm)
-        self.ParamTabs.setCurrentIndex(1)
+        self.ParamTabs.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(experimentForm)
 
     def retranslateUi(self, experimentForm):

@@ -18,8 +18,7 @@ def docstring_tooltip_parsing(constructor_name, constructor_type):
             elif param_and_desc[0].strip() == "smartroi_params":
                 smartroi_params = docstring_tooltip_parsing("smartroi_params", ROI_BUILDERS) 
                 param_desc_dict.update(smartroi_params)
-            elif param_and_desc[0].strip() == "advanced_params":
-                print("Yep")
+
             if len(param_and_desc) == 2:
                 param = param_and_desc[0].strip()
                 desc = param_and_desc[1].strip()

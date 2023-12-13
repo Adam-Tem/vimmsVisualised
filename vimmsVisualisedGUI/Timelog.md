@@ -323,3 +323,7 @@
 - _2 hours_ Managed to finish off adding in the advanced params screen to the experiment page. Still have to set up the parsing of the values, but have added in the appropriate tool tip descriptions.
 
 * _1.5 hours_ Parsing of advanced parameters now also added to the experiment page. Was initially just going to be lazy and hard code everything, but it is set up now with not 100% abstraction, but still makes use of kwargs to construct the object.
+
+* _1 hour_ Now added load/save param state to the advanced params also.
+
+* _1 hour_ And that should be the advanced parameters variables being properly parsed and used in the simulate page also! Will still need to stress test this and I am bound to find bugs, but after an n=1 case with the basic TopN controller, all seems to be working well.
