@@ -19,6 +19,7 @@ from Utils.Threads.workerThread import ExperimentWorker
 from Utils.Parameters.saveParamState import save_param_state
 from Utils.Parameters.loadParamState import load_param_state
 from Utils.XCMS.parseXCMSParams import parse_xcms_params
+from Utils.Parameters.parseAdvancedParams import parse_advanced_params
 from Graphing.createGraphLayout import create_graph_layout
 from Graphing.ExperimentResultPlot import experiment_result_plot
 
@@ -96,7 +97,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.AddExperimentCaseButton.clicked.connect(
             lambda: construct_experiment_case(self, self.ControllerComboBox.currentText(),self.ParamsBox,
                                               pickle_env_button.current_selection(), self.CaseNameTextEdit.text(),
-                                              self.fullscan_list, geom)
+                                              self.fullscan_list, geom, parse_advanced_params(self))
         )
 
         self.RunExperimentButton.clicked.connect(
@@ -119,7 +120,6 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
                                            self.experiment_case_list, "cumulative_coverage_proportion")
         )
 
-        
     @qtc.pyqtSlot(Experiment, str)
     def set_experiment_and_summary(self, experiment, summary):
         print(experiment)

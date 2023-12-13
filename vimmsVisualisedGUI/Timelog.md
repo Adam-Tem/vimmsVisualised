@@ -321,3 +321,5 @@
 ### 13 Dec 2023
 
 - _2 hours_ Managed to finish off adding in the advanced params screen to the experiment page. Still have to set up the parsing of the values, but have added in the appropriate tool tip descriptions.
+
+* _1.5 hours_ Parsing of advanced parameters now also added to the experiment page. Was initially just going to be lazy and hard code everything, but it is set up now with not 100% abstraction, but still makes use of kwargs to construct the object.

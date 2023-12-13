@@ -785,6 +785,9 @@ background-color: rgb(240, 240, 240);</string>
            <height>60</height>
           </size>
          </property>
+         <property name="accessibleName">
+          <string>default_ms1_scan_window</string>
+         </property>
          <property name="title">
           <string/>
          </property>
@@ -847,7 +850,7 @@ background-color: rgb(240, 240, 240);</string>
        <item row="3" column="5">
         <widget class="QLineEdit" name="MS2CollisionEnergyTextEdit">
          <property name="accessibleName">
-          <string>snthresh</string>
+          <string>ms2_collision_energy</string>
          </property>
          <property name="text">
           <string>25</string>
@@ -871,6 +874,9 @@ background-color: rgb(240, 240, 240);</string>
        </item>
        <item row="2" column="1">
         <widget class="QComboBox" name="MS1MassAnalyserComboBox">
+         <property name="accessibleName">
+          <string>ms1_mass_analyser</string>
+         </property>
          <item>
           <property name="text">
            <string>Orbitrap</string>
@@ -908,6 +914,9 @@ background-color: rgb(240, 240, 240);</string>
          <property name="toolTip">
           <string>the collision energy used for MS1 scan</string>
          </property>
+         <property name="accessibleName">
+          <string/>
+         </property>
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MS1 Coll. Energy:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
@@ -916,7 +925,7 @@ background-color: rgb(240, 240, 240);</string>
        <item row="1" column="3">
         <widget class="QLineEdit" name="MS1OrbitrapResolutionTextEdit">
          <property name="accessibleName">
-          <string>noise</string>
+          <string>ms1_orbitrap_resolution</string>
          </property>
          <property name="text">
           <string>120000</string>
@@ -932,6 +941,9 @@ background-color: rgb(240, 240, 240);</string>
          </property>
          <property name="toolTip">
           <string>automatic gain control target for MS1 scan</string>
+         </property>
+         <property name="accessibleName">
+          <string/>
          </property>
          <property name="text">
           <string>MS1 AGC Target:</string>
@@ -956,7 +968,7 @@ background-color: rgb(240, 240, 240);</string>
        <item row="0" column="3">
         <widget class="QLineEdit" name="MS1AGCTargetTextEdit">
          <property name="accessibleName">
-          <string>pwlower</string>
+          <string>ms1_agc_target</string>
          </property>
          <property name="text">
           <string>200000</string>
@@ -966,7 +978,7 @@ background-color: rgb(240, 240, 240);</string>
        <item row="3" column="1">
         <widget class="QLineEdit" name="MS2AGCTargetTextEdit">
          <property name="accessibleName">
-          <string>pwlower</string>
+          <string>ms2_agc_target</string>
          </property>
          <property name="text">
           <string>30000</string>
@@ -991,7 +1003,7 @@ background-color: rgb(240, 240, 240);</string>
        <item row="1" column="1">
         <widget class="QLineEdit" name="MS1CollisionEnergyTextEdit">
          <property name="accessibleName">
-          <string>snthresh</string>
+          <string>ms1_collision_energy</string>
          </property>
          <property name="text">
           <string>0</string>
@@ -1001,7 +1013,7 @@ background-color: rgb(240, 240, 240);</string>
        <item row="4" column="1">
         <widget class="QLineEdit" name="MS2OrbitrapResolutionTextEdit">
          <property name="accessibleName">
-          <string>noise</string>
+          <string>ms2_orbitrap_resolution</string>
          </property>
          <property name="text">
           <string>7500</string>
@@ -1010,6 +1022,9 @@ background-color: rgb(240, 240, 240);</string>
        </item>
        <item row="2" column="5">
         <widget class="QLineEdit" name="MS1SourceCidEnergyTextEdit">
+         <property name="accessibleName">
+          <string>ms1_source_cid_energy</string>
+         </property>
          <property name="text">
           <string>0</string>
          </property>
@@ -1028,6 +1043,9 @@ background-color: rgb(240, 240, 240);</string>
            <width>75</width>
            <height>0</height>
           </size>
+         </property>
+         <property name="accessibleName">
+          <string>ms1_isolation_mode</string>
          </property>
          <item>
           <property name="text">
@@ -1051,6 +1069,9 @@ background-color: rgb(240, 240, 240);</string>
          <property name="toolTip">
           <string>maximum time to acquire ions for MS1 scan</string>
          </property>
+         <property name="accessibleName">
+          <string/>
+         </property>
          <property name="text">
           <string>MS1 Max IT:</string>
          </property>
@@ -1065,6 +1086,9 @@ background-color: rgb(240, 240, 240);</string>
          </property>
          <property name="toolTip">
           <string>the mass analyser to use for MS1 scan, either IonTrap or Orbitrap</string>
+         </property>
+         <property name="accessibleName">
+          <string/>
          </property>
          <property name="text">
           <string>MS1 Mass Analyser:</string>
@@ -1081,6 +1105,9 @@ background-color: rgb(240, 240, 240);</string>
          <property name="toolTip">
           <string>the Orbitrap resolution used for MS1 scan</string>
          </property>
+         <property name="accessibleName">
+          <string/>
+         </property>
          <property name="text">
           <string>MS1 Orbitrap Res:</string>
          </property>
@@ -1089,7 +1116,7 @@ background-color: rgb(240, 240, 240);</string>
        <item row="0" column="5">
         <widget class="QLineEdit" name="MS1MaxITTextEdit">
          <property name="accessibleName">
-          <string>pwupper</string>
+          <string>ms1_max_it</string>
          </property>
          <property name="text">
           <string>250</string>
@@ -1099,7 +1126,7 @@ background-color: rgb(240, 240, 240);</string>
        <item row="3" column="3">
         <widget class="QLineEdit" name="MS2MaxITTextEdit">
          <property name="accessibleName">
-          <string>pwupper</string>
+          <string>ms2_max_it</string>
          </property>
          <property name="text">
           <string>100</string>
@@ -1108,6 +1135,9 @@ background-color: rgb(240, 240, 240);</string>
        </item>
        <item row="1" column="5">
         <widget class="QComboBox" name="MS1ActivationTypeComboBox">
+         <property name="accessibleName">
+          <string>ms1_activation_type</string>
+         </property>
          <item>
           <property name="text">
            <string>HCD</string>
@@ -1122,6 +1152,9 @@ background-color: rgb(240, 240, 240);</string>
        </item>
        <item row="4" column="5">
         <widget class="QComboBox" name="MS2MassAnalyserComboBox">
+         <property name="accessibleName">
+          <string>ms2_mass_analyser</string>
+         </property>
          <item>
           <property name="text">
            <string>Orbitrap</string>
@@ -1144,6 +1177,9 @@ background-color: rgb(240, 240, 240);</string>
          <property name="toolTip">
           <string>the isolation mode for MS1 scan, either None, Quadrupole, IonTrap</string>
          </property>
+         <property name="accessibleName">
+          <string/>
+         </property>
          <property name="text">
           <string>MS1 Isolation Mode:</string>
          </property>
@@ -1158,6 +1194,9 @@ background-color: rgb(240, 240, 240);</string>
          </property>
          <property name="toolTip">
           <string>the activation type for MS1 scan, either CID or HCD</string>
+         </property>
+         <property name="accessibleName">
+          <string/>
          </property>
          <property name="text">
           <string>MS1 Activation:</string>
@@ -1189,6 +1228,9 @@ background-color: rgb(240, 240, 240);</string>
          <property name="toolTip">
           <string>source CID energy</string>
          </property>
+         <property name="accessibleName">
+          <string>ms1_cid_energy</string>
+         </property>
          <property name="text">
           <string>MS1 CID Energy:</string>
          </property>
@@ -1204,6 +1246,9 @@ background-color: rgb(240, 240, 240);</string>
          <property name="toolTip">
           <string>maximum time to acquire ions for MS2 scan</string>
          </property>
+         <property name="accessibleName">
+          <string/>
+         </property>
          <property name="text">
           <string>MS2 Max IT:</string>
          </property>
@@ -1211,6 +1256,9 @@ background-color: rgb(240, 240, 240);</string>
        </item>
        <item row="4" column="3">
         <widget class="QComboBox" name="MS2ActivationTypeComboBox">
+         <property name="accessibleName">
+          <string>ms2_activation_type</string>
+         </property>
          <item>
           <property name="text">
            <string>HCD</string>
@@ -1252,6 +1300,9 @@ background-color: rgb(240, 240, 240);</string>
            <height>0</height>
           </size>
          </property>
+         <property name="accessibleName">
+          <string>ms2_isolation_mode</string>
+         </property>
          <item>
           <property name="text">
            <string>Quadrupole</string>
@@ -1281,6 +1332,9 @@ background-color: rgb(240, 240, 240);</string>
        </item>
        <item row="5" column="3">
         <widget class="QLineEdit" name="MS2SourceCidEnergyTextEdit">
+         <property name="accessibleName">
+          <string>ms2_source_cid_energy</string>
+         </property>
          <property name="text">
           <string>0</string>
          </property>
