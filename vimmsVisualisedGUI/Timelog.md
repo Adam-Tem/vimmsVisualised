@@ -327,3 +327,11 @@
 * _1 hour_ Now added load/save param state to the advanced params also.
 
 * _1 hour_ And that should be the advanced parameters variables being properly parsed and used in the simulate page also! Will still need to stress test this and I am bound to find bugs, but after an n=1 case with the basic TopN controller, all seems to be working well.
+
+### 14 Dec 2023
+
+- _1.5 hours_ Managed to get the first test script up and running. Had to modify the main script so that an instance of the page was created using a class so I could construct one for the testing, but got that resolved and I have added the first navigation test.
+
+* _2 hours_ Status report has been written for project, identifying that the GUI is essentially complete with regards to core functionality and it is now just about tidying it up and adding in some nicer details.
+
+* _1 hour_ Proper test that checks navigation of the GUI now successfully implemented.

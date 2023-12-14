@@ -5,7 +5,6 @@ from vimms.Common import load_obj, set_log_level_warning, set_log_level_debug
 from vimms.Controller.base import AdvancedParams
 
 from Utils.LoadingWidget import *
-from Utils.CheckInput import *
 from Utils.CustomWidgets import *
 from Utils.Parameters.ParseParams import parse_params
 from Utils.Parameters.identifyParams import identify_params

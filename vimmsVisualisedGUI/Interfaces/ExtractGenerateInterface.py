@@ -30,17 +30,17 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
 
         self.FormulaSamplerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.FormulaSamplerParamBox,self.FormulaSamplerComboBox.currentText(),
-                                  [False, ""], FORMULA_SAMPLERS, FORMULA_SAMPLER_PARAMS, False))
+                                  FORMULA_SAMPLERS, FORMULA_SAMPLER_PARAMS, False))
         self.RTISamplerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.RTISamplerParamBox,self.RTISamplerComboBox.currentText(),
-                                  [False, ""], RTI_SAMPLERS, RTI_SAMPLER_PARAMS, False))
+                                  RTI_SAMPLERS, RTI_SAMPLER_PARAMS, False))
         self.ChromoSamplerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.ChromoSamplerParamBox,self.ChromoSamplerComboBox.currentText(),
-                                  [False, ""], CHROMO_SAMPLERS, CHROMO_SAMPLER_PARAMS, False))
+                                  CHROMO_SAMPLERS, CHROMO_SAMPLER_PARAMS, False))
         self.MS2SamplerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.MS2SamplerParamBox,self.MS2SamplerComboBox.currentText(),
-                                  [False, ""], MS2_SAMPLERS, MS2_SAMPLER_PARAMS, False))
+                                  MS2_SAMPLERS, MS2_SAMPLER_PARAMS, False))
         
         self.tabWidget.tabBarClicked.connect(lambda: displayParams(self.ExtractParamBox, "roi_params",
-                                  [False, ""], ROI_BUILDERS, ROI_PARAMS, False))
+                                  ROI_BUILDERS, ROI_PARAMS, False))
         
