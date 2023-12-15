@@ -1,7 +1,7 @@
 from Utils.Controllers.TopN import runTopNController
 from Utils.Controllers.TopNSmartRoi import runTopNSmartRoiController
 
-def controllerSelection(param_box, controller, advanced_params):
+def controller_selection(param_box, controller, advanced_params):
 
     main_page = param_box.parent().parent().parent().parent()
     match controller:

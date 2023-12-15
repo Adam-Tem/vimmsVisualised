@@ -335,3 +335,7 @@
 * _2 hours_ Status report has been written for project, identifying that the GUI is essentially complete with regards to core functionality and it is now just about tidying it up and adding in some nicer details.
 
 * _1 hour_ Proper test that checks navigation of the GUI now successfully implemented.
+
+### 15 Dec 2023
+
+- _1.5 hours_ Added a pop up that is now displayed upon the completion of an experiment. To keep it consistent across the GUI, threading now occurs on the simulate page and the pop up is abstracted so that the same functionality is used to display a similar thing when a simulation completes.

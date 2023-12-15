@@ -11,6 +11,7 @@ from Utils.CustomWidgets import QMzmlUpload
 from Utils.Experiment.addFullscanToList import add_fullscan_to_list
 from Utils.Experiment.constructExperimentCase import construct_experiment_case
 from Utils.Display.displayParams import displayParams
+from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 from Utils.Parameters.ParamWidgets import *
 from Utils.Experiment.viewSummary import view_summary
 from Utils.Experiment.newExperiment import new_experiment
@@ -122,7 +123,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
     @qtc.pyqtSlot(Experiment, str)
     def set_experiment_and_summary(self, experiment, summary):
+        task_completed_pop_up("ViMMS Experiment", "Experiment execution now complete!", self.ViewSummaryButton)
         print(experiment)
         self.experiment = experiment
         self.summary = summary
-        self.ViewSummaryButton.setEnabled(True)

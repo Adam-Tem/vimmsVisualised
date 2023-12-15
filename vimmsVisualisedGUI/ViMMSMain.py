@@ -6,7 +6,7 @@ from Interfaces.StartPageInterface import *
 from Interfaces.VisualiseInterface import *
 from Interfaces.SimulateInterface import *
 from Interfaces.ExperimentInterface import *
-
+from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 
 qtw.QApplication.setAttribute(qtc.Qt.AA_EnableHighDpiScaling, True) #enable highdpi scaling
 qtw.QApplication.setAttribute(qtc.Qt.AA_UseHighDpiPixmaps, True) #use highdpi icons
