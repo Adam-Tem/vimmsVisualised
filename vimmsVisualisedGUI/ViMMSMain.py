@@ -11,13 +11,14 @@ from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 qtw.QApplication.setAttribute(qtc.Qt.AA_EnableHighDpiScaling, True) #enable highdpi scaling
 qtw.QApplication.setAttribute(qtc.Qt.AA_UseHighDpiPixmaps, True) #use highdpi icons
 
+
 class ViMMSMain(qtw.QMainWindow):
 
     def __init__(self):
         super().__init__()
         self.stackedWidget = qtw.QStackedWidget()
         self.stackedWidget.setGeometry(25,25,600,500)
-
+        
         #Initialise widgets
         homeWidget = StartPage()
         extractGenerateWidget = ExtractGeneratePage()

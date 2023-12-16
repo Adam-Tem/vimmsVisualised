@@ -27,9 +27,9 @@ class SimulateWorker(qtc.QObject):
 class ExtractWorker(qtc.QObject):
     extract_finished = qtc.pyqtSignal(str)
 
-    @qtc.pyqtSlot(qtw.QGroupBox, str, str, str)
-    def run(self, param_box, file_location, file_name, file_save_name):
-        extract_data(param_box, file_location, file_name, file_save_name)
+    @qtc.pyqtSlot(qtw.QGroupBox, str, str, str, str)
+    def run(self, param_box, file_location, file_name, file_save_name, save_directory):
+        extract_data(param_box, file_location, file_name, file_save_name, save_directory)
         self.extract_finished.emit("Extracted")
 
 class GenerateWorker(qtc.QObject):

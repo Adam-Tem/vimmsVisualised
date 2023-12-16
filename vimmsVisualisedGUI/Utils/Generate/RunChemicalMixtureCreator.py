@@ -9,6 +9,9 @@ from Utils.Parameters.identifyParams import identify_params
 from Utils.Parameters.ParamWidgets import *
 
 def run_chemical_mixture_creator(param_box, adduct_prop, chems_to_sample, ms2_level, file_name):
+
+    global save_directory
+
     constructed_params = {}
     sampler_type = ""
     for child_constructor in param_box.findChildren(qtw.QComboBox):
@@ -25,4 +28,4 @@ def run_chemical_mixture_creator(param_box, adduct_prop, chems_to_sample, ms2_le
 
     cm = ChemicalMixtureCreator(**constructed_params, adduct_proportion_cutoff=adduct_prop)
     chemicals = cm.sample(int(chems_to_sample), int(ms2_level))
-    save_obj(chemicals, file_name + ".p")
+    save_obj(chemicals, SAVE_DIRECTORY + "/generated_data/" + file_name + ".p")

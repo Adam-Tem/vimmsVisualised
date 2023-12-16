@@ -7,22 +7,23 @@ from vimms.BoxManager import BoxSplitter, BoxManager
 from vimms.Experiment import Experiment
 
 from ExperimentPage import Ui_experimentForm
-from Utils.CustomWidgets import QMzmlUpload
-from Utils.Experiment.addFullscanToList import add_fullscan_to_list
-from Utils.Experiment.constructExperimentCase import construct_experiment_case
-from Utils.Display.displayParams import displayParams
-from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
-from Utils.Parameters.ParamWidgets import *
-from Utils.Experiment.viewSummary import view_summary
-from Utils.Experiment.newExperiment import new_experiment
-from Utils.Experiment.removeFullscan import remove_option
-from vimmsVisualisedGUI.Utils.Threads.workerThreads import ExperimentWorker
-from Utils.Parameters.saveParamState import save_param_state
-from Utils.Parameters.loadParamState import load_param_state
-from Utils.XCMS.parseXCMSParams import parse_xcms_params
-from Utils.Parameters.parseAdvancedParams import parse_advanced_params
+
 from Graphing.createGraphLayout import create_graph_layout
 from Graphing.ExperimentResultPlot import experiment_result_plot
+from Utils.CustomWidgets import QMzmlUpload
+from Utils.Display.displayParams import displayParams
+from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
+from Utils.Experiment.addFullscanToList import add_fullscan_to_list
+from Utils.Experiment.constructExperimentCase import construct_experiment_case
+from Utils.Experiment.newExperiment import new_experiment
+from Utils.Experiment.removeFullscan import remove_option
+from Utils.Experiment.viewSummary import view_summary
+from Utils.Parameters.loadParamState import load_param_state
+from Utils.Parameters.ParamWidgets import *
+from Utils.Parameters.parseAdvancedParams import parse_advanced_params
+from Utils.Parameters.saveParamState import save_param_state
+from Utils.Threads.workerThreads import ExperimentWorker
+from Utils.XCMS.parseXCMSParams import parse_xcms_params
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
@@ -102,8 +103,8 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         )
 
         self.RunExperimentButton.clicked.connect(
-            lambda: self.start_exp.emit((self.RunExperimentButton.setEnabled(False),
-                                         self.experiment_case_list, parse_xcms_params(self.XCMSParamTab)))
+            lambda: (self.RunExperimentButton.setEnabled(False),
+                     self.start_exp.emit(self.experiment_case_list, parse_xcms_params(self.XCMSParamTab)))
         )
         self.ViewSummaryButton.clicked.connect(
             lambda: view_summary(self)

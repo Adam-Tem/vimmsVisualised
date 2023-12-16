@@ -30,6 +30,5 @@ def experiment_result_plot(canvas, experiment, experiment_cases, graph_type):
         canvas.axes.set_ylabel(layouts[graph_type]["ylabel"], fontsize=7)
         canvas.axes.set_title(layouts[graph_type]["title"], fontsize=8)
         canvas.axes.tick_params(labelsize=6)
-        ##FIX THIS FONT SIZE ISSUE
         canvas.axes.plot(xs, scores, label=exp_name, marker=m)
     canvas.draw()

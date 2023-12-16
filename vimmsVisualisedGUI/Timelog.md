@@ -343,3 +343,5 @@
 ### 16 Dec 2023
 
 - _1.5 hours_ Threading now successfully added to the extract generate page also, displaying a pop that the user must interact with upon completion. This pop up is abstracted to be the same functionality across all thread completion. When a thread is running, I have also set it up so that the execution button of that particular action is disabled, meaning only one form of a particular action can occur at any one time. Even though the extract and generate functions typically execute in a swift manenr, it is good for completeness to have them run on worker threads also.
+
+* _2 hours_ Finally tidied up where all the newly generated files are set to be stored when created. This applies for extracted data, generated data, simulated data, experiment results and also saved parameter states.

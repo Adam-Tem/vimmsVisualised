@@ -8,12 +8,13 @@ from Utils.LoadingWidget import *
 from Utils.CustomWidgets import *
 from Utils.Parameters.ParseParams import parse_params
 from Utils.Parameters.identifyParams import identify_params
-from Utils.Parameters.ParamWidgets import CONTROLLERS
+from Utils.Parameters.ParamWidgets import CONTROLLERS, SAVE_DIRECTORY
 
 import os
 
 def runTopNController(param_box, main_page, advanced_params):
 
+    global save_directory
     min_rt = int(main_page.min_rt.text())
     max_rt = int(main_page.max_rt.text())
     param_names = identify_params("TopN Controller", CONTROLLERS)
@@ -29,5 +30,5 @@ def runTopNController(param_box, main_page, advanced_params):
     env.run()
     set_log_level_debug()
     mzml_filename =  main_page.OutputFileTextEdit.text() + ".mzML"
-    out_dir = os.path.join(os.getcwd(), 'results')
+    out_dir = os.path.join(SAVE_DIRECTORY, 'simulations')
     env.write_mzML(out_dir, mzml_filename)

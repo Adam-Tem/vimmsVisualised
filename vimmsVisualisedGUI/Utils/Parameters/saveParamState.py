@@ -2,12 +2,15 @@ from PyQt5 import QtWidgets as qtw
 
 from Utils.Parameters.ParseParams import parse_params
 from Utils.Parameters.identifyParams import identify_params
-from Utils.Parameters.ParamWidgets import CONTROLLERS
+from Utils.Parameters.ParamWidgets import CONTROLLERS, SAVE_DIRECTORY
 from Utils.XCMS.parseXCMSParams import parse_xcms_params
 from Utils.Parameters.parseAdvancedParams import parse_advanced_params
 import json
+import os
 
 def save_param_state(self, selected_controller, current_index = 0):
+
+    global save_directory
 
     saved_state = {}
     if current_index == 0:
@@ -23,6 +26,7 @@ def save_param_state(self, selected_controller, current_index = 0):
     options = qtw.QFileDialog.Options()
     file_dialog = qtw.QFileDialog(self)
     file_dialog.setOptions(options)
+    file_dialog.setDirectory(os.path.join(SAVE_DIRECTORY, "saved_states"))
     file_dialog.setNameFilter("JSON files (*.json)")
 
     if file_dialog.exec_() == qtw.QFileDialog.Accepted:

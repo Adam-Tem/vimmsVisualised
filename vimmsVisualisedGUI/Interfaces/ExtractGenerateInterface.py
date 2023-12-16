@@ -14,7 +14,7 @@ from Utils.Threads.workerThreads import ExtractWorker, GenerateWorker
 
 class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
 
-    start_extract = qtc.pyqtSignal(qtw.QGroupBox, str, str, str)
+    start_extract = qtc.pyqtSignal(qtw.QGroupBox, str, str, str, str)
     start_generate = qtc.pyqtSignal(qtw.QGroupBox, str, str, int, str)
     def __init__(self, *args, **kwargs):
         
@@ -44,7 +44,8 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
         self.ExtractDataButton.clicked.connect(lambda: (
                                         self.ExtractDataButton.setEnabled(False),
                                         self.start_extract.emit(self.ExtractParamBox, self.file_location,
-                                        self.file_name, self.ExtractFileNameTextEdit.text()))
+                                        self.file_name, self.ExtractFileNameTextEdit.text(),
+                                        SAVE_DIRECTORY))
                                         )
         
         self.GenerateDataButton.clicked.connect(lambda: (

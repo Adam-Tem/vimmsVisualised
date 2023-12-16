@@ -1,0 +1,1 @@
+{"selected_controller": "TopN Controller", "params": {"ionisation_mode": "Positive", "N": 3.0, "isolation_width": 3.0, "mz_tol": 33.0, "rt_tol": 33.0, "min_ms1_intensity": 3333.0, "ms1_shift": 0.0, "force_N": false}}

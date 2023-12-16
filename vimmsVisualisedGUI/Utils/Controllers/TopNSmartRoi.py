@@ -7,11 +7,13 @@ from vimms.Controller.base import AdvancedParams
 
 from Utils.Parameters.identifyParams import identify_params
 from Utils.Parameters.ParseParams import parse_params
-from Utils.Parameters.ParamWidgets import ROI_BUILDERS, CONTROLLERS
+from Utils.Parameters.ParamWidgets import ROI_BUILDERS, CONTROLLERS, SAVE_DIRECTORY
 import os
 
 def runTopNSmartRoiController(self, main_page, advanced_params):
 
+    global save_directory
+    
     min_rt = int(main_page.min_rt.text())
     max_rt = int(main_page.max_rt.text())
 
@@ -42,5 +44,5 @@ def runTopNSmartRoiController(self, main_page, advanced_params):
     env.run()
     set_log_level_debug()
     mzml_filename = main_page.OutputFileTextEdit.text() + ".mzML"
-    out_dir = os.path.join(os.getcwd(), 'results')
+    out_dir = os.path.join(SAVE_DIRECTORY, 'simulations')
     env.write_mzML(out_dir, mzml_filename)

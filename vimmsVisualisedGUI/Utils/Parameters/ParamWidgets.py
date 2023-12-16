@@ -147,3 +147,5 @@ MS2_SAMPLER_PARAMS = {
     "min_n_peaks": [("min_n_peaks", qtw.QLineEdit), ("Min # Peaks:", qtw.QLabel), 1],
     "with_replacement": [("with_replacement", QBooleanButton), ("Replace:", qtw.QLabel), False],
 }
+
+SAVE_DIRECTORY =  os.path.join(os.path.abspath(os.getcwd()), 'results')
