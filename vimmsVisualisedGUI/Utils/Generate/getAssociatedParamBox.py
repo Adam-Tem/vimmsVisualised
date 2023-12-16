@@ -1,13 +1,13 @@
+from PyQt5 import QtWidgets as qtw
 
 
-
-def get_associated_param_box(self, constructor_name):
+def get_associated_param_box(param_box, constructor_name):
 
     if "Formula" in constructor_name:
-        return self.FormulaSamplerParamBox
+        return param_box.findChild(qtw.QGroupBox, "FormulaSamplerParamBox")
     elif "Intensity" in constructor_name:
-        return self.RTISamplerParamBox
+        return param_box.findChild(qtw.QGroupBox, "RTISamplerParamBox")
     elif "Chromatogram" in constructor_name:
-        return self.ChromoSamplerParamBox
+        return param_box.findChild(qtw.QGroupBox, "ChromoSamplerParamBox")
     else:
-        return self.MS2SamplerParamBox
+        return param_box.findChild(qtw.QGroupBox, "MS2SamplerParamBox")

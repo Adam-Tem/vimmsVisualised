@@ -7,11 +7,15 @@ from Utils.ChangePage import *
 from Utils.Extract.ExtractData import *
 from Utils.UploadFile import *
 from Utils.Display.displayParams import *
+from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 from Utils.Parameters.ParamWidgets import *
 from Utils.Generate.RunChemicalMixtureCreator import run_chemical_mixture_creator
+from Utils.Threads.workerThreads import ExtractWorker, GenerateWorker
 
 class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
 
+    start_extract = qtc.pyqtSignal(qtw.QGroupBox, str, str, str)
+    start_generate = qtc.pyqtSignal(qtw.QGroupBox, str, str, int, str)
     def __init__(self, *args, **kwargs):
         
         super().__init__(*args, **kwargs)
@@ -21,11 +25,34 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
         self.file_location = ""
 
         self.ExtractHomeButton.setIcon(qtg.QIcon("Images/home.png"))
-        
+
+        self.extract_worker = ExtractWorker()
+        self.generate_worker = GenerateWorker()
+        self.worker_thread_1 = qtc.QThread()
+        self.worker_thread_2 = qtc.QThread()
+        self.extract_worker.moveToThread(self.worker_thread_1)
+        self.generate_worker.moveToThread(self.worker_thread_2)
+        self.worker_thread_1.start()
+        self.worker_thread_2.start()
+        self.start_extract.connect(self.extract_worker.run)
+        self.start_generate.connect(self.generate_worker.run)
+        self.extract_worker.extract_finished.connect(self.notify_extract_generate_finish)
+        self.generate_worker.generate_finished.connect(self.notify_extract_generate_finish)
+
         self.SelectFileButton.clicked.connect(lambda: upload_file(self, "mzml"))
 
-        self.ExtractDataButton.clicked.connect(lambda: extract_data(self, self.file_location, self.file_name))
-        self.GenerateDataButton.clicked.connect(lambda: run_chemical_mixture_creator(self))
+        self.ExtractDataButton.clicked.connect(lambda: (
+                                        self.ExtractDataButton.setEnabled(False),
+                                        self.start_extract.emit(self.ExtractParamBox, self.file_location,
+                                        self.file_name, self.ExtractFileNameTextEdit.text()))
+                                        )
+        
+        self.GenerateDataButton.clicked.connect(lambda: (
+                                        self.GenerateDataButton.setEnabled(False),
+                                        self.start_generate.emit(
+                                        self.ParamBox, self.AdductPropTextEdit.text(), 
+                                        self.ChemsToSampleTextEdit.text(),
+                                        self.MS2LevelSpinBox.value(), self.GenerateFileNameTextEdit.text())))
         self.scrollArea.setWidgetResizable(True)
 
         self.FormulaSamplerComboBox.currentIndexChanged.connect(
@@ -43,4 +70,13 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
         
         self.tabWidget.tabBarClicked.connect(lambda: displayParams(self.ExtractParamBox, "roi_params",
                                   ROI_BUILDERS, ROI_PARAMS, False))
+        
+    @qtc.pyqtSlot(str)
+    def notify_extract_generate_finish(self, action):
+        if action == "Extracted":
+            self.ExtractDataButton.setEnabled(True)
+            task_completed_pop_up("ViMMS Extraction", "Current extraction now complete!")
+        else:
+            self.GenerateDataButton.setEnabled(True)
+            task_completed_pop_up("ViMMS Generation", "Current generation now complete!")
         

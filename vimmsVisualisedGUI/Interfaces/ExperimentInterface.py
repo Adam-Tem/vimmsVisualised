@@ -16,7 +16,7 @@ from Utils.Parameters.ParamWidgets import *
 from Utils.Experiment.viewSummary import view_summary
 from Utils.Experiment.newExperiment import new_experiment
 from Utils.Experiment.removeFullscan import remove_option
-from Utils.Threads.workerThread import ExperimentWorker
+from vimmsVisualisedGUI.Utils.Threads.workerThreads import ExperimentWorker
 from Utils.Parameters.saveParamState import save_param_state
 from Utils.Parameters.loadParamState import load_param_state
 from Utils.XCMS.parseXCMSParams import parse_xcms_params
@@ -102,7 +102,8 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         )
 
         self.RunExperimentButton.clicked.connect(
-            lambda: self.start_exp.emit(self.experiment_case_list, parse_xcms_params(self.XCMSParamTab))
+            lambda: self.start_exp.emit((self.RunExperimentButton.setEnabled(False),
+                                         self.experiment_case_list, parse_xcms_params(self.XCMSParamTab)))
         )
         self.ViewSummaryButton.clicked.connect(
             lambda: view_summary(self)
@@ -124,6 +125,6 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
     @qtc.pyqtSlot(Experiment, str)
     def set_experiment_and_summary(self, experiment, summary):
         task_completed_pop_up("ViMMS Experiment", "Experiment execution now complete!", self.ViewSummaryButton)
-        print(experiment)
+        self.RunExperimentButton.setEnabled(True)
         self.experiment = experiment
         self.summary = summary

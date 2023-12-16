@@ -15,7 +15,7 @@ from Utils.Parameters.ParamWidgets import CONTROLLER_PARAMS, CONTROLLERS
 from Utils.Parameters.loadParamState import load_param_state
 from Utils.Parameters.saveParamState import save_param_state
 from Utils.Parameters.parseAdvancedParams import parse_advanced_params
-from Utils.Threads.workerThread import SimulateWorker
+from vimmsVisualisedGUI.Utils.Threads.workerThreads import SimulateWorker
 
 class SimulatePage(qtw.QWidget, Ui_SimulateForm):
 
@@ -53,10 +53,12 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
         )
         
         self.SimulateButton.clicked.connect(
-            lambda: self.start_sim.emit(self.ParamsBox, self.ControllerComboBox.currentText(),
-                                        parse_advanced_params(self.AdvancedParamsGroupBox))
+            lambda: (self.SimulateButton.setEnabled(False),
+                     self.start_sim.emit(self.ParamsBox, self.ControllerComboBox.currentText(),
+                                        parse_advanced_params(self.AdvancedParamsGroupBox)))
         )
 
     @qtc.pyqtSlot()
     def notify_sim_finish(self):
+        self.SimulateButton.setEnabled(True)
         task_completed_pop_up("ViMMS Simulation", "Current simulation now complete!")
