@@ -7,7 +7,6 @@ from SimulatePage import Ui_SimulateForm
 from vimmsVisualisedGUI.Utils.UploadFile import *
 
 from Utils.setCharge import *
-from Utils.Controllers.controllerSelection import *
 from Utils.Display.displayParams import *
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 from Utils.LoadingWidget import *
@@ -19,7 +18,7 @@ from vimmsVisualisedGUI.Utils.Threads.workerThreads import SimulateWorker
 
 class SimulatePage(qtw.QWidget, Ui_SimulateForm):
 
-    start_sim = qtc.pyqtSignal(qtw.QGroupBox, str, dict)
+    start_sim = qtc.pyqtSignal(str, str, int, int, qtw.QGroupBox, str, dict)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -54,8 +53,11 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
         
         self.SimulateButton.clicked.connect(
             lambda: (self.SimulateButton.setEnabled(False),
-                     self.start_sim.emit(self.ParamsBox, self.ControllerComboBox.currentText(),
-                                        parse_advanced_params(self.AdvancedParamsGroupBox)))
+                     self.start_sim.emit(self.ControllerComboBox.currentText(), self.file_location,
+                                         int(self.min_rt.text()), int(self.max_rt.text()),self.ParamsBox,
+                                        self.OutputFileTextEdit.text(),
+                                        parse_advanced_params(self.AdvancedParamsGroupBox),
+                                        ))
         )
 
     @qtc.pyqtSlot()

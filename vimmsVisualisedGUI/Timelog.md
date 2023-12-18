@@ -308,6 +308,8 @@
 
 - _1 hour_ Another quickhour fighting against the bloody summary graph but I feel I will know how to sort it now. Manana.
 
+## Week 11
+
 ### 11 Dec 2023
 
 - _2 hours_ Finally resolved the issue with the uninteractive summary graph. I have now also added the option to select between what results graph you wish to have displayed.
@@ -345,3 +347,9 @@
 - _1.5 hours_ Threading now successfully added to the extract generate page also, displaying a pop that the user must interact with upon completion. This pop up is abstracted to be the same functionality across all thread completion. When a thread is running, I have also set it up so that the execution button of that particular action is disabled, meaning only one form of a particular action can occur at any one time. Even though the extract and generate functions typically execute in a swift manenr, it is good for completeness to have them run on worker threads also.
 
 * _2 hours_ Finally tidied up where all the newly generated files are set to be stored when created. This applies for extracted data, generated data, simulated data, experiment results and also saved parameter states.
+
+## Week 12
+
+### 18 Dec 2023
+
+- _1.5 hours_ Got to love a good bit of extraction! Modified the simulate page so that there is only one function that runs the simulation and adjusts itself on the fly to what controller has been picked. Still have to add in how some newer parameters such as the grid parameter should be parsed and constructed. But basic controllers work and it shouldn't be too much hassle to add in a new custom widget for the grid options.

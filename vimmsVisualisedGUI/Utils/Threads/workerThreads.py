@@ -3,7 +3,7 @@ from PyQt5 import QtWidgets as qtw
 
 from vimms.Experiment import Experiment
 
-from Utils.Controllers.controllerSelection import controller_selection
+from Utils.Simulate.runController import run_controller
 from Utils.Experiment.runExperiment import run_experiment
 from Utils.Extract.ExtractData import extract_data
 from Utils.Generate.RunChemicalMixtureCreator import run_chemical_mixture_creator
@@ -19,9 +19,9 @@ class ExperimentWorker(qtc.QObject):
 class SimulateWorker(qtc.QObject):
     simulation_finished = qtc.pyqtSignal()
 
-    @qtc.pyqtSlot(qtw.QGroupBox, str, dict)
-    def run(self, param_box, controller, advanced_params):
-        controller_selection(param_box, controller, advanced_params)
+    @qtc.pyqtSlot(str, str, int, int, qtw.QGroupBox, str, dict)
+    def run(self, controller_name, file_location, min_rt, max_rt, param_box, output_filename, advanced_params):
+        run_controller(controller_name, file_location, min_rt, max_rt, param_box , output_filename, advanced_params)
         self.simulation_finished.emit()
 
 class ExtractWorker(qtc.QObject):

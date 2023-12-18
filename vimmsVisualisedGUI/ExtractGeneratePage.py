@@ -29,6 +29,8 @@ class Ui_ExtractGenerateForm(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
         self.tabWidget.setSizePolicy(sizePolicy)
+        self.tabWidget.setStyleSheet("padding: 0; \n"
+"background-color: rgb(240, 240, 240);")
         self.tabWidget.setTabShape(QtWidgets.QTabWidget.Rounded)
         self.tabWidget.setIconSize(QtCore.QSize(16, 16))
         self.tabWidget.setObjectName("tabWidget")
@@ -343,7 +345,7 @@ class Ui_ExtractGenerateForm(object):
         self.ExtractHomeButton.setObjectName("ExtractHomeButton")
 
         self.retranslateUi(ExtractGenerateForm)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(ExtractGenerateForm)
         ExtractGenerateForm.setTabOrder(self.FormulaSamplerComboBox, self.RTISamplerComboBox)
         ExtractGenerateForm.setTabOrder(self.RTISamplerComboBox, self.ChromoSamplerComboBox)

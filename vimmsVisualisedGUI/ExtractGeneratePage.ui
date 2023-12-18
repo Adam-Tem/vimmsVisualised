@@ -49,6 +49,10 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="styleSheet">
+    <string notr="true">padding: 0; 
+background-color: rgb(240, 240, 240);</string>
+   </property>
    <property name="tabShape">
     <enum>QTabWidget::Rounded</enum>
    </property>
