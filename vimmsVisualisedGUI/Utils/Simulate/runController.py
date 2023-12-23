@@ -4,11 +4,12 @@ from vimms.Common import load_obj, set_log_level_warning, set_log_level_debug
 from vimms.Controller.base import AdvancedParams
 from vimms.Roi import RoiBuilderParams, SmartRoiParams
 
-from Utils.CustomWidgets import *
 from Utils.Parameters.ParseParams import parse_params
 from Utils.Parameters.identifyParams import identify_params
 from Utils.Parameters.ParamWidgets import CONTROLLERS, SAVE_DIRECTORY, ROI_BUILDERS
 from Utils.Parameters.ParamWidgets import CONTROLLERS_WITH_ROI_PARAMS,CONTROLLERS_WITH_SMART_ROI_PARAMS
+
+import os
 
 def run_controller(controller_name, file_location, min_rt, max_rt, param_box, 
                    output_filename , advanced_params):

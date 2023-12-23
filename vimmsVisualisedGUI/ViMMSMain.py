@@ -6,7 +6,7 @@ from Interfaces.StartPageInterface import *
 from Interfaces.VisualiseInterface import *
 from Interfaces.SimulateInterface import *
 from Interfaces.ExperimentInterface import *
-from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
+from Utils.Display.changePage import change_page
 
 qtw.QApplication.setAttribute(qtc.Qt.AA_EnableHighDpiScaling, True) #enable highdpi scaling
 qtw.QApplication.setAttribute(qtc.Qt.AA_UseHighDpiPixmaps, True) #use highdpi icons
@@ -28,14 +28,14 @@ class ViMMSMain(qtw.QMainWindow):
 
         homeWidget.setMinimumSize(400,400)
         #Add navigation to widgets once created
-        homeWidget.ExtractGenerateButton.clicked.connect(lambda: changePage(self.stackedWidget, 1))
-        homeWidget.SimulateButton.clicked.connect(lambda: changePage(self.stackedWidget, 2))
-        homeWidget.VisualiseButton.clicked.connect(lambda: changePage(self.stackedWidget, 3))
-        homeWidget.ExperimentButton.clicked.connect(lambda: changePage(self.stackedWidget, 4))
-        extractGenerateWidget.ExtractHomeButton.clicked.connect(lambda: changePage(self.stackedWidget, 0))
-        simulateWidget.SimulateHomeButton.clicked.connect(lambda: changePage(self.stackedWidget, 0))
-        visualiseWidget.VisualiseHomeButton.clicked.connect(lambda: changePage(self.stackedWidget, 0))
-        experimentWidget.ExperimentHomeButton.clicked.connect(lambda: changePage(self.stackedWidget, 0))
+        homeWidget.ExtractGenerateButton.clicked.connect(lambda: change_page(self.stackedWidget, 1))
+        homeWidget.SimulateButton.clicked.connect(lambda: change_page(self.stackedWidget, 2))
+        homeWidget.VisualiseButton.clicked.connect(lambda: change_page(self.stackedWidget, 3))
+        homeWidget.ExperimentButton.clicked.connect(lambda: change_page(self.stackedWidget, 4))
+        extractGenerateWidget.ExtractHomeButton.clicked.connect(lambda: change_page(self.stackedWidget, 0))
+        simulateWidget.SimulateHomeButton.clicked.connect(lambda: change_page(self.stackedWidget, 0))
+        visualiseWidget.VisualiseHomeButton.clicked.connect(lambda: change_page(self.stackedWidget, 0))
+        experimentWidget.ExperimentHomeButton.clicked.connect(lambda: change_page(self.stackedWidget, 0))
 
         #Add to stacked widget
         self.stackedWidget.addWidget(homeWidget)

@@ -24,6 +24,11 @@ def run_chemical_mixture_creator(param_box, adduct_prop, chems_to_sample, ms2_le
         if selected_constructor != "---":
             param_names = identify_params(selected_constructor, sampler_type[1])
             params = parse_params(child_param_box, param_names)
+            print("\n")
+            print(sampler_type[0])
+            print(sampler_type[1])
+            print(selected_constructor)
+            print("\n")
             constructed_params[sampler_type[0]] = sampler_type[1][selected_constructor](**params)
 
     cm = ChemicalMixtureCreator(**constructed_params, adduct_proportion_cutoff=adduct_prop)

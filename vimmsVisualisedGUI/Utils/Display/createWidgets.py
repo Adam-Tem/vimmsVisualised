@@ -1,4 +1,4 @@
-from vimmsVisualisedGUI.Utils.Parameters.identifyParams import identify_params
+from Utils.Parameters.identifyParams import identify_params
 from Utils.Parameters.ParamWidgets import *
 
 def createWidgets(selected_constructor, potential_constructors, potential_params):

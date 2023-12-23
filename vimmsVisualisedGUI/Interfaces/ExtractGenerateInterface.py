@@ -3,13 +3,11 @@ from PyQt5 import QtWidgets as qtw
 
 from ExtractGeneratePage import Ui_ExtractGenerateForm
 
-from Utils.ChangePage import *
-from Utils.Extract.ExtractData import *
-from Utils.UploadFile import *
 from Utils.Display.displayParams import *
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
+from Utils.Extract.ExtractData import *
 from Utils.Parameters.ParamWidgets import *
-from Utils.Generate.RunChemicalMixtureCreator import run_chemical_mixture_creator
+from Utils.UploadFile import *
 from Utils.Threads.workerThreads import ExtractWorker, GenerateWorker
 
 class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):

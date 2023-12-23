@@ -6,10 +6,9 @@ from SimulatePage import Ui_SimulateForm
 
 from vimmsVisualisedGUI.Utils.UploadFile import *
 
-from Utils.setCharge import *
+from vimmsVisualisedGUI.Utils.Display.setCharge import *
 from Utils.Display.displayParams import *
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
-from Utils.LoadingWidget import *
 from Utils.Parameters.ParamWidgets import CONTROLLER_PARAMS, CONTROLLERS
 from Utils.Parameters.loadParamState import load_param_state
 from Utils.Parameters.saveParamState import save_param_state

@@ -1,2 +1,2 @@
-def changePage(stackedWidget, index):
+def change_page(stackedWidget, index):
     stackedWidget.setCurrentIndex(index)

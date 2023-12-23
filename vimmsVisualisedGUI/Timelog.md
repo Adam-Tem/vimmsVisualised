@@ -353,3 +353,15 @@
 ### 18 Dec 2023
 
 - _1.5 hours_ Got to love a good bit of extraction! Modified the simulate page so that there is only one function that runs the simulation and adjusts itself on the fly to what controller has been picked. Still have to add in how some newer parameters such as the grid parameter should be parsed and constructed. But basic controllers work and it shouldn't be too much hassle to add in a new custom widget for the grid options.
+
+* _1 hour_ Have created a solution at the moment that just constructs a default box manager grid, will be something that I'll need to ask about -- time to add some MORE parameters?!
+
+### 22 Dec 2023
+
+- _1.5 hours_ After doing very minimal work this week, I finally actually started to bother going through every aspect of the GUI to see what and what isn't working. So far I have identified a couple of issues with roi_params but should be an easy fix, and then some float to int parsing errors, but again shouldn't be too challenging to resolve.
+
+### 23 Dec 2023
+
+- _1.5 hours_ Finished off testing and started to remove some of the bugs. Fixed roi param issue and altered new experiment page so that it didn't store old parameters.
+
+* _1.5 hours_ Resolved all currently identified issues in the generate section of the code. I have identified some parameters that appear to only have one option, so they are currently displayed as labels and not adjustable. Also, the exact match ms2 sampler is not actually complete, so I have removed it as an option from the code. All simulate bugs should be gone as well, other than the DsDA docstring issue, but I probably will create a separate unique function for this to make it an option.

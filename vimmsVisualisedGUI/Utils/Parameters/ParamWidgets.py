@@ -1,10 +1,12 @@
 from PyQt5 import QtWidgets as qtw
-from Utils.CustomWidgets import *
+from Utils.Parameters.CustomWidgets import *
 
 from vimms.Controller import *
 from vimms.Roi import RoiBuilderParams, SmartRoiParams
 from vimms.ChemicalSamplers import *
 from vimms.Common import ROI_EXCLUSION_DEW, GRID_CONTROLLER_SCORING_PARAMS
+
+import copy
 
 MIN_MZ = 0
 MAX_MZ = 100000
@@ -28,7 +30,7 @@ CONTROLLERS_WITH_ROI_PARAMS = ["TopN Smart ROI Controller",
                                "Non Overlap Controller",
                                "Intensity Non Overlap Controller"]
 
-CONTROLLERS_WITH_SMART_ROI_PARAMS = CONTROLLERS_WITH_ROI_PARAMS
+CONTROLLERS_WITH_SMART_ROI_PARAMS = copy.copy(CONTROLLERS_WITH_ROI_PARAMS)
 CONTROLLERS_WITH_SMART_ROI_PARAMS.remove("TopN ROI Controller")
 
 ROI_BUILDERS = {"roi_params": RoiBuilderParams,
@@ -55,9 +57,10 @@ CHROMO_SAMPLERS = {"Gaussian Chromatogram Sampler": GaussianChromatogramSampler,
 MS2_SAMPLERS = {"Uniform MS2 Sampler": UniformMS2Sampler,
                 "Fixed MS2 Sampler": FixedMS2Sampler,
                 "MGF MS2 Sampler": MGFMS2Sampler,
-                "Exact Match MS2 Sampler": ExactMatchMS2Sampler,
                 "MZML MS2 Sampler": MZMLMS2Sampler,
                 "CRPM MS2 Sampler": CRPMS2Sampler}
+
+               # "Exact Match MS2 Sampler": ExactMatchMS2Sampler,
 
 SAMPLERS = [("formula_sampler", FORMULA_SAMPLERS),
             ("chromatogram_sampler", CHROMO_SAMPLERS),
@@ -78,7 +81,7 @@ CONTROLLER_PARAMS = {
     "min_roi_length_for_fragmentation": [("min_roi_length_for_fragmentation", qtw.QLineEdit), ("Min Frag. Length:", qtw.QLabel), 0],
     "exclusion_method": [("exclusion_method", qtw.QComboBox), ("Exclusion Method:", qtw.QLabel), ROI_EXCLUSION_DEW],
     "exclusion_t_0": [("exclusion_t_0", qtw.QLineEdit), ("Exclusion T0:", qtw.QLabel)],
-    "grid": [("grid", qtw.QLineEdit), ("Grid", qtw.QLabel)],
+    # "grid": [("grid", qtw.QLineEdit), ("Grid", qtw.QLabel)],
     "register_all_roi": [("register_all_roi", QBooleanButton), ("Register all ROI:", qtw.QLabel), False],
     "scoring_params": [("scoring_params", qtw.QComboBox), ("Scoring Params:", qtw.QLabel), GRID_CONTROLLER_SCORING_PARAMS],
     "dsda_state": [("dsda_state", qtw.QLineEdit), ("DSDA State:", qtw.QLabel)],
@@ -142,10 +145,13 @@ MS2_SAMPLER_PARAMS = {
     "mgf_file": [("mgf_file", QMgfUpload), ("MGF File:", qtw.QLabel)],
     "max_peaks": [("max_peaks", qtw.QLineEdit), ("Max Peaks:", qtw.QLabel), 0],
     "replace": [("replace", QBooleanButton), ("Replace:", qtw.QLabel), False],
-    "id_field": [("id_field", qtw.QLineEdit), ("ID of MGF:", qtw.QLabel), "SPECTRUMID"],
+    "id_field": [("id_field", qtw.QLabel), ("ID of MGF:", qtw.QLabel), "SPECTRUMID"],
     "mzml_file": [("mzml_file", QMzmlUpload), ("MZML File:", qtw.QLabel)],
     "min_n_peaks": [("min_n_peaks", qtw.QLineEdit), ("Min # Peaks:", qtw.QLabel), 1],
     "with_replacement": [("with_replacement", QBooleanButton), ("Replace:", qtw.QLabel), False],
 }
+
+PARSE_AS_INT = ["n_intensity_bins", "n_frags", "n_draws"]
+PARSE_AS_LOG = ["min_log_intensity", "max_log_intensity"]
 
 SAVE_DIRECTORY =  os.path.join(os.path.abspath(os.getcwd()), 'results')

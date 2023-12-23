@@ -10,7 +10,6 @@ from ExperimentPage import Ui_experimentForm
 
 from Graphing.createGraphLayout import create_graph_layout
 from Graphing.ExperimentResultPlot import experiment_result_plot
-from Utils.CustomWidgets import QMzmlUpload
 from Utils.Display.displayParams import displayParams
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 from Utils.Experiment.addFullscanToList import add_fullscan_to_list
@@ -18,6 +17,7 @@ from Utils.Experiment.constructExperimentCase import construct_experiment_case
 from Utils.Experiment.newExperiment import new_experiment
 from Utils.Experiment.removeFullscan import remove_option
 from Utils.Experiment.viewSummary import view_summary
+from Utils.Parameters.CustomWidgets import QMzmlUpload
 from Utils.Parameters.loadParamState import load_param_state
 from Utils.Parameters.ParamWidgets import *
 from Utils.Parameters.parseAdvancedParams import parse_advanced_params
@@ -55,9 +55,9 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.AdvancedParamsScrollArea.setWidget(self.AdvancedParamsGroupBox)
         self.SummaryGroupBox.setHidden(True)
 
-        fullscan_upload_button = QMzmlUpload(parent=self.FullscanGroupBox)
-        fullscan_upload_button.setObjectName("fullscan_upload_button")
-        fullscan_upload_button.move(225, 0)
+        self.fullscan_upload_button = QMzmlUpload(parent=self.FullscanGroupBox)
+        self.fullscan_upload_button.setObjectName("fullscan_upload_button")
+        self.fullscan_upload_button.move(225, 0)
 
         pickle_env_button = QBooleanButton(parent = self)
         pickle_env_button.setObjectName("pickle_env_button")
@@ -71,7 +71,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
         self.AddFullscanButton.clicked.connect(
             lambda: add_fullscan_to_list(self, self.FullscanNamesScrollArea, 
-                                        fullscan_upload_button.file_name, self.NoOfInjectionsSpinBox.value()))
+                                        self.fullscan_upload_button.file_name, self.NoOfInjectionsSpinBox.value()))
         
         self.InjectionUndoButton.clicked.connect(
             lambda: remove_option(self, self.FullscanNamesScrollArea, "fullscan")

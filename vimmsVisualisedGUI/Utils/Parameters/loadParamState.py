@@ -1,7 +1,6 @@
 from PyQt5 import QtWidgets as qtw
 import json
-from Utils.CustomWidgets import QBooleanButton, QIonModeButton
-from Utils.setCharge import setButtonText
+from Utils.Parameters.CustomWidgets import QBooleanButton, QIonModeButton
 
 def load_param_state(self, current_index=0):
 

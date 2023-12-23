@@ -528,11 +528,6 @@ background-color: rgb(240, 240, 240);</string>
           </item>
           <item>
            <property name="text">
-            <string>Exact Match MS2 Sampler</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>MZML MS2 Sampler</string>
            </property>
           </item>

@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
 
-from Utils.setCharge import setButtonText
+from Utils.Display.setCharge import setButtonText
 from Utils.UploadFile import *
 
 class QIonModeButton(qtw.QPushButton):

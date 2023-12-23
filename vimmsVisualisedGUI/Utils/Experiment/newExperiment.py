@@ -12,5 +12,10 @@ def new_experiment(self):
     box_geometry = BoxGrid(),
     box_splitter = BoxSplitter(split=True)
     )
+    self.CaseNameTextEdit.setText("")
+    self.ControllerComboBox.setCurrentIndex(0)
+    self.ExperimentNamesLabel.setText("")
+    self.FullscanNamesLabel.setText("")
+    self.fullscan_upload_button.FileNameLabel.setText("")
     self.ViewSummaryButton.setEnabled(False)
     self.SummaryGroupBox.setHidden(True)

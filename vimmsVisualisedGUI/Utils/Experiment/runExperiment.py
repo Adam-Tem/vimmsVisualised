@@ -5,8 +5,6 @@ import os
 
 def run_experiment(experiment_cases, xcms_params):
 
-    global save_directory
-
     experiment = Experiment()
     current_folder = os.getcwd()
 

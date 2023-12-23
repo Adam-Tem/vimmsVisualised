@@ -1,10 +1,10 @@
 from PyQt5 import QtWidgets as qtw
+
 import os
 
 def upload_file(self, file_type):
     
     dialog = qtw.QFileDialog()
-
     if file_type == "mzml":
         selected_file = dialog.getOpenFileName(None, "Import mzML", "", "mzML data files (*.mzml)")
     elif file_type == "p":
