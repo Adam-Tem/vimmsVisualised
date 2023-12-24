@@ -6,7 +6,7 @@ def controller_string_conversion(controller_name):
             return "topn_roi"
         case "TopN Exclusion Controller":
             return "topn_exclusion"
-        case "topNEX Controller":
+        case "TopNEX Controller":
             return "topnex"
         case "Hard ROI Exclusion Controller":
             return "hard_roi_exclusion"

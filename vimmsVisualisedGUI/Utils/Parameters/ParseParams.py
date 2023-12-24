@@ -39,8 +39,13 @@ def parse_params(param_box, constructor_params):
             if child.currentText() != "":
                 params[child.accessibleName()] = child.currentText()
             continue
+            
+        if type(child) == QScoringParams:
+            params[child.accessibleName()] = child.vals
+            continue
         if child.text() == "Simulate":
             continue
+
 
         if child.text() != "" and type(child) != qtw.QLabel and child.accessibleName() != "":
             if child.accessibleName() in PARSE_AS_INT:

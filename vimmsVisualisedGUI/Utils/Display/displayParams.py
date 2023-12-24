@@ -3,7 +3,7 @@ from PyQt5 import sip
 from Utils.Display.createWidgets import createWidgets
 from Utils.Display.adjustParamBoxSize import adjust_param_box_size
 from Utils.Experiment.docstringTooltipParsing import docstring_tooltip_parsing
-from Utils.Parameters.CustomWidgets import QBooleanButton
+from Utils.Parameters.CustomWidgets import QBooleanButton, QScoringParams
 
 def displayParams(param_box, combo_box_text,potential_constructors, potential_params, has_scroll):
     
@@ -42,6 +42,10 @@ def displayParams(param_box, combo_box_text,potential_constructors, potential_pa
                 while i < len(value):
                     new_widget.addItem(str(value[i]))
                     i = i + 1
+            elif type(new_widget) == QScoringParams:
+                new_widget.vals = value[2]
+                for option in value[2].keys():
+                    new_widget.combo_box.addItem(option)
             else:
                 new_widget.setText(str(value[2]))
             

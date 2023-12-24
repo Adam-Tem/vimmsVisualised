@@ -65,3 +65,28 @@ class QBooleanButton(qtw.QPushButton):
             return True
         else:
             return False
+
+def change_edit_value(self, option):
+    
+    self.edit_text.setText(str(self.vals[option]))
+
+def update_edit_value(self, val_to_change):
+    self.vals[val_to_change] = int(self.edit_text.text())   
+
+class QScoringParams(qtw.QWidget):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.combo_box = qtw.QComboBox()
+        self.edit_text = qtw.QLineEdit()
+        self.vals = {}
+        self.combo_box.currentIndexChanged.connect(
+            lambda: change_edit_value(self, self.combo_box.currentText()))
+        self.edit_text.textChanged.connect(
+            lambda: update_edit_value(self, self.combo_box.currentText()))
+        layout = qtw.QHBoxLayout()
+        layout.addWidget(self.combo_box, alignment=qtc.Qt.AlignmentFlag.AlignTop)
+        layout.addWidget(self.edit_text, alignment=qtc.Qt.AlignmentFlag.AlignTop)
+        self.setLayout(layout)
+    

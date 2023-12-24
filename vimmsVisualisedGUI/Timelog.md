@@ -365,3 +365,7 @@
 - _1.5 hours_ Finished off testing and started to remove some of the bugs. Fixed roi param issue and altered new experiment page so that it didn't store old parameters.
 
 * _1.5 hours_ Resolved all currently identified issues in the generate section of the code. I have identified some parameters that appear to only have one option, so they are currently displayed as labels and not adjustable. Also, the exact match ms2 sampler is not actually complete, so I have removed it as an option from the code. All simulate bugs should be gone as well, other than the DsDA docstring issue, but I probably will create a separate unique function for this to make it an option.
+
+### 24 Dec 2023
+
+- _1.5 hours_ Another little bug squashed! Actually quite a nice solution for this one, as I had to create a new custom widget to allow the editing/parsing of the scoring params found in the intensity non overlap controller. For some reason the Non overlap controller had the same params but did not encounter the same issue? But it has now been sorted and again other than the DsDA controller, that should be all the experiment controllers now fully functional. Nice to get that one solved in the one sitting, feel like I am starting to know what I am doing.

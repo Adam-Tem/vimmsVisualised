@@ -83,7 +83,7 @@ CONTROLLER_PARAMS = {
     "exclusion_t_0": [("exclusion_t_0", qtw.QLineEdit), ("Exclusion T0:", qtw.QLabel)],
     # "grid": [("grid", qtw.QLineEdit), ("Grid", qtw.QLabel)],
     "register_all_roi": [("register_all_roi", QBooleanButton), ("Register all ROI:", qtw.QLabel), False],
-    "scoring_params": [("scoring_params", qtw.QComboBox), ("Scoring Params:", qtw.QLabel), GRID_CONTROLLER_SCORING_PARAMS],
+    "scoring_params": [("scoring_params", QScoringParams), ("Scoring Params:", qtw.QLabel), GRID_CONTROLLER_SCORING_PARAMS],
     "dsda_state": [("dsda_state", qtw.QLineEdit), ("DSDA State:", qtw.QLabel)],
     "mzml_name": [("mzml_name", qtw.QLineEdit), ("MZML Name:", qtw.QLabel)],
     "task_filter": [("task_filter", qtw.QLineEdit), ("Task Filter:", qtw.QLabel)],
