@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtGui as qtg
-
+from PyQt5 import QtCore as qtc
 
 from vimms.Box import BoxGrid
 from vimms.BoxManager import BoxSplitter, BoxManager
@@ -28,6 +28,7 @@ from Utils.XCMS.parseXCMSParams import parse_xcms_params
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
     start_exp = qtc.pyqtSignal(list, dict)
+    mzml_upload = qtc.pyqtSignal()
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -55,9 +56,11 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.AdvancedParamsScrollArea.setWidget(self.AdvancedParamsGroupBox)
         self.SummaryGroupBox.setHidden(True)
 
-        self.fullscan_upload_button = QMzmlUpload(parent=self.FullscanGroupBox)
+
+        self.fullscan_upload_button = QMzmlUpload(parent=self.MzmlUploadGroupBox)
         self.fullscan_upload_button.setObjectName("fullscan_upload_button")
-        self.fullscan_upload_button.move(225, 0)
+        self.MzmlUploadGroupBox.setLayout(self.fullscan_upload_button.layout())
+        self.mzml_upload.connect(self.check_mzml_file)
 
         pickle_env_button = QBooleanButton(parent = self)
         pickle_env_button.setObjectName("pickle_env_button")
@@ -129,3 +132,9 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.RunExperimentButton.setEnabled(True)
         self.experiment = experiment
         self.summary = summary
+
+    def check_mzml_file(self):
+        if self.fullscan_upload_button.file_name == "":
+            self.AddFullscanButton.setEnabled(False)
+        else:
+            self.AddFullscanButton.setEnabled(True)

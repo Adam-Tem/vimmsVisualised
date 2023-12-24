@@ -17,3 +17,5 @@ def upload_file(self, file_type):
     self.FileNameLabel.setText(file_name)
     self.file_name = file_name
     self.file_location = file_location
+    if self.parent().parent().parent().mzml_upload:
+        self.parent().parent().parent().mzml_upload.emit()

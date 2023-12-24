@@ -369,3 +369,5 @@
 ### 24 Dec 2023
 
 - _1.5 hours_ Another little bug squashed! Actually quite a nice solution for this one, as I had to create a new custom widget to allow the editing/parsing of the scoring params found in the intensity non overlap controller. For some reason the Non overlap controller had the same params but did not encounter the same issue? But it has now been sorted and again other than the DsDA controller, that should be all the experiment controllers now fully functional. Nice to get that one solved in the one sitting, feel like I am starting to know what I am doing.
+
+* _1.5 hours_ Resolved an issue where it was possible to still click to add a fullscan file even when there was none selected. Completed this in slightly a hacky way, but it's just starting to get to the point where a lot of stuff is nested and I don't want to be passing too much about. Got it working though which is nice.

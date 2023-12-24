@@ -64,7 +64,7 @@
      <rect>
       <x>10</x>
       <y>5</y>
-      <width>225</width>
+      <width>231</width>
       <height>20</height>
      </rect>
     </property>
@@ -77,7 +77,7 @@
      <string/>
     </property>
     <property name="text">
-     <string>Please select fullscans to inject:</string>
+     <string>Please select a fullscan to inject:</string>
     </property>
    </widget>
    <widget class="QLabel" name="SelectedFullscanLabel">
@@ -101,9 +101,9 @@
    <widget class="QLabel" name="NoOfInjectionsLabel">
     <property name="geometry">
      <rect>
-      <x>295</x>
+      <x>337</x>
       <y>5</y>
-      <width>141</width>
+      <width>111</width>
       <height>21</height>
      </rect>
     </property>
@@ -113,7 +113,7 @@
      </font>
     </property>
     <property name="text">
-     <string># of times to inject:</string>
+     <string># of injections:</string>
     </property>
    </widget>
    <widget class="QSpinBox" name="NoOfInjectionsSpinBox">
@@ -133,6 +133,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="AddFullscanButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -224,6 +227,29 @@
      <string/>
     </property>
    </widget>
+   <widget class="QGroupBox" name="MzmlUploadGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>0</y>
+      <width>80</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">padding: 0; 
+background-color: rgb(240, 240, 240);</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+   </widget>
    <zorder>InjectionUndoButton</zorder>
    <zorder>FullscanSelectLabel</zorder>
    <zorder>SelectedFullscanLabel</zorder>
@@ -231,6 +257,7 @@
    <zorder>NoOfInjectionsSpinBox</zorder>
    <zorder>AddFullscanButton</zorder>
    <zorder>FullscanNamesScrollArea</zorder>
+   <zorder>MzmlUploadGroupBox</zorder>
   </widget>
   <widget class="QPushButton" name="AddExperimentCaseButton">
    <property name="geometry">

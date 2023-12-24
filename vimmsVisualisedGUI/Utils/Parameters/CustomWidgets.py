@@ -39,9 +39,13 @@ class FileLabel(qtw.QLabel):
     def enterEvent(self, event):
         length = len(self.text())
         self.setMaximumWidth(length * 6)
+        if type(self.parent()) == qtw.QGroupBox:
+            self.parent().setFixedWidth(length * 10)
 
     def leaveEvent(self, event):
         self.setMaximumWidth(40)
+        if type(self.parent()) == qtw.QGroupBox:
+            self.parent().setFixedWidth(80)
 
 class QMzmlUpload(QFileUpload):
     def __init__(self, *args, **kwargs):
