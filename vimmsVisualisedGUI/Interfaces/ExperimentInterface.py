@@ -56,11 +56,10 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.AdvancedParamsScrollArea.setWidget(self.AdvancedParamsGroupBox)
         self.SummaryGroupBox.setHidden(True)
 
-
         self.fullscan_upload_button = QMzmlUpload(parent=self.MzmlUploadGroupBox)
         self.fullscan_upload_button.setObjectName("fullscan_upload_button")
         self.MzmlUploadGroupBox.setLayout(self.fullscan_upload_button.layout())
-        self.mzml_upload.connect(self.check_mzml_file)
+        self.fullscan_upload_button.mzml_upload.connect(self.check_mzml_file)
 
         pickle_env_button = QBooleanButton(parent = self)
         pickle_env_button.setObjectName("pickle_env_button")
@@ -133,8 +132,9 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.experiment = experiment
         self.summary = summary
 
-    def check_mzml_file(self):
-        if self.fullscan_upload_button.file_name == "":
+    @qtc.pyqtSlot(str)
+    def check_mzml_file(self, file_name):
+        if file_name == "":
             self.AddFullscanButton.setEnabled(False)
         else:
             self.AddFullscanButton.setEnabled(True)

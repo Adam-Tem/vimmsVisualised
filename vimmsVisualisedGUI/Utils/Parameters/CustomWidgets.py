@@ -48,9 +48,13 @@ class FileLabel(qtw.QLabel):
             self.parent().setFixedWidth(80)
 
 class QMzmlUpload(QFileUpload):
+    mzml_upload = qtc.pyqtSignal(str)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.button.clicked.connect(lambda: upload_file(self, "mzml"))
+
+    def emit_name(self):
+        self.mzml_upload.emit(self.file_name)
 
 class QMgfUpload(QFileUpload):
     def __init__(self, *args, **kwargs):
