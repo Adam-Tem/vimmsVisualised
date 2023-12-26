@@ -110,6 +110,7 @@ class Ui_experimentForm(object):
         self.FullscanNamesScrollArea.raise_()
         self.MzmlUploadGroupBox.raise_()
         self.AddExperimentCaseButton = QtWidgets.QPushButton(experimentForm)
+        self.AddExperimentCaseButton.setEnabled(False)
         self.AddExperimentCaseButton.setGeometry(QtCore.QRect(430, 420, 161, 23))
         self.AddExperimentCaseButton.setObjectName("AddExperimentCaseButton")
         self.ExperimentCasesLabel = QtWidgets.QLabel(experimentForm)

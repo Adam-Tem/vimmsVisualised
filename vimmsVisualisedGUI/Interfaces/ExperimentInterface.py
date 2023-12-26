@@ -61,6 +61,9 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.MzmlUploadGroupBox.setLayout(self.fullscan_upload_button.layout())
         self.fullscan_upload_button.mzml_upload.connect(self.check_mzml_file)
 
+        self.ControllerComboBox.currentIndexChanged.connect(self.check_controller_and_case_name)
+        self.CaseNameTextEdit.textChanged.connect(self.check_controller_and_case_name)
+
         pickle_env_button = QBooleanButton(parent = self)
         pickle_env_button.setObjectName("pickle_env_button")
         pickle_env_button.move(155, 390)
@@ -138,3 +141,11 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
             self.AddFullscanButton.setEnabled(False)
         else:
             self.AddFullscanButton.setEnabled(True)
+
+    @qtc.pyqtSlot()
+    def check_controller_and_case_name(self):
+        if (self.ControllerComboBox.currentText() != "---" 
+            and len(self.CaseNameTextEdit.text().strip())):
+            self.AddExperimentCaseButton.setEnabled(True)
+        else:
+            self.AddExperimentCaseButton.setEnabled(False)

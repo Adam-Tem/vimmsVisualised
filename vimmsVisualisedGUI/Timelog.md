@@ -377,3 +377,5 @@
 ### 26 Dec 2023
 
 - _0.5 hours_ A nice little quick fix removing the horrible code that I had written last time when trying to send a signal about for the mzml upload. Tidied it now so the signal is actually coming from the upload button and not in a hierarchical mess.
+
+* _0.5 hours_ Added the same sort of case checking for the "Add experiment case" button, so that it is only enabled both when a valid controller is selected and the text edit area for naming the case has an appropriate text value as apposed to being empty or just spaces.

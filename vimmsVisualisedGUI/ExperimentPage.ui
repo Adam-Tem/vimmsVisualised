@@ -260,6 +260,9 @@ background-color: rgb(240, 240, 240);</string>
    <zorder>MzmlUploadGroupBox</zorder>
   </widget>
   <widget class="QPushButton" name="AddExperimentCaseButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>430</x>
