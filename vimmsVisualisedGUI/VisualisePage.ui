@@ -65,25 +65,12 @@
     <string>Please Select an .mzML file:</string>
    </property>
   </widget>
-  <widget class="QToolButton" name="SelectFileButton">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>110</y>
-     <width>23</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="RTRangeLabel">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>305</x>
      <y>110</y>
-     <width>251</width>
+     <width>31</width>
      <height>21</height>
     </rect>
    </property>
@@ -93,13 +80,13 @@
     </font>
    </property>
    <property name="text">
-    <string>RT Range:</string>
+    <string>RT:</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="RTMinTextEdit">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>335</x>
      <y>110</y>
      <width>60</width>
      <height>20</height>
@@ -109,7 +96,7 @@
   <widget class="QLineEdit" name="RTMaxTextEdit">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>415</x>
      <y>110</y>
      <width>60</width>
      <height>20</height>
@@ -119,7 +106,7 @@
   <widget class="QLabel" name="RTRangeDashLabel">
    <property name="geometry">
     <rect>
-     <x>380</x>
+     <x>395</x>
      <y>110</y>
      <width>21</width>
      <height>21</height>
@@ -138,6 +125,9 @@
    </property>
   </widget>
   <widget class="QPushButton" name="VisualiseButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>480</x>
@@ -150,27 +140,11 @@
     <string>Visualise</string>
    </property>
   </widget>
-  <widget class="QLabel" name="FileNameLabel">
-   <property name="geometry">
-    <rect>
-     <x>15</x>
-     <y>130</y>
-     <width>221</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font-weight: bold;</string>
-   </property>
-   <property name="text">
-    <string>No file selected.</string>
-   </property>
-  </widget>
   <widget class="QComboBox" name="GraphTypeComboBox">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>150</y>
+     <y>145</y>
      <width>221</width>
      <height>22</height>
     </rect>
@@ -194,6 +168,29 @@
      <width>400</width>
      <height>321</height>
     </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="MzmlUploadGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>100</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">padding: 0; 
+background-color: rgb(240, 240, 240);</string>
    </property>
    <property name="title">
     <string/>

@@ -8,6 +8,7 @@ from vimmsVisualisedGUI.Utils.UploadFile import *
 
 from vimmsVisualisedGUI.Utils.Display.setCharge import *
 from Utils.Display.displayParams import *
+from Utils.Display.inputErrorPopUp import input_error_pop_up
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 from Utils.Parameters.ParamWidgets import CONTROLLER_PARAMS, CONTROLLERS
 from Utils.Parameters.loadParamState import load_param_state
@@ -53,13 +54,16 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
         self.SimulateButton.clicked.connect(
             lambda: (self.SimulateButton.setEnabled(False),
                      self.start_sim.emit(self.ControllerComboBox.currentText(), self.file_location,
-                                         int(self.min_rt.text()), int(self.max_rt.text()),self.ParamsBox,
+                                         self.min_rt.text(), self.max_rt.text(),self.ParamsBox,
                                         self.OutputFileTextEdit.text(),
                                         parse_advanced_params(self.AdvancedParamsGroupBox),
                                         ))
         )
 
-    @qtc.pyqtSlot()
-    def notify_sim_finish(self):
-        self.SimulateButton.setEnabled(True)
-        task_completed_pop_up("ViMMS Simulation", "Current simulation now complete!")
+    @qtc.pyqtSlot(str)
+    def notify_sim_finish(self, notification_msg):
+        if notification_msg == "Simulated":
+            task_completed_pop_up("ViMMS Simulation", "Current simulation now complete!",
+                                  self.SimulateButton)
+        else:
+            input_error_pop_up(self.SimulateButton)

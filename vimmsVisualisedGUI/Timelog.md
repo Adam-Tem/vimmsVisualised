@@ -379,3 +379,11 @@
 - _0.5 hours_ A nice little quick fix removing the horrible code that I had written last time when trying to send a signal about for the mzml upload. Tidied it now so the signal is actually coming from the upload button and not in a hierarchical mess.
 
 * _0.5 hours_ Added the same sort of case checking for the "Add experiment case" button, so that it is only enabled both when a valid controller is selected and the text edit area for naming the case has an appropriate text value as apposed to being empty or just spaces.
+
+### 27 Dec 2023
+
+- _1 hour_ Not much focus, but I have tidied up the visualise interface to now use the custom mzml upload widget and also the graph constructor method. I still don't really know how to fix the really laggy 3d plot, and will also have to move the generation of the plot to a thread as it takes a while so will be best to not make the GUI look as if it is crashing again.
+
+### 31 Dec 2023
+
+- _1 hour_ Yeah, progress has not been great on the project over the past few days. Time hasn't been wasted though as I have been reviewing and analysing the "Hall of Fame" dissertations in good detail, understanding the general structure and layout of them. I should have officially recorded how long I had spent doing this as it was a good few hours. Alas, I have finally added some new code to the project itself, with an error message now being shown to the user if there is invalid input when trying to execute n action. It is very much a general error message at the moment, but at least identifies the issue rather than leaving the user unaware.

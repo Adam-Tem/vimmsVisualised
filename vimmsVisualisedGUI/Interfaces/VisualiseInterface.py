@@ -1,31 +1,34 @@
 from PyQt5 import QtGui as qtg
 from PyQt5 import QtWidgets as qtw
-
-from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as navBar
+from PyQt5 import QtCore as qtc
 
 from VisualisePage import Ui_VisualiseForm
-from Graphing.GraphCanvas import MplCanvas
 from Graphing.SelectGraphToPlot import select_graph_to_plot
-from Utils.UploadFile import upload_file
+from Graphing.createGraphLayout import create_graph_layout
+from Utils.Parameters.CustomWidgets import QMzmlUpload
 
 class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
+
+    mzml_upload = qtc.pyqtSignal()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.setupUi(self)
 
-        self.file_name = ""
-        self.file_location = ""
+        create_graph_layout(self)
 
-        layout = qtw.QVBoxLayout()
-        
-        self.canvas = MplCanvas()
-        self.nav_bar = navBar(self.canvas)
-        layout.addWidget(self.nav_bar)
-        layout.addWidget(self.canvas)
-        self.CanvasGroupBox.setLayout(layout)
+        self.mzml_to_visualise_button = QMzmlUpload(parent=self)
+        self.mzml_to_visualise_button.setObjectName("mzml_to_visualise_button")
+        self.MzmlUploadGroupBox.setLayout(self.mzml_to_visualise_button.layout())
+        self.mzml_to_visualise_button.mzml_upload.connect(self.check_mzml_file)
 
         self.VisualiseHomeButton.setIcon(qtg.QIcon("Images/home.png"))
-        self.SelectFileButton.clicked.connect(lambda: upload_file(self, "mzml"))
-        self.VisualiseButton.clicked.connect(lambda: select_graph_to_plot(self, self.GraphTypeComboBox.currentText()))
+        self.VisualiseButton.clicked.connect(lambda: select_graph_to_plot(self, 
+                                                                          self.GraphTypeComboBox.currentText()))
+    @qtc.pyqtSlot(str)
+    def check_mzml_file(self, file_name):
+        if file_name == "":
+            self.VisualiseButton.setEnabled(False)
+        else:
+            self.VisualiseButton.setEnabled(True)

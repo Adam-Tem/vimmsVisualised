@@ -13,29 +13,42 @@ class ExperimentWorker(qtc.QObject):
 
     @qtc.pyqtSlot(list, dict)
     def run(self, experiment_cases, xcms_params):
-        experiment, summary = run_experiment(experiment_cases, xcms_params)
-        self.experiment_finished.emit(experiment, summary)
+        try:
+            experiment, summary = run_experiment(experiment_cases, xcms_params)
+            self.experiment_finished.emit(experiment, summary)
+        except:
+            self.experiment_finished.emit(Experiment(), "")
 
 class SimulateWorker(qtc.QObject):
-    simulation_finished = qtc.pyqtSignal()
+    simulation_finished = qtc.pyqtSignal(str)
 
     @qtc.pyqtSlot(str, str, int, int, qtw.QGroupBox, str, dict)
     def run(self, controller_name, file_location, min_rt, max_rt, param_box, output_filename, advanced_params):
-        run_controller(controller_name, file_location, min_rt, max_rt, param_box , output_filename, advanced_params)
-        self.simulation_finished.emit()
+        try:
+            run_controller(controller_name, file_location, int(min_rt), int(max_rt), param_box , output_filename, advanced_params)
+            self.simulation_finished.emit("Simulated")
+        except:
+            self.simulation_finished.emit("Simulation Failed")
 
 class ExtractWorker(qtc.QObject):
     extract_finished = qtc.pyqtSignal(str)
 
     @qtc.pyqtSlot(qtw.QGroupBox, str, str, str, str)
     def run(self, param_box, file_location, file_name, file_save_name, save_directory):
-        extract_data(param_box, file_location, file_name, file_save_name, save_directory)
-        self.extract_finished.emit("Extracted")
+        try:
+            extract_data(param_box, file_location, file_name, file_save_name, save_directory)
+            self.extract_finished.emit("Extracted")
+        except:
+            self.extract_finished.emit("Extraction Failed")
+           
 
 class GenerateWorker(qtc.QObject):
     generate_finished = qtc.pyqtSignal(str)
 
     @qtc.pyqtSlot(qtw.QGroupBox, str, str, int, str)
     def run(self, param_box, adduct_prop, chems_to_sample, ms2_level, file_save_name):
-       run_chemical_mixture_creator(param_box, adduct_prop, chems_to_sample, ms2_level, file_save_name)
-       self.generate_finished.emit("Generated")
+        try:
+            run_chemical_mixture_creator(param_box, adduct_prop, chems_to_sample, ms2_level, file_save_name)
+            self.generate_finished.emit("Generated")
+        except:
+            self.generate_finished.emit("Generation Failed")

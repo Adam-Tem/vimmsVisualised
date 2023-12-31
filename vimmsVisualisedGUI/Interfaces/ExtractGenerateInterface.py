@@ -4,6 +4,7 @@ from PyQt5 import QtWidgets as qtw
 from ExtractGeneratePage import Ui_ExtractGenerateForm
 
 from Utils.Display.displayParams import *
+from Utils.Display.inputErrorPopUp import input_error_pop_up
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 from Utils.Extract.ExtractData import *
 from Utils.Parameters.ParamWidgets import *
@@ -73,9 +74,13 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
     @qtc.pyqtSlot(str)
     def notify_extract_generate_finish(self, action):
         if action == "Extracted":
-            self.ExtractDataButton.setEnabled(True)
-            task_completed_pop_up("ViMMS Extraction", "Current extraction now complete!")
-        else:
-            self.GenerateDataButton.setEnabled(True)
-            task_completed_pop_up("ViMMS Generation", "Current generation now complete!")
+            task_completed_pop_up("ViMMS Extraction", "Current extraction now complete!",
+                                  self.ExtractDataButton)
+        elif action == "Extraction Failed":
+            input_error_pop_up(self.ExtractDataButton)
+        elif action == "Generated":
+            task_completed_pop_up("ViMMS Generation", "Current generation now complete!",
+                                  self.GenerateDataButton)
+        elif action == "Generation Failed":
+            input_error_pop_up(self.GenerateDataButton)
         

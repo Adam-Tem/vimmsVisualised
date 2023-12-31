@@ -11,6 +11,7 @@ from ExperimentPage import Ui_experimentForm
 from Graphing.createGraphLayout import create_graph_layout
 from Graphing.ExperimentResultPlot import experiment_result_plot
 from Utils.Display.displayParams import displayParams
+from Utils.Display.inputErrorPopUp import input_error_pop_up
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 from Utils.Experiment.addFullscanToList import add_fullscan_to_list
 from Utils.Experiment.constructExperimentCase import construct_experiment_case
@@ -130,10 +131,14 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
     @qtc.pyqtSlot(Experiment, str)
     def set_experiment_and_summary(self, experiment, summary):
-        task_completed_pop_up("ViMMS Experiment", "Experiment execution now complete!", self.ViewSummaryButton)
-        self.RunExperimentButton.setEnabled(True)
-        self.experiment = experiment
-        self.summary = summary
+        if summary != "":
+            task_completed_pop_up("ViMMS Experiment", "Experiment execution now complete!", 
+                                  self.ViewSummaryButton)
+            self.RunExperimentButton.setEnabled(True)
+            self.experiment = experiment
+            self.summary = summary
+        else:
+            input_error_pop_up(self.RunExperimentButton)
 
     @qtc.pyqtSlot(str)
     def check_mzml_file(self, file_name):
