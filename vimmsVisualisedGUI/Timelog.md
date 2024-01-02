@@ -387,3 +387,17 @@
 ### 31 Dec 2023
 
 - _1 hour_ Yeah, progress has not been great on the project over the past few days. Time hasn't been wasted though as I have been reviewing and analysing the "Hall of Fame" dissertations in good detail, understanding the general structure and layout of them. I should have officially recorded how long I had spent doing this as it was a good few hours. Alas, I have finally added some new code to the project itself, with an error message now being shown to the user if there is invalid input when trying to execute n action. It is very much a general error message at the moment, but at least identifies the issue rather than leaving the user unaware.
+
+## Week 14
+
+### 01 Jan 2024
+
+- _1 hour_ Just out here trying to catch as many edge cases as possible, with the extract interface now only allowing you to actually execute an extract action when there is a (hopefully) valid file selected and a name for the output file, not just an empty string.
+
+* _0.5 hours_ Also now added the same to ensure that there is a valid sampler selected for all options and that the file name, number of chems to sample and adduct proportion cut off are not empty strings.
+
+* _0.5 hours_ Rinse and repeat once again, this time with the simulate page. A couple of adjustments to the custom widgets to add a file upload for .p files and moved about the pyqt signals to the superclass to limit repeated code. Unsure whether all this input checking I should be moving to a different file, but it is not clogging up the interface files too much.
+
+### 02 Jan 2024
+
+- _1.5 hours_ Feels very strange writing the year as "2024"! Like I always seem to do, I have gone back and abstracted the code I wrote yesterday. This ensures an executable button was only clickable given valid inputs, now in a nicer more concise manner, parameterised and passed around rather than written multiple times. This is now found throughout the GUI.

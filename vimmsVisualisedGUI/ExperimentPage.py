@@ -147,6 +147,7 @@ class Ui_experimentForm(object):
         self.ExperimentNamesLabel.setObjectName("ExperimentNamesLabel")
         self.ExperimentNamesScrollArea.setWidget(self.ScrollContents_2)
         self.RunExperimentButton = QtWidgets.QPushButton(experimentForm)
+        self.RunExperimentButton.setEnabled(False)
         self.RunExperimentButton.setGeometry(QtCore.QRect(240, 460, 161, 30))
         self.RunExperimentButton.setObjectName("RunExperimentButton")
         self.NameExperimentCaseLabel = QtWidgets.QLabel(experimentForm)

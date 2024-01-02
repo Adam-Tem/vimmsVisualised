@@ -9,6 +9,7 @@ from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 from Utils.Extract.ExtractData import *
 from Utils.Parameters.ParamWidgets import *
 from Utils.UploadFile import *
+from Utils.checkValidInputs import check_valid_inputs
 from Utils.Threads.workerThreads import ExtractWorker, GenerateWorker
 
 class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
@@ -20,10 +21,22 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
         super().__init__(*args, **kwargs)
 
         self.setupUi(self)
-        self.file_name = ""
-        self.file_location = ""
 
         self.ExtractHomeButton.setIcon(qtg.QIcon("Images/home.png"))
+
+        self.extract_upload_button = QMzmlUpload(parent=self.MzmlUploadGroupBox)
+        self.extract_upload_button.setObjectName("extract_upload_button")
+        self.MzmlUploadGroupBox.setLayout(self.extract_upload_button.layout())
+        self.extract_upload_button.file_upload.connect(self.check_extract_inputs)
+        self.ExtractFileNameTextEdit.textChanged.connect(self.check_extract_inputs)
+
+        self.FormulaSamplerComboBox.currentIndexChanged.connect(self.check_generate_inputs)
+        self.RTISamplerComboBox.currentIndexChanged.connect(self.check_generate_inputs)
+        self.ChromoSamplerComboBox.currentIndexChanged.connect(self.check_generate_inputs)
+        self.MS2SamplerComboBox.currentIndexChanged.connect(self.check_generate_inputs)
+        self.ChemsToSampleTextEdit.textChanged.connect(self.check_generate_inputs)
+        self.AdductPropTextEdit.textChanged.connect(self.check_generate_inputs)
+        self.GenerateFileNameTextEdit.textChanged.connect(self.check_generate_inputs)
 
         self.extract_worker = ExtractWorker()
         self.generate_worker = GenerateWorker()
@@ -37,8 +50,6 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
         self.start_generate.connect(self.generate_worker.run)
         self.extract_worker.extract_finished.connect(self.notify_extract_generate_finish)
         self.generate_worker.generate_finished.connect(self.notify_extract_generate_finish)
-
-        self.SelectFileButton.clicked.connect(lambda: upload_file(self, "mzml"))
 
         self.ExtractDataButton.clicked.connect(lambda: (
                                         self.ExtractDataButton.setEnabled(False),
@@ -83,4 +94,16 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
                                   self.GenerateDataButton)
         elif action == "Generation Failed":
             input_error_pop_up(self.GenerateDataButton)
-        
+
+    @qtc.pyqtSlot()
+    def check_extract_inputs(self):
+        check_valid_inputs(self.ExtractDataButton, line_edits = [self.extract_upload_button.file_name,
+                                                self.ExtractFileNameTextEdit.text()])
+
+    
+    @qtc.pyqtSlot()
+    def check_generate_inputs(self):
+        check_valid_inputs(self.GenerateDataButton, line_edits = [self.AdductPropTextEdit.text(), 
+                                                    self.ChemsToSampleTextEdit.text(),
+                                                    self.GenerateFileNameTextEdit.text()],
+                                                   combo_boxes = self.findChildren(qtw.QComboBox))

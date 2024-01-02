@@ -13,6 +13,9 @@ class QIonModeButton(qtw.QPushButton):
         self.clicked.connect(lambda: setButtonText(self, ["Positive", "Negative"]))
 
 class QFileUpload(qtw.QWidget):
+
+    file_upload = qtc.pyqtSignal(str)
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.button = qtw.QPushButton()
@@ -32,7 +35,11 @@ class QFileUpload(qtw.QWidget):
         
         self.setLayout(layout)
 
+    def emit_name(self):
+        self.file_upload.emit(self.file_name)
+
 class FileLabel(qtw.QLabel):
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
@@ -48,18 +55,20 @@ class FileLabel(qtw.QLabel):
             self.parent().setFixedWidth(80)
 
 class QMzmlUpload(QFileUpload):
-    mzml_upload = qtc.pyqtSignal(str)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.button.clicked.connect(lambda: upload_file(self, "mzml"))
-
-    def emit_name(self):
-        self.mzml_upload.emit(self.file_name)
 
 class QMgfUpload(QFileUpload):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.button.clicked.connect(lambda: upload_file(self, "mgf"))
+
+class PUpload(QFileUpload):
+    p_upload = qtc.pyqtSignal(str)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.button.clicked.connect(lambda: upload_file(self, "p"))
 
 class QBooleanButton(qtw.QPushButton):
     def __init__(self, *args, **kwargs):

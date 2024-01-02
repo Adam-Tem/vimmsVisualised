@@ -10,6 +10,7 @@ from ExperimentPage import Ui_experimentForm
 
 from Graphing.createGraphLayout import create_graph_layout
 from Graphing.ExperimentResultPlot import experiment_result_plot
+from Utils.checkValidInputs import check_valid_inputs
 from Utils.Display.displayParams import displayParams
 from Utils.Display.inputErrorPopUp import input_error_pop_up
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
@@ -60,10 +61,14 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.fullscan_upload_button = QMzmlUpload(parent=self.MzmlUploadGroupBox)
         self.fullscan_upload_button.setObjectName("fullscan_upload_button")
         self.MzmlUploadGroupBox.setLayout(self.fullscan_upload_button.layout())
-        self.fullscan_upload_button.mzml_upload.connect(self.check_mzml_file)
+        self.fullscan_upload_button.file_upload.connect(self.check_mzml_file)
 
-        self.ControllerComboBox.currentIndexChanged.connect(self.check_controller_and_case_name)
-        self.CaseNameTextEdit.textChanged.connect(self.check_controller_and_case_name)
+        self.ControllerComboBox.currentIndexChanged.connect(self.check_case_inputs)
+        self.CaseNameTextEdit.textChanged.connect(self.check_case_inputs)
+        
+
+        
+
 
         pickle_env_button = QBooleanButton(parent = self)
         pickle_env_button.setObjectName("pickle_env_button")
@@ -78,14 +83,17 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.AddFullscanButton.clicked.connect(
             lambda: add_fullscan_to_list(self, self.FullscanNamesScrollArea, 
                                         self.fullscan_upload_button.file_name, self.NoOfInjectionsSpinBox.value()))
+        self.AddFullscanButton.clicked.connect(self.check_case_inputs)
+        
         
         self.InjectionUndoButton.clicked.connect(
-            lambda: remove_option(self, self.FullscanNamesScrollArea, "fullscan")
-        )
+            lambda: remove_option(self, self.FullscanNamesScrollArea, "fullscan"))
+        self.InjectionUndoButton.clicked.connect(self.check_case_inputs)
 
         self.CaseUndoButton.clicked.connect(
             lambda: remove_option(self, self.ExperimentNamesScrollArea, "case")
         )
+        self.CaseUndoButton.clicked.connect(self.check_run_exp_inputs)
 
         self.SaveParamsButton.clicked.connect(
             lambda: save_param_state(self,
@@ -107,6 +115,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
                                               pickle_env_button.current_selection(), self.CaseNameTextEdit.text(),
                                               self.fullscan_list, geom, parse_advanced_params(self.AdvancedParamsGroupBox))
         )
+        self.AddExperimentCaseButton.clicked.connect(self.check_run_exp_inputs)
 
         self.RunExperimentButton.clicked.connect(
             lambda: (self.RunExperimentButton.setEnabled(False),
@@ -140,17 +149,18 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         else:
             input_error_pop_up(self.RunExperimentButton)
 
-    @qtc.pyqtSlot(str)
-    def check_mzml_file(self, file_name):
-        if file_name == "":
-            self.AddFullscanButton.setEnabled(False)
-        else:
-            self.AddFullscanButton.setEnabled(True)
+    @qtc.pyqtSlot()
+    def check_mzml_file(self):
+        check_valid_inputs(self.AddFullscanButton, line_edits = [self.fullscan_upload_button.file_name])
 
     @qtc.pyqtSlot()
-    def check_controller_and_case_name(self):
-        if (self.ControllerComboBox.currentText() != "---" 
-            and len(self.CaseNameTextEdit.text().strip())):
-            self.AddExperimentCaseButton.setEnabled(True)
-        else:
-            self.AddExperimentCaseButton.setEnabled(False)
+    def check_case_inputs(self):
+        check_valid_inputs(self.AddExperimentCaseButton, 
+                           line_edits = [self.CaseNameTextEdit.text()],
+                           combo_boxes = self.findChildren(qtw.QComboBox),
+                           stored_lists = [self.fullscan_list])
+
+    @qtc.pyqtSlot()
+    def check_run_exp_inputs(self):
+        check_valid_inputs(self.RunExperimentButton, 
+                           stored_lists = [self.experiment_case_list])

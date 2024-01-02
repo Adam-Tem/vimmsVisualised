@@ -65,32 +65,6 @@
     <string>Please Upload a .p File:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="SelectFileButton">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>100</y>
-     <width>60</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Select File</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="FileNameLabel">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>100</y>
-     <width>261</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>No File Selected.</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="MinRTLabel">
    <property name="geometry">
     <rect>
@@ -1013,6 +987,9 @@ background-color: rgb(240, 240, 240);</string>
    </widget>
   </widget>
   <widget class="QPushButton" name="SimulateButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>400</x>
@@ -1051,6 +1028,29 @@ background-color: rgb(240, 240, 240);</string>
      <width>151</width>
      <height>20</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="PUploadGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>90</y>
+     <width>80</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">padding: 0; 
+background-color: rgb(240, 240, 240);</string>
+   </property>
+   <property name="title">
+    <string/>
    </property>
   </widget>
  </widget>

@@ -60,6 +60,7 @@ class Ui_VisualiseForm(object):
         self.GraphTypeComboBox.setObjectName("GraphTypeComboBox")
         self.GraphTypeComboBox.addItem("")
         self.GraphTypeComboBox.addItem("")
+        self.GraphTypeComboBox.addItem("")
         self.CanvasGroupBox = QtWidgets.QGroupBox(VisualiseForm)
         self.CanvasGroupBox.setGeometry(QtCore.QRect(100, 180, 400, 321))
         self.CanvasGroupBox.setTitle("")
@@ -87,8 +88,9 @@ class Ui_VisualiseForm(object):
         self.RTRangeLabel.setText(_translate("VisualiseForm", "RT:"))
         self.RTRangeDashLabel.setText(_translate("VisualiseForm", "-"))
         self.VisualiseButton.setText(_translate("VisualiseForm", "Visualise"))
-        self.GraphTypeComboBox.setItemText(0, _translate("VisualiseForm", "Scatter Plot"))
-        self.GraphTypeComboBox.setItemText(1, _translate("VisualiseForm", "3d Bar Plot"))
+        self.GraphTypeComboBox.setItemText(0, _translate("VisualiseForm", "---"))
+        self.GraphTypeComboBox.setItemText(1, _translate("VisualiseForm", "Scatter Plot"))
+        self.GraphTypeComboBox.setItemText(2, _translate("VisualiseForm", "3d Bar Plot"))
 
 
 if __name__ == "__main__":
