@@ -155,3 +155,34 @@ PARSE_AS_INT = ["n_intensity_bins", "n_frags", "n_draws"]
 PARSE_AS_LOG = ["min_log_intensity", "max_log_intensity"]
 
 SAVE_DIRECTORY =  os.path.join(os.path.abspath(os.getcwd()), 'results')
+
+QSS = """
+QSlider {
+    min-height: 20px;
+}
+
+QSlider::groove:horizontal {
+    border: 0px;
+    background: #000;
+    height: 20px;
+    border-radius: 10px;
+}
+
+QSlider::handle {
+    background: qradialgradient(cx:0, cy:0, radius: 1.2, fx:0.35,
+                                fy:0.3, stop:0 #eef, stop:1 #002);
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+}
+
+QSlider::sub-page:horizontal {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #227, stop:1 #77a);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+QRangeSlider {
+    qproperty-barColor: #000;
+}
+"""

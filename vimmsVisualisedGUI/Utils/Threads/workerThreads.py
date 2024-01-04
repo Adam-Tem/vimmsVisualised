@@ -3,6 +3,8 @@ from PyQt5 import QtWidgets as qtw
 
 from vimms.Experiment import Experiment
 
+from Graphing.GraphCanvas import MplCanvas
+from Graphing.SelectGraphToPlot import select_graph_to_plot
 from Utils.Simulate.runController import run_controller
 from Utils.Experiment.runExperiment import run_experiment
 from Utils.Extract.ExtractData import extract_data
@@ -52,3 +54,14 @@ class GenerateWorker(qtc.QObject):
             self.generate_finished.emit("Generated")
         except:
             self.generate_finished.emit("Generation Failed")
+
+class GraphWorker(qtc.QObject):
+    graphing_finished = qtc.pyqtSignal(str)
+
+    @qtc.pyqtSlot(MplCanvas, str, str, str, str, str)
+    def run(self, canvas, file_location, file_name, combo_box_text, min_rt, max_rt):
+        try:
+            select_graph_to_plot(canvas, file_location, file_name, combo_box_text, min_rt, max_rt)
+            self.graphing_finished.emit("Graphing finished")
+        except:
+            self.graphing_finished.emit("Graphing failed")

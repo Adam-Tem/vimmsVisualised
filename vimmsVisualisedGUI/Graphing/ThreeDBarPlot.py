@@ -9,7 +9,7 @@ def three_d_bar_plot(canvas, file_location, file_name, min_rt = None, max_rt = N
 
     canvas.axes.cla()
     mzml = path_or_mzml(file_location)
-    for scan in mzml.scans[100:120]:
+    for scan in mzml.scans[0:364]:
         rt = scan.rt_in_seconds
         for mz, intensity in scan.peaks:
             canvas.axes.plot(np.array([mz, mz]), np.array([rt, rt]), np.array([0, intensity]), color="black")
@@ -21,5 +21,6 @@ def three_d_bar_plot(canvas, file_location, file_name, min_rt = None, max_rt = N
             zlabel="Intensity",
             zlim=[0, None],
         )
-        canvas.axes.autoscale()
-        canvas.draw()
+    canvas.axes.autoscale()
+    canvas.axes.set_ylim([float(min_rt),float(max_rt)])
+    canvas.draw()

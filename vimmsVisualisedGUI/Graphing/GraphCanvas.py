@@ -1,8 +1,7 @@
 from PyQt5 import QtCore as qtc
 
-import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as fcqt
-from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as navBar
+
 from matplotlib.figure import Figure
 
 class MplCanvas(fcqt):
@@ -17,10 +16,4 @@ class MplCanvas(fcqt):
         self.canvas = fcqt(self.fig)
         self.canvas.setParent(parent)
 
-        
         super(MplCanvas, self).__init__(self.fig)
-
-class QNavBar(navBar):
-    @qtc.pyqtSlot()
-    def graph_change():
-        pass

@@ -401,3 +401,15 @@
 ### 02 Jan 2024
 
 - _1.5 hours_ Feels very strange writing the year as "2024"! Like I always seem to do, I have gone back and abstracted the code I wrote yesterday. This ensures an executable button was only clickable given valid inputs, now in a nicer more concise manner, parameterised and passed around rather than written multiple times. This is now found throughout the GUI.
+
+### 03 Jan 2024
+
+- _2 hours_ Spent a solid bit of time looking at the graphing section of the GUI there. I have now moved the updating of the graph to a thread, again just to stop the GUI looking like it is frozen. I have added in the retention time parameters for the 2d scatter plot, but for the 3d plot I am now also looking at the parameters for the "scan range". I don't 100% know how this works in with the rest of the variables, but this will be the focus to keep working on it and develop it further.
+
+* _2 hours_ Again, looking to modify the visualise page but an aspect that appears in multiple locations throughout the GUI, I have been trying to build a slider for the range values as well as text input. I did have the two handles on the slider for a while, but somehow have managed to break it... I guess I probably shouldn't use this python library but I feel like I am close to solving it so will stick with it.
+
+* _1 hour_ Another bit of progress made, I now have the text box updating to match the slider, just need to get it working the other way round and tidy it up a bit more.
+
+### 04 Jan 2024
+
+- _5 hours_ Holy moly that was an all day kind of task to eventually get that working! Slider bar now used to set the retention time values on the visualise page, I will add it to the other pages but just not today because that was way too long working on the one thing. Happy to get it done, and it is parameterised in such a way that I will probably add it for the scan window scaling as well for the visualisation page. An absolute nightmare to get working but at least it is done.

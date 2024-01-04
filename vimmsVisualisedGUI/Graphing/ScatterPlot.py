@@ -13,4 +13,5 @@ def scatter_plot(canvas, file_location = None, file_name = None, min_rt = None, 
         ylabel = "m/z",
         xlabel = "RT (s)"
     )
+    canvas.axes.set_xlim([float(min_rt),float(max_rt)])
     canvas.draw()
