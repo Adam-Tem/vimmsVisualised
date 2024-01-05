@@ -413,3 +413,7 @@
 ### 04 Jan 2024
 
 - _5 hours_ Holy moly that was an all day kind of task to eventually get that working! Slider bar now used to set the retention time values on the visualise page, I will add it to the other pages but just not today because that was way too long working on the one thing. Happy to get it done, and it is parameterised in such a way that I will probably add it for the scan window scaling as well for the visualisation page. An absolute nightmare to get working but at least it is done.
+
+### 05 Jan 2024
+
+- _1.5 hours_ Okay, after constructing the range slider in a parameterised, abstracted manner, I have now been able to easily implement a slider that controls the scan range for the 3d bar plot. It is not necessary to use it for the 2d plot as it is nowhere near as computationally expensive to display all values. Again, this ensures only suitable values are passed to the display functions and also tidies up the interface. I will still have to add it to the other areas of the GUI for RT, but progress made!

@@ -58,10 +58,11 @@ class GenerateWorker(qtc.QObject):
 class GraphWorker(qtc.QObject):
     graphing_finished = qtc.pyqtSignal(str)
 
-    @qtc.pyqtSlot(MplCanvas, str, str, str, str, str)
-    def run(self, canvas, file_location, file_name, combo_box_text, min_rt, max_rt):
+    @qtc.pyqtSlot(MplCanvas, str, str, str, str, str, str, str)
+    def run(self, canvas, file_location, file_name, combo_box_text, min_rt, max_rt, lower_scan, upper_scan):
         try:
-            select_graph_to_plot(canvas, file_location, file_name, combo_box_text, min_rt, max_rt)
+            print("Here 1")
+            select_graph_to_plot(canvas, file_location, file_name, combo_box_text, min_rt, max_rt, lower_scan, upper_scan)
             self.graphing_finished.emit("Graphing finished")
         except:
             self.graphing_finished.emit("Graphing failed")

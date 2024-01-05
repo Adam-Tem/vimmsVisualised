@@ -190,6 +190,7 @@ class QParamRangeSlider(qtw.QWidget):
         new_reverse_fn = lambda x: (x - new_min_val) * multiplier 
         self.manipulate_vals_fn = new_manipulate_fn
         self.reverse_fn = new_reverse_fn
+        self.range_slider.setValue((0,99))
         self.range_slider.setEnabled(True)
         self.min_val_input.setEnabled(True)
         self.max_val_input.setEnabled(True)
@@ -199,3 +200,9 @@ class QParamRangeSlider(qtw.QWidget):
         self.min_val_input.setText(str(round(new_min_val, 1)))
         self.max_val_input.setText(str(round(new_max_val, 1)))
         
+    def disable_slider(self):
+        self.min_val_input.setText("")
+        self.max_val_input.setText("")
+        self.range_slider.setEnabled(False)
+        self.min_val_input.setEnabled(False)
+        self.max_val_input.setEnabled(False)

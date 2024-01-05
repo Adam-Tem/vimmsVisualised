@@ -15,7 +15,7 @@ from Utils.Threads.workerThreads import GraphWorker
 class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
 
     mzml_upload = qtc.pyqtSignal()
-    update_visual = qtc.pyqtSignal(MplCanvas, str, str, str, str, str)
+    update_visual = qtc.pyqtSignal(MplCanvas, str, str, str, str, str, str, str)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -25,12 +25,15 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
         create_graph_layout(self)
 
         self.rt_input = QParamRangeSlider(parent=self.RTSliderGroupBox)
+        self.scan_input = QParamRangeSlider(parent=self.ScanSliderGroupBox)
+        self.scan_input.range_slider.setSingleStep(1)
         self.mzml_to_visualise_button = QMzmlUpload(parent=self)
         self.mzml_to_visualise_button.setObjectName("mzml_to_visualise_button")
         self.MzmlUploadGroupBox.setLayout(self.mzml_to_visualise_button.layout())
         self.mzml_to_visualise_button.file_upload.connect(self.check_visual_inputs)
-        self.mzml_to_visualise_button.file_upload.connect(self.set_rt_range)
+        self.mzml_to_visualise_button.file_upload.connect(self.set_slider_ranges)
         self.GraphTypeComboBox.currentIndexChanged.connect(self.check_visual_inputs)
+        self.GraphTypeComboBox.currentIndexChanged.connect(self.set_slider_ranges)
 
         self.VisualiseHomeButton.setIcon(qtg.QIcon("Images/home.png"))
 
@@ -43,13 +46,14 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
 
         self.VisualiseButton.clicked.connect(
             lambda: (self.VisualiseButton.setEnabled(False),
-                     print(len(self.mzml_to_visualise_button.stored_mzml.scans)),
                      self.update_visual.emit(self.canvas,
                                              self.mzml_to_visualise_button.file_location,
                                              self.mzml_to_visualise_button.file_name,
                                               self.GraphTypeComboBox.currentText(),
                                              self.rt_input.min_val_input.text(),
-                                             self.rt_input.max_val_input.text()))
+                                             self.rt_input.max_val_input.text(),
+                                             self.scan_input.min_val_input.text(),
+                                             self.scan_input.max_val_input.text()))
         )
 
     @qtc.pyqtSlot()
@@ -58,17 +62,21 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
                            combo_boxes = self.findChildren(qtw.QComboBox))
         
     @qtc.pyqtSlot()
-    def set_rt_range(self):
-        if self.mzml_to_visualise_button.file_name != "":
-            min_val, max_val = index_mzml(self.mzml_to_visualise_button.file_location)
-            self.rt_input.set_vals(min_val, max_val)
-            
+    def set_slider_ranges(self):
+        if self.GraphTypeComboBox.currentText() != "---":
+            if self.mzml_to_visualise_button.file_name != "":
+                min_val, max_val, scans = index_mzml(self.mzml_to_visualise_button.file_location, "rt")
+                self.rt_input.set_vals(min_val, max_val)
+                if self.GraphTypeComboBox.currentText() == "3d Bar Plot":
+                    self.scan_input.set_vals(0, scans)
+                else:
+                    self.scan_input.disable_slider()
+            else:
+                self.rt_input.disable_slider()
+                self.scan_input.disable_slider()
         else:
-
-            self.rt_input.set_vals(0, 99)
-            self.rt_input.range_slider.setEnabled(False)
-            self.rt_input.min_val_input.setEnabled(False)
-            self.rt_input.max_val_input.setEnabled(False)
+            self.rt_input.disable_slider()
+            self.scan_input.disable_slider()
         
     @qtc.pyqtSlot(str)
     def set_new_graph(self, response):

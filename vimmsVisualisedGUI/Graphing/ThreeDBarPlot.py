@@ -1,7 +1,7 @@
 import numpy as np
 from vimms.Common import path_or_mzml
 
-def three_d_bar_plot(canvas, file_location, file_name, min_rt = None, max_rt = None):
+def three_d_bar_plot(canvas, file_location, file_name, min_rt, max_rt, lower_scan, upper_scan):
 
     current_subplot = canvas.fig.get_axes()[0]
     canvas.fig.delaxes(current_subplot)
@@ -9,7 +9,8 @@ def three_d_bar_plot(canvas, file_location, file_name, min_rt = None, max_rt = N
 
     canvas.axes.cla()
     mzml = path_or_mzml(file_location)
-    for scan in mzml.scans[0:364]:
+    
+    for scan in mzml.scans[int(float(lower_scan)):int(float(upper_scan))]:
         rt = scan.rt_in_seconds
         for mz, intensity in scan.peaks:
             canvas.axes.plot(np.array([mz, mz]), np.array([rt, rt]), np.array([0, intensity]), color="black")

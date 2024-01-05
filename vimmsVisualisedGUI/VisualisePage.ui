@@ -51,7 +51,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>110</y>
+     <y>90</y>
      <width>251</width>
      <height>16</height>
     </rect>
@@ -68,9 +68,9 @@
   <widget class="QLabel" name="RTRangeLabel">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>100</y>
-     <width>31</width>
+     <x>10</x>
+     <y>150</y>
+     <width>81</width>
      <height>21</height>
     </rect>
    </property>
@@ -80,7 +80,7 @@
     </font>
    </property>
    <property name="text">
-    <string>RT:</string>
+    <string>RT Range:</string>
    </property>
   </widget>
   <widget class="QPushButton" name="VisualiseButton">
@@ -90,7 +90,7 @@
    <property name="geometry">
     <rect>
      <x>480</x>
-     <y>100</y>
+     <y>450</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -103,8 +103,8 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>145</y>
-     <width>221</width>
+     <y>115</y>
+     <width>171</width>
      <height>22</height>
     </rect>
    </property>
@@ -127,8 +127,8 @@
   <widget class="QGroupBox" name="CanvasGroupBox">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>180</y>
+     <x>190</x>
+     <y>115</y>
      <width>400</width>
      <height>321</height>
     </rect>
@@ -141,7 +141,7 @@
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>100</y>
+     <y>80</y>
      <width>71</width>
      <height>31</height>
     </rect>
@@ -163,8 +163,42 @@ background-color: rgb(240, 240, 240);</string>
   <widget class="QGroupBox" name="RTSliderGroupBox">
    <property name="geometry">
     <rect>
-     <x>319</x>
-     <y>100</y>
+     <x>10</x>
+     <y>175</y>
+     <width>155</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ScanRangeLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>250</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Scan Range:</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="ScanSliderGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>275</y>
      <width>155</width>
      <height>71</height>
     </rect>
@@ -185,6 +219,8 @@ background-color: rgb(240, 240, 240);</string>
   <zorder>CanvasGroupBox</zorder>
   <zorder>RTSliderGroupBox</zorder>
   <zorder>MzmlUploadGroupBox</zorder>
+  <zorder>ScanRangeLabel</zorder>
+  <zorder>ScanSliderGroupBox</zorder>
  </widget>
  <resources/>
  <connections/>
