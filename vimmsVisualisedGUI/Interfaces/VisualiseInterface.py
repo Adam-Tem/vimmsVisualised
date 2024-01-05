@@ -8,8 +8,8 @@ from Graphing.createGraphLayout import create_graph_layout
 from Utils.checkValidInputs import check_valid_inputs
 from Utils.Display.inputErrorPopUp import input_error_pop_up
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
+from Utils.Index.indexMzml import index_mzml
 from Utils.Parameters.CustomWidgets import QMzmlUpload, QParamRangeSlider
-from Utils.Parameters.indexMzml import index_mzml
 from Utils.Threads.workerThreads import GraphWorker
 
 class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
@@ -27,6 +27,7 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
         self.rt_input = QParamRangeSlider(parent=self.RTSliderGroupBox)
         self.scan_input = QParamRangeSlider(parent=self.ScanSliderGroupBox)
         self.scan_input.range_slider.setSingleStep(1)
+        self.scan_input.range_slider.setPageStep(1)
         self.mzml_to_visualise_button = QMzmlUpload(parent=self)
         self.mzml_to_visualise_button.setObjectName("mzml_to_visualise_button")
         self.MzmlUploadGroupBox.setLayout(self.mzml_to_visualise_button.layout())

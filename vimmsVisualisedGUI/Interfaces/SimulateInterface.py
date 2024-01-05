@@ -10,7 +10,8 @@ from vimmsVisualisedGUI.Utils.Display.setCharge import *
 from Utils.Display.displayParams import *
 from Utils.Display.inputErrorPopUp import input_error_pop_up
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
-from Utils.Parameters.CustomWidgets import PUpload
+from Utils.Index.indexP import index_p
+from Utils.Parameters.CustomWidgets import PUpload, QParamRangeSlider
 from Utils.Parameters.ParamWidgets import CONTROLLER_PARAMS, CONTROLLERS
 from Utils.Parameters.loadParamState import load_param_state
 from Utils.Parameters.saveParamState import save_param_state
@@ -25,21 +26,20 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
         super().__init__(*args, **kwargs)
 
         self.setupUi(self)
-        self.file_name = ""
-        self.file_location = ""
         
         self.SimulateHomeButton.setIcon(qtg.QIcon("Images/home.png"))
         self.LoadParamsButton.setIcon(qtg.QIcon("Images/folder.svg"))
         self.SaveParamsButton.setIcon(qtg.QIcon("Images/save.png"))
 
-        self.simulate_upload_button = PUpload(parent=self.PUploadGroupBox)
-        self.simulate_upload_button.setObjectName("simulate_upload_button")
-        self.PUploadGroupBox.setLayout(self.simulate_upload_button.layout())
-        self.simulate_upload_button.file_upload.connect(self.check_simulate_inputs)
+        self.p_upload_button = PUpload(parent=self.PUploadGroupBox)
+        self.p_upload_button.setObjectName("p_upload_button")
+        self.PUploadGroupBox.setLayout(self.p_upload_button.layout())
+        self.p_upload_button.file_upload.connect(self.check_simulate_inputs)
+        self.p_upload_button.file_upload.connect(self.set_slider_ranges)
         self.OutputFileTextEdit.textChanged.connect(self.check_simulate_inputs)
-        self.min_rt.textChanged.connect(self.check_simulate_inputs)
-        self.max_rt.textChanged.connect(self.check_simulate_inputs)
         self.ControllerComboBox.currentIndexChanged.connect(self.check_simulate_inputs)
+
+        self.rt_input = QParamRangeSlider(parent=self.RTSliderGroupBox)
 
         self.worker = SimulateWorker()
         self.worker_thread = qtc.QThread()
@@ -63,8 +63,10 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
         
         self.SimulateButton.clicked.connect(
             lambda: (self.SimulateButton.setEnabled(False),
-                     self.start_sim.emit(self.ControllerComboBox.currentText(), self.file_location,
-                                         self.min_rt.text(), self.max_rt.text(),self.ParamsBox,
+                     self.start_sim.emit(self.ControllerComboBox.currentText(), 
+                                         self.p_upload_button.file_location,
+                                         self.rt_input.min_val_input.text(), 
+                                         self.rt_input.max_val_input.text(),self.ParamsBox,
                                         self.OutputFileTextEdit.text(),
                                         parse_advanced_params(self.AdvancedParamsGroupBox),
                                         ))
@@ -80,7 +82,14 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
 
     @qtc.pyqtSlot()
     def check_simulate_inputs(self):
-        check_valid_inputs(self.SimulateButton, line_edits = [self.simulate_upload_button.file_name, 
-                                                                 self.OutputFileTextEdit.text(),
-                                                                 self.min_rt.text(), self.max_rt.text()],
+        check_valid_inputs(self.SimulateButton, line_edits = [self.p_upload_button.file_name, 
+                                                                 self.OutputFileTextEdit.text()],
                                                    combo_boxes = self.findChildren(qtw.QComboBox))
+        
+    @qtc.pyqtSlot()
+    def set_slider_ranges(self):
+            if self.p_upload_button.file_name != "":
+                min_val, max_val = index_p(self.p_upload_button.file_location)
+                self.rt_input.set_vals(min_val, max_val)
+            else:
+                self.rt_input.disable_slider()

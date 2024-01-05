@@ -135,9 +135,9 @@ class QParamRangeSlider(qtw.QWidget):
         
 
         self.min_val_input = qtw.QLineEdit()
-        self.min_val_input.setFixedWidth(35)
+        self.min_val_input.setFixedWidth(40)
         self.max_val_input = qtw.QLineEdit()
-        self.max_val_input.setFixedWidth(35)
+        self.max_val_input.setFixedWidth(40)
         self.min_val_input.setEnabled(False)
         self.max_val_input.setEnabled(False)
 
