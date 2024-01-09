@@ -3,6 +3,8 @@ from Utils.Parameters.CustomWidgets import *
 
 from vimms.Controller import *
 from vimms.Roi import RoiBuilderParams, SmartRoiParams
+from vimms.BoxManager import BoxManager, BoxConverter, BoxSplitter
+from vimms.Box import BoxGrid
 from vimms.ChemicalSamplers import *
 from vimms.Common import ROI_EXCLUSION_DEW, GRID_CONTROLLER_SCORING_PARAMS
 
@@ -33,9 +35,7 @@ CONTROLLERS_WITH_ROI_PARAMS = ["TopN Smart ROI Controller",
 CONTROLLERS_WITH_SMART_ROI_PARAMS = copy.copy(CONTROLLERS_WITH_ROI_PARAMS)
 CONTROLLERS_WITH_SMART_ROI_PARAMS.remove("TopN ROI Controller")
 
-ROI_BUILDERS = {"roi_params": RoiBuilderParams,
-               "smartroi_params": SmartRoiParams,
-}
+
 
 
 FORMULA_SAMPLERS = {"Even MZ Formula Sampler": EvenMZFormulaSampler,
@@ -81,7 +81,6 @@ CONTROLLER_PARAMS = {
     "min_roi_length_for_fragmentation": [("min_roi_length_for_fragmentation", qtw.QLineEdit), ("Min Frag. Length:", qtw.QLabel), 0],
     "exclusion_method": [("exclusion_method", qtw.QComboBox), ("Exclusion Method:", qtw.QLabel), ROI_EXCLUSION_DEW],
     "exclusion_t_0": [("exclusion_t_0", qtw.QLineEdit), ("Exclusion T0:", qtw.QLabel)],
-    # "grid": [("grid", qtw.QLineEdit), ("Grid", qtw.QLabel)],
     "register_all_roi": [("register_all_roi", QBooleanButton), ("Register all ROI:", qtw.QLabel), False],
     "scoring_params": [("scoring_params", QScoringParams), ("Scoring Params:", qtw.QLabel), GRID_CONTROLLER_SCORING_PARAMS],
     "dsda_state": [("dsda_state", qtw.QLineEdit), ("DSDA State:", qtw.QLabel)],
@@ -108,6 +107,35 @@ SMART_ROI_PARAMS = {
     "dew": [("dew", qtw.QLineEdit), ("DEW:", qtw.QLabel), 15],
     "drop_perc": [("drop_perc", qtw.QLineEdit), ("Drop Percent:", qtw.QLabel), 0.1],
 }
+
+BOX_PARAMS = {
+    "delete_rois": [("delete_rois", QBooleanButton), ("Delete RoIs:", qtw.QLabel), True], 
+    "min_rt": [("min_rt", qtw.QLineEdit), ("Min RT:", qtw.QLabel), 0],
+    "max_rt": [("max_rt", qtw.QLineEdit), ("Max RT:", qtw.QLabel), 1440],
+    "rt_box_size": [("rt_box_size", qtw.QLineEdit), ("RT Box Size:", qtw.QLabel), 50],
+    "min_mz": [("min_mz", qtw.QLineEdit), ("Min MZ:", qtw.QLabel), 0],
+    "max_mz": [("max_mz", qtw.QLineEdit), ("max_mz", qtw.QLabel), 2000],
+    "mz_box_size": [("mz_box_size", qtw.QLineEdit), ("MZ Box Size:", qtw.QLabel), 1],
+    "ignore": [("ignore", QBooleanButton), ("Ignore:", qtw.QLabel), False],
+    "unique": [("unique", QBooleanButton), ("Unique:", qtw.QLabel), True],
+    "min_rt_width": [("min_rt_width", qtw.QLineEdit), ("Min RT Width:", qtw.QLabel), 1E-07],
+    "min_mz_width": [("min_mz_width", qtw.QLineEdit), ("Min MZ Width:", qtw.QLabel), 1E-07],
+    # "fixed_rt_dist": [("fixed_rt_dist", qtw.QLineEdit), ("Fixed RT Dist.:", qtw.QLabel), None],
+    # "fixed_mz_dist": [("fixed_mz_dist", qtw.QLineEdit), ("Fixed MZ Dist.:", qtw.QLabel), None],
+    "split": [("split", QBooleanButton ), ("Split:", qtw.QLabel), False]
+}
+
+INLINE_PARAMS = ROI_PARAMS | SMART_ROI_PARAMS | BOX_PARAMS
+
+INLINE_CONSTRUCTORS = {
+    "roi_params": RoiBuilderParams,
+    "smartroi_params": SmartRoiParams,
+    "grid": BoxManager,
+    "box_geometry": BoxGrid,
+    "box_converter": BoxConverter,
+    "box_splitter": BoxSplitter
+}
+
 
 FORMULA_SAMPLER_PARAMS = {
     "database": [("database", qtw.QLineEdit), ("Database:", qtw.QLabel)],
@@ -156,33 +184,6 @@ PARSE_AS_LOG = ["min_log_intensity", "max_log_intensity"]
 
 SAVE_DIRECTORY =  os.path.join(os.path.abspath(os.getcwd()), 'results')
 
-QSS = """
-QSlider {
-    min-height: 20px;
-}
 
-QSlider::groove:horizontal {
-    border: 0px;
-    background: #000;
-    height: 20px;
-    border-radius: 10px;
-}
-
-QSlider::handle {
-    background: qradialgradient(cx:0, cy:0, radius: 1.2, fx:0.35,
-                                fy:0.3, stop:0 #eef, stop:1 #002);
-    height: 20px;
-    width: 20px;
-    border-radius: 10px;
-}
-
-QSlider::sub-page:horizontal {
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #227, stop:1 #77a);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-QRangeSlider {
-    qproperty-barColor: #000;
-}
-"""
+ALL_CONSTRUCTORS = CONTROLLERS | INLINE_CONSTRUCTORS | FORMULA_SAMPLERS | MS2_SAMPLERS | CHROMO_SAMPLERS | RTI_SAMPLERS
+                    

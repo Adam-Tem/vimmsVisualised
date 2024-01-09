@@ -1,18 +1,20 @@
 from Utils.Parameters.identifyParams import identify_params
 from Utils.Parameters.ParamWidgets import *
 
-def createWidgets(selected_constructor, potential_constructors, potential_params):
+def create_widgets(selected_constructor, potential_params):
 
-    params = identify_params(selected_constructor, potential_constructors)
-    inline_constructors = {"roi_params": ROI_PARAMS, "smartroi_params": SMART_ROI_PARAMS}
+    params = identify_params(selected_constructor)
+
     widgets = []
     for param in params:
-        try:
-            widgets.append(potential_params[param])
-        except:
-            inline_constructor_params = identify_params(param, ROI_BUILDERS)
-
-            for inline_param in inline_constructor_params:
-                if inline_param not in params:
-                    widgets.append(inline_constructors[param][inline_param])
+        if param not in INLINE_CONSTRUCTORS.keys():
+            try:
+                ##ONLY HERE FOR FIXED DISTANCE PARAMS ATM.
+                widgets.append(potential_params[param])
+            except:
+                pass
+        else:
+            widgets = widgets + create_widgets(param, INLINE_PARAMS)
     return widgets
+
+

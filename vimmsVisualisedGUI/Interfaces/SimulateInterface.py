@@ -50,7 +50,7 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
 
         self.ControllerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.ParamsBox,self.ControllerComboBox.currentText(), 
-             CONTROLLERS, CONTROLLER_PARAMS,True))
+             CONTROLLER_PARAMS,True))
         
         self.SaveParamsButton.clicked.connect(
             lambda: save_param_state(self,

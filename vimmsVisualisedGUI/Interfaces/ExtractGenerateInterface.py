@@ -68,19 +68,19 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
 
         self.FormulaSamplerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.FormulaSamplerParamBox,self.FormulaSamplerComboBox.currentText(),
-                                  FORMULA_SAMPLERS, FORMULA_SAMPLER_PARAMS, False))
+                                  FORMULA_SAMPLER_PARAMS, False))
         self.RTISamplerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.RTISamplerParamBox,self.RTISamplerComboBox.currentText(),
-                                  RTI_SAMPLERS, RTI_SAMPLER_PARAMS, False))
+                                  RTI_SAMPLER_PARAMS, False))
         self.ChromoSamplerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.ChromoSamplerParamBox,self.ChromoSamplerComboBox.currentText(),
-                                  CHROMO_SAMPLERS, CHROMO_SAMPLER_PARAMS, False))
+                                  CHROMO_SAMPLER_PARAMS, False))
         self.MS2SamplerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.MS2SamplerParamBox,self.MS2SamplerComboBox.currentText(),
-                                  MS2_SAMPLERS, MS2_SAMPLER_PARAMS, False))
+                                  MS2_SAMPLER_PARAMS, False))
         
         self.tabWidget.tabBarClicked.connect(lambda: displayParams(self.ExtractParamBox, "roi_params",
-                                  ROI_BUILDERS, ROI_PARAMS, False))
+                                  ROI_PARAMS, False))
         
     @qtc.pyqtSlot(str)
     def notify_extract_generate_finish(self, action):

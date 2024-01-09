@@ -419,3 +419,13 @@
 - _1.5 hours_ Okay, after constructing the range slider in a parameterised, abstracted manner, I have now been able to easily implement a slider that controls the scan range for the 3d bar plot. It is not necessary to use it for the 2d plot as it is nowhere near as computationally expensive to display all values. Again, this ensures only suitable values are passed to the display functions and also tidies up the interface. I will still have to add it to the other areas of the GUI for RT, but progress made!
 
 * _1 hour_ Quick bit of work and a new script for parsing the RT from a .p file, but that is now the RT slider found on the simulate page.
+
+## Week 15
+
+### 08 Jan 2024
+
+- _2.5 hours_ A good stopping point and some good progress made. When trying to add the customisation of the box geompetry variables, I have actually identified that the create widgets function was rather verbose, and could be condensed considerably. I am now also in the process of considering removing one of the parameters from the method signature as well, as I think it is no longer needed... However my brain is slightly frazzled working on this one section and it is getting late so will go back to it tomorrow and get it (hopefully) finished!
+
+### 09 Jan 2024
+
+- _2 hours_ The extra "potential constructor" parameter has now been removed and the create_widgets function now works even if there is multi-level nesting of constructors given a controller, its parameters and the parameters' parameters. Still have to create a parsing function for the construction of the box grid but should not be a challenge at all.

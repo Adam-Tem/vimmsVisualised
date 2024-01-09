@@ -66,10 +66,6 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.ControllerComboBox.currentIndexChanged.connect(self.check_case_inputs)
         self.CaseNameTextEdit.textChanged.connect(self.check_case_inputs)
         
-
-        
-
-
         pickle_env_button = QBooleanButton(parent = self)
         pickle_env_button.setObjectName("pickle_env_button")
         pickle_env_button.move(155, 390)
@@ -108,7 +104,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.ControllerComboBox.currentIndexChanged.connect(
             lambda: displayParams(self.ParamsBox,
                                   self.ControllerComboBox.currentText(), 
-            CONTROLLERS, CONTROLLER_PARAMS, True))
+                                  CONTROLLER_PARAMS, True))
         
         self.AddExperimentCaseButton.clicked.connect(
             lambda: construct_experiment_case(self, self.ControllerComboBox.currentText(),self.ParamsBox,

@@ -121,6 +121,8 @@ class QParamRangeSlider(qtw.QWidget):
         self.reverse_fn = lambda x: x
         self.min_val = 0
         self.max_val = 99
+        self.min_val_input = qtw.QLineEdit()
+        self.max_val_input = qtw.QLineEdit()
         self.range_slider = QDoubleRangeSlider(qtc.Qt.Horizontal)
         self.range_slider.setFixedWidth(140)
         self.range_slider.setStyleSheet("""
@@ -133,10 +135,7 @@ class QParamRangeSlider(qtw.QWidget):
         self.range_slider.setValue((0,99))
         self.range_slider.setEnabled(False)
         
-
-        self.min_val_input = qtw.QLineEdit()
         self.min_val_input.setFixedWidth(40)
-        self.max_val_input = qtw.QLineEdit()
         self.max_val_input.setFixedWidth(40)
         self.min_val_input.setEnabled(False)
         self.max_val_input.setEnabled(False)

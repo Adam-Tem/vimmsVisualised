@@ -1,8 +1,8 @@
-from Utils.Parameters.ParamWidgets import ROI_BUILDERS
+from Utils.Parameters.ParamWidgets import ALL_CONSTRUCTORS
 
-def docstring_tooltip_parsing(constructor_name, constructor_type):
+def docstring_tooltip_parsing(constructor_name):
 
-    constructor = constructor_type[constructor_name]
+    constructor = ALL_CONSTRUCTORS[constructor_name]
     docstring_param_desc = constructor.__init__.__doc__.split("\n")
     found_args = False
     param_desc_dict = {}
@@ -13,10 +13,10 @@ def docstring_tooltip_parsing(constructor_name, constructor_type):
         if found_args:
             param_and_desc = line.split(":")
             if param_and_desc[0].strip() == "roi_params":
-                roi_params = docstring_tooltip_parsing("roi_params", ROI_BUILDERS)
+                roi_params = docstring_tooltip_parsing("roi_params")
                 param_desc_dict.update(roi_params)
             elif param_and_desc[0].strip() == "smartroi_params":
-                smartroi_params = docstring_tooltip_parsing("smartroi_params", ROI_BUILDERS) 
+                smartroi_params = docstring_tooltip_parsing("smartroi_params") 
                 param_desc_dict.update(smartroi_params)
 
             if len(param_and_desc) == 2:

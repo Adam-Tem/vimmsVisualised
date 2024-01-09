@@ -1,11 +1,11 @@
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import sip
-from Utils.Display.createWidgets import createWidgets
+from Utils.Display.createWidgets import create_widgets
 from Utils.Display.adjustParamBoxSize import adjust_param_box_size
 from Utils.Experiment.docstringTooltipParsing import docstring_tooltip_parsing
 from Utils.Parameters.CustomWidgets import QBooleanButton, QScoringParams
 
-def displayParams(param_box, combo_box_text,potential_constructors, potential_params, has_scroll):
+def displayParams(param_box, combo_box_text, potential_params, has_scroll):
     
     try:
         current_widget_count = param_box.layout().count()
@@ -14,14 +14,14 @@ def displayParams(param_box, combo_box_text,potential_constructors, potential_pa
          current_widget_count = 0
          pass
 
-    widget_names = createWidgets(combo_box_text, potential_constructors, potential_params)
+    widget_names = create_widgets(combo_box_text, potential_params)
     for child_widget in param_box.findChildren(qtw.QWidget):
             child_widget.deleteLater()
 
     param_layout = qtw.QGridLayout(param_box)
     param_layout.setVerticalSpacing(10)
     param_count = 0
-    param_desc_dict = docstring_tooltip_parsing(combo_box_text, potential_constructors)
+    param_desc_dict = docstring_tooltip_parsing(combo_box_text)
     row = 0
     col = 0
     for value in widget_names:
@@ -30,7 +30,8 @@ def displayParams(param_box, combo_box_text,potential_constructors, potential_pa
         new_widget.setAccessibleName(value[0][0])
         new_widget.setMinimumHeight(19)
         new_label = value[1][1](text=value[1][0], parent=param_box)
-        new_label.setToolTip(param_desc_dict[value[0][0]])
+        if value[0][0] in param_desc_dict.keys():
+            new_label.setToolTip(param_desc_dict[value[0][0]])
         if len(value) == 3:
             if type(new_widget) == QBooleanButton:  
                 new_widget.setText("False")

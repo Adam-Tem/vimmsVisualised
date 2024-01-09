@@ -6,7 +6,7 @@ from vimms.Roi import RoiBuilderParams, SmartRoiParams
 
 from Utils.Parameters.ParseParams import parse_params
 from Utils.Parameters.identifyParams import identify_params
-from Utils.Parameters.ParamWidgets import CONTROLLERS, SAVE_DIRECTORY, ROI_BUILDERS
+from Utils.Parameters.ParamWidgets import CONTROLLERS, SAVE_DIRECTORY
 from Utils.Parameters.ParamWidgets import CONTROLLERS_WITH_ROI_PARAMS,CONTROLLERS_WITH_SMART_ROI_PARAMS
 
 import os
@@ -14,16 +14,16 @@ import os
 def run_controller(controller_name, file_location, min_rt, max_rt, param_box, 
                    output_filename , advanced_params):
 
-    param_names = identify_params(controller_name, CONTROLLERS)
+    param_names = identify_params(controller_name)
     params = parse_params(param_box, param_names)
 
     if controller_name in CONTROLLERS_WITH_ROI_PARAMS:
-        roi_param_names = identify_params("roi_params", ROI_BUILDERS)
+        roi_param_names = identify_params("roi_params")
         roi_params = parse_params(param_box, roi_param_names)
         params["roi_params"] = RoiBuilderParams(**roi_params)
 
     if controller_name in CONTROLLERS_WITH_SMART_ROI_PARAMS:
-        smartroi_param_names = identify_params("smartroi_params", ROI_BUILDERS)
+        smartroi_param_names = identify_params("smartroi_params")
         smartroi_params = parse_params(param_box, smartroi_param_names)
         params["smartroi_params"] = SmartRoiParams(**smartroi_params)
     

@@ -1,5 +1,4 @@
 from PyQt5 import QtWidgets as qtw
-from vimms.Controller.base import AdvancedParams
 
 def parse_advanced_params(adv_param_group_box):
 
