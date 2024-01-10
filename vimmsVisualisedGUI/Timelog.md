@@ -429,3 +429,9 @@
 ### 09 Jan 2024
 
 - _2 hours_ The extra "potential constructor" parameter has now been removed and the create_widgets function now works even if there is multi-level nesting of constructors given a controller, its parameters and the parameters' parameters. Still have to create a parsing function for the construction of the box grid but should not be a challenge at all.
+
+* _1.5 hours_ Parsing and construction of inline parameter objects now complete, including the box parameter with the nested objects. I have encountered an error going back to check the workings of it that the scroll on the simulate page is not expanding, but will fix this next.
+
+### 10 Jan 2024
+
+- _0.5 hours_ Fixed issue with scroll bar not activating on the simulate page.

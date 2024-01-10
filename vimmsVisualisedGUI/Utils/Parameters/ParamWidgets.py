@@ -32,9 +32,12 @@ CONTROLLERS_WITH_ROI_PARAMS = ["TopN Smart ROI Controller",
                                "Non Overlap Controller",
                                "Intensity Non Overlap Controller"]
 
+
 CONTROLLERS_WITH_SMART_ROI_PARAMS = copy.copy(CONTROLLERS_WITH_ROI_PARAMS)
 CONTROLLERS_WITH_SMART_ROI_PARAMS.remove("TopN ROI Controller")
 
+CONTROLLERS_WITH_BOX_GRID = copy.copy(CONTROLLERS_WITH_SMART_ROI_PARAMS)
+CONTROLLERS_WITH_BOX_GRID.remove("TopN Smart ROI Controller")
 
 
 
@@ -127,14 +130,17 @@ BOX_PARAMS = {
 
 INLINE_PARAMS = ROI_PARAMS | SMART_ROI_PARAMS | BOX_PARAMS
 
-INLINE_CONSTRUCTORS = {
-    "roi_params": RoiBuilderParams,
-    "smartroi_params": SmartRoiParams,
-    "grid": BoxManager,
+BOX_CONSTRUCTORS = {
     "box_geometry": BoxGrid,
     "box_converter": BoxConverter,
     "box_splitter": BoxSplitter
 }
+
+INLINE_CONSTRUCTORS = {
+    "roi_params": RoiBuilderParams,
+    "smartroi_params": SmartRoiParams,
+    "grid": BoxManager,
+} | BOX_CONSTRUCTORS
 
 
 FORMULA_SAMPLER_PARAMS = {

@@ -31,6 +31,8 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
         self.LoadParamsButton.setIcon(qtg.QIcon("Images/folder.svg"))
         self.SaveParamsButton.setIcon(qtg.QIcon("Images/save.png"))
 
+        self.scrollArea.setWidget(self.ParamsBox)
+
         self.p_upload_button = PUpload(parent=self.PUploadGroupBox)
         self.p_upload_button.setObjectName("p_upload_button")
         self.PUploadGroupBox.setLayout(self.p_upload_button.layout())

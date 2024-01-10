@@ -2,12 +2,11 @@ from vimms.MassSpec import IndependentMassSpectrometer
 from vimms.Environment import Environment
 from vimms.Common import load_obj, set_log_level_warning, set_log_level_debug
 from vimms.Controller.base import AdvancedParams
-from vimms.Roi import RoiBuilderParams, SmartRoiParams
 
+from Utils.Parameters.constructObjectParams import construct_object_params
 from Utils.Parameters.ParseParams import parse_params
 from Utils.Parameters.identifyParams import identify_params
-from Utils.Parameters.ParamWidgets import CONTROLLERS, SAVE_DIRECTORY
-from Utils.Parameters.ParamWidgets import CONTROLLERS_WITH_ROI_PARAMS,CONTROLLERS_WITH_SMART_ROI_PARAMS
+from Utils.Parameters.ParamWidgets import *
 
 import os
 
@@ -18,14 +17,13 @@ def run_controller(controller_name, file_location, min_rt, max_rt, param_box,
     params = parse_params(param_box, param_names)
 
     if controller_name in CONTROLLERS_WITH_ROI_PARAMS:
-        roi_param_names = identify_params("roi_params")
-        roi_params = parse_params(param_box, roi_param_names)
-        params["roi_params"] = RoiBuilderParams(**roi_params)
+        params["roi_params"] = construct_object_params("roi_params", param_box)
 
     if controller_name in CONTROLLERS_WITH_SMART_ROI_PARAMS:
-        smartroi_param_names = identify_params("smartroi_params")
-        smartroi_params = parse_params(param_box, smartroi_param_names)
-        params["smartroi_params"] = SmartRoiParams(**smartroi_params)
+        params["smartroi_params"] = construct_object_params("smartroi_params", param_box)
+    
+    if controller_name in CONTROLLERS_WITH_BOX_GRID:
+        params["grid"] = construct_object_params("grid", param_box)
     
     params["advanced_params"] = AdvancedParams(**advanced_params)
 

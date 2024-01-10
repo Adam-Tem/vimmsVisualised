@@ -13,7 +13,6 @@ def parse_params(param_box, constructor_params):
     for val in constructor_params:
         child = param_box.findChild(qtw.QWidget, val)
         if val == "grid":
-            params["grid"] = BoxManager()
             continue
         if child == None:
             continue
