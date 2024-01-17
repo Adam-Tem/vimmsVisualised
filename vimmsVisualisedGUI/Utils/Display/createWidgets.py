@@ -16,5 +16,3 @@ def create_widgets(selected_constructor, potential_params):
         else:
             widgets = widgets + create_widgets(param, INLINE_PARAMS)
     return widgets
-
-

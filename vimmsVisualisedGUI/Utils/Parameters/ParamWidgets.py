@@ -63,8 +63,6 @@ MS2_SAMPLERS = {"Uniform MS2 Sampler": UniformMS2Sampler,
                 "MZML MS2 Sampler": MZMLMS2Sampler,
                 "CRPM MS2 Sampler": CRPMS2Sampler}
 
-               # "Exact Match MS2 Sampler": ExactMatchMS2Sampler,
-
 SAMPLERS = [("formula_sampler", FORMULA_SAMPLERS),
             ("chromatogram_sampler", CHROMO_SAMPLERS),
             ("ms2_sampler", MS2_SAMPLERS),

@@ -435,3 +435,19 @@
 ### 10 Jan 2024
 
 - _0.5 hours_ Fixed issue with scroll bar not activating on the simulate page.
+
+* _4 hours_ A solid shift put in towards modifying the visualise page to add all the placeholders for getting the plotly graph to display for previously run experiments. So far so good, will just still have to get the experiment save path changed and then get the graph actually displayed but near enough everything is good to go for it and there is a specific widget that can work with plotly graphs so should be easy enough to implement.
+
+### 11 Jan 2024
+
+- _3 hours_ So much time fighting against a widget to not actually get anywhere... Still not managing to get the plotly graphs to load into the GUI, and I am really struggling to understand why... Hopefully tomorrow brings better luck.
+
+### 13 Jan 2024
+
+- _1.5 hours_ It is starting to become less promising in terms of implementing the plotly graphs into the GUI. I have searched the web for hours now trying to find a solution, and I've even tried using PyQt6 to see if that makes a difference but unfortunately not... Really unsure how to get my this issue.
+
+## Week 16
+
+### 15 Jan 2024
+
+- _3.5 hours_ I have no idea how to fix this problem. The view attempts to load the html and then crashes instantly, and just gives me random error messages... So much time spent getting nowhere.

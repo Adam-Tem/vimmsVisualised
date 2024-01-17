@@ -1,7 +1,7 @@
 
 
 
-def check_valid_inputs(button_to_set, line_edits = [], combo_boxes = [], stored_lists = []):
+def check_valid_inputs(button_to_set, line_edits = [], combo_boxes = [], stored_required_lists = [], stored_named_vals=[]):
 
     valid_inputs = True
     for combo_box in combo_boxes:
@@ -11,8 +11,11 @@ def check_valid_inputs(button_to_set, line_edits = [], combo_boxes = [], stored_
     for text_val in line_edits:
         if len(text_val.strip()) == 0:
             valid_inputs = False
+        for stored_list in stored_named_vals:
+            if text_val in stored_list:
+                valid_inputs = False
 
-    for stored_list in stored_lists:
+    for stored_list in stored_required_lists:
          if len(stored_list) == 0:
               valid_inputs = False
     

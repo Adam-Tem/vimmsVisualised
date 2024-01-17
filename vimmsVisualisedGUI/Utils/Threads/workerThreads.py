@@ -3,8 +3,9 @@ from PyQt5 import QtWidgets as qtw
 
 from vimms.Experiment import Experiment
 
-from Graphing.GraphCanvas import MplCanvas
+from Graphing.GraphCanvas import MplCanvas, PlotlyCanvas
 from Graphing.SelectGraphToPlot import select_graph_to_plot
+from Graphing.plotlyExperimentGraphs import plotly_experiment_graphs
 from Utils.Simulate.runController import run_controller
 from Utils.Experiment.runExperiment import run_experiment
 from Utils.Extract.ExtractData import extract_data
@@ -55,14 +56,24 @@ class GenerateWorker(qtc.QObject):
         except:
             self.generate_finished.emit("Generation Failed")
 
-class GraphWorker(qtc.QObject):
+class MzmlGraphWorker(qtc.QObject):
     graphing_finished = qtc.pyqtSignal(str)
 
     @qtc.pyqtSlot(MplCanvas, str, str, str, str, str, str, str)
     def run(self, canvas, file_location, file_name, combo_box_text, min_rt, max_rt, lower_scan, upper_scan):
         try:
-            print("Here 1")
             select_graph_to_plot(canvas, file_location, file_name, combo_box_text, min_rt, max_rt, lower_scan, upper_scan)
+            self.graphing_finished.emit("Graphing finished")
+        except:
+            self.graphing_finished.emit("Graphing failed")
+
+class ExpGraphWorker(qtc.QObject):
+    graphing_finished = qtc.pyqtSignal(str)
+
+    @qtc.pyqtSlot(PlotlyCanvas, list, qtw.QComboBox, str, str)
+    def run(self, plotly_figure, radio_buttons, exp_mzmls, exp_location, exp_name):
+        try:
+            plotly_experiment_graphs(plotly_figure, radio_buttons, exp_mzmls, exp_location, exp_name)
             self.graphing_finished.emit("Graphing finished")
         except:
             self.graphing_finished.emit("Graphing failed")

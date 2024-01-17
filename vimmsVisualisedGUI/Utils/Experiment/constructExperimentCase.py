@@ -24,13 +24,9 @@ def construct_experiment_case(self, controller_type, params_box, pickle_env,
     experiment_case = ExperimentCase(adjusted_controller_name, fullscan_list, param_dict, case_name,
                                      pickle_env= pickle_env)
     
+    self.experiment_name_list.append(case_name)
     self.experiment_case_list.append(experiment_case)
     text_label = self.ExperimentNamesScrollArea.findChild(qtw.QLabel, "ExperimentNamesLabel")
     scroll_area_contents = self.ExperimentNamesScrollArea.findChild(qtw.QWidget, "ScrollContents_2")
     add_to_label(scroll_area_contents, text_label, case_name, "experiment_case")
     self.CaseUndoButton.setEnabled(True)
-
-
-    ### Box builder now pretty much done, just need to get the simulate scroll page
-    ### working (RIP). But that should be the paramterisation of inline constructors done.
-    ### maybe a bit more tidy uo but nothing major.

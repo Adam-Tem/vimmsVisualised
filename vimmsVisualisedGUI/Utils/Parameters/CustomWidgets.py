@@ -73,6 +73,12 @@ class PUpload(QFileUpload):
         super().__init__(*args, **kwargs)
         self.button.clicked.connect(lambda: upload_file(self, "p"))
 
+class QFolderUpload(QFileUpload):
+    folder_upload = qtc.pyqtSignal(str)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.button.clicked.connect(lambda: upload_file(self, "folder"))
+
 class QBooleanButton(qtw.QPushButton):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -41,6 +41,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.experiment = ""
         self.fullscan_list = []
         self.experiment_case_list = []
+        self.experiment_name_list = []
         self.summary = ""
         geom = BoxManager(
         box_geometry = BoxGrid(),
@@ -112,9 +113,11 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
                                               self.fullscan_list, geom, parse_advanced_params(self.AdvancedParamsGroupBox))
         )
         self.AddExperimentCaseButton.clicked.connect(self.check_run_exp_inputs)
+        self.AddExperimentCaseButton.clicked.connect(self.check_case_inputs)
 
         self.RunExperimentButton.clicked.connect(
             lambda: (self.RunExperimentButton.setEnabled(False),
+                     self.AddExperimentCaseButton.setEnabled(False),
                      self.start_exp.emit(self.experiment_case_list, parse_xcms_params(self.XCMSParamTab)))
         )
         self.ViewSummaryButton.clicked.connect(
@@ -139,7 +142,6 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         if summary != "":
             task_completed_pop_up("ViMMS Experiment", "Experiment execution now complete!", 
                                   self.ViewSummaryButton)
-            self.RunExperimentButton.setEnabled(True)
             self.experiment = experiment
             self.summary = summary
         else:
@@ -154,9 +156,10 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         check_valid_inputs(self.AddExperimentCaseButton, 
                            line_edits = [self.CaseNameTextEdit.text()],
                            combo_boxes = self.findChildren(qtw.QComboBox),
-                           stored_lists = [self.fullscan_list])
+                           stored_required_lists = [self.fullscan_list],
+                           stored_named_vals = [self.experiment_name_list])
 
     @qtc.pyqtSlot()
     def check_run_exp_inputs(self):
         check_valid_inputs(self.RunExperimentButton, 
-                           stored_lists = [self.experiment_case_list])
+                           stored_required_lists = [self.experiment_case_list])
