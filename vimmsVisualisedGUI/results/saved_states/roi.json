@@ -1,0 +1,1 @@
+{"selected_controller": "TopN ROI Controller", "params": {"ionisation_mode": "Positive", "isolation_width": 1.0, "N": 1.0, "mz_tol": 10.0, "rt_tol": 20.0, "min_ms1_intensity": 2000.0, "min_roi_length_for_fragmentation": 0.0, "ms1_shift": 0.0, "exclusion_method": "exclusion_dew"}}

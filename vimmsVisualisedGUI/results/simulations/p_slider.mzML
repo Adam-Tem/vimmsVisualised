@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<indexedmzML xmlns="http://psi.hupo.org/ms/mzml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://psi.hupo.org/ms/mzml http://psidev.info/files/ms/mzML/xsd/mzML1.1.3_idx.xsd">
+  <mzML xmlns="http://psi.hupo.org/ms/mzml" version="1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://psi.hupo.org/ms/mzml http://psidev.info/files/ms/mzML/xsd/mzML1.1.1.xsd">
+    <cvList count="2">
+      <cv fullName="PSI-MS" URI="http://purl.obolibrary.org/obo/ms/psi-ms.obo" version="4.1.138" id="PSI-MS"/>
+      <cv fullName="UNIT-ONTOLOGY" URI="http://purl.obolibrary.org/obo/uo.obo" version="releases/2023-05-25" id="UO"/>
+    </cvList>
+    <fileDescription>
+      <fileContent>
+        <cvParam cvRef="PSI-MS" accession="MS:1000127" name="centroid spectrum" value=""/>
+        <cvParam cvRef="PSI-MS" accession="MS:1000579" name="MS1 spectrum" value=""/>
+      </fileContent>
+      <sourceFileList count="0">
+      </sourceFileList>
+    </fileDescription>
+    <sampleList count="0">
+    </sampleList>
+    <softwareList count="1">
+      <software version="1.0.0" id="VMS">
+      </software>
+    </softwareList>
+    <scanSettingsList count="0">
+    </scanSettingsList>
+    <instrumentConfigurationList count="1">
+      <instrumentConfiguration id="VMS">
+        <componentList count="0">
+        </componentList>
+      </instrumentConfiguration>
+    </instrumentConfigurationList>
+    <dataProcessingList count="1">
+      <dataProcessing id="VMS">
+      </dataProcessing>
+    </dataProcessingList>
+    <run defaultInstrumentConfigurationRef="VMS" id="my_analysis">
+      <spectrumList count="0" defaultDataProcessingRef="VMS">
+      </spectrumList>
+      <chromatogramList count="1" defaultDataProcessingRef="VMS">
+        <chromatogram index="0" defaultArrayLength="24320" id="tic">
+          <cvParam cvRef="PSI-MS" accession="MS:1000235" name="total ion current chromatogram" value=""/>
+          <binaryDataArrayList count="2">
+            <binaryDataArray encodedLength="380">
+              <cvParam cvRef="PSI-MS" accession="MS:1000595" name="time array" value="" unitCvRef="PSI-MS" unitAccession="UO:0000010" unitName="second"/>
+              <cvParam cvRef="PSI-MS" accession="MS:1000574" name="zlib compression" value=""/>
+              <cvParam cvRef="PSI-MS" accession="MS:1000521" name="32-bit float" value=""/>
+              <binary>eJztw1dOFAAAQMFvUWwgigWkCYh1lSZYqIqi0vZM3M4zcQoTkjeTzHBw+W94jV+oRp+rRp+pRp+qRp+oRv9Vjf6jGv1bNfpYNfqXavRP1egj1egfqtHfVaMPVaMPVKP3VaP3VKN3VaN3VKO/qUZ/VY3+ohr9WTV6WzV6SzX6k2r0pmr0hmr0umr0mmr0qmr0R9XoD6rRA9Xo96rR71Sj36pGv1GNfq0a/Uo1ekU1+qVq9LJq9JJq9KJq9AvV6AXV6HnV6DnV6FnV6BnV6Oeq0dOq0VOq0c9Uo5+qRj9RjX6sGj2pGv1INfqhavSEavQD1ehx1egx1ej7qtH3VKPvqkbfUY2+rRo9qhp9SzX6pmr0iGr0DdX/9Arj22/f</binary>
+            </binaryDataArray>
+            <binaryDataArray encodedLength="156">
+              <cvParam cvRef="PSI-MS" accession="MS:1000515" name="intensity array" value="" unitCvRef="PSI-MS" unitAccession="MS:1000131" unitName="number of detector counts"/>
+              <cvParam cvRef="PSI-MS" accession="MS:1000574" name="zlib compression" value=""/>
+              <cvParam cvRef="PSI-MS" accession="MS:1000521" name="32-bit float" value=""/>
+              <binary>eJztwTEBAAAAwqD1T+1rCKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAN8DwAB</binary>
+            </binaryDataArray>
+          </binaryDataArrayList>
+        </chromatogram>
+      </chromatogramList>
+    </run>
+  </mzML>
+  <indexList count="1">
+    <index name="chromatogram">
+      <offset idRef="tic">1814</offset>
+    </index>
+  </indexList>
+  <indexListOffset>3596</indexListOffset>
+  <fileChecksum>40a65bccd8a1eb76c34a9664ea3a3d0f6e5792c3</fileChecksum>
+</indexedmzML>
