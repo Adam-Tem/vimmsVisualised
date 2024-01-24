@@ -11,7 +11,7 @@ def index_experiment(self, exp_folder):
             self.ExpMzmlRadioButton.setEnabled(True)
             self.ExpMzmlComboBox.setEnabled(True)
             valid_files_in_folder = True
-        elif file_sections[-1] == "pkl":
+        if file == "pickle":
             self.TimingHistRadioButton.setEnabled(True)
             self.FragEventsRadioButton.setEnabled(True)
             valid_files_in_folder = True

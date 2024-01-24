@@ -1,5 +1,6 @@
-from vimms.BoxVisualise import plotly_timing_hist, plotly_fragmentation_events
 from Graphing.plotlyMzml import plotly_mzml
+from Graphing.plotlyTimingHist import plotly_timing_hist
+from Graphing.plotlyFragEvents import plotly_frag_events
 from vimms.Common import load_obj
 import os
 def plotly_experiment_graphs(plotly_figure, radio_buttons, exp_mzmls, exp_location, exp_name):
@@ -9,10 +10,10 @@ def plotly_experiment_graphs(plotly_figure, radio_buttons, exp_mzmls, exp_locati
         plotly_mzml(os.path.join(exp_location, exp_mzmls.currentText() + ".mzML"))
         
     elif radio_buttons[1]:
-        pkl_file = load_obj([f for f in os.listdir(exp_location) if f.split(".")[-1] == "pkl"][0])
-        timing_hist_plot = plotly_timing_hist([pkl_file.processing_times], exp_name)
-        plotly_figure.set_html(timing_hist_plot.to_html(full_html=False))
+        processing_times = [load_obj(os.path.join(exp_location,"pickle", f)).processing_times 
+                            for f in os.listdir(os.path.join(exp_location, "pickle"))]
+        plotly_timing_hist(processing_times, exp_name)
     elif radio_buttons[2]:
-        mzml_list = [exp_mzmls.itemText(idx) for idx in len(exp_mzmls.count())]
-        frag_events_plot = plotly_fragmentation_events(exp_name, mzml_list)
-        plotly_figure.set_html(frag_events_plot.to_html(full_html=False))
+        mzml_list = [os.path.join(exp_location, exp_mzmls.itemText(idx) + ".mzML") 
+                     for idx in range(exp_mzmls.count())]
+        plotly_frag_events(exp_name, mzml_list)

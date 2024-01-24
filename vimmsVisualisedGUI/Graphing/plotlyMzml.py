@@ -10,6 +10,7 @@ import os
 def plotly_mzml(mzml, draw_minm=0.0, colour_minm=None, show_precursors=False):
     fig = go.Figure()
     mzml = path_or_mzml(mzml)
+
     if len(mzml.scans) > 0:
         pp = PlotPoints.from_mzml(mzml)
         fig.add_trace(
@@ -23,6 +24,7 @@ def plotly_mzml(mzml, draw_minm=0.0, colour_minm=None, show_precursors=False):
         template="plotly_white",
         title = os.path.basename(mzml.file_name),
         xaxis_title="Retention Time",
-        yaxis_title="m/z"
+        yaxis_title="m/z",
+        margin=dict(l=0, r=0, t=28, b=5)
     )
     pop(fig, filename= os.path.join(SAVE_DIRECTORY, "temp-plot.html"), auto_open=False)
