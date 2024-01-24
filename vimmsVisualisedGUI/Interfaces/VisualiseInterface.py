@@ -33,6 +33,9 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
         self.scan_input = QParamRangeSlider(parent=self.ScanSliderGroupBox)
         self.scan_input.range_slider.setSingleStep(1)
         self.scan_input.range_slider.setPageStep(1)
+        
+        self.current_tab_btn = self.MzmlVisualiseButton
+        self.VisualisationTabs.currentChanged.connect(self.tab_changed)
 
         self.mzml_to_visualise_button = QMzmlUpload(parent=self)
         self.mzml_to_visualise_button.setObjectName("mzml_to_visualise_button")
@@ -48,6 +51,11 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
         self.GraphTypeComboBox.currentIndexChanged.connect(self.set_slider_ranges)
 
         self.exp_to_visualise_button.file_upload.connect(self.index_experiment)
+
+        self.ExpMzmlComboBox.currentIndexChanged.connect(self.check_visual_inputs)
+        self.ExpMzmlRadioButton.clicked.connect(self.check_visual_inputs)
+        self.TimingHistRadioButton.clicked.connect(self.check_visual_inputs)
+        self.FragEventsRadioButton.clicked.connect(self.check_visual_inputs)
 
         self.VisualiseHomeButton.setIcon(qtg.QIcon("Images/home.png"))
 
@@ -96,8 +104,15 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
 
     @qtc.pyqtSlot()
     def check_visual_inputs(self):
-        check_valid_inputs(self.MzmlVisualiseButton, line_edits = [self.mzml_to_visualise_button.file_name],
-                           combo_boxes = self.findChildren(qtw.QComboBox))
+            if self.VisualisationTabs.currentIndex() == 0:
+                check_valid_inputs(self.current_tab_btn, 
+                                   line_edits = [self.mzml_to_visualise_button.file_name],
+                           combo_boxes = self.mzmlTab.findChildren(qtw.QComboBox))
+            else:
+                check_valid_inputs(self.current_tab_btn, 
+                                   line_edits = [self.exp_to_visualise_button.file_name],
+                           combo_boxes = self.experimentTab.findChildren(qtw.QComboBox))
+
         
     @qtc.pyqtSlot()
     def set_slider_ranges(self):
@@ -122,9 +137,17 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
         
     @qtc.pyqtSlot(str)
     def set_new_graph(self, response):
+            
         if response == "Graphing finished":
             task_completed_pop_up("ViMMS Visual", "Graph visualisation update now complete!", 
-                                  self.MzmlVisualiseButton)
+                                    self.current_tab_btn)
             self.exp_figure.update_plot()
         else:
-            input_error_pop_up(self.MzmlVisualiseButton)
+            input_error_pop_up(self.current_tab_btn)
+
+    @qtc.pyqtSlot()
+    def tab_changed(self):
+        if self.VisualisationTabs.currentIndex() == 0:
+            self.current_tab_btn = self.MzmlVisualiseButton
+        else:
+            self.current_tab_btn = self.ExpVisualiseButton
