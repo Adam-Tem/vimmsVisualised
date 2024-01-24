@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+<<<<<<< HEAD
 numpy = ">=1.24.3"
 pandas = ">=2.0.3"
 scipy = ">=1.11.1"
@@ -45,3 +46,46 @@ mkdocstrings = ">=0.23.0"
 
 [requires]
 python_version = "3.10"
+=======
+numpy = "*"
+pandas = "*"
+scipy = "*"
+matplotlib = "*"
+numba = "*"
+numba-stats = "*"
+seaborn = "*"
+plotly = "*"
+scikit-learn = "*"
+pymzml = "==2.4.7"
+psims = "*"
+events = "*"
+tqdm = "*"
+joblib = "*"
+ipyparallel = "*"
+requests = "*"
+loguru = "*"
+networkx = "*"
+jsonpickle = "*"
+statsmodels = "*"
+mass-spec-utils = "*"
+tabulate = "*"
+pysmiles = "*"
+pipenv-setup = "*"
+flake8 = "*"
+autopep8 = "*"
+pytest = "*"
+pytest-cov = "*"
+intervaltree = "*"
+jupyterlab = "*"
+ipywidgets = "*"
+gpy = "*"
+
+[dev-packages]
+twine = "*"
+build = "*"
+mkdocs = "*"
+mkdocstrings = "*"
+
+[requires]
+python_version = "3"
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d

@@ -1,11 +1,15 @@
 import sys
+<<<<<<< HEAD
 
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 sys.path.append('..')
 sys.path.append('../..')  # if running in this folder
 
 import argparse
 import glob
 import os
+<<<<<<< HEAD
 
 import numpy as np
 import seaborn as sns
@@ -14,11 +18,15 @@ import pymzml
 from scipy import interpolate
 from sklearn.metrics import mean_squared_error
 
+=======
+import sys
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 import pylab as plt
 from mass_spec_utils.data_import.mzml import MZMLFile
 
 
+<<<<<<< HEAD
 def parse_args():
     parser = argparse.ArgumentParser(description='Create scan time plots')
     parser.add_argument('file_or_folder', type=str)
@@ -42,6 +50,8 @@ def process_mzML_files(file_or_folder):
     return timings
 
 
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 def get_times(mzml_object):
     times = {(1, 1): [], (1, 2): [], (2, 1): [], (2, 2): []}
     for i, s in enumerate(mzml_object.scans[:-1]):
@@ -54,7 +64,10 @@ def get_times(mzml_object):
         next_level = next_scan.ms_level
         times[(current_level, next_level)].append(
             (current_scan.rt_in_seconds, delta_t))
+<<<<<<< HEAD
 
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     to_remove = set()
     for key in times:
         if len(times[key]) == 0:
@@ -64,7 +77,29 @@ def get_times(mzml_object):
     return times
 
 
+<<<<<<< HEAD
 def plot_timings(args, timings):
+=======
+# flake8: noqa: C901
+def main():
+    global rt
+    parser = argparse.ArgumentParser(description='Create scan time plots')
+    parser.add_argument('file_or_folder', type=str)
+    parser.add_argument('--save_plots', dest='save_plots', action='store_true')
+    args = parser.parse_args()
+    if os.path.isdir(args.file_or_folder):
+        print("Extracting mzml from folder")
+        file_list = glob.glob(os.path.join(args.file_or_folder, '*.mzML'))
+    else:
+        print("Individual file")
+        file_list = [args.file_or_folder]
+    mzml_file_objects = {}
+    timings = {}
+    for mzml_file in file_list:
+        mzml_file_objects[mzml_file] = MZMLFile(mzml_file)
+        timings[mzml_file] = get_times(mzml_file_objects[mzml_file])
+    # plot
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     for mo, t in timings.items():
         nsp = len(t)  # number of subplots
         plt.figure(figsize=(20, 8))
@@ -97,6 +132,7 @@ def plot_timings(args, timings):
             plt.show()
 
 
+<<<<<<< HEAD
 def get_data(file_timings, file_name, level, remove_outliers=False):
     """Get data with potential outlier removal."""
     flat_d = {k: v[k] for k, v in file_timings.items()}
@@ -267,5 +303,7 @@ def main():
     plot_timings(args, timings)
 
 
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 if __name__ == '__main__':
     main()

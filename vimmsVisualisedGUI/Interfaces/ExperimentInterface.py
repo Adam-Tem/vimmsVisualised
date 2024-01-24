@@ -1,8 +1,14 @@
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtGui as qtg
 from PyQt5 import QtCore as qtc
+<<<<<<< HEAD
 from PyQt5.QtWebEngineCore import *
 
+=======
+
+from vimms.Box import BoxGrid
+from vimms.BoxManager import BoxSplitter, BoxManager
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 from vimms.Experiment import Experiment
 
 from ExperimentPage import Ui_experimentForm
@@ -28,7 +34,11 @@ from Utils.XCMS.parseXCMSParams import parse_xcms_params
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
+<<<<<<< HEAD
     start_exp = qtc.pyqtSignal(list, str, dict)
+=======
+    start_exp = qtc.pyqtSignal(list, dict)
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     mzml_upload = qtc.pyqtSignal()
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -42,7 +52,14 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.experiment_case_list = []
         self.experiment_name_list = []
         self.summary = ""
+<<<<<<< HEAD
         
+=======
+        geom = BoxManager(
+        box_geometry = BoxGrid(),
+        box_splitter = BoxSplitter(split=True)
+        )
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         create_graph_layout(self)
         self.worker = ExperimentWorker()
         self.worker_thread = qtc.QThread()
@@ -62,7 +79,10 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
         self.ControllerComboBox.currentIndexChanged.connect(self.check_case_inputs)
         self.CaseNameTextEdit.textChanged.connect(self.check_case_inputs)
+<<<<<<< HEAD
         self.ExperimentTitleTextEdit.textChanged.connect(self.check_run_exp_inputs)
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         
         pickle_env_button = QBooleanButton(parent = self)
         pickle_env_button.setObjectName("pickle_env_button")
@@ -76,9 +96,13 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
         self.AddFullscanButton.clicked.connect(
             lambda: add_fullscan_to_list(self, self.FullscanNamesScrollArea, 
+<<<<<<< HEAD
                                         self.fullscan_upload_button.file_name,
                                         self.fullscan_upload_button.file_location,
                                         os.getcwd(), self.NoOfInjectionsSpinBox.value()))
+=======
+                                        self.fullscan_upload_button.file_name, self.NoOfInjectionsSpinBox.value()))
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         self.AddFullscanButton.clicked.connect(self.check_case_inputs)
         
         
@@ -90,7 +114,10 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
             lambda: remove_option(self, self.ExperimentNamesScrollArea, "case")
         )
         self.CaseUndoButton.clicked.connect(self.check_run_exp_inputs)
+<<<<<<< HEAD
         self.CaseUndoButton.clicked.connect(self.check_case_inputs)
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
         self.SaveParamsButton.clicked.connect(
             lambda: save_param_state(self,
@@ -110,7 +137,11 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.AddExperimentCaseButton.clicked.connect(
             lambda: construct_experiment_case(self, self.ControllerComboBox.currentText(),self.ParamsBox,
                                               pickle_env_button.current_selection(), self.CaseNameTextEdit.text(),
+<<<<<<< HEAD
                                               self.fullscan_list, parse_advanced_params(self.AdvancedParamsGroupBox))
+=======
+                                              self.fullscan_list, geom, parse_advanced_params(self.AdvancedParamsGroupBox))
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         )
         self.AddExperimentCaseButton.clicked.connect(self.check_run_exp_inputs)
         self.AddExperimentCaseButton.clicked.connect(self.check_case_inputs)
@@ -118,9 +149,13 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.RunExperimentButton.clicked.connect(
             lambda: (self.RunExperimentButton.setEnabled(False),
                      self.AddExperimentCaseButton.setEnabled(False),
+<<<<<<< HEAD
                      self.start_exp.emit(self.experiment_case_list,
                                          self.ExperimentTitleTextEdit.text(),
                                           parse_xcms_params(self.XCMSParamTab)))
+=======
+                     self.start_exp.emit(self.experiment_case_list, parse_xcms_params(self.XCMSParamTab)))
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         )
         self.ViewSummaryButton.clicked.connect(
             lambda: view_summary(self)
@@ -164,5 +199,9 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
     @qtc.pyqtSlot()
     def check_run_exp_inputs(self):
         check_valid_inputs(self.RunExperimentButton, 
+<<<<<<< HEAD
                            line_edits=[self.ExperimentTitleTextEdit.text()],
                            stored_required_lists = [self.experiment_case_list])
+=======
+                           stored_required_lists = [self.experiment_case_list])
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d

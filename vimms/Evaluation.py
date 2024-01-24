@@ -63,6 +63,10 @@ class EvaluationData():
     class DummyController():
         def __init__(self, controller):
             self.scans = controller.scans
+<<<<<<< HEAD
+=======
+                    
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 class Evaluator(metaclass=ABCMeta):
     TIMES_FRAGMENTED = 0
@@ -89,12 +93,21 @@ class Evaluator(metaclass=ABCMeta):
         pass
 
     def evaluation_report(self, min_intensity=None):
+<<<<<<< HEAD
         if (min_intensity is None):
             min_intensity = self.report_min_intensity
 
         if (not self.report is None and math.isclose(min_intensity, self.report_min_intensity)):
             return self.report
 
+=======
+        if(min_intensity is None):
+            min_intensity = self.report_min_intensity
+        
+        if(not self.report is None and math.isclose(min_intensity, self.report_min_intensity)):
+            return self.report
+    
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         chem_appears = np.any(self.chem_info[:, self.MAX_INTENSITY, :] > min_intensity, axis=1)
 
         frag_counts = self.chem_info[:, self.TIMES_FRAGMENTED, :].T
@@ -102,6 +115,7 @@ class Evaluator(metaclass=ABCMeta):
         raw_intensities = self.chem_info[:, self.MAX_FRAG_INTENSITY, :].T
 
         coverage_intensities = raw_intensities * (raw_intensities >= min_intensity)
+<<<<<<< HEAD
         coverage = np.array(coverage_intensities, dtype=bool)
 
         times_fragmented = np.sum(frag_counts, axis=0)
@@ -111,6 +125,17 @@ class Evaluator(metaclass=ABCMeta):
         times_covered = np.sum(coverage, axis=0)
         times_covered_summary = {
             int(k): int(v) for k, v in zip(*np.unique(times_covered, return_counts=True))
+=======
+        coverage = np.array(coverage_intensities, dtype=np.bool)
+
+        times_fragmented = np.sum(frag_counts, axis=0)
+        times_fragmented_summary = {
+            int(k) : int(v) for k, v in zip(*np.unique(times_fragmented, return_counts=True))
+        }
+        times_covered = np.sum(coverage, axis=0)
+        times_covered_summary = {
+            int(k) : int(v) for k, v in zip(*np.unique(times_covered, return_counts=True))
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         }
 
         cumulative_coverage = np.logical_or.accumulate(coverage, axis=0)
@@ -123,12 +148,19 @@ class Evaluator(metaclass=ABCMeta):
         cumulative_coverage_prop = np.sum(cumulative_coverage, axis=1) / num_appears
 
         max_coverage_intensities = np.amax(max_possible_intensities, axis=0)
+<<<<<<< HEAD
         which_obtainable = (
             (max_coverage_intensities >= min_intensity) * (max_coverage_intensities > 0.0)
         )
         max_obtainable = max_coverage_intensities[np.newaxis, which_obtainable]
         max_obtainable[np.isclose(max_obtainable, 0.0)] = 1.0
 
+=======
+        which_obtainable = max_coverage_intensities >= min_intensity
+        max_obtainable = max_coverage_intensities[np.newaxis, which_obtainable]
+        max_obtainable[np.isclose(max_obtainable, 0.0)] = 1.0
+        
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         coverage_intensity_prop = np.mean(
             coverage_intensities[:, which_obtainable] / max_obtainable,
             axis=1
@@ -172,7 +204,11 @@ class Evaluator(metaclass=ABCMeta):
             "cumulative_raw_intensity_proportion": cumulative_raw_intensities_prop.tolist(),
             "cumulative_coverage_proportion": cumulative_coverage_prop.tolist(),
             "cumulative_intensity_proportion": cumulative_coverage_intensities_prop.tolist(),
+<<<<<<< HEAD
             "cumulative_covered_intensities_proportion":
+=======
+            "cumulative_covered_intensities_proportion": 
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                 cumulative_covered_intensities_prop.tolist()
         }
 
@@ -197,16 +233,26 @@ class Evaluator(metaclass=ABCMeta):
         }
 
         return "\n".join(f"{name}: {report[key]}" for name, key in fields.items())
+<<<<<<< HEAD
 
     def report_to_json(self, filepath, min_intensity=None):
         np_fields = [
             "coverage",
             "raw_intensity",
             "intensity",
+=======
+    
+    def report_to_json(self, filepath, min_intensity=None):
+        np_fields = [
+            "coverage", 
+            "raw_intensity", 
+            "intensity", 
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
             "max_possible_intensity",
             "times_fragmented",
             "times_covered"
         ]
+<<<<<<< HEAD
 
         report = copy.copy(self.evaluation_report(min_intensity=min_intensity))
 
@@ -222,10 +268,28 @@ class Evaluator(metaclass=ABCMeta):
             "coverage",
             "raw_intensity",
             "intensity",
+=======
+    
+        report = copy.copy(self.evaluation_report(min_intensity=min_intensity))
+        
+        for k in np_fields:
+            report[k] = report[k].tolist()
+            
+        with open(filepath, "w") as f:
+            json.dump([report, self.report_min_intensity], f)
+        
+    @classmethod
+    def from_report_json(cls, filepath):
+        np_fields = [
+            "coverage", 
+            "raw_intensity", 
+            "intensity", 
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
             "max_possible_intensity",
             "times_fragmented",
             "times_covered"
         ]
+<<<<<<< HEAD
 
         with open(filepath, "r") as f:
             eva = cls()
@@ -240,6 +304,21 @@ class Evaluator(metaclass=ABCMeta):
             return eva
 
 
+=======
+    
+        with open(filepath, "r") as f:
+            eva = cls()
+            eva.report, eva.report_min_intensity = json.load(f)
+            
+            for k in np_fields:
+                eva.report[k] = np.array(eva.report[k])
+            
+            for k in ["times_fragmented_summary", "times_covered_summary"]:
+                eva.report[k] = {int(k) : int(v) for k, v in eva.report[k].items()}
+            
+            return eva
+
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 class SyntheticEvaluator(Evaluator):
 
     def __init__(self, chems=[]):
@@ -306,7 +385,11 @@ class RealEvaluator(Evaluator):
         self.mzmls = []
         self.geoms = []
         self.all_fullscan_peaks = []
+<<<<<<< HEAD
         self.box_to_fullscan_peaks = {}  # generated after parsing MS-DIAL results
+=======
+        self.box_to_fullscan_peaks = {} # generated after parsing MS-DIAL results
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         self.box_to_frag_spectra = defaultdict(list)
 
     @classmethod
@@ -321,7 +404,11 @@ class RealEvaluator(Evaluator):
 
         """
         return RealEvaluator.from_aligned_mzmine(aligned_file, min_box_ppm=min_box_ppm)
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     @classmethod
     def from_aligned_boxfile(cls, reader, aligned_file, min_box_ppm=10):
         include = [
@@ -366,7 +453,11 @@ class RealEvaluator(Evaluator):
         Returns: an instance of this Evaluator
 
         """
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         return cls.from_aligned_boxfile(MZMineParams, aligned_file, min_box_ppm=min_box_ppm)
 
 
@@ -449,7 +540,11 @@ class RealEvaluator(Evaluator):
             if found:
                 chems.append(chem_row)
             else:
+<<<<<<< HEAD
                 unmatched += 1  # FIXME: shouldn't happen?!
+=======
+                unmatched += 1 # FIXME: shouldn't happen?!
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
         if unmatched > 0:
             logger.debug('Unable to match %d rows from aligned df!')
@@ -461,6 +556,7 @@ class RealEvaluator(Evaluator):
         eva.all_fullscan_peaks = all_peaks
         return eva
 
+<<<<<<< HEAD
     import pandas as pd
 
     @classmethod
@@ -496,6 +592,8 @@ class RealEvaluator(Evaluator):
         eva.geoms = [None]
         return eva
 
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     def add_info(self, fullscan_name, mzmls, isolation_width=None, max_error=10):
         self.report, self.report_min_intensity = None, 0.0
         if ("." in fullscan_name): fullscan_name = ".".join(fullscan_name.split(".")[:-1])
@@ -523,6 +621,7 @@ class RealEvaluator(Evaluator):
                 if (s.ms_level == 1):
 
                     current_intensities = [[] for _ in self.chems]
+<<<<<<< HEAD
                     try:
                         mzs, intensities = zip(*s.peaks)
 
@@ -541,6 +640,23 @@ class RealEvaluator(Evaluator):
                                 )
                     except ValueError:
                         pass
+=======
+                    mzs, intensities = zip(*s.peaks)
+
+                    for b in geom.get_active_boxes():
+                        p_idx = bisect.bisect_left(mzs, b.pt1.y)
+                        for ch_idx in box2idxes[b]:
+                            max_intensity = 0
+                            for i in range(p_idx, len(mzs)):
+                                if (mzs[i] > b.pt2.y): break
+                                current_intensities[ch_idx].append((mzs[i], intensities[i]))
+                                max_intensity = max(max_intensity, intensities[i])
+
+                            new_info[ch_idx, self.MAX_INTENSITY, mzml_idx] = max(
+                                new_info[ch_idx, self.MAX_INTENSITY, mzml_idx],
+                                max_intensity
+                            )
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
                 else:
                     mz = s.precursor_mz
@@ -563,7 +679,11 @@ class RealEvaluator(Evaluator):
                                 new_info[ch_idx, self.MAX_FRAG_INTENSITY, mzml_idx] = best_intensity
 
                             spectrum_id = 'peak_%.6f' % mz
+<<<<<<< HEAD
                             metadata = {'best_intensity_at_frag': best_intensity}
+=======
+                            metadata = { 'best_intensity_at_frag': best_intensity }
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                             new_spectrum = SpectralRecord(mz, s.peaks, metadata, fullscan_name,
                                                           spectrum_id)
                             self.box_to_frag_spectra[b].append(new_spectrum)
@@ -583,7 +703,11 @@ class RealEvaluator(Evaluator):
                                 new_info[ch_idx, self.MAX_FRAG_INTENSITY, mzml_idx] = best_intensity
 
                             spectrum_id = 'peak_%.6f' % mz
+<<<<<<< HEAD
                             metadata = {'best_intensity_at_frag': best_intensity}
+=======
+                            metadata = { 'best_intensity_at_frag': best_intensity }
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                             new_spectrum = SpectralRecord(mz, s.peaks, metadata, fullscan_name,
                                                           spectrum_id)
                             self.box_to_frag_spectra[b].append(new_spectrum)
@@ -638,9 +762,15 @@ def evaluate_real(aligned_file,
     Args:
         aligned_file: Filepath of an MZMine peak-picking output file.
         mzml_pairs: List of pairs mapping filepaths of fullscans which have been
+<<<<<<< HEAD
                     peak-picked, to .mzmls which should be evaluated using their
                     parent fullscan's picked peaks.
                     .mzmls can be specified as either a filepath or an MZMLFile
+=======
+                    peak-picked, to .mzmls which should be evaluated using their 
+                    parent fullscan's picked peaks. 
+                    .mzmls can be specified as either a filepath or an MZMLFile 
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                     object.
         isolation_width: isolation width to use for evaluating whether a
                          fragmentation event is a hit.

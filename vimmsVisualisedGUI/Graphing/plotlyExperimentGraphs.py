@@ -6,8 +6,13 @@ def plotly_experiment_graphs(plotly_figure, radio_buttons, exp_mzmls, exp_locati
 
 
     if radio_buttons[0]:
+<<<<<<< HEAD
         plotly_mzml(os.path.join(exp_location, exp_mzmls.currentText() + ".mzML"))
         
+=======
+        mzml_plot = plotly_mzml(os.path.join(exp_location, exp_mzmls.currentText() + ".mzML"))
+        plotly_figure.new_graph(mzml_plot)
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     elif radio_buttons[1]:
         pkl_file = load_obj([f for f in os.listdir(exp_location) if f.split(".")[-1] == "pkl"][0])
         timing_hist_plot = plotly_timing_hist([pkl_file.processing_times], exp_name)

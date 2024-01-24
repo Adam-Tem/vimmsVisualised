@@ -13,7 +13,10 @@ Eager to start using ViMMS? Take advantage of these resources:
 - Visit our project documentation page: [![Documentation Status](https://readthedocs.org/projects/vimms/badge/?version=latest)](http://vimms.readthedocs.io/?badge=latest)
 - Our [Demo folder](https://github.com/glasgowcompbio/vimms/tree/master/demo) contains notebooks that demonstrate how to use the framework in a simulated environment.
 - For specific examples that accompany our publications, see the [Example folder](https://github.com/glasgowcompbio/vimms/tree/master/examples).
+<<<<<<< HEAD
 - You can also find this [quick guide on how to get started using ViMMS](https://github.com/glasgowcompbio/vimms/blob/master/demo/guide_to_vimms/guide_to_vimms.ipynb).
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 # Key Features
 
@@ -23,7 +26,10 @@ Moreover, ViMMS serves as a platform for the development, optimization, and test
 
 To see a more thorough explanation of the use cases of ViMMS, please refer to the [Use Cases](pages/use_cases.md) section.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 # Contributions
 
 As an open-source project licensed under MIT, we welcomes all forms of contributions, including bug fixes, new features, and more. You can find our community contribution guidelines [here](https://github.com/glasgowcompbio/vimms/blob/master/CONTRIBUTING.md).

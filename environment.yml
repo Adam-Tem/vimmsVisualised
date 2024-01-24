@@ -1,5 +1,6 @@
 name: vimms
 channels:
+<<<<<<< HEAD
   - defaults
 dependencies:
   - python>=3.9,<3.11
@@ -42,3 +43,44 @@ dependencies:
     - ms-deisotope>=0.0.52
     - optuna>=3.3.0
     - kaleido>=0.2.1
+=======
+- defaults
+dependencies:
+  - python=3.9
+  - numpy
+  - pandas
+  - numba
+  - scipy
+  - matplotlib
+  - seaborn
+  - plotly
+  - scikit-learn
+  - tqdm
+  - joblib
+  - ipyparallel
+  - requests
+  - loguru
+  - networkx
+  - jsonpickle
+  - statsmodels
+  - tabulate
+  - flake8
+  - autopep8
+  - pytest
+  - pytest-cov
+  - intervaltree
+  - jupyterlab
+  - ipywidgets
+  - pip
+  - pip:
+    - events
+    - gpy
+    - mkdocs
+    - mkdocstrings
+    - mkdocstrings[python]
+    - pymzml==2.4.7
+    - psims
+    - mass-spec-utils
+    - pysmiles
+    - numba-stats
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d

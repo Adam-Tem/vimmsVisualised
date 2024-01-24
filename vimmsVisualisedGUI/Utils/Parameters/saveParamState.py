@@ -15,7 +15,11 @@ def save_param_state(self, selected_controller, current_index = 0):
     saved_state = {}
     if current_index == 0:
         saved_state["selected_controller"] = selected_controller
+<<<<<<< HEAD
         param_names = identify_params(selected_controller)
+=======
+        param_names = identify_params(selected_controller, CONTROLLERS)
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         params = parse_params(self.ParamsBox, param_names)
         saved_state["params"] = params
     elif current_index == 1:

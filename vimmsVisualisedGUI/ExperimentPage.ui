@@ -279,7 +279,11 @@ background-color: rgb(240, 240, 240);</string>
    <property name="geometry">
     <rect>
      <x>10</x>
+<<<<<<< HEAD
      <y>415</y>
+=======
+     <y>420</y>
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
      <width>191</width>
      <height>20</height>
     </rect>
@@ -1660,6 +1664,7 @@ background-color: rgb(240, 240, 240);</string>
     <string/>
    </property>
   </widget>
+<<<<<<< HEAD
   <widget class="QLabel" name="ExperimentTitleLabel">
    <property name="geometry">
     <rect>
@@ -1688,6 +1693,8 @@ background-color: rgb(240, 240, 240);</string>
     </rect>
    </property>
   </widget>
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
   <zorder>FullscanGroupBox</zorder>
   <zorder>SaveParamsButton</zorder>
   <zorder>LoadParamsButton</zorder>
@@ -1704,8 +1711,11 @@ background-color: rgb(240, 240, 240);</string>
   <zorder>PickleEnvLabel</zorder>
   <zorder>ViewSummaryButton</zorder>
   <zorder>SummaryGroupBox</zorder>
+<<<<<<< HEAD
   <zorder>ExperimentTitleTextEdit</zorder>
   <zorder>ExperimentTitleLabel</zorder>
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
  </widget>
  <resources/>
  <connections/>

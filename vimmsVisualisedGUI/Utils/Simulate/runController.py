@@ -30,6 +30,7 @@ def run_controller(controller_name, file_location, min_rt, max_rt, param_box,
     dataset = load_obj(file_location)
     mass_spec = IndependentMassSpectrometer(params["ionisation_mode"], dataset)
     controller = CONTROLLERS[controller_name](**params)
+<<<<<<< HEAD
     mzml_filename = output_filename + ".mzML"
     out_dir = os.path.join(SAVE_DIRECTORY, 'simulations')
     env = Environment(mass_spec=mass_spec, controller=controller,min_time=0, max_time=5000, 
@@ -38,3 +39,14 @@ def run_controller(controller_name, file_location, min_rt, max_rt, param_box,
     set_log_level_warning()
     env.run()
     set_log_level_debug()
+=======
+    
+    env = Environment(mass_spec, controller, min_rt, max_rt, progress_bar=True)
+
+    set_log_level_warning()
+    env.run()
+    set_log_level_debug()
+    mzml_filename = output_filename + ".mzML"
+    out_dir = os.path.join(SAVE_DIRECTORY, 'simulations')
+    env.write_mzML(out_dir, mzml_filename)
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d

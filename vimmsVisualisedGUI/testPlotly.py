@@ -30,7 +30,11 @@ layout = qtw.QVBoxLayout()
 
 view = QWebEngineView()
 current_dir = os.getcwd()
+<<<<<<< HEAD
 view.setUrl(qtc.QUrl.fromLocalFile(os.path.join(current_dir, "temp-plot.html")))
+=======
+view.setUrl(qtc.QUrl.fromLocalFile(os.path.join(current_dir, "test.html")))
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 cache_path = "C:/Users/adams/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0/LocalCache/Local"
 

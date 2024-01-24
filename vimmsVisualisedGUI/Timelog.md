@@ -451,6 +451,7 @@
 ### 15 Jan 2024
 
 - _3.5 hours_ I have no idea how to fix this problem. The view attempts to load the html and then crashes instantly, and just gives me random error messages... So much time spent getting nowhere.
+<<<<<<< HEAD
 
 ### 17 Jan 2024
 
@@ -469,3 +470,5 @@
 ### 24 Jan 2024
 
 - _Countless hours_ I have fell behind on filling this in, but what a nightmare it has been the past few days for the project. After getting the graphs to finally display and update, through the use of an environment install, I encountered new problems. I wanted to update one of the displays but calling it from the environment wasn't working, so I tried to install what I thought was the right package only for it to break the environment set up and stop the interface working altogether. I tried uninstalling it, but to no avail. To see something break after I had spent hours to get it to work in the first place was rather sole destroying. I decided to try and set up a brand new environment, only for it to also not work... This was horrific. I ultimately decided to uninstall my entire anaconda library, reinstall it and try again. Eventually I have managed to resolve the issues and the dependency problems of DLL files not being found finally seems to be resolved. Running an experiment now stores it in an appropriate file structure, one suitable for the visualisation page. I now just need to add the two final visualisations and the GUI is essentially there.
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d

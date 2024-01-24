@@ -42,8 +42,15 @@ CONTROLLERS_WITH_BOX_GRID.remove("TopN Smart ROI Controller")
 
 
 FORMULA_SAMPLERS = {"Even MZ Formula Sampler": EvenMZFormulaSampler,
+<<<<<<< HEAD
                "Uniform MZ Formula Sampler": UniformMZFormulaSampler,
                "MZML Formula Sampler": MZMLFormulaSampler,
+=======
+               "Pick Everything Formula Sampler": PickEverythingFormulaSampler,
+               "Uniform MZ Formula Sampler": UniformMZFormulaSampler,
+               "MZML Formula Sampler": MZMLFormulaSampler,
+               "Database Formula Sampler": DatabaseFormulaSampler,
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 }
 
 RTI_SAMPLERS = {"Uniform RT & Intensity": UniformRTAndIntensitySampler,
@@ -119,6 +126,11 @@ BOX_PARAMS = {
     "unique": [("unique", QBooleanButton), ("Unique:", qtw.QLabel), True],
     "min_rt_width": [("min_rt_width", qtw.QLineEdit), ("Min RT Width:", qtw.QLabel), 1E-07],
     "min_mz_width": [("min_mz_width", qtw.QLineEdit), ("Min MZ Width:", qtw.QLabel), 1E-07],
+<<<<<<< HEAD
+=======
+    # "fixed_rt_dist": [("fixed_rt_dist", qtw.QLineEdit), ("Fixed RT Dist.:", qtw.QLabel), None],
+    # "fixed_mz_dist": [("fixed_mz_dist", qtw.QLineEdit), ("Fixed MZ Dist.:", qtw.QLabel), None],
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     "split": [("split", QBooleanButton ), ("Split:", qtw.QLabel), False]
 }
 
@@ -138,6 +150,10 @@ INLINE_CONSTRUCTORS = {
 
 
 FORMULA_SAMPLER_PARAMS = {
+<<<<<<< HEAD
+=======
+    "database": [("database", qtw.QLineEdit), ("Database:", qtw.QLabel)],
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     "min_mz": [("min_mz", qtw.QLineEdit), ("Min MZ:", qtw.QLabel), MIN_MZ],
     "max_mz": [("max_mz", qtw.QLineEdit), ("Max MZ:",  qtw.QLabel), MAX_MZ],
     "mzml_file_name": [("mzml_file_name", QMzmlUpload), ("MZML File:", qtw.QLabel)],

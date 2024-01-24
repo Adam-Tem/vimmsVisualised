@@ -1,6 +1,9 @@
 from PyQt5 import QtCore as qtc
 from PyQt5 import QtWidgets as qtw
+<<<<<<< HEAD
 from PyQt5.QtWebEngineWidgets import QWebEnginePage
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 from vimms.Experiment import Experiment
 
@@ -15,11 +18,18 @@ from Utils.Generate.RunChemicalMixtureCreator import run_chemical_mixture_creato
 class ExperimentWorker(qtc.QObject):
     experiment_finished = qtc.pyqtSignal(Experiment, str)
 
+<<<<<<< HEAD
     @qtc.pyqtSlot(list, str, dict)
     def run(self, experiment_cases, experiment_title, xcms_params):
         try:
             experiment, summary = run_experiment(experiment_cases, experiment_title, xcms_params)
             print(summary)
+=======
+    @qtc.pyqtSlot(list, dict)
+    def run(self, experiment_cases, xcms_params):
+        try:
+            experiment, summary = run_experiment(experiment_cases, xcms_params)
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
             self.experiment_finished.emit(experiment, summary)
         except:
             self.experiment_finished.emit(Experiment(), "")
@@ -75,7 +85,10 @@ class ExpGraphWorker(qtc.QObject):
     @qtc.pyqtSlot(PlotlyCanvas, list, qtw.QComboBox, str, str)
     def run(self, plotly_figure, radio_buttons, exp_mzmls, exp_location, exp_name):
         try:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
             plotly_experiment_graphs(plotly_figure, radio_buttons, exp_mzmls, exp_location, exp_name)
             self.graphing_finished.emit("Graphing finished")
         except:

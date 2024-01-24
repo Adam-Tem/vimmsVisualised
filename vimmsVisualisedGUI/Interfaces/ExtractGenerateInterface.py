@@ -53,10 +53,15 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
 
         self.ExtractDataButton.clicked.connect(lambda: (
                                         self.ExtractDataButton.setEnabled(False),
+<<<<<<< HEAD
                                         self.start_extract.emit(self.ExtractParamBox, 
                                                                 self.extract_upload_button.file_location,
                                         self.extract_upload_button.file_name, 
                                         self.ExtractFileNameTextEdit.text(),
+=======
+                                        self.start_extract.emit(self.ExtractParamBox, self.file_location,
+                                        self.file_name, self.ExtractFileNameTextEdit.text(),
+>>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                                         SAVE_DIRECTORY))
                                         )
         
