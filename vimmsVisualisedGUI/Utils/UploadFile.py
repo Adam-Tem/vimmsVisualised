@@ -10,11 +10,7 @@ def upload_file(self, file_type):
     if file_type == "mzml":
         selected_file = dialog.getOpenFileName(None, "Import mzML", "", "mzML data files (*.mzml)")
         if selected_file[0] != "":
-<<<<<<< HEAD
             self.stored_mzml = MZMLFile(selected_file[0]) 
-=======
-            self.stored_mzml = MZMLFile(os.path.basename(selected_file[0])) 
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     elif file_type == "p":
         selected_file = dialog.getOpenFileName(None, "Import Pickle", "", "Pickle File (*.p)")
     elif file_type == "mgf":

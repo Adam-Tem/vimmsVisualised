@@ -8,11 +8,6 @@ from Interfaces.SimulateInterface import *
 from Interfaces.ExperimentInterface import *
 from Utils.Display.changePage import change_page
 
-<<<<<<< HEAD
-import sys
-
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 qtw.QApplication.setAttribute(qtc.Qt.AA_EnableHighDpiScaling, True) #enable highdpi scaling
 qtw.QApplication.setAttribute(qtc.Qt.AA_UseHighDpiPixmaps, True) #use highdpi icons
 
@@ -52,16 +47,8 @@ class ViMMSMain(qtw.QMainWindow):
 
 if __name__ == "__main__":
     app = qtw.QApplication([])
-<<<<<<< HEAD
-    
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     window = ViMMSMain()
     window.stackedWidget.show()
     app.exec_()
 
-<<<<<<< HEAD
-    
 
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d

@@ -7,11 +7,7 @@ from Utils.Experiment.controllerStringConversion import controller_string_conver
 from Utils.Experiment.updateLabel import add_to_label
 
 def construct_experiment_case(self, controller_type, params_box, pickle_env,
-<<<<<<< HEAD
                               case_name, fullscan_list, advanced_params):
-=======
-                              case_name, fullscan_list, geom, advanced_params):
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     
     param_dict = parse_params(params_box, CONTROLLER_PARAMS)
     param_dict["advanced_params"] = AdvancedParams(**advanced_params)

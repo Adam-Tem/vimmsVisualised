@@ -114,11 +114,7 @@ class Ui_experimentForm(object):
         self.AddExperimentCaseButton.setGeometry(QtCore.QRect(430, 420, 161, 23))
         self.AddExperimentCaseButton.setObjectName("AddExperimentCaseButton")
         self.ExperimentCasesLabel = QtWidgets.QLabel(experimentForm)
-<<<<<<< HEAD
         self.ExperimentCasesLabel.setGeometry(QtCore.QRect(10, 415, 191, 20))
-=======
-        self.ExperimentCasesLabel.setGeometry(QtCore.QRect(10, 420, 191, 20))
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         font = QtGui.QFont()
         font.setPointSize(12)
         self.ExperimentCasesLabel.setFont(font)
@@ -628,7 +624,6 @@ class Ui_experimentForm(object):
         self.SaveParamsButton.setGeometry(QtCore.QRect(565, 230, 30, 30))
         self.SaveParamsButton.setText("")
         self.SaveParamsButton.setObjectName("SaveParamsButton")
-<<<<<<< HEAD
         self.ExperimentTitleLabel = QtWidgets.QLabel(experimentForm)
         self.ExperimentTitleLabel.setGeometry(QtCore.QRect(10, 440, 191, 20))
         font = QtGui.QFont()
@@ -638,8 +633,6 @@ class Ui_experimentForm(object):
         self.ExperimentTitleTextEdit = QtWidgets.QLineEdit(experimentForm)
         self.ExperimentTitleTextEdit.setGeometry(QtCore.QRect(10, 470, 191, 20))
         self.ExperimentTitleTextEdit.setObjectName("ExperimentTitleTextEdit")
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         self.FullscanGroupBox.raise_()
         self.SaveParamsButton.raise_()
         self.LoadParamsButton.raise_()
@@ -656,11 +649,8 @@ class Ui_experimentForm(object):
         self.PickleEnvLabel.raise_()
         self.ViewSummaryButton.raise_()
         self.SummaryGroupBox.raise_()
-<<<<<<< HEAD
         self.ExperimentTitleTextEdit.raise_()
         self.ExperimentTitleLabel.raise_()
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
         self.retranslateUi(experimentForm)
         self.ParamTabs.setCurrentIndex(0)
@@ -798,10 +788,7 @@ class Ui_experimentForm(object):
         self.PreFilterMaxTextEdit.setAccessibleName(_translate("experimentForm", "prefilterupper"))
         self.PreFilterMaxTextEdit.setText(_translate("experimentForm", "500"))
         self.ParamTabs.setTabText(self.ParamTabs.indexOf(self.XCMSParamTab), _translate("experimentForm", "XCMS"))
-<<<<<<< HEAD
         self.ExperimentTitleLabel.setText(_translate("experimentForm", "Experiment Title:"))
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 
 if __name__ == "__main__":

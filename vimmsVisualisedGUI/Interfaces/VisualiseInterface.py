@@ -26,10 +26,6 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
 
         create_graph_layout(self)
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         self.exp_figure = PlotlyCanvas(self.PlotlyCanvasGroupBox)
         self.exp_figure.show()
 
@@ -129,9 +125,6 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
         if response == "Graphing finished":
             task_completed_pop_up("ViMMS Visual", "Graph visualisation update now complete!", 
                                   self.MzmlVisualiseButton)
-<<<<<<< HEAD
             self.exp_figure.update_plot()
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         else:
             input_error_pop_up(self.MzmlVisualiseButton)

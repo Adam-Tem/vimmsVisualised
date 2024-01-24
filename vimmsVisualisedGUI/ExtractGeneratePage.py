@@ -299,11 +299,6 @@ class Ui_ExtractGenerateForm(object):
         self.FormulaSamplerComboBox.addItem("")
         self.FormulaSamplerComboBox.addItem("")
         self.FormulaSamplerComboBox.addItem("")
-<<<<<<< HEAD
-=======
-        self.FormulaSamplerComboBox.addItem("")
-        self.FormulaSamplerComboBox.addItem("")
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         self.gridLayout_2.addWidget(self.FormulaSamplerComboBox, 0, 1, 1, 1)
         self.ChemCountLabel = QtWidgets.QLabel(self.gridLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
@@ -397,15 +392,8 @@ class Ui_ExtractGenerateForm(object):
         self.FormulaSamplerComboBox.setAccessibleName(_translate("ExtractGenerateForm", "formula_sampler"))
         self.FormulaSamplerComboBox.setItemText(0, _translate("ExtractGenerateForm", "---"))
         self.FormulaSamplerComboBox.setItemText(1, _translate("ExtractGenerateForm", "Even MZ Formula Sampler"))
-<<<<<<< HEAD
         self.FormulaSamplerComboBox.setItemText(2, _translate("ExtractGenerateForm", "Uniform MZ Formula Sampler"))
         self.FormulaSamplerComboBox.setItemText(3, _translate("ExtractGenerateForm", "MZML Formula Sampler"))
-=======
-        self.FormulaSamplerComboBox.setItemText(2, _translate("ExtractGenerateForm", "Pick Everything Formula Sampler"))
-        self.FormulaSamplerComboBox.setItemText(3, _translate("ExtractGenerateForm", "Uniform MZ Formula Sampler"))
-        self.FormulaSamplerComboBox.setItemText(4, _translate("ExtractGenerateForm", "MZML Formula Sampler"))
-        self.FormulaSamplerComboBox.setItemText(5, _translate("ExtractGenerateForm", "Database Formula Sampler"))
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         self.ChemCountLabel.setText(_translate("ExtractGenerateForm", "Number of Chemicals to sample:"))
         self.RTIntensityLabel.setText(_translate("ExtractGenerateForm", "Retention Time Intensity Sampler:"))
         self.GenerateFileNameLabel.setText(_translate("ExtractGenerateForm", "File Name:"))

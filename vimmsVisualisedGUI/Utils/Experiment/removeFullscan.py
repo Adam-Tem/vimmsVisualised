@@ -13,10 +13,7 @@ def remove_option(self, scroll_area, label_type):
             button.setEnabled(False)
     else:
         self.experiment_case_list = self.experiment_case_list[:-1]
-<<<<<<< HEAD
         self.experiment_name_list = self.experiment_name_list[:-1]
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         text_label = scroll_area.findChild(qtw.QLabel, "ExperimentNamesLabel")
         button = self.CaseUndoButton
         scroll_area_contents = scroll_area.findChild(qtw.QWidget, "ScrollContents_2")

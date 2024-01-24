@@ -4,9 +4,9 @@ from PyQt5 import QtCore as qtc
 
 from SimulatePage import Ui_SimulateForm
 
-from vimmsVisualisedGUI.Utils.UploadFile import *
+from Utils.UploadFile import *
 
-from vimmsVisualisedGUI.Utils.Display.setCharge import *
+from Utils.Display.setCharge import *
 from Utils.Display.displayParams import *
 from Utils.Display.inputErrorPopUp import input_error_pop_up
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
@@ -17,7 +17,7 @@ from Utils.Parameters.loadParamState import load_param_state
 from Utils.Parameters.saveParamState import save_param_state
 from Utils.Parameters.parseAdvancedParams import parse_advanced_params
 from Utils.checkValidInputs import check_valid_inputs
-from vimmsVisualisedGUI.Utils.Threads.workerThreads import SimulateWorker
+from Utils.Threads.workerThreads import SimulateWorker
 
 class SimulatePage(qtw.QWidget, Ui_SimulateForm):
 
