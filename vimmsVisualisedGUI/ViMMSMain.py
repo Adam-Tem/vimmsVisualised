@@ -47,6 +47,7 @@ class ViMMSMain(qtw.QMainWindow):
 
 if __name__ == "__main__":
     app = qtw.QApplication([])
+    app.setStyle("Fusion")
     window = ViMMSMain()
     window.stackedWidget.show()
     app.exec_()

@@ -473,3 +473,9 @@
 * _2 hours_ Managed to get the two remaining essential plotly graphs to be functional with the interface to display results.
 
 * _1 hour_ Just a case of wrinkling out the bugs in the code in terms of when you can and cannot select a visualisation, trying to make sure no null errors occur. Something that will probably be helped with user testing to identify any more breaking issues to the interface, but so far so good! I have also identified a potential issue when having a sample be injected more than once but will work on that next.
+
+### 25 Jan 2024
+
+- _1 hour_ Before the meeting I was able to add the combo box for displaying the individual processing times of the pickle files of an experiment.
+
+- _1 hour_ During the meeting, we identified that to have a consistent style across multiple OSes, the default styling has been changed to accomodate Linux styles.

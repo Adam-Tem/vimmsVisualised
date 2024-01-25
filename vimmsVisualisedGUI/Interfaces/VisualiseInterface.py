@@ -17,7 +17,7 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
 
     mzml_upload = qtc.pyqtSignal()
     update_mzml_visual = qtc.pyqtSignal(MplCanvas, str, str, str, str, str, str, str)
-    update_exp_visual = qtc.pyqtSignal(PlotlyCanvas, list, qtw.QComboBox, str, str)
+    update_exp_visual = qtc.pyqtSignal(PlotlyCanvas, list, qtw.QComboBox, qtw.QComboBox, str, str)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -96,6 +96,7 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
                          self.TimingHistRadioButton.isChecked(),
                          self.FragEventsRadioButton.isChecked()],
                          self.ExpMzmlComboBox,
+                         self.ExpPklComboBox,
                          self.exp_to_visualise_button.file_location,
                          self.exp_to_visualise_button.file_name
                     )

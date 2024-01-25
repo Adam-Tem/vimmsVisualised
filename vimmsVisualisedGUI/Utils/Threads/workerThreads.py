@@ -71,10 +71,10 @@ class MzmlGraphWorker(qtc.QObject):
 class ExpGraphWorker(qtc.QObject):
     graphing_finished = qtc.pyqtSignal(str)
 
-    @qtc.pyqtSlot(PlotlyCanvas, list, qtw.QComboBox, str, str)
-    def run(self, plotly_figure, radio_buttons, exp_mzmls, exp_location, exp_name):
+    @qtc.pyqtSlot(PlotlyCanvas, list, qtw.QComboBox, qtw.QComboBox, str, str)
+    def run(self, plotly_figure, radio_buttons, exp_mzmls, exp_pkls, exp_location, exp_name):
         try:
-            plotly_experiment_graphs(plotly_figure, radio_buttons, exp_mzmls, exp_location, exp_name)
+            plotly_experiment_graphs(plotly_figure, radio_buttons, exp_mzmls, exp_pkls, exp_location, exp_name)
             self.graphing_finished.emit("Graphing finished")
         except:
             self.graphing_finished.emit("Graphing failed")

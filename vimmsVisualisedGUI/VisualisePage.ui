@@ -395,6 +395,19 @@ background-color: rgb(240, 240, 240);</string>
       <string>Visualise</string>
      </property>
     </widget>
+    <widget class="QComboBox" name="ExpPklComboBox">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>165</y>
+       <width>141</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
   <zorder>VisualisationTabs</zorder>
