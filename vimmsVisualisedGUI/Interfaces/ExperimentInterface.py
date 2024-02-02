@@ -136,12 +136,12 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
         self.CumulativeIntensityProportionRadioButton.clicked.connect(
             lambda: experiment_result_plot(self.canvas, self.experiment, 
-                                           self.experiment_case_list, "cumulative_intensity_proportion")
+                                           self.experiment_name_list, "cumulative_intensity_proportion")
         )
 
         self.CumulativeCoverageRadioButton.clicked.connect(
             lambda: experiment_result_plot(self.canvas, self.experiment, 
-                                           self.experiment_case_list, "cumulative_coverage_proportion")
+                                           self.experiment_name_list, "cumulative_coverage_proportion")
         )
 
     @qtc.pyqtSlot(Experiment, str)

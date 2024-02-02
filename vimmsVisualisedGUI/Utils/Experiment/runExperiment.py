@@ -1,6 +1,6 @@
 from vimms.Experiment import Experiment
 from vimms.PeakPicking import XCMSScriptParams
-from Utils.Parameters.ParamWidgets import SAVE_DIRECTORY
+from Utils.Parameters.ParamWidgets import SAVE_DIRECTORY, R_INSTALL
 import os
 
 def run_experiment(experiment_cases, experiment_title, xcms_params):
@@ -19,7 +19,7 @@ def run_experiment(experiment_cases, experiment_title, xcms_params):
     experiment.run_experiment(out_dir=out_dir, num_workers=num_of_workers, scan_duration_dict=scan_duration_dict)
     pp_params = XCMSScriptParams(
     xcms_r_script = os.path.join(current_folder, "xcms_script.R"), 
-    rscript_exe= os.path.join("C:\\","Program Files","R","R-4.3.2","bin","Rscript.exe"),
+    rscript_exe= R_INSTALL,
     **xcms_params
 )
     experiment.evaluate(pp_params=pp_params, num_workers=num_of_workers, force_peak_picking=True, aligned_names="test_0_xcms_aligned.csv")

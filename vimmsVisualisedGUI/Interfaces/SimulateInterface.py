@@ -77,7 +77,7 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
     @qtc.pyqtSlot(str)
     def notify_sim_finish(self, notification_msg):
         if notification_msg == "Simulated":
-            task_completed_pop_up("ViMMS Simulation", "Current simulation now complete!",
+            task_completed_pop_up(self, "ViMMS Simulation", "Current simulation now complete!",
                                   self.SimulateButton)
         else:
             input_error_pop_up(self.SimulateButton)

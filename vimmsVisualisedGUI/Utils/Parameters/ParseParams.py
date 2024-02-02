@@ -51,6 +51,8 @@ def parse_params(param_box, constructor_params):
                 params[child.accessibleName()] = int(child.text())
             elif child.accessibleName() in PARSE_AS_LOG:
                 params[child.accessibleName()] = np.log(int(child.text()))
+            elif child.accessibleName() == "exclusion_t0":
+                params[child.accessibleName()] = None
             else:
                 params[child.accessibleName()] = float(child.text())
     return params

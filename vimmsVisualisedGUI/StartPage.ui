@@ -70,7 +70,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Extract/Generate Data</string>
+    <string>Extract/Generate</string>
    </property>
   </widget>
   <widget class="QPushButton" name="SimulateButton">
@@ -88,7 +88,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Simulate Experiment</string>
+    <string>Simulate</string>
    </property>
   </widget>
   <widget class="QPushButton" name="VisualiseButton">

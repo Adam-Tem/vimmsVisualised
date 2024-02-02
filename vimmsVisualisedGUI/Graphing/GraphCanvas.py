@@ -7,17 +7,6 @@ from Utils.Parameters.ParamWidgets import SAVE_DIRECTORY
 from matplotlib.figure import Figure
 
 
-def seeError(num, val):
-    print("Hello")
-    print(num, val)
-
-def start():
-    print("started")
-
-def sc():
-    print("sc")
-
-
 class MplCanvas(fcqt):
     canvas_changed = qtc.pyqtSignal()
 

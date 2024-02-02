@@ -20,7 +20,7 @@ def experiment_result_plot(canvas, experiment, experiment_cases, graph_type):
 
     results_list = [eva.evaluation_report(min_intensity=0) for eva in experiment.evaluators]
 
-    itr = zip(experiment_cases, results_list, markers)
+    itr = zip(experiment.case_names, results_list, markers)
     
     for exp_name, results, m in itr:
         scores = results[graph_type]       
@@ -31,4 +31,6 @@ def experiment_result_plot(canvas, experiment, experiment_cases, graph_type):
         canvas.axes.set_title(layouts[graph_type]["title"], fontsize=8)
         canvas.axes.tick_params(labelsize=6)
         canvas.axes.plot(xs, scores, label=exp_name, marker=m)
+    canvas.axes.legend((experiment_cases), loc="upper right", fontsize=6)
+    ##fix this first the mora
     canvas.draw()

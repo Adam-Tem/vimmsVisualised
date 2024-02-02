@@ -28,7 +28,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Simulate Experiment</string>
+    <string>Simulate</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>

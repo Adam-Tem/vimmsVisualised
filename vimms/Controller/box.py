@@ -40,16 +40,12 @@ class TopNEXtController(RoiController):
                  register_all_roi=False,
                  scoring_params=GRID_CONTROLLER_SCORING_PARAMS,
                  exclusion_method=ROI_EXCLUSION_DEW,
-<<<<<<< HEAD
                  exclusion_t_0=None,
                  deisotope=False,
                  charge_range=(2, 3),
                  min_fit_score=80,
                  penalty_factor=1.5,
                  use_quick_charge=False):
-=======
-                 exclusion_t_0=None):
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         """
         Create a grid controller.
 
@@ -77,13 +73,10 @@ class TopNEXtController(RoiController):
                               used to describe how to perform dynamic exclusion so that precursors
                               that have been fragmented are not fragmented again.
             exclusion_t_0: parameter for WeightedDEW exclusion (refer to paper for details).
-<<<<<<< HEAD
             deisotope: whether to perform isotopic deconvolution, necessary for proteomics.
             charge_range: the charge state of ions to keep.
             min_fit_score: minimum score to keep from doing isotope deconvolution.
             penalty_factor: penalty factor for scoring during isotope deconvolution.
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         """
         super().__init__(ionisation_mode,
                          isolation_width,
@@ -97,7 +90,6 @@ class TopNEXtController(RoiController):
                          ms1_shift=ms1_shift,
                          advanced_params=advanced_params,
                          exclusion_method=exclusion_method,
-<<<<<<< HEAD
                          exclusion_t_0=exclusion_t_0,
                          deisotope=deisotope,
                          charge_range=charge_range,
@@ -105,9 +97,6 @@ class TopNEXtController(RoiController):
                          penalty_factor=penalty_factor,
                          use_quick_charge=use_quick_charge
         )
-=======
-                         exclusion_t_0=exclusion_t_0)
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
         self.roi_builder = RoiBuilder(roi_params, smartroi_params=smartroi_params)
         self.grid = grid  # helps us understand previous RoIs
@@ -117,7 +106,6 @@ class TopNEXtController(RoiController):
     def update_state_after_scan(self, scan):
         super().update_state_after_scan(scan)
         self.grid.send_training_data(scan)
-<<<<<<< HEAD
 
     def _set_fragmented(self, i, roi_id, rt, intensity):
         super()._set_fragmented(i, roi_id, rt, intensity)
@@ -132,39 +120,16 @@ class TopNEXtController(RoiController):
             (
                 maxm
                 if self.grid.point_in_box(Point(r[-1][0], r[-1][1]), idx=self.grid.IN_GEOM)
-=======
-        
-    def _set_fragmented(self, i, roi_id, rt, intensity):
-        super()._set_fragmented(i, roi_id, rt, intensity)
-        self.grid.register_roi(self.roi_builder.live_roi[i])
-        
-    def _add_inclusion_scores(self, scores):
-        if(self.roi_builder.live_roi == []):
-            return scores
-        
-        maxm = max(scores)
-        return scores + np.array([
-            (
-                maxm 
-                if self.grid.point_in_box(Point(r[-1][0], r[-1][1]), idx=self.grid.IN_GEOM) 
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                 else 0.0
             )
             for r in self.roi_builder.live_roi
         ])
 
     def _get_scores(self):
-<<<<<<< HEAD
         if (self.roi_builder.live_roi != []):
             rt = max(r.max_rt for r in self.roi_builder.live_roi)
             self.grid.set_active_boxes(rt)
 
-=======
-        if(self.roi_builder.live_roi != []):
-            rt = max(r.max_rt for r in self.roi_builder.live_roi)
-            self.grid.set_active_boxes(rt)
-    
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         overlap_scores = self._overlap_scores()
         overlap_scores = self._add_inclusion_scores(overlap_scores)
         if self.roi_builder.roi_type == ROI_TYPE_SMART:  # smart ROI scoring
@@ -184,22 +149,13 @@ class TopNEXtController(RoiController):
 
     def after_injection_cleanup(self):
         self.grid.update_after_injection()
-<<<<<<< HEAD
         
-=======
-
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 class IntensityTopNEXtController(TopNEXtController):
     def _get_scores(self):
         if(self.roi_builder.live_roi != []):
             rt = max(r.max_rt for r in self.roi_builder.live_roi)
             self.grid.set_active_boxes(rt)
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         overlap_scores = self._overlap_scores()
         overlap_scores = self._add_inclusion_scores(overlap_scores)
         if self.roi_builder.roi_type == ROI_TYPE_SMART:
@@ -218,11 +174,6 @@ class ReTopNController(TopNEXtController):
         Reimplementation of the topN controller in the topNEXt framework,
         allowing it to use features like inclusion boxes.
     '''
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     def _overlap_scores(self):
         return np.array([1 for r in self.roi_builder.live_roi])
 
@@ -238,11 +189,7 @@ class TopNEXController(TopNEXtController):
         return exclude
 
     def after_injection_cleanup(self):
-<<<<<<< HEAD
         for ex in self.exclusion.dynamic_exclusion:
-=======
-        for ex in self.exclusion.exclusion_list:
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
             self.grid.register_box(
                 GenericBox(
                     ex.from_rt,
@@ -252,11 +199,6 @@ class TopNEXController(TopNEXtController):
                 )
             )
         super().after_injection_cleanup()
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 class HardRoIExcludeController(TopNEXtController):
     def _overlap_scores(self):
@@ -280,11 +222,6 @@ class IntensityRoIExcludeController(IntensityTopNEXtController):
             else:
                 new_intensities.append(log(r_intensity) - log(max(b.intensity for b in boxes)))
         return new_intensities
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 class NonOverlapController(TopNEXtController):
     """
@@ -308,19 +245,11 @@ class IntensityNonOverlapController(IntensityTopNEXtController):
                 r,
                 self.roi_builder.current_roi_intensities[i],
                 self.scoring_params
-<<<<<<< HEAD
             )
             for i, r in enumerate(self.roi_builder.live_roi)
         ])
         return new_intensities
 
-=======
-            ) 
-            for i, r in enumerate(self.roi_builder.live_roi)
-        ])
-        return new_intensities
-        
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 class FlexibleNonOverlapController(TopNEXtController):
     """
@@ -370,11 +299,7 @@ class FlexibleNonOverlapController(TopNEXtController):
                 r,
                 self.roi_builder.current_roi_intensities[i],
                 self.scoring_params
-<<<<<<< HEAD
             )
-=======
-            ) 
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
             for i, r in enumerate(self.roi_builder.live_roi)
         ]
         return scores
@@ -425,17 +350,10 @@ class CaseControlNonOverlapController(TopNEXtController):
     def _get_scores(self):
         scores = [
             self.grid.case_control_non_overlap(
-<<<<<<< HEAD
                 r,
                 self.current_roi_intensities[i],
                 self.scoring_params
             )
-=======
-                r, 
-                self.current_roi_intensities[i],
-                self.scoring_params
-            ) 
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
             for i, r in enumerate(self.live_roi)
         ]
         return self._get_top_N_scores(scores * self._score_filters())

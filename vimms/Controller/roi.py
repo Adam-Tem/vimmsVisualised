@@ -2,10 +2,7 @@
 This file describes controllers that build regions-of-interests (ROIs) in real-time
 and use that as additional information to decide which precursor ions to fragment.
 """
-<<<<<<< HEAD
 import copy
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 from copy import deepcopy
 
 import numpy as np
@@ -18,10 +15,7 @@ from vimms.Exclusion import (
     WeightedDEWExclusion, DEWFilter,
     WeightedDEWFilter
 )
-<<<<<<< HEAD
 from vimms.MassSpec import Scan
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 from vimms.Roi import RoiBuilder
 
 
@@ -41,16 +35,12 @@ class RoiController(TopNController):
                  ms1_shift=0,
                  advanced_params=None,
                  exclusion_method=ROI_EXCLUSION_DEW,
-<<<<<<< HEAD
                  exclusion_t_0=None,
                  deisotope=False,
                  charge_range=(2, 3),
                  min_fit_score=80,
                  penalty_factor=1.5,
                  use_quick_charge=False):
-=======
-                 exclusion_t_0=None):
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         """
         Initialise an ROI-based controller
         Args:
@@ -74,7 +64,6 @@ class RoiController(TopNController):
                               used to describe how to perform dynamic exclusion so that precursors
                               that have been fragmented are not fragmented again.
             exclusion_t_0: parameter for WeightedDEW exclusion (refer to paper for details).
-<<<<<<< HEAD
             deisotope: whether to perform isotopic deconvolution, necessary for proteomics.
             charge_range: the charge state of ions to keep.
             min_fit_score: minimum score to keep from doing isotope deconvolution.
@@ -84,11 +73,6 @@ class RoiController(TopNController):
                          min_ms1_intensity, ms1_shift=ms1_shift,
                          deisotope=deisotope, charge_range=charge_range,
                          min_fit_score=min_fit_score, penalty_factor=penalty_factor, use_quick_charge=use_quick_charge,
-=======
-        """
-        super().__init__(ionisation_mode, N, isolation_width, mz_tol, rt_tol,
-                         min_ms1_intensity, ms1_shift=ms1_shift,
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                          advanced_params=advanced_params)
         self.min_roi_length_for_fragmentation = min_roi_length_for_fragmentation  # noqa
         self.roi_builder = RoiBuilder(roi_params, smartroi_params=smartroi_params)
@@ -99,11 +83,7 @@ class RoiController(TopNController):
         if self.exclusion_method == ROI_EXCLUSION_WEIGHTED_DEW:
             assert exclusion_t_0 is not None, 'Must be a number'
             assert exclusion_t_0 < rt_tol, 'Impossible combination'
-<<<<<<< HEAD
             self.exclusion = WeightedDEWExclusion(mz_tol, rt_tol, exclusion_t_0)
-=======
-            self.exclusion = WeightedDEWExclusion(rt_tol, exclusion_t_0)
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
         self.exclusion_t_0 = exclusion_t_0
 
@@ -125,10 +105,6 @@ class RoiController(TopNController):
         """
         A class that performs MS2 scheduling of tasks
         """
-<<<<<<< HEAD
-
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         def __init__(self, parent):
             """
             Initialises an MS2 scheduler
@@ -158,17 +134,11 @@ class RoiController(TopNController):
             ms2_tasks.append(dda_scan_params)
             self.parent.current_task_id += 1
             self.fragmented_count += 1
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     def _set_fragmented(self, i, roi_id, rt, intensity):
         self.roi_builder.set_fragmented(self.current_task_id, i, roi_id, rt, intensity)
 
     def _process_scan(self, scan):
         if self.scan_to_process is not None:
-<<<<<<< HEAD
             assert self.scan_to_process == scan
 
             # perform isotope deconvolution, necessary for proteomics data
@@ -179,8 +149,6 @@ class RoiController(TopNController):
                 mzs, intensities = self._deisotope(mzs, intensities)
                 scan = Scan(scan.scan_id, mzs, intensities, scan.ms_level, scan.rt)
 
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
             # keep growing ROIs if we encounter a new ms1 scan
             self.roi_builder.update_roi(scan)
             new_tasks, ms2_tasks = [], []
@@ -302,11 +270,7 @@ class RoiController(TopNController):
 
         """
         if len(scores) > self.N:  # number of fragmentation events filter
-<<<<<<< HEAD
-            scores[scores.argsort()[:(len(scores) - self.N)]] = 0
-=======
             scores[scores.argsort()[:int(len(scores) - self.N)]] = 0
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         return scores
 
     def _get_scores(self):
@@ -324,10 +288,6 @@ class TopN_SmartRoiController(RoiController):
     A ROI-based controller that implements the Top-N selection with SmartROI rules.
     This is used in the paper 'Rapid Development ...'
     """
-<<<<<<< HEAD
-
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     def __init__(self,
                  ionisation_mode,
                  isolation_width,
@@ -341,16 +301,12 @@ class TopN_SmartRoiController(RoiController):
                  ms1_shift=0,
                  advanced_params=None,
                  exclusion_method=ROI_EXCLUSION_DEW,
-<<<<<<< HEAD
                  exclusion_t_0=None,
                  deisotope=False,
                  charge_range=(2, 3),
                  min_fit_score=80,
                  penalty_factor=1.5,
                  use_quick_charge=False):
-=======
-                 exclusion_t_0=None):
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         """
         Initialise the Top-N SmartROI controller.
 
@@ -375,13 +331,10 @@ class TopN_SmartRoiController(RoiController):
                               used to describe how to perform dynamic exclusion so that precursors
                               that have been fragmented are not fragmented again.
             exclusion_t_0: parameter for WeightedDEW exclusion (refer to paper for details).
-<<<<<<< HEAD
             deisotope: whether to perform isotopic deconvolution, necessary for proteomics.
             charge_range: the charge state of ions to keep.
             min_fit_score: minimum score to keep from doing isotope deconvolution.
             penalty_factor: penalty factor for scoring during isotope deconvolution.
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         """
         super().__init__(ionisation_mode, isolation_width,
                          N,
@@ -394,7 +347,6 @@ class TopN_SmartRoiController(RoiController):
                          ms1_shift=ms1_shift,
                          advanced_params=advanced_params,
                          exclusion_method=exclusion_method,
-<<<<<<< HEAD
                          exclusion_t_0=exclusion_t_0,
                          deisotope=deisotope,
                          charge_range=charge_range,
@@ -405,13 +357,6 @@ class TopN_SmartRoiController(RoiController):
     def _get_dda_scores(self):
         return self._log_roi_intensities() * self._min_intensity_filter() * \
             self._smartroi_filter()
-=======
-                         exclusion_t_0=exclusion_t_0)
-
-    def _get_dda_scores(self):
-        return self._log_roi_intensities() * self._min_intensity_filter() * \
-               self._smartroi_filter()
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
     def _get_scores(self):
         initial_scores = self._get_dda_scores()
@@ -423,10 +368,6 @@ class TopN_RoiController(RoiController):
     """
     A ROI-based controller that implements the Top-N selection.
     """
-<<<<<<< HEAD
-
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     def __init__(self,
                  ionisation_mode,
                  isolation_width,
@@ -439,16 +380,12 @@ class TopN_RoiController(RoiController):
                  ms1_shift=0,
                  advanced_params=None,
                  exclusion_method=ROI_EXCLUSION_DEW,
-<<<<<<< HEAD
                  exclusion_t_0=None,
                  deisotope=False,
                  charge_range=(2, 3),
                  min_fit_score=80,
                  penalty_factor=1.5,
                  use_quick_charge=False):
-=======
-                 exclusion_t_0=None):
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         """
         Initialise the Top-N SmartROI controller.
 
@@ -470,13 +407,10 @@ class TopN_RoiController(RoiController):
                               used to describe how to perform dynamic exclusion so that precursors
                               that have been fragmented are not fragmented again.
             exclusion_t_0: parameter for WeightedDEW exclusion (refer to paper for details).
-<<<<<<< HEAD
             deisotope: whether to perform isotopic deconvolution, necessary for proteomics.
             charge_range: the charge state of ions to keep.
             min_fit_score: minimum score to keep from doing isotope deconvolution.
             penalty_factor: penalty factor for scoring during isotope deconvolution.
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         """
         super().__init__(ionisation_mode,
                          isolation_width,
@@ -489,190 +423,14 @@ class TopN_RoiController(RoiController):
                          ms1_shift=ms1_shift,
                          advanced_params=advanced_params,
                          exclusion_method=exclusion_method,
-<<<<<<< HEAD
                          exclusion_t_0=exclusion_t_0,
                          deisotope=deisotope,
                          charge_range=charge_range,
                          min_fit_score=min_fit_score,
                          penalty_factor=penalty_factor,
                          use_quick_charge=use_quick_charge)
-=======
-                         exclusion_t_0=exclusion_t_0)
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
     def _get_scores(self):
         initial_scores = self._get_dda_scores()
         scores = self._get_top_N_scores(initial_scores)
         return scores
-<<<<<<< HEAD
-=======
-
-
-# class TopNBoxRoiController(RoiController):
-#     """
-#     TODO: not sure if this is still in use?
-#     """
-#     def __init__(self,
-#                  ionisation_mode,
-#                  isolation_width,
-#                  N,
-#                  mz_tol,
-#                  rt_tol,
-#                  min_ms1_intensity,
-#                  roi_params,
-#                  boxes_params=None,
-#                  boxes=None,
-#                  boxes_intensity=None,
-#                  boxes_pvalues=None,
-#                  box_min_rt_width=0.01,
-#                  box_min_mz_width=0.01,
-#                  min_roi_length_for_fragmentation=1,
-#                  ms1_shift=0,
-#                  advanced_params=None,
-#                  exclusion_method=ROI_EXCLUSION_DEW,
-#                  exclusion_t_0=None):
-#         super().__init__(ionisation_mode,
-#                          isolation_width,
-#                          N,
-#                          mz_tol,
-#                          rt_tol,
-#                          min_ms1_intensity,
-#                          roi_params,
-#                          min_roi_length_for_fragmentation=min_roi_length_for_fragmentation,
-#                          ms1_shift=ms1_shift,
-#                          advanced_params=advanced_params,
-#                          exclusion_method=exclusion_method,
-#                          exclusion_t_0=exclusion_t_0)
-#         self.boxes_params = boxes_params
-#         self.boxes = boxes
-#         # the intensity the boxes have been fragmented at before
-#         self.boxes_intensity = boxes_intensity
-#         self.boxes_pvalues = boxes_pvalues
-#         self.box_min_rt_width = box_min_rt_width
-#         self.box_min_mz_width = box_min_mz_width
-#
-#     def _get_scores(self):
-#         if self.boxes is not None:
-#             # calculate dda stuff
-#             log_intensities = self._log_roi_intensities()
-#             intensity_filter = self._min_intensity_filter()
-#             time_filter = (1 - np.array(
-#                 self.roi_builder.live_roi_fragmented).astype(int))
-#             time_filter[time_filter == 0] = (
-#                     (self.scan_to_process.rt -
-#                      np.array(self.roi_builder.live_roi_last_rt)[
-#                          time_filter == 0]) > self.rt_tol)
-#             # calculate overlap stuff
-#             initial_scores = []
-#             copy_boxes = deepcopy(self.boxes)
-#             for box in copy_boxes:
-#                 box.pt2.x = min(box.pt2.x, max(self.last_ms1_rt, box.pt1.x))
-#             prev_intensity = np.maximum(np.log(np.array(self.boxes_intensity)),
-#                                         [0 for i in self.boxes_intensity])
-#             box_fragmented = (np.array(self.boxes_intensity) == 0) * 1
-#             for i in range(len(log_intensities)):
-#                 overlaps = np.array(
-#                     self.roi_builder.live_roi[i].get_boxes_overlap(
-#                         copy_boxes, self.box_min_rt_width,
-#                         self.box_min_mz_width))
-#                 # new peaks not in list of boxes
-#                 new_peaks_score = max(0, (1 - sum(overlaps))) * log_intensities[i]
-#                 # previously fragmented peaks
-#                 old_peaks_score1 = sum(
-#                     overlaps * (log_intensities[i] - prev_intensity) * (
-#                             1 - box_fragmented))
-#                 # peaks seen before, but not fragmented
-#                 old_peaks_score2 = sum(
-#                     overlaps * log_intensities[i] * box_fragmented)
-#                 if self.boxes_pvalues is not None:
-#                     # based on p values, previously fragmented
-#                     p_value_scores1 = sum(
-#                         overlaps * (log_intensities[i] - prev_intensity) * (
-#                                 1 - np.array(self.boxes_pvalues)))
-#                     # based on p values, not previously fragmented
-#                     p_value_scores2 = sum(overlaps * log_intensities[i] * (
-#                             1 - np.array(self.boxes_pvalues)))
-#                 # get the score
-#                 score = self.boxes_params['theta1'] * new_peaks_score
-#                 score += self.boxes_params['theta2'] * old_peaks_score1
-#                 score += self.boxes_params['theta3'] * old_peaks_score2
-#                 if self.boxes_pvalues is not None:
-#                     score += self.boxes_params['theta4'] * p_value_scores1
-#                     score += self.boxes_params['theta5'] * p_value_scores2
-#                 score *= time_filter[i]
-#                 # check intensity meets minimal requirement
-#                 score *= intensity_filter
-#                 score *= (score > self.boxes_params[
-#                     'min_score'])  # check meets min score
-#                 initial_scores.append(score[0])
-#             initial_scores = np.array(initial_scores)
-#         else:
-#             initial_scores = self._get_dda_scores()
-#
-#         scores = self._get_top_N_scores(initial_scores)
-#         return scores
-
-
-###############################################################################
-# Other Functions
-###############################################################################
-
-# maybe unused?
-# def get_peak_status(mzs, rt, boxes, scores, model_scores=None, box_mz_tol=10):
-#     if model_scores is not None:
-#         list1 = list(
-#             filter(lambda x: x[0].rt_range_in_seconds[0] <= rt <= x[0].rt_range_in_seconds[1],
-#                    zip(boxes, scores, model_scores)))
-#         model_score_status = []
-#     else:
-#         list1 = list(
-#             filter(lambda x: x[0].rt_range_in_seconds[0] <= rt <= x[0].rt_range_in_seconds[1],
-#                    zip(boxes, scores)))
-#         model_score_status = None
-#     peak_status = []
-#     for mz in mzs:
-#         list2 = list(filter(
-#             lambda x: x[0].mz_range[0] * (1 - box_mz_tol / 1e6) <= mz <= x[0].mz_range[1] * (
-#                     1 + box_mz_tol / 1e6), list1))
-#         if list2 == []:
-#             peak_status.append(-1)
-#             if model_scores is not None:
-#                 model_score_status.append(1)
-#         else:
-#             scores = [x[1] for x in list2]
-#             peak_status.append(min(scores))
-#             if model_scores is not None:
-#                 m_scores = [x[2] for x in list2]
-#                 model_score_status.append(max(m_scores))
-#     return peak_status, model_score_status
-
-
-# maybe unused?
-# def get_box_intensity(mzml_file, boxes):
-#     intensities = [0 for i in range(len(boxes))]
-#     mzs = [None for i in range(len(boxes))]
-#     box_ids = range(len(boxes))
-#     mz_file = MZMLFile(mzml_file)
-#     for scan in mz_file.scans:
-#         if scan.ms_level == 2:
-#             continue
-#         rt = scan.rt_in_seconds
-#         zipped_boxes = list(
-#             filter(lambda x: x[0].rt_range_in_seconds[0] <= rt <= x[0].rt_range_in_seconds[1],
-#                    zip(boxes, box_ids)))
-#         if not zipped_boxes:
-#             continue
-#         for mzint in scan.peaks:
-#             mz = mzint[0]
-#             sub_boxes = list(
-#                 filter(lambda x: x[0].mz_range[0] <= mz <= x[0].mz_range[1],
-#                        zipped_boxes))
-#             if not sub_boxes:
-#                 continue
-#             for box in sub_boxes:
-#                 intensity = mzint[1]
-#                 if intensity > intensities[box[1]]:
-#                     intensities[box[1]] = intensity
-#                     mzs[box[1]] = mz
-#     return intensities, mzs
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d

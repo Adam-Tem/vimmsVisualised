@@ -12,10 +12,7 @@ import zipfile
 from numba import njit
 import numpy as np
 import requests
-<<<<<<< HEAD
 from loguru import logger
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 from tqdm.auto import tqdm
 
 from mass_spec_utils.data_import.mzml import MZMLFile
@@ -136,10 +133,7 @@ ROI_TYPE_SMART = 'smart'
 
 CONTROLLER_FULLSCAN = 'fullscan'
 CONTROLLER_TOPN = 'topN'
-<<<<<<< HEAD
 CONTROLLER_TOPN_ORIGINAL = 'topN_original'
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 CONTROLLER_TOPN_EXCLUSION = 'topN_exclusion'
 CONTROLLER_SWATH = 'SWATH'
 CONTROLLER_AIF = 'AIF'
@@ -147,11 +141,8 @@ CONTROLLER_NON_OVERLAP = 'non_overlap'
 CONTROLLER_INTENSITY_NON_OVERLAP = 'intensity_non_overlap'
 CONTROLLER_INTENSITY_ROI_EXCLUSION = 'intensity_roi_exclusion'
 CONTROLLER_HARD_ROI_EXCLUSION = 'hard_roi_exclusion'
-<<<<<<< HEAD
 CONTROLLER_SMART_ROI = 'smart_roi'
 CONTROLLER_WEIGHTED_DEW = 'weighted_dew'
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 PEAKS_MZ_IDX = 0
 PEAKS_INTENSITY_IDX = 1
@@ -418,10 +409,7 @@ def create_if_not_exist(out_dir):
 
     """
     if not pathlib.Path(out_dir).exists():
-<<<<<<< HEAD
         logger.info('Created %s' % out_dir)
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
 
 
@@ -485,10 +473,7 @@ def save_obj(obj, filename):
 
     out_dir = os.path.dirname(filename)
     create_if_not_exist(out_dir)
-<<<<<<< HEAD
     logger.info('Saving %s to %s' % (type(obj), filename))
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     with gzip.GzipFile(filename, 'w') as f:
         pickle.dump(obj, f, protocol=pickle.HIGHEST_PROTOCOL)
 
@@ -507,12 +492,8 @@ def load_obj(filename):
         with gzip.GzipFile(filename, 'rb') as f:
             return pickle.load(f)
     except OSError:
-<<<<<<< HEAD
         logger.warning('Old, invalid or missing pickle in %s. '
                        'Please regenerate this file.' % filename)
-=======
-        
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         raise
 
 
@@ -547,25 +528,15 @@ def set_log_level(level, remove_id=None):
 
     """
     if remove_id is None:
-<<<<<<< HEAD
         logger.remove()  # remove all previously set handlers
     else:
         try:
             logger.remove(remove_id)  # remove previously set handler by id
-=======
-        pass
-    else:
-        try:
-            pass
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         except ValueError:  # can't find the handler
             pass
 
     # add new handler at the desired log level
-<<<<<<< HEAD
     new_handler_id = logger.add(sys.stderr, level=level)
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     return new_handler_id
 
 
@@ -615,10 +586,7 @@ def add_log_file(log_path, level):
     Returns: None
 
     """
-<<<<<<< HEAD
     logger.add(log_path, level=level)
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 
 def get_rt(spectrum):
@@ -669,10 +637,7 @@ def download_file(url, out_file=None):
 
     if out_file is None:
         out_file = url.rsplit('/', 1)[-1]  # get the last part in url
-<<<<<<< HEAD
     logger.info('Downloading %s' % out_file)
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
     with open(out_file, 'wb') as f:
         for data in tqdm(r.iter_content(block_size),
@@ -694,20 +659,14 @@ def extract_zip_file(in_file, delete=True):
     Returns: None
 
     """
-<<<<<<< HEAD
     logger.info('Extracting %s' % in_file)
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     with zipfile.ZipFile(file=in_file) as zip_file:
         for file in tqdm(iterable=zip_file.namelist(),
                          total=len(zip_file.namelist())):
             zip_file.extract(member=file)
 
     if delete:
-<<<<<<< HEAD
         logger.info('Deleting %s' % in_file)
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         os.remove(in_file)
 
 

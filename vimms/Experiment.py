@@ -79,14 +79,9 @@ class Shareable:
                     params["times_list"],
                     params["aligned_reader"],
                     params["aligned_file"],
-<<<<<<< HEAD
                     params["ionisation_mode"],
                     params["intensity_threshold"],
                     params.get("mz_window", 10),
-=======
-                    params["intensity_threshold"],
-                    params.get("mz_window", 1E-10),
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                     edge_limit=params.get("edge_limit", None),
                     weighted=params.get("weighted", Matching.TWOSTEP),
                     full_assignment_strategy=params.get(
@@ -635,22 +630,14 @@ class Experiment:
         else:
             idxes = self.rank_cases(min_intensities, rank_key=rank_key, num_workers=num_workers)
         
-<<<<<<< HEAD
         output_summary = ""
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         for i in idxes:
             name, sstring = self.case_names[i], summary_strings[i]
             print(name)
             print(sstring)
-<<<<<<< HEAD
             output_summary = output_summary + name + "\n" + sstring + "\n"
             print()
-        print("hello")
         return output_summary
-=======
-            print()
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
     @classmethod
     def run_grid_search(cls,

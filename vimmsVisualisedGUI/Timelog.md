@@ -466,6 +466,8 @@
 
 - _2 hours_ Once again the coding started with errors where the graph would crash upon trying to update it. However, after moving the update of the graph to be performed on the main thread as apposed to changing it on a worker thread, it now displays the correct output! As PyQt will only compute graphs smaller than 2MB, the solution works by creating a temporary plot and using the local file instead. Still some formatting to be done and fixing the save state of an experiment, but again what a relief that this now works!
 
+## Week 17
+
 ### 24 Jan 2024
 
 - _Countless hours_ I have fell behind on filling this in, but what a nightmare it has been the past few days for the project. After getting the graphs to finally display and update, through the use of an environment install, I encountered new problems. I wanted to update one of the displays but calling it from the environment wasn't working, so I tried to install what I thought was the right package only for it to break the environment set up and stop the interface working altogether. I tried uninstalling it, but to no avail. To see something break after I had spent hours to get it to work in the first place was rather sole destroying. I decided to try and set up a brand new environment, only for it to also not work... This was horrific. I ultimately decided to uninstall my entire anaconda library, reinstall it and try again. Eventually I have managed to resolve the issues and the dependency problems of DLL files not being found finally seems to be resolved. Running an experiment now stores it in an appropriate file structure, one suitable for the visualisation page. I now just need to add the two final visualisations and the GUI is essentially there.
@@ -479,3 +481,21 @@
 - _1 hour_ Before the meeting I was able to add the combo box for displaying the individual processing times of the pickle files of an experiment.
 
 - _1 hour_ During the meeting, we identified that to have a consistent style across multiple OSes, the default styling has been changed to accomodate Linux styles.
+
+* _1 hour_ A few more quick bugs fixed, adding sub titles to the fragmentation plots of an experiment and adjusting the summary box to the correct size if there are multiple injections.
+
+## Week 18
+
+### 30 Jan 2024
+
+- _3 hours_ I have managed to create the questionnaires and installation guide for the user study. The questionnaire I feel is general enough but will be able to get the responses I need to allow for discussion of current feelings towards available software. The installation guide is rather long but I feel is required. I guess it is good to get it typed up cause it could probably be used as documentation elsewhere for the project.
+
+### 01 Feb 2024
+
+- _2 hours_ More work has been put towards writing tests for the the GUI, but I keep encountering issues where the popups cannot be dismissed, causing the test suite to halt in its execution. I have also now discovered that QFileDialogs cannot be interacted with through the QTest module, meaning I do not know how I will test buttons such as the save state and load state.
+
+### 02 Feb 2024
+
+- _4 hours_ I have officially made a start on writing the dissertation! I'd say that the intro is pretty much wrapped up, but I haven't made it too long even though it does include the background as well... It may have to be extended but at least it is a start. I have a few quetsions regarding the tense to use and also what "person" to speak in (I, we, it, etc.) but something is better than nothing.
+
+* _2 hours_ Ah yes, a classic Friday night code break issue! Went back to go and fix the summary graph of the experiment page to include a legend, which is now done. However, I then go to try one of the more advanced controllers to encounter a serious issue: they don't run... It was because the change I had made to the install of vimms previously had not transfered over, so of course there was a typecast error. But that should be it resolved, thank goodness.

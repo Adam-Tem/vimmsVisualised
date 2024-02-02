@@ -26,19 +26,12 @@ from mass_spec_utils.data_import.mzml import MZMLFile
 #  a slightly more accurate view of simulated chemicals
 # TODO: MatchingChem.env2nodes could also work on non-RoI controllers
 from vimms.Common import (
-<<<<<<< HEAD
     POSITIVE, get_default_scan_params, INITIAL_SCAN_ID, get_dda_scan_param
 )
 from vimms.Roi import RoiBuilderParams
 from vimms.Chemicals import ChemicalMixtureFromMZML
 from vimms.Box import GenericBox
 from vimms.PeakPicking import MZMineParams
-=======
-    get_default_scan_params, INITIAL_SCAN_ID, get_dda_scan_param
-)
-from vimms.PeakPicking import MZMineParams
-from vimms.Box import GenericBox
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 
 class MatchingScan():
@@ -66,7 +59,6 @@ class MatchingScan():
         
     def __hash__(self): 
         return (self.injection_num, self.ms_level, self.rt).__hash__()
-<<<<<<< HEAD
 
     @staticmethod
     def create_scan_intensities(mzml_path,
@@ -110,75 +102,6 @@ class MatchingScan():
                 new_scans.append(
                         MatchingScan(s_idx, injection_num, ms_level, rt, mzs, intensities)
                     )
-=======
-    
-    @staticmethod
-    def interpolate_scan(left, right, mz_window):
-        left_mzs, left_intensities = zip(*left.peaks)
-        right_mzs, right_intensities = zip(*right.peaks)
-        left_rt, right_rt = left.rt_in_seconds, right.rt_in_seconds
-
-        mzs = np.array(left_mzs + right_mzs)
-        idxes = np.argsort(mzs)
-        mzs = mzs[idxes]
-        intensities = np.array(left_intensities + right_intensities)[idxes]
-        owner = (np.arange(0, mzs.shape[0]) >= len(left_mzs))[idxes]
-
-        in_window = []
-        left_bound, right_bound = 0, 1
-        for i, intensity in enumerate(intensities):
-            while(mzs[i] - mzs[left_bound] > mz_window): 
-                left_bound += 1
-            while(right_bound + 1 < mzs.shape[0] and mzs[right_bound + 1] - mzs[i] < mz_window): 
-                right_bound += 1
-            in_window.append((left_bound, right_bound + 1))
-        
-        return left_rt, right_rt, mzs, intensities, owner, in_window
-
-    @staticmethod
-    def create_scan_intensities(mzml_path, injection_num, schedule, mz_window):
-        new_scans = []
-        
-        ms1s = (s for s in MZMLFile(mzml_path).scans if s.ms_level == 1)
-        original_scans = sorted(ms1s, key=lambda s: s.rt_in_seconds, reverse=True)
-            
-        left_rt, right_rt, mzs, intensities, owner, in_window = (
-            MatchingScan.interpolate_scan(original_scans[-1], original_scans[-2], mz_window)
-        )
-        
-        for s_idx, s in enumerate(schedule):
-            try: ms_level, rt = s.ms_level, s.rt
-            except AttributeError: ms_level, rt = s
-            
-            if(len(original_scans) > 1 and original_scans[-2].rt_in_seconds < rt): 
-                while(len(original_scans) > 1 and original_scans[-2].rt_in_seconds < rt): 
-                    original_scans.pop()
-                if(len(original_scans) > 1): 
-                    left_rt, right_rt, mzs, intensities, owner, in_window = (
-                        MatchingScan.interpolate_scan(original_scans[-1], 
-                                                      original_scans[-2], 
-                                                      mz_window
-                                                     )
-                        )
-                
-            if(ms_level > 1 or len(original_scans) < 2):
-                new_scans.append(
-                    MatchingScan(s_idx, injection_num, ms_level, rt, [], [])
-                )
-            else:
-                w = (rt - left_rt) / (right_rt - left_rt)
-                weighted_intensities = (owner * (1 - w) * intensities
-                                        + (1 - owner) * w * intensities)
-
-                new_intensities = []
-                new_intensities = [
-                    np.max(weighted_intensities[left_bound:right_bound]) 
-                    for (left_bound, right_bound) in in_window
-                ]
-                new_scans.append(
-                    MatchingScan(s_idx, injection_num, ms_level, rt, mzs, new_intensities)
-                )
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         
         return new_scans
 
@@ -186,11 +109,7 @@ class MatchingScan():
     def topN_times(N, max_rt, scan_duration_dict):
         ms_levels = itertools.cycle([1] + [2] * N)
         scan_times = itertools.accumulate(
-<<<<<<< HEAD
             (scan_duration_dict[ms_level] for ms_level in copy.deepcopy(ms_levels)),
-=======
-            (scan_duration_dict[ms_level] for ms_level in copy.deepcopy(ms_levels)), 
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
             initial=0
         )
         return zip(ms_levels, itertools.takewhile(lambda t: t < max_rt, scan_times))
@@ -209,7 +128,6 @@ class MatchingScan():
         ]
         
     @staticmethod
-<<<<<<< HEAD
     def topN_nodes(mzml_path,
                    injection_num,
                    N,
@@ -218,20 +136,13 @@ class MatchingScan():
                    ionisation_mode,
                    mz_window=1E-10):
         
-=======
-    def topN_nodes(mzml_path, injection_num, N, max_rt, scan_duration_dict, mz_window=1E-10):
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         topN_times = MatchingScan.topN_times(N, max_rt, scan_duration_dict)
         return (
             MatchingScan.create_scan_intensities(
                 mzml_path, 
                 injection_num, 
-<<<<<<< HEAD
                 topN_times,
                 ionisation_mode,
-=======
-                topN_times, 
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                 mz_window
             )
         )
@@ -345,16 +256,9 @@ class MatchingChem():
     def update_chem_intensity(self, mzs, intensities):
         left = bisect.bisect_left(mzs, self.min_mz) 
         right = bisect.bisect_right(mzs, self.max_mz)
-<<<<<<< HEAD
         self.intensity = (
             max(intensities[i] for i in range(left, right)) if (right - left > 0) else 0
         )
-=======
-        self.intensity = max(
-            intensities[i] 
-            for i in range(left, right)
-        ) if right - left > 0 else 0
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
 
 class Matching():
@@ -410,25 +314,15 @@ class Matching():
                     key=attrgetter("max_rt"), reverse=True
                 )
                 seen_intersected |= set(intersected)
-<<<<<<< HEAD
                 
                 active_chems = []
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                 for ch in intersected:
                     ch.update_chem_intensity(s.mzs, s.intensities)
                     seen_intensities[ch] = max(ch.intensity,
                                                seen_intensities.get(ch, 0)
                                                )
-<<<<<<< HEAD
                     if(ch.intensity >= intensity_threshold):
                         active_chems.append(ch)
-=======
-                active_chems = [
-                    ch for ch in intersected 
-                    if ch.intensity >= intensity_threshold
-                ]
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                 seen_active |= set(active_chems)
             
             elif (s.ms_level == 2):
@@ -681,14 +575,9 @@ class Matching():
                       times_list,
                       aligned_reader,
                       aligned_file,
-<<<<<<< HEAD
                       ionisation_mode,
                       intensity_threshold,
                       mz_window=10,
-=======
-                      intensity_threshold,
-                      mz_window=1E-10,
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                       edge_limit=None,
                       weighted=1,
                       full_assignment_strategy=1):
@@ -704,17 +593,11 @@ class Matching():
                   injection, to generate new scan times.
                 aligned_reader: Reader object to read aligned_file.
                 aligned_file: File containing aligned inclusion boxes.
-<<<<<<< HEAD
                 ionisation_mode: Source polarity of instrument.
                   Either Vimms.Common.POSITIVE or Vimms.Common.NEGATIVE.
                 intensity_threshold: Minimum intensity for an edge to be retained
                   in the constructed graph.
                 mz_window: m/z tolerance in ppm for determining whether two intensity 
-=======
-                intensity_threshold: Minimum intensity for an edge to be retained
-                  in the constructed graph.
-                mz_window: m/z tolerance for determining whether two intensity 
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                   readings are at the same value when interpolating scan intensities.
                 edge_limit: If given a non-None integer value, each vertex in the
                   constructed graph will be pruned to have degree of no more than
@@ -734,10 +617,7 @@ class Matching():
                     fs,
                     i,
                     times_list[i],
-<<<<<<< HEAD
                     ionisation_mode,
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
                     mz_window
             )
             scans_list.append(new_scans)

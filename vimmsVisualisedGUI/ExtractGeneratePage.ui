@@ -670,14 +670,6 @@ background-color: rgb(240, 240, 240);</string>
           </item>
           <item>
            <property name="text">
-<<<<<<< HEAD
-=======
-            <string>Pick Everything Formula Sampler</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
             <string>Uniform MZ Formula Sampler</string>
            </property>
           </item>
@@ -686,14 +678,6 @@ background-color: rgb(240, 240, 240);</string>
             <string>MZML Formula Sampler</string>
            </property>
           </item>
-<<<<<<< HEAD
-=======
-          <item>
-           <property name="text">
-            <string>Database Formula Sampler</string>
-           </property>
-          </item>
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
          </widget>
         </item>
         <item row="8" column="0">

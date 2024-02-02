@@ -1,6 +1,7 @@
 from PyQt5 import QtCore as qtc
 from PyQt5 import QtWidgets as qtw
 
+import traceback
 from vimms.Experiment import Experiment
 
 from Graphing.GraphCanvas import MplCanvas, PlotlyCanvas
@@ -20,7 +21,9 @@ class ExperimentWorker(qtc.QObject):
             experiment, summary = run_experiment(experiment_cases, experiment_title, xcms_params)
             print(summary)
             self.experiment_finished.emit(experiment, summary)
-        except:
+        except Exception as e:
+            print(e)
+            traceback.print_exc()
             self.experiment_finished.emit(Experiment(), "")
 
 class SimulateWorker(qtc.QObject):

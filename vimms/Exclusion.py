@@ -40,10 +40,7 @@ class ExclusionItem():
         self.frag_at = frag_at
         self.mz = (self.from_mz + self.to_mz) / 2.
         self.rt = self.frag_at
-<<<<<<< HEAD
         self.counter = 0  # add a counter field
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
     def peak_in(self, mz, rt):
         """
@@ -60,12 +57,9 @@ class ExclusionItem():
         else:
             return False
 
-<<<<<<< HEAD
     def increment_counter(self):
         self.counter += 1
 
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     def rt_match(self, rt):
         """
         Checks that a certain RT point lies in this box
@@ -120,11 +114,6 @@ class BoxHolder():
         """
         self.boxes_mz = IntervalTree()
         self.boxes_rt = IntervalTree()
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     def __iter__(self):
         return (inv.data for inv in self.boxes_rt.items())
 
@@ -265,7 +254,6 @@ class TopNExclusion():
     This is based on checked whether an m/z and RT value lies in certain exclusion boxes.
     """
 
-<<<<<<< HEAD
     def __init__(self, mz_tol, rt_tol, exclude_after_n_times=1, exclude_t0=0,
                  initial_exclusion_list=None):
         """
@@ -290,18 +278,6 @@ class TopNExclusion():
         if initial_exclusion_list is not None:
             for initial in initial_exclusion_list:
                 self.dynamic_exclusion.add_box(initial)
-=======
-    def __init__(self, initial_exclusion_list=None):
-        """
-        Initialise a Top-N dynamic exclusion object
-        Args:
-            initial_exclusion_list: the initial list of boxes, if provided
-        """
-        self.exclusion_list = BoxHolder()
-        if initial_exclusion_list is not None:  # add initial list
-            for initial in initial_exclusion_list:
-                self.exclusion_list.add_box(initial)
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
     def is_excluded(self, mz, rt):
         """
@@ -311,16 +287,12 @@ class TopNExclusion():
         Args:
             mz: m/z value
             rt: RT value
-<<<<<<< HEAD
             mz_tol: m/z tolerance
             rt_tol: rt_tolerance
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
         Returns: True if excluded (with weight 0.0), False otherwise (weight 1.0).
 
         """
-<<<<<<< HEAD
         # check the main dynamic exclusion list to see if this ion should be excluded
         dew_check = self.dynamic_exclusion.is_in_box(mz, rt)
         if dew_check:
@@ -351,18 +323,6 @@ class TopNExclusion():
         """
         For every scheduled MS2 scan, add its precursor m/z for initial exclusion check
         A tolerance of initial_t0 is used
-=======
-        excluded = self.exclusion_list.is_in_box(mz, rt)
-        if excluded:
-            return True, 0.0
-        else:
-            return False, 1.0
-
-    def update(self, current_scan, ms2_tasks):
-        """
-        Updates the state of this exclusion object based on the current
-        ms1 scan and scheduled ms2 tasks
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
         Args:
             current_scan: the current MS1 scan
@@ -375,7 +335,6 @@ class TopNExclusion():
         for task in ms2_tasks:
             for precursor in task.get('precursor_mz'):
                 mz = precursor.precursor_mz
-<<<<<<< HEAD
 
                 # new way of checking DEW -- with an initial boxholder to check first
                 if self.exclude_t0 > 0:
@@ -385,12 +344,6 @@ class TopNExclusion():
                 else:  # fallback to the old way by adding directly to the DEW boxholder
                     x = self._get_exclusion_item(mz, rt, self.mz_tol, self.rt_tol)
                     self.dynamic_exclusion.add_box(x)
-=======
-                mz_tol = task.get(ScanParameters.DYNAMIC_EXCLUSION_MZ_TOL)
-                rt_tol = task.get(ScanParameters.DYNAMIC_EXCLUSION_RT_TOL)
-                x = self._get_exclusion_item(mz, rt, mz_tol, rt_tol)
-                self.exclusion_list.add_box(x)
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
 
     def _get_exclusion_item(self, mz, rt, mz_tol, rt_tol):
         """
@@ -422,18 +375,13 @@ class WeightedDEWExclusion(TopNExclusion):
     This is further described in our paper 'Rapid Development ...'
     """
 
-<<<<<<< HEAD
     def __init__(self, mz_tol, rt_tol, exclusion_t_0):
-=======
-    def __init__(self, rt_tol, exclusion_t_0):
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         """
         Initialises a weighted dynamic exclusion object
         Args:
             rt_tol: the RT tolerance (in seconds)
             exclusion_t_0: WeightedDEW parameter
         """
-<<<<<<< HEAD
         super().__init__(mz_tol, rt_tol)
         self.exclusion_t_0 = exclusion_t_0
         if self.exclusion_t_0 > self.rt_tol:
@@ -441,15 +389,6 @@ class WeightedDEWExclusion(TopNExclusion):
 
     def is_excluded(self, mz, rt):
         boxes = self.dynamic_exclusion.check_point(mz, rt)
-=======
-        super().__init__()
-        self.rt_tol = rt_tol
-        self.exclusion_t_0 = exclusion_t_0
-        assert self.exclusion_t_0 <= self.rt_tol
-
-    def is_excluded(self, mz, rt):
-        boxes = self.exclusion_list.check_point(mz, rt)
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         if len(boxes) > 0:
             # compute weights for all the boxes that contain this (mz, rt)
             weights = []
@@ -510,10 +449,6 @@ class ScoreFilter(ABC):
     """
     Base class for various filters
     """
-<<<<<<< HEAD
-
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     @abstractmethod
     def filter(self):
         pass
@@ -523,10 +458,6 @@ class MinIntensityFilter(ScoreFilter):
     """
     A class that implements minimum intensity filter
     """
-<<<<<<< HEAD
-
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     def __init__(self, min_ms1_intensity):
         """
         Initialises the minimum intensity filter
@@ -551,10 +482,6 @@ class DEWFilter(ScoreFilter):
     """
     A class that implements dynamic exclusion filter
     """
-<<<<<<< HEAD
-
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     def __init__(self, rt_tol):
         """
         Initialises a dynamic exclusion filter based on time only
@@ -586,10 +513,6 @@ class WeightedDEWFilter(ScoreFilter):
     """
     A class that implements weighted dynamic exclusion filter
     """
-<<<<<<< HEAD
-
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     def __init__(self, exclusion):
         """
         Initialises a weighted dynamic exclusion filter
@@ -621,10 +544,6 @@ class LengthFilter(ScoreFilter):
     """
     A class that implements a check on minimum length of ROI for fragmentation
     """
-<<<<<<< HEAD
-
-=======
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
     def __init__(self, min_roi_length_for_fragmentation):
         """
         Initialise a length filter

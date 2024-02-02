@@ -7,6 +7,7 @@ def new_experiment(self):
     self.file_location = ""
     self.fullscan_list = []
     self.experiment_case_list = []
+    self.experiment_name_list = []
     self.summary = ""
     geom = BoxManager(
     box_geometry = BoxGrid(),
