@@ -321,6 +321,7 @@ class RealEvaluator(Evaluator):
 
         """
         return RealEvaluator.from_aligned_mzmine(aligned_file, min_box_ppm=min_box_ppm)
+
     @classmethod
     def from_aligned_boxfile(cls, reader, aligned_file, min_box_ppm=10):
         include = [
@@ -365,6 +366,7 @@ class RealEvaluator(Evaluator):
         Returns: an instance of this Evaluator
 
         """
+
         return cls.from_aligned_boxfile(MZMineParams, aligned_file, min_box_ppm=min_box_ppm)
 
 

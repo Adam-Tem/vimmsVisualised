@@ -114,6 +114,7 @@ class BoxHolder():
         """
         self.boxes_mz = IntervalTree()
         self.boxes_rt = IntervalTree()
+
     def __iter__(self):
         return (inv.data for inv in self.boxes_rt.items())
 
@@ -449,6 +450,7 @@ class ScoreFilter(ABC):
     """
     Base class for various filters
     """
+
     @abstractmethod
     def filter(self):
         pass
@@ -458,6 +460,7 @@ class MinIntensityFilter(ScoreFilter):
     """
     A class that implements minimum intensity filter
     """
+
     def __init__(self, min_ms1_intensity):
         """
         Initialises the minimum intensity filter
@@ -482,6 +485,7 @@ class DEWFilter(ScoreFilter):
     """
     A class that implements dynamic exclusion filter
     """
+
     def __init__(self, rt_tol):
         """
         Initialises a dynamic exclusion filter based on time only
@@ -513,6 +517,7 @@ class WeightedDEWFilter(ScoreFilter):
     """
     A class that implements weighted dynamic exclusion filter
     """
+
     def __init__(self, exclusion):
         """
         Initialises a weighted dynamic exclusion filter
@@ -544,6 +549,7 @@ class LengthFilter(ScoreFilter):
     """
     A class that implements a check on minimum length of ROI for fragmentation
     """
+
     def __init__(self, min_roi_length_for_fragmentation):
         """
         Initialise a length filter

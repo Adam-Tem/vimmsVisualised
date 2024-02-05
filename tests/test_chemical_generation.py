@@ -281,11 +281,7 @@ class TestScanTiming():
         chems = cm.sample(None, 2)
 
         # extract timing from mzML and sample one value each time when generating a scan duration
-<<<<<<< HEAD
         sd = MzMLScanTimeSampler(MZML_FILE)
-=======
-        sd = MzMLScanTimeSampler(MZML_FILE, use_mean=False)
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         ms = IndependentMassSpectrometer(ionisation_mode, chems, scan_duration=sd)
 
         # run simulation
@@ -295,11 +291,7 @@ class TestScanTiming():
         filename = 'test_scan_time_from_mzml.mzML'
         check_mzML(env, OUT_DIR, filename)
 
-<<<<<<< HEAD
     def test_binned_scan_time_from_mzml(self):
-=======
-    def test_mean_scan_time_from_mzml(self):
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         ionisation_mode = POSITIVE
         N = 10
         isolation_width = 0.7
@@ -315,11 +307,7 @@ class TestScanTiming():
         chems = cm.sample(None, 2)
 
         # extract mean timing per scan level from mzML
-<<<<<<< HEAD
         sd = MzMLScanTimeSampler(MZML_FILE, num_bins=10)
-=======
-        sd = MzMLScanTimeSampler(MZML_FILE, use_mean=True)
->>>>>>> 84f8a4c4993f6138f7d9b613ad41a8f79e35b62d
         ms = IndependentMassSpectrometer(ionisation_mode, chems, scan_duration=sd)
 
         # run simulation

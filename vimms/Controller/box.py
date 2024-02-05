@@ -156,6 +156,7 @@ class IntensityTopNEXtController(TopNEXtController):
         if(self.roi_builder.live_roi != []):
             rt = max(r.max_rt for r in self.roi_builder.live_roi)
             self.grid.set_active_boxes(rt)
+
         overlap_scores = self._overlap_scores()
         overlap_scores = self._add_inclusion_scores(overlap_scores)
         if self.roi_builder.roi_type == ROI_TYPE_SMART:
@@ -174,6 +175,7 @@ class ReTopNController(TopNEXtController):
         Reimplementation of the topN controller in the topNEXt framework,
         allowing it to use features like inclusion boxes.
     '''
+
     def _overlap_scores(self):
         return np.array([1 for r in self.roi_builder.live_roi])
 
@@ -200,6 +202,7 @@ class TopNEXController(TopNEXtController):
             )
         super().after_injection_cleanup()
 
+
 class HardRoIExcludeController(TopNEXtController):
     def _overlap_scores(self):
         exclude = np.array([
@@ -222,6 +225,7 @@ class IntensityRoIExcludeController(IntensityTopNEXtController):
             else:
                 new_intensities.append(log(r_intensity) - log(max(b.intensity for b in boxes)))
         return new_intensities
+
 
 class NonOverlapController(TopNEXtController):
     """

@@ -309,6 +309,7 @@ class MZMLRTandIntensitySampler(RTAndIntensitySampler):
     A sampler to sample RT and intensity values from an existing mzML file.
     Useful to mimic the characteristics of actual experimental data.
     """
+
     def __init__(self, mzml_file_name, n_intensity_bins=10, min_rt=0,
                  max_rt=1600, min_log_intensity=np.log(1e4),
                  max_log_intensity=np.log(1e7), roi_params=None):
@@ -466,6 +467,7 @@ class MZMLChromatogramSampler(ChromatogramSampler):
     A sampler to return chromatograms extracted from an existing mzML file.
     Useful to mimic the characteristics of actual experimental data.
     """
+
     def __init__(self, mzml_file_name, roi_params=None):
         """
         Create an MZMLChromatogramSampler object.
@@ -683,6 +685,7 @@ class MGFMS2Sampler(MS2Sampler):
     """
     A sampler that generates MS2 spectra from real ones defined in some MGF file.
     """
+
     def __init__(self, mgf_file, min_proportion=0.1, max_proportion=0.8,
                  max_peaks=0, replace=False,
                  id_field="SPECTRUMID"):
@@ -764,6 +767,7 @@ class ExactMatchMS2Sampler(MGFMS2Sampler):
 
     TODO: not sure if this class is actually completed and fully tested.
     """
+
     def __init__(self, mgf_file, min_proportion=0.1, max_proportion=0.8,
                  id_field="SPECTRUMID"):
         super().__init__(mgf_file, min_proportion=min_proportion,
@@ -790,6 +794,7 @@ class MZMLMS2Sampler(MS2Sampler):
     """
     A sampler that sample MS2 spectra from an actual mzML file.
     """
+
     def __init__(self, mzml_file, min_n_peaks=1, min_total_intensity=1e3,
                  min_proportion=0.1, max_proportion=0.8,
                  with_replacement=False):

@@ -105,6 +105,7 @@ class RoiController(TopNController):
         """
         A class that performs MS2 scheduling of tasks
         """
+
         def __init__(self, parent):
             """
             Initialises an MS2 scheduler
@@ -134,6 +135,7 @@ class RoiController(TopNController):
             ms2_tasks.append(dda_scan_params)
             self.parent.current_task_id += 1
             self.fragmented_count += 1
+
     def _set_fragmented(self, i, roi_id, rt, intensity):
         self.roi_builder.set_fragmented(self.current_task_id, i, roi_id, rt, intensity)
 
@@ -288,6 +290,7 @@ class TopN_SmartRoiController(RoiController):
     A ROI-based controller that implements the Top-N selection with SmartROI rules.
     This is used in the paper 'Rapid Development ...'
     """
+
     def __init__(self,
                  ionisation_mode,
                  isolation_width,
@@ -368,6 +371,7 @@ class TopN_RoiController(RoiController):
     """
     A ROI-based controller that implements the Top-N selection.
     """
+
     def __init__(self,
                  ionisation_mode,
                  isolation_width,

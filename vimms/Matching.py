@@ -4,6 +4,7 @@ import copy
 import itertools
 import math
 import re
+import datetime
 from statistics import mean
 from collections import defaultdict
 from operator import attrgetter
@@ -33,6 +34,38 @@ from vimms.Chemicals import ChemicalMixtureFromMZML
 from vimms.Box import GenericBox
 from vimms.PeakPicking import MZMineParams
 
+
+class MatchingLog():
+    """
+        Holds perishable bits of matching logging information useful to keep
+        track of like time elapsed for different parts of the process.
+    """
+
+    def __init__(self,
+                 start_scan=None, end_scan=None, 
+                 start_chem=None, end_chem=None, 
+                 start_matching=None, end_matching=None,
+                 start_assign=None, end_assign=None,
+                 matching_size=None):
+        
+        self.start_scan, self.end_scan = start_scan, end_scan
+        self.start_chem, self.end_chem = start_chem, end_chem
+        self.start_matching, self.end_matching = start_matching, end_matching
+        self.start_assign, self.end_assign = start_assign, end_assign
+        self.matching_size = matching_size
+        
+    def __repr__(self):
+        return (
+            f"Size of matching: {self.matching_size}\n"
+            + f"Start scans: {self.start_scan}\n"
+            + f"End scans: {self.end_scan}\n"
+            + f"Start chems: {self.start_chem}\n"
+            + f"End chems: {self.end_chem}\n"
+            + f"Start matching: {self.start_matching}\n"
+            + f"End matching: {self.end_matching}\n"
+            + f"Start assignment: {self.start_assign}\n"
+            + f"End assignment: {self.end_assign}\n"
+        )
 
 class MatchingScan():
     def __init__(self, scan_idx, injection_num, ms_level, rt, mzs, intensities):
@@ -65,14 +98,21 @@ class MatchingScan():
                                 injection_num,
                                 schedule,
                                 ionisation_mode,
-                                mz_window):
+                                mz_window,
+                                roi_params=None,
+                                log=None):
         
-        rp = RoiBuilderParams(
-            min_roi_intensity=0,
-            at_least_one_point_above=0,
-            min_roi_length=2
-        )
-        cm = ChemicalMixtureFromMZML(mzml_path, roi_params=rp)
+        if(not log is None):
+            log.start_scan = datetime.datetime.now()
+        
+        if(roi_params is None):
+            roi_params = RoiBuilderParams(
+                min_roi_intensity=0,
+                at_least_one_point_above=0,
+                min_roi_length=2
+            )
+        
+        cm = ChemicalMixtureFromMZML(mzml_path, roi_params=roi_params)
         chems = cm.sample(None, 1, source_polarity=ionisation_mode)
         rt_intervals = intervaltree.IntervalTree()
         for ch in chems:
@@ -102,6 +142,9 @@ class MatchingScan():
                 new_scans.append(
                         MatchingScan(s_idx, injection_num, ms_level, rt, mzs, intensities)
                     )
+                    
+        if(not log is None):
+            log.end_scan = datetime.datetime.now()            
         
         return new_scans
 
@@ -172,7 +215,10 @@ class MatchingChem():
         return self.id.__hash__()
         
     @staticmethod
-    def boxfile2nodes(reader, box_file_path, box_order):
+    def boxfile2nodes(reader, box_file_path, box_order, log=None):
+        if(not log is None):
+            log.start_chem = datetime.datetime.now()
+        
         include = [
                 "status",
                 "RT start",
@@ -202,6 +248,9 @@ class MatchingChem():
                             reader.RT_FACTOR * float(inner["RT end"])
                         )
                     )
+                    
+        if(not log is None):
+            log.end_chem = datetime.datetime.now()
             
         return chems_list
 
@@ -287,6 +336,7 @@ class Matching():
         self.aux_graph = aux_graph
         self.full_assignment_strategy = full_assignment_strategy
         self.full_assignment = []
+        self.log = None
         
     def __len__(self): 
         return sum(type(k) == MatchingChem for k in self.matching.keys())
@@ -336,19 +386,11 @@ class Matching():
             ch.intensity = None  # clear temporary value
 
         print(f"|chems| BEFORE COLLAPSE: {len(chems)}")
-        print(f"num chems without edges:"
-              f" {sum(1 for _, ls in edges.items() if ls == [])}")
-        print(f"chems without edges:"
-              f" {[ch for ch, ls in edges.items() if ls == []][:10]}")
-        print(
-            f"|E| BEFORE COLLAPSE: {sum(len(ls) for _, ls in edges.items())}")
+        print(f"num chems without edges: {sum(1 for _, ls in edges.items() if ls == [])}")
+        print(f"|E| BEFORE COLLAPSE: {sum(len(ls) for _, ls in edges.items())}")
         print(f"num intersected: {len(seen_intersected)}")
         print(f"min intensity: {min(v for _, v in seen_intensities.items())}")
-        # from collections import Counter
-        # print(f"intensity counts:"
-        #       f" {Counter(v for _, v in seen_intensities.items())}")
-        print(f"zero intensity count:"
-              f" {sum(v == 0 for _, v in seen_intensities.items())}")
+        print(f"zero intensity count: {sum(v == 0 for _, v in seen_intensities.items())}")
         print(
             f"< 5000 intensity count: {sum(v < 5000 for _, v in seen_intensities.items())}"
         )
@@ -381,10 +423,9 @@ class Matching():
             if any(ch in E for E in edges_list)
         }
         
-        print(print(f"|scans| AFTER COLLAPSE: {len(scans)}"))
+        print(f"|scans| AFTER COLLAPSE: {len(scans)}")
         print(f"|chems| AFTER COLLAPSE: {len(chems)}")
-        print(f"chems without edges"
-              f": {sum(1 for ch, E in edges.items() if E == [])}")
+        print(f"num chems without edges {sum(1 for ch, E in edges.items() if E == [])}")
         print(f"|E| AFTER COLLAPSE: {sum(len(ls) for _, ls in edges.items())}")
         return scans, chems, edges
 
@@ -525,7 +566,11 @@ class Matching():
                              intensity_threshold, 
                              edge_limit=None, 
                              weighted=1,
-                             full_assignment_strategy=1):
+                             full_assignment_strategy=1,
+                             log=None):
+                             
+        if(not log is None):
+            log.start_matching = datetime.datetime.now()
 
         G = Matching._make_graph(
             scans_list, 
@@ -549,8 +594,18 @@ class Matching():
             aux_graph=aux_graph,
             full_assignment_strategy=full_assignment_strategy
         )
+        
+        if(not log is None):
+            log.end_matching = datetime.datetime.now()
+            log.matching_size = len(matching)
+            log.start_assign = datetime.datetime.now()
 
         matching._assign_remaining_scans()
+        
+        if(not log is None):
+            log.end_assign = datetime.datetime.now()
+            matching.log = log
+        
         return matching
 
     @staticmethod
@@ -578,6 +633,7 @@ class Matching():
                       ionisation_mode,
                       intensity_threshold,
                       mz_window=10,
+                      roi_params=None,
                       edge_limit=None,
                       weighted=1,
                       full_assignment_strategy=1):
@@ -599,6 +655,8 @@ class Matching():
                   in the constructed graph.
                 mz_window: m/z tolerance in ppm for determining whether two intensity 
                   readings are at the same value when interpolating scan intensities.
+                roi_params: A RoiBuilderParams object to use when interpolating scan
+                intensities.
                 edge_limit: If given a non-None integer value, each vertex in the
                   constructed graph will be pruned to have degree of no more than
                   edge_limit, for performance reasons. Prefers to keep highest
@@ -611,6 +669,8 @@ class Matching():
             Returns: A Matching object.
         """
         
+        log = MatchingLog()
+        
         scans_list = []
         for i, fs in enumerate(fullscan_paths):
             new_scans = MatchingScan.create_scan_intensities(
@@ -618,14 +678,17 @@ class Matching():
                     i,
                     times_list[i],
                     ionisation_mode,
-                    mz_window
+                    mz_window,
+                    roi_params=roi_params,
+                    log=log
             )
             scans_list.append(new_scans)
         
         chems_list = MatchingChem.boxfile2nodes(
             aligned_reader,
             aligned_file,
-            fullscan_paths
+            fullscan_paths,
+            log=log
         )
         
         matching = Matching.multi_schedule2graph(
@@ -634,7 +697,8 @@ class Matching():
             intensity_threshold,
             edge_limit=edge_limit,
             weighted=weighted,
-            full_assignment_strategy=full_assignment_strategy
+            full_assignment_strategy=full_assignment_strategy,
+            log=log
         )
         
         return matching
