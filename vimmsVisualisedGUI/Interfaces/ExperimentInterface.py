@@ -24,7 +24,7 @@ from Utils.Parameters.ParamWidgets import *
 from Utils.Parameters.parseAdvancedParams import parse_advanced_params
 from Utils.Parameters.saveParamState import save_param_state
 from Utils.Threads.workerThreads import ExperimentWorker
-from Utils.XCMS.parseXCMSParams import parse_xcms_params
+from Utils.XCMS.parsePeakPickingParams import parse_peak_picking_params
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
@@ -52,6 +52,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.worker.experiment_finished.connect(self.set_experiment_and_summary)
            
         self.scrollArea.setWidget(self.ParamsBox)
+        self.PeakPickingscrollArea.setWidget(self.PeakPickingParamsBox)
         self.AdvancedParamsScrollArea.setWidget(self.AdvancedParamsGroupBox)
         self.SummaryGroupBox.setHidden(True)
 
@@ -112,6 +113,11 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
                                   self.ControllerComboBox.currentText(), 
                                   CONTROLLER_PARAMS, True))
         
+        self.PeakPickingComboBox.currentIndexChanged.connect(
+            lambda: displayParams(self.PeakPickingParamsBox,
+                                  self.PeakPickingComboBox.currentText(),
+                                  "Peak Picking", True))
+        
         self.AddExperimentCaseButton.clicked.connect(
             lambda: construct_experiment_case(self, self.ControllerComboBox.currentText(),self.ParamsBox,
                                               pickle_env_button.current_selection(), self.CaseNameTextEdit.text(),
@@ -125,7 +131,8 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
                      self.AddExperimentCaseButton.setEnabled(False),
                      self.start_exp.emit(self.experiment_case_list,
                                          self.ExperimentTitleTextEdit.text(),
-                                          parse_xcms_params(self.XCMSParamTab))))
+                                          parse_peak_picking_params(self.PeakPickingComboBox.currentText(),
+                                                            self.PeakPickingParamTab))))
 
         self.ViewSummaryButton.clicked.connect(
             lambda: view_summary(self)

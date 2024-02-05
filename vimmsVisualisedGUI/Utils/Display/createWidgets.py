@@ -3,7 +3,13 @@ from Utils.Parameters.ParamWidgets import *
 
 def create_widgets(selected_constructor, potential_params):
 
-    params = identify_params(selected_constructor)
+    if type(potential_params) == dict:
+        params = identify_params(selected_constructor)
+    elif type(potential_params) == str:
+        if selected_constructor == "XCMS":
+            return XCMS_PARAMS.values()
+        elif selected_constructor == "MZMine":
+            return MZMINE_PARAMS.values()
 
     widgets = []
     for param in params:

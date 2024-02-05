@@ -180,6 +180,20 @@ MS2_SAMPLER_PARAMS = {
     "with_replacement": [("with_replacement", QBooleanButton), ("Replace:", qtw.QLabel), False],
 }
 
+XCMS_PARAMS = {
+    "ppm": [("ppm", qtw.QLineEdit), ("PPM:", qtw.QLabel), 15],
+    "pwlower": [("pwlower", qtw.QLineEdit), ("Min Peak Width:", qtw.QLabel), 15],
+    "pwupper": [("pwupper", qtw.QLineEdit), ("Max Peak Width:", qtw.QLabel), 80],
+    "snthresh": [("snthresh", qtw.QLineEdit), ("Signal to Noise Thresh.:", qtw.QLabel), 5],
+    "noise": [("noise", qtw.QLineEdit), ("Noise:", qtw.QLabel), 1000],
+    "prefilterlower": [("prefilterlower", qtw.QLineEdit), ("Pre Filter Min:", qtw.QLabel), 3],
+    "prefilterupper": [("prefilterupper",qtw.QLineEdit ), ("Pre Filter Max:", qtw.QLabel), 500], 
+}
+
+MZMINE_PARAMS = {
+    "mzmine_template": [("mzmine_template", QMzmlUpload), ("MZMine Template:", qtw.QLabel)],
+}
+
 PARSE_AS_INT = ["n_intensity_bins", "n_frags", "n_draws"]
 PARSE_AS_LOG = ["min_log_intensity", "max_log_intensity"]
 

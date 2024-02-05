@@ -1444,189 +1444,104 @@ background-color: rgb(240, 240, 240);</string>
     <zorder>AdvancedParamsScrollArea</zorder>
     <zorder>AdvancedParamsGroupBox</zorder>
    </widget>
-   <widget class="QWidget" name="XCMSParamTab">
+   <widget class="QWidget" name="PeakPickingParamTab">
     <attribute name="title">
-     <string>XCMS</string>
+     <string>Peak Picking Params</string>
     </attribute>
-    <widget class="QGroupBox" name="XCMSParamsBox">
+    <widget class="QLabel" name="PeakPickingSelectLabel">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>555</width>
-       <height>181</height>
+       <width>251</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Mass Spectrometry Data Package:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="PeakPickingComboBox">
+     <property name="geometry">
+      <rect>
+       <x>245</x>
+       <y>0</y>
+       <width>261</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>---</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>XCMS</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>MZMine</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QScrollArea" name="PeakPickingscrollArea">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>25</y>
+       <width>551</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>536</width>
+        <height>159</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="PeakPickingParamsBox">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>25</y>
+       <width>531</width>
+       <height>161</height>
       </rect>
      </property>
      <property name="title">
       <string/>
      </property>
-     <widget class="QWidget" name="gridLayoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>0</y>
-        <width>541</width>
-        <height>181</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="2">
-        <widget class="QLabel" name="NoiseFilterLabel">
-         <property name="font">
-          <font>
-           <pointsize>8</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Noise Filter:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QLineEdit" name="NoiseFilterTextEdit">
-         <property name="accessibleName">
-          <string>noise</string>
-         </property>
-         <property name="text">
-          <string>1000</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="PPMTextEdit">
-         <property name="accessibleName">
-          <string>ppm</string>
-         </property>
-         <property name="text">
-          <string>15</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="3">
-        <widget class="QLineEdit" name="MinPeakWidthTextEdit">
-         <property name="accessibleName">
-          <string>pwlower</string>
-         </property>
-         <property name="text">
-          <string>15</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="SignalToNoiseTextEdit">
-         <property name="accessibleName">
-          <string>snthresh</string>
-         </property>
-         <property name="text">
-          <string>5</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="MinPeakWidthLabel">
-         <property name="font">
-          <font>
-           <pointsize>8</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Min Peak Width:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="PPMLabel">
-         <property name="font">
-          <font>
-           <pointsize>8</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>PPM:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="4">
-        <widget class="QLabel" name="MaxPeakWidthLabel">
-         <property name="font">
-          <font>
-           <pointsize>8</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Max Peak Width:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="5">
-        <widget class="QLineEdit" name="MaxPeakWidthTextEdit">
-         <property name="accessibleName">
-          <string>pwupper</string>
-         </property>
-         <property name="text">
-          <string>80</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="4">
-        <widget class="QLabel" name="PreFilterMinLabel">
-         <property name="font">
-          <font>
-           <pointsize>8</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Pre Filter Min:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="SignalToNoiseLabel">
-         <property name="font">
-          <font>
-           <pointsize>8</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Signal to Noise Threshold:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="5">
-        <widget class="QLineEdit" name="PreFilterMinTextEdit">
-         <property name="accessibleName">
-          <string>prefilterlower</string>
-         </property>
-         <property name="text">
-          <string>3</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="PreFilterMaxLabel">
-         <property name="font">
-          <font>
-           <pointsize>8</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Pre Filter Max:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="PreFilterMaxTextEdit">
-         <property name="accessibleName">
-          <string>prefilterupper</string>
-         </property>
-         <property name="text">
-          <string>500</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
     </widget>
+    <zorder>PeakPickingscrollArea</zorder>
+    <zorder>PeakPickingSelectLabel</zorder>
+    <zorder>PeakPickingComboBox</zorder>
+    <zorder>PeakPickingParamsBox</zorder>
    </widget>
   </widget>
   <widget class="QPushButton" name="LoadParamsButton">

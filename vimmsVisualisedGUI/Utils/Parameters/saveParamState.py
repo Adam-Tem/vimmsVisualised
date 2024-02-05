@@ -3,7 +3,7 @@ from PyQt5 import QtWidgets as qtw
 from Utils.Parameters.ParseParams import parse_params
 from Utils.Parameters.identifyParams import identify_params
 from Utils.Parameters.ParamWidgets import CONTROLLERS, SAVE_DIRECTORY
-from Utils.XCMS.parseXCMSParams import parse_xcms_params
+from Utils.XCMS.parsePeakPickingParams import parse_peak_picking_params
 from Utils.Parameters.parseAdvancedParams import parse_advanced_params
 import json
 import os
@@ -19,9 +19,11 @@ def save_param_state(self, selected_controller, current_index = 0):
         params = parse_params(self.ParamsBox, param_names)
         saved_state["params"] = params
     elif current_index == 1:
-        saved_state["params"] = parse_advanced_params(self.AdvancedParamsGroupBox)
+        saved_state["advanced_params"] = parse_advanced_params(self.AdvancedParamsGroupBox)
     else:
-        saved_state["params"] = parse_xcms_params(self.XCMSParamsBox)
+        saved_state[self.PeakPickingComboBox.currentText()] = parse_peak_picking_params(
+                                                            self.PeakPickingComboBox.currentText(),
+                                                          self.PeakPickingParamTab)
 
     options = qtw.QFileDialog.Options()
     file_dialog = qtw.QFileDialog(self)

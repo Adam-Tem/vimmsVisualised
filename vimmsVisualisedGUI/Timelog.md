@@ -499,3 +499,9 @@
 - _4 hours_ I have officially made a start on writing the dissertation! I'd say that the intro is pretty much wrapped up, but I haven't made it too long even though it does include the background as well... It may have to be extended but at least it is a start. I have a few quetsions regarding the tense to use and also what "person" to speak in (I, we, it, etc.) but something is better than nothing.
 
 * _2 hours_ Ah yes, a classic Friday night code break issue! Went back to go and fix the summary graph of the experiment page to include a legend, which is now done. However, I then go to try one of the more advanced controllers to encounter a serious issue: they don't run... It was because the change I had made to the install of vimms previously had not transfered over, so of course there was a typecast error. But that should be it resolved, thank goodness.
+
+## Week 19
+
+- _1.5 hours_ Ross was able to review the documents that I had created for the user study and felt that it may be best to set up a virtual machine install for participants to save hassle of dependencies which is a good idea. I began to research the concept and understand what would be the most optimal way to get this set up.
+
+- _1.5 hours_ Another recommendation from Ross was implementing MZMine as an option on the experiment page for the peak picking algorithm. I have currently set it up in the same abstracted manner as the controller section, but still have a few queries about what the "mzml_template" parameter is looking for. It appears to be some sort of xml file but whether it would have a specific file ending I am unsure.

@@ -21,7 +21,10 @@ def displayParams(param_box, combo_box_text, potential_params, has_scroll):
     param_layout = qtw.QGridLayout(param_box)
     param_layout.setVerticalSpacing(10)
     param_count = 0
-    param_desc_dict = docstring_tooltip_parsing(combo_box_text)
+    if potential_params != "Peak Picking":
+        param_desc_dict = docstring_tooltip_parsing(combo_box_text)
+    else:
+        param_desc_dict = {}
     row = 0
     col = 0
     for value in widget_names:
@@ -62,7 +65,11 @@ def displayParams(param_box, combo_box_text, potential_params, has_scroll):
   
     if len(widget_names) > 0:
 
-        param_box.setMinimumHeight((((len(widget_names) - 1)//3)+1) * 20)
+        print(len(widget_names))
+        if len(widget_names) == 1:
+            param_box.setHeight(30)
+        else:
+            param_box.setMinimumHeight((((len(widget_names) - 1)//3)+1) * 20)
         
     else:
         param_box.setMinimumHeight(0)
