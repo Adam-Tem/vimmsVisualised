@@ -13,8 +13,14 @@ def upload_file(self, file_type):
             self.stored_mzml = MZMLFile(selected_file[0]) 
     elif file_type == "p":
         selected_file = dialog.getOpenFileName(None, "Import Pickle", "", "Pickle File (*.p)")
+    elif file_type == "xml":
+        selected_file = dialog.getOpenFileName(None, "Import MZMine Template", "", "MZMine Template XML (*.xml)")
     elif file_type == "mgf":
         selected_file = dialog.getOpenFileName(None, "Import MGF", "", "mgf File (*.mgf)")
+    elif file_type == "exe":
+        selected_file = dialog.getOpenFileName(None, "Installed Rscript.exe", "", "exe File (*.exe)")
+    elif file_type == "bat":
+        selected_file = dialog.getOpenFileName(None, "Installed Mzmine start", "", "bat File (*.bat)")
     elif file_type == "folder":
         options = qtw.QFileDialog.Options()
         options |= qtw.QFileDialog.ShowDirsOnly

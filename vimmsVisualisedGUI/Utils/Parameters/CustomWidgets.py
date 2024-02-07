@@ -79,12 +79,29 @@ class QFolderUpload(QFileUpload):
         super().__init__(*args, **kwargs)
         self.button.clicked.connect(lambda: upload_file(self, "folder"))
 
+class QXMLUpload(QFileUpload):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.button.clicked.connect(lambda: upload_file(self, "xml"))
+
+class QExeUpload(QFileUpload):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.button.clicked.connect(lambda: upload_file(self, "exe"))
+
+class QBatUpload(QFileUpload):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.button.clicked.connect(lambda: upload_file(self, "bat"))
+
 class QBooleanButton(qtw.QPushButton):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setText("True")
         self.setStyleSheet("color:white; background-color:green;")
         self.clicked.connect(lambda: setButtonText(self, ["True", "False"]))
+
+
 
     def current_selection(self):
         if self.text() == "True":

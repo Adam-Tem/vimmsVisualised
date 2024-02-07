@@ -1,4 +1,5 @@
 from PyQt5 import QtWidgets as qtw
+from PyQt5 import QtCore as qtc
 from PyQt5 import sip
 from Utils.Display.createWidgets import create_widgets
 from Utils.Display.adjustParamBoxSize import adjust_param_box_size
@@ -64,18 +65,24 @@ def displayParams(param_box, combo_box_text, potential_params, has_scroll):
         col = col + 1
   
     if len(widget_names) > 0:
-
-        print(len(widget_names))
+        
         if len(widget_names) == 1:
-            param_box.setHeight(30)
-        else:
-            param_box.setMinimumHeight((((len(widget_names) - 1)//3)+1) * 20)
+            param_box.setMinimumHeight(80)
+            param_layout.setAlignment(qtc.Qt.AlignmentFlag.AlignTop)
+            grid = param_box.parent()
+            box = grid.parent()
+            grid.setMinimumHeight(80)
+            box.setMinimumHeight(80)
+            param_box.setLayout(param_layout)
+
+        param_box.setMinimumHeight((((len(widget_names) - 1)//3)+1) * 20)
         
     else:
         param_box.setMinimumHeight(0)
         
     if has_scroll:
-        param_box.setFixedSize(531, row*35)
+        if len(widget_names) > 1:
+            param_box.setFixedSize(531, row*35)
     else:
         adjust_param_box_size(param_box, len(widget_names), current_widget_count//2)
 

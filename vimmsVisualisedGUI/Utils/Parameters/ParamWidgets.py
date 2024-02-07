@@ -191,7 +191,7 @@ XCMS_PARAMS = {
 }
 
 MZMINE_PARAMS = {
-    "mzmine_template": [("mzmine_template", QMzmlUpload), ("MZMine Template:", qtw.QLabel)],
+    "mzmine_template": [("mzmine_template", QXMLUpload), ("MZMine Template:", qtw.QLabel)],
 }
 
 PARSE_AS_INT = ["n_intensity_bins", "n_frags", "n_draws"]

@@ -640,7 +640,7 @@ Proportion</string>
 background-color: rgb(240, 240, 240);</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="ControllerParamTab">
     <attribute name="title">
@@ -1534,14 +1534,93 @@ background-color: rgb(240, 240, 240);</string>
        <height>161</height>
       </rect>
      </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="title">
       <string/>
      </property>
+    </widget>
+    <widget class="QGroupBox" name="AddPathGroupBox">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>400</y>
+       <width>551</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QLabel" name="AddPathLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>371</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Please add the path to your install of Rscript.exe:</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="ExeBtnGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>0</y>
+        <width>80</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="BatBtnGroupBox">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>0</y>
+        <width>80</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <zorder>PeakPickingscrollArea</zorder>
     <zorder>PeakPickingSelectLabel</zorder>
     <zorder>PeakPickingComboBox</zorder>
     <zorder>PeakPickingParamsBox</zorder>
+    <zorder>AddPathGroupBox</zorder>
    </widget>
   </widget>
   <widget class="QPushButton" name="LoadParamsButton">

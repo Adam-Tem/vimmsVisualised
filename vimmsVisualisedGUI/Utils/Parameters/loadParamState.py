@@ -11,7 +11,7 @@ def load_param_state(self, current_index=0):
          param_box_of_interest = self.AdvancedParamsGroupBox
          desc = "Choose a saved advanced parameter config"
     else:
-         param_box_of_interest = self.XCMSParamsBox
+         param_box_of_interest = self.PeakPickingParamsBox
          desc = "Choose a saved XCMS config"
     dialog = qtw.QFileDialog()
 

@@ -141,3 +141,4 @@ demo/guide_to_vimms/tests/results/*
 test_animation.mzML
 vimms/scripts/debug_chems
 vimmsVisualisedGUI/results/
+vimmsVisualisedGUI/userData.json

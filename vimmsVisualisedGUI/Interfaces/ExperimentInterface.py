@@ -24,7 +24,10 @@ from Utils.Parameters.ParamWidgets import *
 from Utils.Parameters.parseAdvancedParams import parse_advanced_params
 from Utils.Parameters.saveParamState import save_param_state
 from Utils.Threads.workerThreads import ExperimentWorker
-from Utils.XCMS.parsePeakPickingParams import parse_peak_picking_params
+from Utils.PeakPicking.parsePeakPickingParams import parse_peak_picking_params
+from Utils.PeakPicking.checkPeakPickingPaths import check_peak_picking_paths
+
+import json
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
@@ -42,6 +45,8 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.experiment_case_list = []
         self.experiment_name_list = []
         self.summary = ""
+        self.r_install = ""
+        self.mzmine_install = ""
         
         create_graph_layout(self)
         self.worker = ExperimentWorker()
@@ -60,6 +65,20 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.fullscan_upload_button.setObjectName("fullscan_upload_button")
         self.MzmlUploadGroupBox.setLayout(self.fullscan_upload_button.layout())
         self.fullscan_upload_button.file_upload.connect(self.check_mzml_file)
+
+        self.exe_upload_btn = QExeUpload(parent=self.AddPathGroupBox)
+        self.exe_upload_btn.setObjectName("exe_upload_button")
+        self.ExeBtnGroupBox.setLayout(self.exe_upload_btn.layout())
+        self.exe_upload_btn.button.clicked.connect(self.check_install_paths)
+        self.exe_upload_btn.file_upload.connect(self.check_install_paths)
+
+        self.bat_upload_btn = QBatUpload(parent=self.AddPathGroupBox)
+        self.bat_upload_btn.setObjectName("bat_upload_button")
+        self.BatBtnGroupBox.setLayout(self.bat_upload_btn.layout())
+        self.bat_upload_btn.button.clicked.connect(self.check_install_paths)
+        self.bat_upload_btn.file_upload.connect(self.check_install_paths)
+
+        self.PeakPickingComboBox.currentIndexChanged.connect(self.check_install_paths)
 
         self.ControllerComboBox.currentIndexChanged.connect(self.check_case_inputs)
         self.CaseNameTextEdit.textChanged.connect(self.check_case_inputs)
@@ -179,3 +198,15 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
                            line_edits=[self.ExperimentTitleTextEdit.text()],
                            stored_required_lists = [self.experiment_case_list])
+        
+
+    @qtc.pyqtSlot()
+    def check_install_paths(self):
+        if not os.path.isfile(os.path.join(os.getcwd(), "userData.json")):
+            with open(os.path.join(os.getcwd(), "userData.json"), 'w') as f:
+                json.dump({"R": "", "MZMine": ""}, f)
+        
+        if self.PeakPickingComboBox.currentText() == "XCMS":
+            check_peak_picking_paths(self, "R")
+        elif self.PeakPickingComboBox.currentText() == "MZMine":
+            check_peak_picking_paths(self, "MZMine")

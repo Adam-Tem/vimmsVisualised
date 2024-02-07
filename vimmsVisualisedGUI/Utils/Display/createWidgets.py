@@ -10,6 +10,8 @@ def create_widgets(selected_constructor, potential_params):
             return XCMS_PARAMS.values()
         elif selected_constructor == "MZMine":
             return MZMINE_PARAMS.values()
+        else:
+            return []
 
     widgets = []
     for param in params:

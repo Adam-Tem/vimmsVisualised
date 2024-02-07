@@ -502,6 +502,12 @@
 
 ## Week 19
 
+### 05 Feb 2024
+
 - _1.5 hours_ Ross was able to review the documents that I had created for the user study and felt that it may be best to set up a virtual machine install for participants to save hassle of dependencies which is a good idea. I began to research the concept and understand what would be the most optimal way to get this set up.
 
 - _1.5 hours_ Another recommendation from Ross was implementing MZMine as an option on the experiment page for the peak picking algorithm. I have currently set it up in the same abstracted manner as the controller section, but still have a few queries about what the "mzml_template" parameter is looking for. It appears to be some sort of xml file but whether it would have a specific file ending I am unsure.
+
+### 07 Feb 2024
+
+- _4 hours_ That took WAY too long... That should be the selection of local install of mzmine and r for the peak picking parameters now done. There was then also the major problem of getting the stupid group boxes to resize to the right size. I still have to add in the appropriate parameter validation and checking for making sure that a user selected a peak picking method. But I have now come to realise that the peak picker is more for the experiment as apposed to a case by case basis, so may actually be a bit out of place in the tabs widget at the top, but to be honest I am beyond caring for that right now. I will get the parameter passing hopefully set up and then actually ask tomorrow how it is you run a bloody MZMine simulation.
