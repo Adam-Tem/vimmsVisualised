@@ -26,12 +26,13 @@ from Utils.Parameters.saveParamState import save_param_state
 from Utils.Threads.workerThreads import ExperimentWorker
 from Utils.PeakPicking.parsePeakPickingParams import parse_peak_picking_params
 from Utils.PeakPicking.checkPeakPickingPaths import check_peak_picking_paths
+from Utils.PeakPicking.assignMzmineTemplateSignal import assign_mzmine_template_signal
 
 import json
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
-    start_exp = qtc.pyqtSignal(list, str, dict)
+    start_exp = qtc.pyqtSignal(list, str, str, dict)
     mzml_upload = qtc.pyqtSignal()
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -69,16 +70,15 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.exe_upload_btn = QExeUpload(parent=self.AddPathGroupBox)
         self.exe_upload_btn.setObjectName("exe_upload_button")
         self.ExeBtnGroupBox.setLayout(self.exe_upload_btn.layout())
-        self.exe_upload_btn.button.clicked.connect(self.check_install_paths)
         self.exe_upload_btn.file_upload.connect(self.check_install_paths)
 
         self.bat_upload_btn = QBatUpload(parent=self.AddPathGroupBox)
         self.bat_upload_btn.setObjectName("bat_upload_button")
         self.BatBtnGroupBox.setLayout(self.bat_upload_btn.layout())
-        self.bat_upload_btn.button.clicked.connect(self.check_install_paths)
         self.bat_upload_btn.file_upload.connect(self.check_install_paths)
 
         self.PeakPickingComboBox.currentIndexChanged.connect(self.check_install_paths)
+        self.PeakPickingComboBox.currentIndexChanged.connect(self.check_run_exp_inputs)
 
         self.ControllerComboBox.currentIndexChanged.connect(self.check_case_inputs)
         self.CaseNameTextEdit.textChanged.connect(self.check_case_inputs)
@@ -133,9 +133,10 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
                                   CONTROLLER_PARAMS, True))
         
         self.PeakPickingComboBox.currentIndexChanged.connect(
-            lambda: displayParams(self.PeakPickingParamsBox,
+            lambda: (displayParams(self.PeakPickingParamsBox,
                                   self.PeakPickingComboBox.currentText(),
-                                  "Peak Picking", True))
+                                  "Peak Picking", True),
+                                  assign_mzmine_template_signal(self)))
         
         self.AddExperimentCaseButton.clicked.connect(
             lambda: construct_experiment_case(self, self.ControllerComboBox.currentText(),self.ParamsBox,
@@ -150,8 +151,9 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
                      self.AddExperimentCaseButton.setEnabled(False),
                      self.start_exp.emit(self.experiment_case_list,
                                          self.ExperimentTitleTextEdit.text(),
+                                         self.PeakPickingComboBox.currentText(),
                                           parse_peak_picking_params(self.PeakPickingComboBox.currentText(),
-                                                            self.PeakPickingParamTab))))
+                                                            self.PeakPickingParamsBox))))
 
         self.ViewSummaryButton.clicked.connect(
             lambda: view_summary(self)
@@ -188,16 +190,19 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
     def check_case_inputs(self):
         check_valid_inputs(self.AddExperimentCaseButton, 
                            line_edits = [self.CaseNameTextEdit.text()],
-                           combo_boxes = self.findChildren(qtw.QComboBox),
+                           combo_boxes = [self.ControllerComboBox],
                            stored_required_lists = [self.fullscan_list],
                            stored_named_vals = [self.experiment_name_list])
 
     @qtc.pyqtSlot()
     def check_run_exp_inputs(self):
         check_valid_inputs(self.RunExperimentButton, 
-
                            line_edits=[self.ExperimentTitleTextEdit.text()],
-                           stored_required_lists = [self.experiment_case_list])
+                            combo_boxes= [self.PeakPickingComboBox],
+                           stored_required_lists = [self.experiment_case_list],
+                           stored_named_vals=[self.r_install, self.mzmine_install],
+                           peak_picking_params=[self.PeakPickingComboBox.currentText(),
+                                                self.PeakPickingParamsBox])
         
 
     @qtc.pyqtSlot()

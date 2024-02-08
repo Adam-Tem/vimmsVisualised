@@ -15,10 +15,10 @@ from Utils.Generate.RunChemicalMixtureCreator import run_chemical_mixture_creato
 class ExperimentWorker(qtc.QObject):
     experiment_finished = qtc.pyqtSignal(Experiment, str)
 
-    @qtc.pyqtSlot(list, str, dict)
-    def run(self, experiment_cases, experiment_title, xcms_params):
+    @qtc.pyqtSlot(list, str, str, dict)
+    def run(self, experiment_cases, experiment_title, pp_type, pp_params):
         try:
-            experiment, summary = run_experiment(experiment_cases, experiment_title, xcms_params)
+            experiment, summary = run_experiment(experiment_cases, experiment_title, pp_type, pp_params)
             print(summary)
             self.experiment_finished.emit(experiment, summary)
         except Exception as e:

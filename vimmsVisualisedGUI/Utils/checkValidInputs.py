@@ -1,7 +1,7 @@
+from Utils.Parameters.CustomWidgets import QXMLUpload
+from PyQt5 import QtWidgets as qtw
 
-
-
-def check_valid_inputs(button_to_set, line_edits = [], combo_boxes = [], stored_required_lists = [], stored_named_vals=[]):
+def check_valid_inputs(button_to_set, line_edits = [], combo_boxes = [], stored_required_lists = [], stored_named_vals=[], peak_picking_params=None):
 
     valid_inputs = True
     for combo_box in combo_boxes:
@@ -18,7 +18,17 @@ def check_valid_inputs(button_to_set, line_edits = [], combo_boxes = [], stored_
     for stored_list in stored_required_lists:
          if len(stored_list) == 0:
               valid_inputs = False
+
+    if peak_picking_params:
+         if peak_picking_params[0] == "MZMine":
+              if len(peak_picking_params[1].findChildren(QXMLUpload)) == 0:
+                  valid_inputs = False
+              else:
+                mzmine_template = peak_picking_params[1].findChildren(QXMLUpload)[0].file_location
+                if mzmine_template == "":
+                    valid_inputs = False
     
+    ##Right so some sort of xml file is being created instead of a csv????
     if valid_inputs:
         button_to_set.setEnabled(True)
     else:

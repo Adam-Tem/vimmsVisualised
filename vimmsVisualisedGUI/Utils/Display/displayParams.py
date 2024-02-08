@@ -74,6 +74,7 @@ def displayParams(param_box, combo_box_text, potential_params, has_scroll):
             grid.setMinimumHeight(80)
             box.setMinimumHeight(80)
             param_box.setLayout(param_layout)
+            print(param_box.findChildren(qtw.QWidget))
 
         param_box.setMinimumHeight((((len(widget_names) - 1)//3)+1) * 20)
         

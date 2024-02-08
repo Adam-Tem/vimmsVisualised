@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets as qtw
 
-from Utils.Parameters.CustomWidgets import MZMLFile
+from Utils.Parameters.CustomWidgets import QXMLUpload
 
 
 def parse_peak_picking_params(selected_peak_picker, peak_picking_params_box):
@@ -10,7 +10,7 @@ def parse_peak_picking_params(selected_peak_picker, peak_picking_params_box):
                 for child_widget in peak_picking_params_box.findChildren(qtw.QLineEdit):
                         peak_picking_params_dict[child_widget.accessibleName()] = child_widget.text()
         else:
-                for child_widget in peak_picking_params_box.findChildren(MZMLFile):
+                for child_widget in peak_picking_params_box.findChildren(QXMLUpload):
                         peak_picking_params_dict[child_widget.accessibleName()] = child_widget.file_location         
 
         return peak_picking_params_dict
