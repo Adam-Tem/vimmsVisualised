@@ -511,3 +511,13 @@
 ### 07 Feb 2024
 
 - _4 hours_ That took WAY too long... That should be the selection of local install of mzmine and r for the peak picking parameters now done. There was then also the major problem of getting the stupid group boxes to resize to the right size. I still have to add in the appropriate parameter validation and checking for making sure that a user selected a peak picking method. But I have now come to realise that the peak picker is more for the experiment as apposed to a case by case basis, so may actually be a bit out of place in the tabs widget at the top, but to be honest I am beyond caring for that right now. I will get the parameter passing hopefully set up and then actually ask tomorrow how it is you run a bloody MZMine simulation.
+
+### 08 Feb 2024
+
+- _2.5 hours_ MZMine is now functional as an option to be selected when performing an experiment through the GUI.
+
+### 09 Feb 2024
+
+- _0.5 hours_ Okay, a good start to the day. Managed to adjust the load and save parameter states to include the mzmine options and parse them correctly back into the gui.
+
+* _0.5 hours_ Quick modification to the git ignore file, just making sure that no unnecessary files are being precariously pushed to the main repo.

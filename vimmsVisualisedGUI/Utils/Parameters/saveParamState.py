@@ -19,9 +19,10 @@ def save_param_state(self, selected_controller, current_index = 0):
         params = parse_params(self.ParamsBox, param_names)
         saved_state["params"] = params
     elif current_index == 1:
-        saved_state["advanced_params"] = parse_advanced_params(self.AdvancedParamsGroupBox)
+        saved_state["params"] = parse_advanced_params(self.AdvancedParamsGroupBox)
     else:
-        saved_state[self.PeakPickingComboBox.currentText()] = parse_peak_picking_params(
+        saved_state["selected_peak_picking"] = self.PeakPickingComboBox.currentText()
+        saved_state["params"] = parse_peak_picking_params(
                                                             self.PeakPickingComboBox.currentText(),
                                                           self.PeakPickingParamTab)
 

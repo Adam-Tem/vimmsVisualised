@@ -140,5 +140,11 @@ demo/02. Methods/results/
 demo/guide_to_vimms/tests/results/*
 test_animation.mzML
 vimms/scripts/debug_chems
-vimmsVisualisedGUI/results/
+
+vimmsVisualisedGUI/results/experiment_results/*
+vimmsVisualisedGUI/results/simulations/*
+vimmsVisualisedGUI/results/generated_data/*
+vimmsVisualisedGUI/results/extracted_data/*
+vimmsVisualisedGUI/results/saved_states/*
+vimmsVisualisedGUI/results/temp-plot.html
 vimmsVisualisedGUI/userData.json
