@@ -521,3 +521,25 @@
 - _0.5 hours_ Okay, a good start to the day. Managed to adjust the load and save parameter states to include the mzmine options and parse them correctly back into the gui.
 
 * _0.5 hours_ Quick modification to the git ignore file, just making sure that no unnecessary files are being precariously pushed to the main repo.
+
+* _5 hours_ I actually can't believe that... Literally the last hurdle with the virtualBox, to then encounter an error saying something else isn't working with that stupid bloody QWebEngineView... I have tried to change the variables associated with it on a global and local scale but with no luck...
+
+### 10 Feb 2024
+
+- _4 hours_ Many more hours wasted trying to solve the issue with webGL not working, even though the browser in the VM says it has it, the WebEngineView does not work with it...
+
+- _2 hours_ At least a little more work done towards the dissertation.
+
+### 11 Feb 2024
+
+- _5 hours_ After failing with the Windows VM, I tried again with an Ubuntu VM. My laptop itself is really running out of space, so it was hard to get all the installs setup for the VM, but even once it was complete, it still did not like the plotly graphs... The Ubuntu VM also was rendering some of the GUI in a strange way by adding extra parameters and changing text values of labels.
+
+## Week 20
+
+### 13 Feb 2024
+
+- _1.5_ Okay after going back and trialling the suggestion from Ross again, the graphs now do work on the Windows VM. Just need to tidy up the user study guides and then get the thing distributed.
+
+### 14 Feb 2024
+
+- _1 hour_ Resolved a bug where the file location screen was needing another update signal to disappear even if the user had added an appropriate path to either XCMS or MZMine.

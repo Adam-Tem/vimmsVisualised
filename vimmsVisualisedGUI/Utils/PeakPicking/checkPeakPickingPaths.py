@@ -14,6 +14,11 @@ def check_peak_picking_paths(self, type):
             self.ExeBtnGroupBox.setVisible(True)
             self.r_install = self.exe_upload_btn.file_location
             installs[type] = self.exe_upload_btn.file_location
+
+            if self.r_install != "":
+                self.AddPathGroupBox.setGeometry(0,400, 551, 161)
+
+
         else:
             self.AddPathLabel.setText("Please add the path to your install of MZMine:")
             self.BatBtnGroupBox.setVisible(True)
@@ -21,5 +26,9 @@ def check_peak_picking_paths(self, type):
             self.mzmine_install = self.bat_upload_btn.file_location
             installs[type] = self.bat_upload_btn.file_location
 
+            if self.r_install != "":
+                self.AddPathGroupBox.setGeometry(0,400, 551, 161)
+
         with open('userData.json', 'w') as file:
             json.dump(installs, file)
+    
