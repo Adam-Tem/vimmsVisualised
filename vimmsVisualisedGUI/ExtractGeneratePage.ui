@@ -290,21 +290,6 @@ background-color: rgb(240, 240, 240);</string>
             <string>---</string>
            </property>
           </item>
-          <item>
-           <property name="text">
-            <string>Gaussian Chromatogram Sampler</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Constant Chromatogram Sampler</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>MZML Chromatogram Sampler</string>
-           </property>
-          </item>
          </widget>
         </item>
         <item row="9" column="1">
@@ -500,31 +485,6 @@ background-color: rgb(240, 240, 240);</string>
             <string>---</string>
            </property>
           </item>
-          <item>
-           <property name="text">
-            <string>Uniform MS2 Sampler</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Fixed MS2 Sampler</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CRPM MS2 Sampler</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>MGF MS2 Sampler</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>MZML MS2 Sampler</string>
-           </property>
-          </item>
          </widget>
         </item>
         <item row="1" column="0" colspan="2">
@@ -560,16 +520,6 @@ background-color: rgb(240, 240, 240);</string>
           <item>
            <property name="text">
             <string>---</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Uniform RT &amp; Intensity</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>MZML RT &amp; Intensity</string>
            </property>
           </item>
          </widget>
@@ -661,21 +611,6 @@ background-color: rgb(240, 240, 240);</string>
           <item>
            <property name="text">
             <string>---</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Even MZ Formula Sampler</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Uniform MZ Formula Sampler</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>MZML Formula Sampler</string>
            </property>
           </item>
          </widget>

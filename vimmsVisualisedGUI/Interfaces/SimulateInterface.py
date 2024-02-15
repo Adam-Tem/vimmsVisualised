@@ -11,6 +11,7 @@ from Utils.Display.displayParams import *
 from Utils.Display.inputErrorPopUp import input_error_pop_up
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 from Utils.Index.indexP import index_p
+from Utils.Parameters.addElementsToComboBox import add_elements_to_combo_box
 from Utils.Parameters.CustomWidgets import PUpload, QParamRangeSlider
 from Utils.Parameters.ParamWidgets import CONTROLLER_PARAMS, CONTROLLERS
 from Utils.Parameters.loadParamState import load_param_state
@@ -32,6 +33,8 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
         self.SaveParamsButton.setIcon(qtg.QIcon("Images/save.png"))
 
         self.scrollArea.setWidget(self.ParamsBox)
+
+        add_elements_to_combo_box(self.ControllerComboBox, CONTROLLERS)
 
         self.p_upload_button = PUpload(parent=self.PUploadGroupBox)
         self.p_upload_button.setObjectName("p_upload_button")

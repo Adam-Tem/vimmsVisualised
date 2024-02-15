@@ -15,15 +15,13 @@ R_INSTALL = os.path.join("C:\\","Program Files","R","R-4.3.2","bin","Rscript.exe
 MIN_MZ = 0
 MAX_MZ = 100000
 CONTROLLERS = {"TopN Controller": TopNController, 
-               "TopN Smart ROI Controller": TopN_SmartRoiController,
                "TopN ROI Controller": TopN_RoiController, 
+               "TopN Smart ROI Controller": TopN_SmartRoiController,
                "TopNEX Controller": TopNEXController,
                "Hard ROI Exclusion Controller": HardRoIExcludeController,
                "Intensity ROI Exclusion Controller": IntensityRoIExcludeController,
                "Non Overlap Controller": NonOverlapController,
                "Intensity Non Overlap Controller": IntensityNonOverlapController,
-               "DSDA Controller": DsDAController,
-               "Matching Controller": MatchingController,
                }
 
 CONTROLLERS_WITH_ROI_PARAMS = ["TopN Smart ROI Controller", 
@@ -77,7 +75,6 @@ CONTROLLER_PARAMS = {
     "min_ms1_intensity": [("min_ms1_intensity", qtw.QLineEdit), ("Min MS1 Intensity:", qtw.QLabel)],
     "ms1_shift": [("ms1_shift", qtw.QLineEdit), ("MS1 Shift:", qtw.QLabel), 0],
     # "initial_exclusion_list": [("initial_exclusion_list", qtw.QLineEdit), ("Initial Exclusion:", qtw.QLabel)],
-    "advanced_params": [("advanced_params", qtw.QLineEdit), ("Advanced Params:", qtw.QLabel)],
     "force_N": [("force_N", QBooleanButton), ("Force N:", qtw.QLabel), False],
     "min_roi_length_for_fragmentation": [("min_roi_length_for_fragmentation", qtw.QLineEdit), ("Min Frag. Length:", qtw.QLabel), 0],
     "exclusion_method": [("exclusion_method", qtw.QComboBox), ("Exclusion Method:", qtw.QLabel), ROI_EXCLUSION_DEW],

@@ -16,7 +16,3 @@ def controller_string_conversion(controller_name):
             return "non_overlap"
         case "Intensity Non Overlap Controller":
             return "intensity_non_overlap"
-        case "DSDA Controller":
-            return "dsda"
-        case "Matching Controller":
-            return "matching"

@@ -5,7 +5,7 @@ import os
 
 from Utils.Parameters.identifyParams import identify_params
 from Utils.Parameters.ParseParams import parse_params
-def extract_data(param_box,file_location, file_name, file_save_name, save_directory):
+def extract_data(param_box,  file_name, file_save_name, save_directory):
             
             param_names = identify_params(RoiBuilderParams)
             params = parse_params(param_box, param_names)

@@ -17,7 +17,6 @@ def create_widgets(selected_constructor, potential_params):
     for param in params:
         if param not in INLINE_CONSTRUCTORS.keys():
             try:
-                ##ONLY HERE FOR FIXED DISTANCE PARAMS ATM.
                 widgets.append(potential_params[param])
             except:
                 pass

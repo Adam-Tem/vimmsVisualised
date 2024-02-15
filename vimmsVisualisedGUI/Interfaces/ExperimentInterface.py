@@ -18,6 +18,7 @@ from Utils.Experiment.constructExperimentCase import construct_experiment_case
 from Utils.Experiment.newExperiment import new_experiment
 from Utils.Experiment.removeFullscan import remove_option
 from Utils.Experiment.viewSummary import view_summary
+from Utils.Parameters.addElementsToComboBox import add_elements_to_combo_box
 from Utils.Parameters.CustomWidgets import QMzmlUpload
 from Utils.Parameters.loadParamState import load_param_state
 from Utils.Parameters.ParamWidgets import *
@@ -48,6 +49,8 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.summary = ""
         self.r_install = ""
         self.mzmine_install = ""
+
+        add_elements_to_combo_box(self.ControllerComboBox, CONTROLLERS)
         
         create_graph_layout(self)
         self.worker = ExperimentWorker()

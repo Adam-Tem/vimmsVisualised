@@ -7,6 +7,7 @@ from Utils.Display.displayParams import *
 from Utils.Display.inputErrorPopUp import input_error_pop_up
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 from Utils.Extract.ExtractData import *
+from Utils.Parameters.addElementsToComboBox import add_elements_to_combo_box
 from Utils.Parameters.ParamWidgets import *
 from Utils.UploadFile import *
 from Utils.checkValidInputs import check_valid_inputs
@@ -14,7 +15,7 @@ from Utils.Threads.workerThreads import ExtractWorker, GenerateWorker
 
 class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
 
-    start_extract = qtc.pyqtSignal(qtw.QGroupBox, str, str, str, str)
+    start_extract = qtc.pyqtSignal(qtw.QGroupBox, str, str, str)
     start_generate = qtc.pyqtSignal(qtw.QGroupBox, str, str, int, str)
     def __init__(self, *args, **kwargs):
         
@@ -38,6 +39,11 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
         self.AdductPropTextEdit.textChanged.connect(self.check_generate_inputs)
         self.GenerateFileNameTextEdit.textChanged.connect(self.check_generate_inputs)
 
+        add_elements_to_combo_box(self.FormulaSamplerComboBox, FORMULA_SAMPLERS)
+        add_elements_to_combo_box(self.ChromoSamplerComboBox, CHROMO_SAMPLERS)
+        add_elements_to_combo_box(self.MS2SamplerComboBox, MS2_SAMPLERS)
+        add_elements_to_combo_box(self.RTISamplerComboBox, RTI_SAMPLERS)
+
         self.extract_worker = ExtractWorker()
         self.generate_worker = GenerateWorker()
         self.worker_thread_1 = qtc.QThread()
@@ -55,10 +61,8 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
                                         self.ExtractDataButton.setEnabled(False),
 
                                         self.start_extract.emit(self.ExtractParamBox, 
-                                                                self.extract_upload_button.file_location,
                                         self.extract_upload_button.file_name, 
                                         self.ExtractFileNameTextEdit.text(),
-
                                         SAVE_DIRECTORY))
                                         )
         
