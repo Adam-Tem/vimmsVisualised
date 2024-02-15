@@ -545,3 +545,7 @@
 - _1 hour_ Resolved a bug where the file location screen was needing another update signal to disappear even if the user had added an appropriate path to either XCMS or MZMine.
 
 * _3 hours_ Managed to spend a good bit of time writing some more tests for the codebase. I haven't went back and resolved the issues of the previous pop up problem, but decided to start adding more elsewhere, to increase coverage. I have also managed to upload the .aso file of the virtual box, a hefty 17GB but at least that should be it on the web somewhere. May have to fire off a few emails to see how I could get it made to public access, but should be able to get that sorted fairly quickly. Also added a nice little helper function that means the GUI is now pretty much fully abstracted, with any new controllers and their associated parameters all able to be added in the one place, and displayed appropriately.
+
+### 15 Feb 2024
+
+- _3.5 hours_ Finally got round to going back and sorting the test suite. All the interactive buttons that are found in the GUI now have appropriate testing with them, other than those that create a pop up upon completion as I still hadn't worked out a way to dismiss the pop up.
