@@ -563,3 +563,5 @@
 ### 21 Feb 2024
 
 - _2.5 hours_ Good start to the day for coding, managed to so far get all the points highlighted by Kevin as areas for improvement and to be adjusted in the interface.
+
+* _2 hours_ Further changes made to the interface regarding issues from the pilot study now complete, more so the points identified by Ross this time round regarding some of the controller issues. Some parameters have very few examples and take on default values anyway so I have decided just to remove them. Other issues such as repeated controllers now also sorted.

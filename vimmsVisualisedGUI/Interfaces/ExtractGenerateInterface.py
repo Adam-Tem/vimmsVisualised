@@ -93,12 +93,14 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
     @qtc.pyqtSlot(str)
     def notify_extract_generate_finish(self, action):
         if action == "Extracted":
-            task_completed_pop_up("ViMMS Extraction", "Current extraction now complete!",
+            task_completed_pop_up("ViMMS Extraction",
+                                  "Current extraction now complete!\nOutput saved to: results/extracted_data",
                                   self.ExtractDataButton)
         elif action == "Extraction Failed":
             input_error_pop_up(self.ExtractDataButton)
         elif action == "Generated":
-            task_completed_pop_up("ViMMS Generation", "Current generation now complete!",
+            task_completed_pop_up("ViMMS Generation",
+                                  "Current generation now complete!\nOutput saved to: results/generated_data",
                                   self.GenerateDataButton)
         elif action == "Generation Failed":
             input_error_pop_up(self.GenerateDataButton)

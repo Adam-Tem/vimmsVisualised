@@ -7,10 +7,13 @@ def round_experiment_results(summary_string):
         if len(breakdown) == 2:
             output += breakdown[0] + ":"
             if "proportion" in breakdown[0]:
-                rounded_result = round(float(breakdown[1][2:-1]), 3)
-                output += " " + str(rounded_result) + "\n"
+                rounded_results = []
+                for value in breakdown[1][2:-1].split(","):
+                    rounded_results.append(str(round(float(value.strip()), 3)))
+                output += " " + ",".join(rounded_results)
             else:
-                output += " " + breakdown[1] + "\n"
+                output += " " + breakdown[1]
+            output += "\n"
         else:
             output += line + "\n"
     return output

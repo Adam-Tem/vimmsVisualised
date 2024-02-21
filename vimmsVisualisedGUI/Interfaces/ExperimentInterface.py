@@ -178,7 +178,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
     @qtc.pyqtSlot(Experiment, str)
     def set_experiment_and_summary(self, experiment, summary):
         if summary != "":
-            task_completed_pop_up("ViMMS Experiment", "Experiment execution now complete!", 
+            task_completed_pop_up("ViMMS Experiment", "Experiment execution now complete!\nOutput saved to: results/experiment_results", 
                                   self.ViewSummaryButton)
             self.experiment = experiment
             self.summary = summary

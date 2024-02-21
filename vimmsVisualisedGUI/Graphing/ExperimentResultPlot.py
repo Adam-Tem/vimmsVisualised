@@ -23,7 +23,7 @@ def experiment_result_plot(canvas, experiment, experiment_cases, graph_type):
     itr = zip(experiment.case_names, results_list, markers)
     
     for exp_name, results, m in itr:
-        scores = results[graph_type]       
+        scores = results[graph_type]     
         xs = list(range(1, len(scores) + 1))
         
         canvas.axes.set_xlabel("Num. Runs", fontsize=7)
@@ -32,5 +32,4 @@ def experiment_result_plot(canvas, experiment, experiment_cases, graph_type):
         canvas.axes.tick_params(labelsize=6)
         canvas.axes.plot(xs, scores, label=exp_name, marker=m)
     canvas.axes.legend((experiment_cases), loc="upper right", fontsize=6)
-    ##fix this first the mora
     canvas.draw()

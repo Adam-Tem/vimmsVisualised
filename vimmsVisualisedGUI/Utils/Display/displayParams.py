@@ -28,7 +28,12 @@ def displayParams(param_box, combo_box_text, potential_params, has_scroll):
         param_desc_dict = {}
     row = 0
     col = 0
+    added_params = []
     for value in widget_names:
+        if value[0] not in added_params:
+            added_params.append(value[0])
+        else:
+            continue
         new_widget = value[0][1](parent=param_box)
         new_widget.setObjectName(value[0][0])
         new_widget.setAccessibleName(value[0][0])
@@ -51,6 +56,9 @@ def displayParams(param_box, combo_box_text, potential_params, has_scroll):
                 new_widget.vals = value[2]
                 for option in value[2].keys():
                     new_widget.combo_box.addItem(option)
+            elif type(new_widget) == qtw.QSpinBox:
+                new_widget.setMinimum(1)
+                new_widget.setValue(value[2])
             else:
                 new_widget.setText(str(value[2]))
             
