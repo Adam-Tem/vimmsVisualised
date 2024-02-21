@@ -1,9 +1,9 @@
-from PyQt5 import QtWidgets as qtw
 from Graphing.ExperimentResultPlot import experiment_result_plot
+from Utils.Experiment.roundExperimentResults import round_experiment_results
 
 def view_summary(self):
     count = len(self.experiment_case_list)
-    self.SummaryInfoLabel.setText(self.summary)
+    self.SummaryInfoLabel.setText(round_experiment_results(self.summary))
     self.SummaryInfoLabel.setFixedHeight(180*count*len(self.fullscan_list))
     self.SummaryScrollContents.setFixedHeight(180*count*len(self.fullscan_list) + 15)
     self.SummaryGroupBox.setHidden(False)

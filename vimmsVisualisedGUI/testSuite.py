@@ -66,31 +66,7 @@ class ViMMSTestSuite(unittest.TestCase):
                              qtc.Qt.LeftButton)
         self.assertEqual(type(self.window.stackedWidget.currentWidget()), StartPage)
 
-    # def test_simulate_btn(self):
-        
-    #     self.window.stackedWidget.setCurrentIndex(2)
-    #     page = self.window.stackedWidget.currentWidget()
 
-    #     page.ControllerComboBox.setCurrentIndex(1)
-
-    #     for param_line_edit in page.ParamsBox.findChildren(qtw.QLineEdit):
-    #         qtt.QTest.keyClicks(param_line_edit, "10")
-        
-    #     page.ParamsBox.findChildren(qtw.QSpinBox)[0].setValue(2)
-
-    #     page.p_upload_button.file_name = "test.p"
-    #     page.p_upload_button.file_location = os.path.join(os.getcwd(), "test.p")
-
-    #     qtt.QTest.keyClicks(page.OutputFileTextEdit, "test_sim")
-
-    #     qtt.QTest.mouseClick(page.SimulateButton, qtc.Qt.LeftButton)
-
-    #     self.app.processEvents()
-
-    #     msg_box = self.window.stackedWidget.currentWidget().findChild(qtw.QMessageBox)
-    #     qtt.QTest.mouseClick(msg_box.button(qtw.QMessageBox.Ok), qtc.Qt.LeftButton)
-
-    #     self.assertTrue(os.path.exists(os.path.join(SAVE_DIRECTORY, "simulations", "test_sim.mzML")))
 
     #---- COMBO BOX PARAMETER CREATION TESTS ----#    
     
@@ -108,6 +84,7 @@ class ViMMSTestSuite(unittest.TestCase):
     
     def test_sim_combo_box_creation_topn_roi(self):
 
+        self.window.stackedWidget.setCurrentIndex(2)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(2)
 
@@ -118,6 +95,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_sim_combo_box_creation_topn_smart_roi(self):
 
+        self.window.stackedWidget.setCurrentIndex(2)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(3)
 
@@ -128,6 +106,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_sim_combo_box_creation_topnex(self):
 
+        self.window.stackedWidget.setCurrentIndex(2)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(4)
 
@@ -138,6 +117,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_sim_combo_box_creation_hard_roi_excl(self):
 
+        self.window.stackedWidget.setCurrentIndex(2)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(5)
 
@@ -148,6 +128,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_sim_combo_box_creation_intensity_roi_excl(self):
 
+        self.window.stackedWidget.setCurrentIndex(2)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(6)
 
@@ -158,6 +139,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_sim_combo_box_creation_non_overlap(self):
 
+        self.window.stackedWidget.setCurrentIndex(2)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(7)
 
@@ -168,6 +150,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_sim_combo_box_creation_intensity_non_overlap(self):
 
+        self.window.stackedWidget.setCurrentIndex(2)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(8)
 
@@ -190,6 +173,7 @@ class ViMMSTestSuite(unittest.TestCase):
     
     def test_exp_combo_box_creation_topn_roi(self):
 
+        self.window.stackedWidget.setCurrentIndex(4)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(2)
 
@@ -200,6 +184,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_exp_combo_box_creation_topn_smart_roi(self):
 
+        self.window.stackedWidget.setCurrentIndex(4)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(3)
 
@@ -210,6 +195,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_exp_combo_box_creation_topnex(self):
 
+        self.window.stackedWidget.setCurrentIndex(4)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(4)
 
@@ -220,6 +206,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_exp_combo_box_creation_hard_roi_excl(self):
 
+        self.window.stackedWidget.setCurrentIndex(4)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(5)
 
@@ -230,6 +217,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_exp_combo_box_creation_intensity_roi_excl(self):
 
+        self.window.stackedWidget.setCurrentIndex(4)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(6)
 
@@ -240,6 +228,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_exp_combo_box_creation_non_overlap(self):
 
+        self.window.stackedWidget.setCurrentIndex(4)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(7)
 
@@ -250,6 +239,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_exp_combo_box_creation_intensity_non_overlap(self):
 
+        self.window.stackedWidget.setCurrentIndex(4)
         page = self.window.stackedWidget.currentWidget()
         page.ControllerComboBox.setCurrentIndex(8)
 
@@ -273,6 +263,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_gen_formula_sampler_combo_box_creation_uniform_mz(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         page.FormulaSamplerComboBox.setCurrentIndex(2)
 
@@ -283,6 +274,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_gen_formula_sampler_combo_box_creation_uniform_mz(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         page.FormulaSamplerComboBox.setCurrentIndex(3)
 
@@ -293,6 +285,7 @@ class ViMMSTestSuite(unittest.TestCase):
     
     def test_gen_rti_sampler_combo_box_creation_uniform_rt(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         page.RTISamplerComboBox.setCurrentIndex(1)
 
@@ -303,6 +296,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_gen_rti_sampler_combo_box_creation_mzml(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         page.RTISamplerComboBox.setCurrentIndex(2)
 
@@ -313,6 +307,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_gen_chromo_sampler_combo_box_creation_gaussian(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         page.ChromoSamplerComboBox.setCurrentIndex(1)
 
@@ -323,6 +318,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_gen_chromo_sampler_combo_box_creation_constant(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         page.ChromoSamplerComboBox.setCurrentIndex(2)
 
@@ -333,6 +329,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_gen_chromo_sampler_combo_box_creation_mzml(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         page.ChromoSamplerComboBox.setCurrentIndex(3)
 
@@ -343,6 +340,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_gen_ms2_sampler_combo_box_creation_uniform(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         page.MS2SamplerComboBox.setCurrentIndex(1)
 
@@ -353,6 +351,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_gen_ms2_sampler_combo_box_creation_fixed(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         page.MS2SamplerComboBox.setCurrentIndex(2)
 
@@ -363,6 +362,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_gen_ms2_sampler_combo_box_creation_mgf(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         page.MS2SamplerComboBox.setCurrentIndex(3)
 
@@ -373,6 +373,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_gen_ms2_sampler_combo_box_creation_mzml(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         page.MS2SamplerComboBox.setCurrentIndex(4)
 
@@ -383,6 +384,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_gen_ms2_sampler_combo_box_creation_crpm(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         page.MS2SamplerComboBox.setCurrentIndex(5)
 
@@ -395,6 +397,7 @@ class ViMMSTestSuite(unittest.TestCase):
         
     def test_extract_data(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
         qtt.QTest.mouseClick(page.tabWidget.tabBar(), qtc.Qt.LeftButton, 
                                pos=page.tabWidget.tabBar().tabRect(0).center())
@@ -413,6 +416,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_get_associated_param_box(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
 
         selected_param_box = get_associated_param_box(page.ParamBox, "Even MZ Formula Sampler")
@@ -420,6 +424,7 @@ class ViMMSTestSuite(unittest.TestCase):
     
     def test_run_chemical_mixture_creator(self):
 
+        self.window.stackedWidget.setCurrentIndex(1)
         page = self.window.stackedWidget.currentWidget()
 
         page.FormulaSamplerComboBox.setCurrentIndex(1)
@@ -453,6 +458,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_fullscan_undo_button(self):
 
+        self.window.stackedWidget.setCurrentIndex(4)
         page = self.window.stackedWidget.currentWidget()
 
         qtt.QTest.mouseClick(page.InjectionUndoButton, qtc.Qt.LeftButton)
@@ -461,6 +467,7 @@ class ViMMSTestSuite(unittest.TestCase):
 
     def test_add_experiment_case_button(self):
 
+        self.window.stackedWidget.setCurrentIndex(4)
         page = self.window.stackedWidget.currentWidget()
 
         page.ControllerComboBox.setCurrentIndex(1)
@@ -473,7 +480,8 @@ class ViMMSTestSuite(unittest.TestCase):
         
     
     def test_case_undo_button(self):
-
+        
+        self.window.stackedWidget.setCurrentIndex(4)
         page = self.window.stackedWidget.currentWidget()
 
         qtt.QTest.mouseClick(page.CaseUndoButton, qtc.Qt.LeftButton)
@@ -481,6 +489,31 @@ class ViMMSTestSuite(unittest.TestCase):
         self.assertTrue(len(page.experiment_case_list) == 0 and 
                         len(page.experiment_name_list) == 0)
 
+
+    def test_simulate_btn(self):
+        
+        self.window.stackedWidget.setCurrentIndex(2)
+        page = self.window.stackedWidget.currentWidget()
+
+        page.ControllerComboBox.setCurrentIndex(1)
+
+        for param_line_edit in page.ParamsBox.findChildren(qtw.QLineEdit):
+            qtt.QTest.keyClicks(param_line_edit, "10")
+        
+        page.ParamsBox.findChildren(qtw.QSpinBox)[0].setValue(2)
+
+        page.p_upload_button.file_name = "test.p"
+        page.p_upload_button.file_location = os.path.join(os.getcwd(), "test.p")
+
+        qtt.QTest.keyClicks(page.OutputFileTextEdit, "test_sim")
+
+        qtt.QTest.mouseClick(page.SimulateButton, qtc.Qt.LeftButton)
+
+        qtc.QCoreApplication.processEvents()
+        # qtt.QTest.qSleep(20000)
+        qtt.QTest.qWaitForWindowActive(self.window.stackedWidget)
+
+        self.assertTrue(os.path.exists(os.path.join(SAVE_DIRECTORY, "simulations", "test_sim.mzML")))
 
         
 if __name__ == "__main__":

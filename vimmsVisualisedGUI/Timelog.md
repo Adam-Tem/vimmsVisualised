@@ -549,3 +549,17 @@
 ### 15 Feb 2024
 
 - _3.5 hours_ Finally got round to going back and sorting the test suite. All the interactive buttons that are found in the GUI now have appropriate testing with them, other than those that create a pop up upon completion as I still hadn't worked out a way to dismiss the pop up.
+
+### 16 Feb 2024
+
+- _6 hours_ Right that was an absolutely massive day put towards the dissertation. Managed to get essentially the first half written (or at least an attempted first draft of it). Only one mental breakdown during this time feeling that I had no time at all but got my act back together and typed a decent amount. Adding the specific ViMMS section definitely helps build out the dissertation and I had also gone through and changed the earlier introduction section I had written in line with (I hope...) the comments left by Ross.
+
+## Week 21
+
+### 19 Feb 2024
+
+- _2 hours_ A wee bit more added to the dissertation, this time on the implementation section. I feel that I have a good number of topics to discuss for the implementation so it should be easier to write. SHOULD be. Also heard back from Kevin who has trialled the virtual machine install and tasks, and yes he has found a few bugs but at least that does actually download and run properly.
+
+### 21 Feb 2024
+
+- _2.5 hours_ Good start to the day for coding, managed to so far get all the points highlighted by Kevin as areas for improvement and to be adjusted in the interface.

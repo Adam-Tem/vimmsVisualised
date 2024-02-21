@@ -491,7 +491,7 @@ background-color: rgb(240, 240, 240);</string>
      <rect>
       <x>300</x>
       <y>300</y>
-      <width>121</width>
+      <width>150</width>
       <height>30</height>
      </rect>
     </property>
@@ -505,7 +505,7 @@ background-color: rgb(240, 240, 240);</string>
    <widget class="QRadioButton" name="CumulativeIntensityProportionRadioButton">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>450</x>
       <y>300</y>
       <width>121</width>
       <height>30</height>

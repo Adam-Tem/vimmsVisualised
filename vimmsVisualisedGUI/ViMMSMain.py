@@ -18,6 +18,8 @@ class ViMMSMain(qtw.QMainWindow):
         super().__init__()
         self.stackedWidget = qtw.QStackedWidget()
         self.stackedWidget.setGeometry(25,25,600,500)
+        self.stackedWidget.setFixedWidth(600)
+        self.stackedWidget.setFixedHeight(500)
         
         #Initialise widgets
         homeWidget = StartPage()

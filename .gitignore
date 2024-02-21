@@ -148,3 +148,4 @@ vimmsVisualisedGUI/results/extracted_data/*
 vimmsVisualisedGUI/results/saved_states/*
 vimmsVisualisedGUI/results/temp-plot.html
 vimmsVisualisedGUI/userData.json
+vimmsVisualisedGUI/loadVimms.bat

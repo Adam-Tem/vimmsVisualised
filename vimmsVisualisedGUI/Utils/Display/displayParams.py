@@ -22,7 +22,7 @@ def displayParams(param_box, combo_box_text, potential_params, has_scroll):
     param_layout = qtw.QGridLayout(param_box)
     param_layout.setVerticalSpacing(10)
     param_count = 0
-    if potential_params != "Peak Picking":
+    if potential_params != "Peak Picking" and combo_box_text != "---":
         param_desc_dict = docstring_tooltip_parsing(combo_box_text)
     else:
         param_desc_dict = {}
