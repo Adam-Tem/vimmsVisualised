@@ -978,6 +978,35 @@ background-color: rgb(240, 240, 240);</string>
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="SimulateLoadingLabel">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>460</y>
+     <width>161</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>SimulateTitleLabel</zorder>
+  <zorder>SimulateHomeButton</zorder>
+  <zorder>UploadFileLabel</zorder>
+  <zorder>LoadParamsButton</zorder>
+  <zorder>SaveParamsButton</zorder>
+  <zorder>ParamTabs</zorder>
+  <zorder>SimulateButton</zorder>
+  <zorder>OutputFileLabel</zorder>
+  <zorder>OutputFileTextEdit</zorder>
+  <zorder>RTRangeLabel</zorder>
+  <zorder>RTSliderGroupBox</zorder>
+  <zorder>PUploadGroupBox</zorder>
+  <zorder>SimulateLoadingLabel</zorder>
  </widget>
  <resources/>
  <connections/>

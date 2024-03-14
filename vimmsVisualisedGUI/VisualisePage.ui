@@ -80,8 +80,8 @@
       <rect>
        <x>10</x>
        <y>320</y>
-       <width>111</width>
-       <height>41</height>
+       <width>161</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="text">
@@ -238,6 +238,22 @@ background-color: rgb(240, 240, 240);</string>
       <string/>
      </property>
     </widget>
+    <widget class="QLabel" name="MzmlLoadingLabel">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>320</y>
+       <width>161</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="experimentTab">
     <property name="styleSheet">
@@ -387,8 +403,8 @@ background-color: rgb(240, 240, 240);</string>
       <rect>
        <x>10</x>
        <y>320</y>
-       <width>111</width>
-       <height>41</height>
+       <width>161</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="text">
@@ -406,6 +422,22 @@ background-color: rgb(240, 240, 240);</string>
        <width>141</width>
        <height>22</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="ExperimentLoadingLabel">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>320</y>
+       <width>161</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>

@@ -3,9 +3,10 @@ from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
 
 from VisualisePage import Ui_VisualiseForm
-from Graphing.GraphCanvas import MplCanvas, PlotlyCanvas
+from Graphing.graphCanvas import MplCanvas, PlotlyCanvas
 from Graphing.createGraphLayout import create_graph_layout
 from Utils.checkValidInputs import check_valid_inputs
+from Utils.Display.addLoadingWidget import add_loading_widget
 from Utils.Display.inputErrorPopUp import input_error_pop_up
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
 from Utils.Index.indexMzml import index_mzml
@@ -16,8 +17,8 @@ from Utils.Threads.workerThreads import MzmlGraphWorker, ExpGraphWorker
 class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
 
     mzml_upload = qtc.pyqtSignal()
-    update_mzml_visual = qtc.pyqtSignal(MplCanvas, str, str, str, str, str, str, str)
-    update_exp_visual = qtc.pyqtSignal(PlotlyCanvas, list, qtw.QComboBox, qtw.QComboBox, str, str)
+    update_mzml_visual = qtc.pyqtSignal(qtw.QLabel, MplCanvas, str, str, str, str, str, str, str)
+    update_exp_visual = qtc.pyqtSignal(qtw.QLabel, list, qtw.QComboBox, qtw.QComboBox, str, str)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -59,6 +60,9 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
 
         self.VisualiseHomeButton.setIcon(qtg.QIcon("Images/home.png"))
 
+        add_loading_widget(self.MzmlLoadingLabel)
+        add_loading_widget(self.ExperimentLoadingLabel)
+
         self.VisualisationTabs.setStyleSheet("QTabWidget::pane { background-color: lightblue; }")
 
         self.mzml_worker = MzmlGraphWorker()
@@ -78,7 +82,7 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
 
         self.MzmlVisualiseButton.clicked.connect(
             lambda: (self.MzmlVisualiseButton.setEnabled(False),
-                     self.update_mzml_visual.emit(self.canvas,
+                     self.update_mzml_visual.emit(self.MzmlLoadingLabel, self.canvas,
                                              self.mzml_to_visualise_button.file_location,
                                              self.mzml_to_visualise_button.file_name,
                                               self.GraphTypeComboBox.currentText(),
@@ -91,7 +95,7 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
         self.ExpVisualiseButton.clicked.connect(
             lambda: (self.ExpVisualiseButton.setEnabled(False),
                     self.update_exp_visual.emit(
-                        self.exp_figure,
+                        self.ExperimentLoadingLabel,
                         [self.ExpMzmlRadioButton.isChecked(),
                          self.TimingHistRadioButton.isChecked(),
                          self.FragEventsRadioButton.isChecked()],
@@ -119,7 +123,7 @@ class VisualisePage(qtw.QWidget, Ui_VisualiseForm):
     def set_slider_ranges(self):
         if self.GraphTypeComboBox.currentText() != "---":
             if self.mzml_to_visualise_button.file_name != "":
-                min_val, max_val, scans = index_mzml(self.mzml_to_visualise_button.file_location, "rt")
+                min_val, max_val, scans = index_mzml(self.mzml_to_visualise_button.file_location)
                 self.rt_input.set_vals(min_val, max_val)
                 if self.GraphTypeComboBox.currentText() == "3d Bar Plot":
                     self.scan_input.set_vals(0, scans)

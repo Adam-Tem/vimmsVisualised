@@ -1,7 +1,6 @@
 from PyQt5 import QtWidgets as qtw
 
 from vimms.Common import POSITIVE, NEGATIVE
-from vimms.BoxManager import BoxManager
 
 from Utils.Parameters.CustomWidgets import *
 from Utils.Parameters.ParamWidgets import PARSE_AS_INT, PARSE_AS_LOG

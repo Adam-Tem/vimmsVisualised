@@ -10,7 +10,7 @@ from Utils.Parameters.ParamWidgets import *
 
 import os
 
-def run_controller(controller_name, file_location, min_rt, max_rt, param_box, 
+def run_controller(controller_name, file_location, param_box, 
                    output_filename , advanced_params):
 
     param_names = identify_params(controller_name)

@@ -1,6 +1,5 @@
 from PyQt5 import QtWidgets as qtw
 
-
 def get_associated_param_box(param_box, constructor_name):
 
     if "Formula" in constructor_name:

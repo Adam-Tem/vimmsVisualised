@@ -17,5 +17,3 @@ def round_experiment_results(summary_string):
         else:
             output += line + "\n"
     return output
-
-

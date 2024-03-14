@@ -9,10 +9,7 @@ def new_experiment(self):
     self.experiment_case_list = []
     self.experiment_name_list = []
     self.summary = ""
-    geom = BoxManager(
-    box_geometry = BoxGrid(),
-    box_splitter = BoxSplitter(split=True)
-    )
+ 
     self.CaseNameTextEdit.setText("")
     self.ExperimentTitleTextEdit.setText("")
     self.ControllerComboBox.setCurrentIndex(0)

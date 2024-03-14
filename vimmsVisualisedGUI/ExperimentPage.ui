@@ -1632,6 +1632,22 @@ background-color: rgb(240, 240, 240);</string>
     </rect>
    </property>
   </widget>
+  <widget class="QLabel" name="ExperimentLoadingLabel">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>460</y>
+     <width>161</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>ExperimentTitleTextEdit</zorder>
   <zorder>ExperimentTitleLabel</zorder>
   <zorder>FullscanGroupBox</zorder>
@@ -1650,6 +1666,7 @@ background-color: rgb(240, 240, 240);</string>
   <zorder>PickleEnvLabel</zorder>
   <zorder>ViewSummaryButton</zorder>
   <zorder>SummaryGroupBox</zorder>
+  <zorder>ExperimentLoadingLabel</zorder>
  </widget>
  <resources/>
  <connections/>

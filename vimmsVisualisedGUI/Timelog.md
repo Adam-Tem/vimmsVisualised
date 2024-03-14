@@ -565,3 +565,9 @@
 - _2.5 hours_ Good start to the day for coding, managed to so far get all the points highlighted by Kevin as areas for improvement and to be adjusted in the interface.
 
 * _2 hours_ Further changes made to the interface regarding issues from the pilot study now complete, more so the points identified by Ross this time round regarding some of the controller issues. Some parameters have very few examples and take on default values anyway so I have decided just to remove them. Other issues such as repeated controllers now also sorted.
+
+## Week 22 - 23
+
+- _Approximately 50 hours_ Well, I've sort of fell out the habit of updating this timelog sheet as I would add comments in when I had made changes to the code, but all of my focus has been put towards writing the dissertation as I felt the code was in a suitable place. I have managed my time well this semester regarding other assignments, so I have been able to put a solid number of hours in solely focussing on this project and getting it finished off to a high standard. During this time I have sent out information regarding the user study and I am waiting on participants to respond.
+
+## Week 24

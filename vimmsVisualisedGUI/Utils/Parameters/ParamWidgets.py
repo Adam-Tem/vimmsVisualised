@@ -6,7 +6,7 @@ from vimms.Roi import RoiBuilderParams, SmartRoiParams
 from vimms.BoxManager import BoxManager, BoxConverter, BoxSplitter
 from vimms.Box import BoxGrid
 from vimms.ChemicalSamplers import *
-from vimms.Common import ROI_EXCLUSION_DEW, GRID_CONTROLLER_SCORING_PARAMS
+from vimms.Common import  GRID_CONTROLLER_SCORING_PARAMS
 
 import copy
 
@@ -76,7 +76,6 @@ CONTROLLER_PARAMS = {
     "ms1_shift": [("ms1_shift", qtw.QLineEdit), ("MS1 Shift:", qtw.QLabel), 0],
     "force_N": [("force_N", QBooleanButton), ("Force N:", qtw.QLabel), False],
     "min_roi_length_for_fragmentation": [("min_roi_length_for_fragmentation", qtw.QLineEdit), ("Min Frag. Length:", qtw.QLabel), 0],
-    #"exclusion_method": [("exclusion_method", qtw.QComboBox), ("Exclusion Method:", qtw.QLabel), ROI_EXCLUSION_DEW],
     "register_all_roi": [("register_all_roi", QBooleanButton), ("Register all ROI:", qtw.QLabel), False],
     "scoring_params": [("scoring_params", QScoringParams), ("Scoring Params:", qtw.QLabel), GRID_CONTROLLER_SCORING_PARAMS],
     "mzml_name": [("mzml_name", qtw.QLineEdit), ("MZML Name:", qtw.QLabel)],

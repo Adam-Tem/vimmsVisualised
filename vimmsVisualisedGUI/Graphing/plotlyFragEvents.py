@@ -10,7 +10,7 @@ import os
 
 def plotly_frag_events(exp_name, mzmls, colour_minm=None):
 
-    fig = make_subplots(rows=len(mzmls), cols=1, #shared_xaxes="all", shared_yaxes="all",
+    fig = make_subplots(rows=len(mzmls), cols=1,
                         subplot_titles=[os.path.split(name)[-1] for name in mzmls])
 
     for i, mzml in enumerate(mzmls):

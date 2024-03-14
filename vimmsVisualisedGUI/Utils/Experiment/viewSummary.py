@@ -1,4 +1,4 @@
-from Graphing.ExperimentResultPlot import experiment_result_plot
+from Graphing.experimentResultPlot import experiment_result_plot
 from Utils.Experiment.roundExperimentResults import round_experiment_results
 
 def view_summary(self):

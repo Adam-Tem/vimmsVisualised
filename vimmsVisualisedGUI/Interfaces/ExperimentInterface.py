@@ -8,8 +8,9 @@ from vimms.Experiment import Experiment
 from ExperimentPage import Ui_experimentForm
 
 from Graphing.createGraphLayout import create_graph_layout
-from Graphing.ExperimentResultPlot import experiment_result_plot
+from Graphing.experimentResultPlot import experiment_result_plot
 from Utils.checkValidInputs import check_valid_inputs
+from Utils.Display.addLoadingWidget import add_loading_widget
 from Utils.Display.displayParams import displayParams
 from Utils.Display.inputErrorPopUp import input_error_pop_up
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
@@ -33,7 +34,7 @@ import json
 
 class ExperimentPage(qtw.QWidget, Ui_experimentForm):
 
-    start_exp = qtc.pyqtSignal(list, str, str, dict)
+    start_exp = qtc.pyqtSignal(qtw.QLabel, list, str, str, dict)
     mzml_upload = qtc.pyqtSignal()
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -50,6 +51,7 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.r_install = ""
         self.mzmine_install = ""
 
+        add_loading_widget(self.ExperimentLoadingLabel)
         add_elements_to_combo_box(self.ControllerComboBox, CONTROLLERS)
         
         create_graph_layout(self)
@@ -152,7 +154,8 @@ class ExperimentPage(qtw.QWidget, Ui_experimentForm):
         self.RunExperimentButton.clicked.connect(
             lambda: (self.RunExperimentButton.setEnabled(False),
                      self.AddExperimentCaseButton.setEnabled(False),
-                     self.start_exp.emit(self.experiment_case_list,
+                     self.start_exp.emit(self.ExperimentLoadingLabel,
+                                         self.experiment_case_list,
                                          self.ExperimentTitleTextEdit.text(),
                                          self.PeakPickingComboBox.currentText(),
                                           parse_peak_picking_params(self.PeakPickingComboBox.currentText(),

@@ -20,4 +20,3 @@ def remove_option(self, scroll_area, label_type):
         if len(self.experiment_case_list) == 0:
             button.setEnabled(False)
     remove_from_label(scroll_area_contents, text_label)
-    

@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets as qtw
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as navBar
 
-from Graphing.GraphCanvas import MplCanvas
+from Graphing.graphCanvas import MplCanvas
 
 def create_graph_layout(self):
     layout = qtw.QVBoxLayout()

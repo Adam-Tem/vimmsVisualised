@@ -1,5 +1,4 @@
 from PyQt5 import QtCore as qtc
-from PyQt5 import QtWidgets as qtw
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as fcqt
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 

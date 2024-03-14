@@ -95,4 +95,3 @@ def displayParams(param_box, combo_box_text, potential_params, has_scroll):
         adjust_param_box_size(param_box, len(widget_names), current_widget_count//2)
 
         param_box.setLayout(param_layout)
-    

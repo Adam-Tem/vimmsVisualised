@@ -53,5 +53,3 @@ if __name__ == "__main__":
     window = ViMMSMain()
     window.stackedWidget.show()
     app.exec_()
-
-

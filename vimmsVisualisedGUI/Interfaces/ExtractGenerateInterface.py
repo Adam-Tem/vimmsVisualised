@@ -3,6 +3,7 @@ from PyQt5 import QtWidgets as qtw
 
 from ExtractGeneratePage import Ui_ExtractGenerateForm
 
+from Utils.Display.addLoadingWidget import add_loading_widget
 from Utils.Display.displayParams import *
 from Utils.Display.inputErrorPopUp import input_error_pop_up
 from Utils.Display.taskedCompletedPopUp import task_completed_pop_up
@@ -15,8 +16,8 @@ from Utils.Threads.workerThreads import ExtractWorker, GenerateWorker
 
 class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
 
-    start_extract = qtc.pyqtSignal(qtw.QGroupBox, str, str, str)
-    start_generate = qtc.pyqtSignal(qtw.QGroupBox, str, str, int, str)
+    start_extract = qtc.pyqtSignal(qtw.QLabel, qtw.QGroupBox, str, str, str)
+    start_generate = qtc.pyqtSignal(qtw.QLabel, qtw.QPushButton, qtw.QGroupBox, str, str, int, str)
     def __init__(self, *args, **kwargs):
         
         super().__init__(*args, **kwargs)
@@ -39,6 +40,8 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
         self.AdductPropTextEdit.textChanged.connect(self.check_generate_inputs)
         self.GenerateFileNameTextEdit.textChanged.connect(self.check_generate_inputs)
 
+        add_loading_widget(self.GenerateLoadingLabel)
+        add_loading_widget(self.ExtractLoadingLabel)
         add_elements_to_combo_box(self.FormulaSamplerComboBox, FORMULA_SAMPLERS)
         add_elements_to_combo_box(self.ChromoSamplerComboBox, CHROMO_SAMPLERS)
         add_elements_to_combo_box(self.MS2SamplerComboBox, MS2_SAMPLERS)
@@ -60,7 +63,8 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
         self.ExtractDataButton.clicked.connect(lambda: (
                                         self.ExtractDataButton.setEnabled(False),
 
-                                        self.start_extract.emit(self.ExtractParamBox, 
+                                        self.start_extract.emit(self.ExtractLoadingLabel,
+                                            self.ExtractParamBox, 
                                         self.extract_upload_button.file_name, 
                                         self.ExtractFileNameTextEdit.text(),
                                         SAVE_DIRECTORY))
@@ -68,7 +72,8 @@ class ExtractGeneratePage(qtw.QWidget, Ui_ExtractGenerateForm):
         
         self.GenerateDataButton.clicked.connect(lambda: (
                                         self.GenerateDataButton.setEnabled(False),
-                                        self.start_generate.emit(
+                                        self.start_generate.emit(self.GenerateLoadingLabel,
+                                        self.GenerateDataButton,
                                         self.ParamBox, self.AdductPropTextEdit.text(), 
                                         self.ChemsToSampleTextEdit.text(),
                                         self.MS2LevelSpinBox.value(), self.GenerateFileNameTextEdit.text())))

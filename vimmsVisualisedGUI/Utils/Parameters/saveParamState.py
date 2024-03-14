@@ -2,7 +2,7 @@ from PyQt5 import QtWidgets as qtw
 
 from Utils.Parameters.ParseParams import parse_params
 from Utils.Parameters.identifyParams import identify_params
-from Utils.Parameters.ParamWidgets import CONTROLLERS, SAVE_DIRECTORY
+from Utils.Parameters.ParamWidgets import SAVE_DIRECTORY
 from Utils.PeakPicking.parsePeakPickingParams import parse_peak_picking_params
 from Utils.Parameters.parseAdvancedParams import parse_advanced_params
 import json

@@ -1,6 +1,6 @@
 from pymzml import run
 
-def index_mzml(file_location, range_required):
+def index_mzml(file_location):
     min_rt = float('inf')
     max_rt = float('-inf')
 

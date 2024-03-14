@@ -27,6 +27,3 @@ def index_experiment(self, exp_folder):
     
     if valid_files_in_folder:
         self.ExpVisualiseButton.setEnabled(True)
-
-
-    

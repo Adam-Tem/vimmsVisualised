@@ -6,6 +6,7 @@ from SimulatePage import Ui_SimulateForm
 
 from Utils.UploadFile import *
 
+from Utils.Display.addLoadingWidget import add_loading_widget
 from Utils.Display.setCharge import *
 from Utils.Display.displayParams import *
 from Utils.Display.inputErrorPopUp import input_error_pop_up
@@ -22,7 +23,7 @@ from Utils.Threads.workerThreads import SimulateWorker
 
 class SimulatePage(qtw.QWidget, Ui_SimulateForm):
 
-    start_sim = qtc.pyqtSignal(str, str, int, int, qtw.QGroupBox, str, dict)
+    start_sim = qtc.pyqtSignal(qtw.QLabel, str, str, qtw.QGroupBox, str, dict)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -34,6 +35,7 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
 
         self.scrollArea.setWidget(self.ParamsBox)
 
+        add_loading_widget(self.SimulateLoadingLabel)
         add_elements_to_combo_box(self.ControllerComboBox, CONTROLLERS)
 
         self.p_upload_button = PUpload(parent=self.PUploadGroupBox)
@@ -68,11 +70,11 @@ class SimulatePage(qtw.QWidget, Ui_SimulateForm):
         
         self.SimulateButton.clicked.connect(
             lambda: (self.SimulateButton.setEnabled(False),
-                     self.start_sim.emit(self.ControllerComboBox.currentText(), 
+                     self.start_sim.emit(self.SimulateLoadingLabel,
+                                         self.ControllerComboBox.currentText(), 
                                          self.p_upload_button.file_location,
-                                         self.rt_input.min_val_input.text(), 
-                                         self.rt_input.max_val_input.text(),self.ParamsBox,
-                                        self.OutputFileTextEdit.text(),
+                                         self.ParamsBox,
+                                         self.OutputFileTextEdit.text(),
                                         parse_advanced_params(self.AdvancedParamsGroupBox),
                                         ))
         )
