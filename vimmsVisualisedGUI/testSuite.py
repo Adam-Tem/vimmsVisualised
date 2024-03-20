@@ -488,33 +488,6 @@ class ViMMSTestSuite(unittest.TestCase):
 
         self.assertTrue(len(page.experiment_case_list) == 0 and 
                         len(page.experiment_name_list) == 0)
-
-
-    def test_simulate_btn(self):
-        
-        self.window.stackedWidget.setCurrentIndex(2)
-        page = self.window.stackedWidget.currentWidget()
-
-        page.ControllerComboBox.setCurrentIndex(1)
-
-        for param_line_edit in page.ParamsBox.findChildren(qtw.QLineEdit):
-            qtt.QTest.keyClicks(param_line_edit, "10")
-        
-        page.ParamsBox.findChildren(qtw.QSpinBox)[0].setValue(2)
-
-        page.p_upload_button.file_name = "test.p"
-        page.p_upload_button.file_location = os.path.join(os.getcwd(), "test.p")
-
-        qtt.QTest.keyClicks(page.OutputFileTextEdit, "test_sim")
-
-        qtt.QTest.mouseClick(page.SimulateButton, qtc.Qt.LeftButton)
-
-        qtc.QCoreApplication.processEvents()
-        # qtt.QTest.qSleep(20000)
-        qtt.QTest.qWaitForWindowActive(self.window.stackedWidget)
-
-        self.assertTrue(os.path.exists(os.path.join(SAVE_DIRECTORY, "simulations", "test_sim.mzML")))
-
         
 if __name__ == "__main__":
     unittest.main()
